@@ -163,7 +163,7 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
     private void tryBreed(@Nonnull Block motherBlock, @Nonnull BotanySeed mother) {
         final double breedRandom = ThreadLocalRandom.current().nextDouble();
         if (breedRandom > getGrowthRate()) {
-            // No breed attempt this tick
+            // No breed attempted this tick
             return;
         }
 
