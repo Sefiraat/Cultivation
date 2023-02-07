@@ -29,6 +29,7 @@ labels: bug assignees: ''
 <!-- "latest" IS NOT A VERSION NUMBER. -->
 <!-- You can also just run "/sf versions" and show us a screenshot of that. -->
 
+- Addon Version:
 - Minecraft Version:
 - Slimefun Version:
 - Plugin Version: 

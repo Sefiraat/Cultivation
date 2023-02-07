@@ -2,4 +2,4 @@
 /target/
 /.idea/
 /dependency-reduced-pom.xml
-/BotanyStory.iml
+*.iml
