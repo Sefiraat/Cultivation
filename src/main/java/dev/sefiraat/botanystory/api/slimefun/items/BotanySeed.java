@@ -152,7 +152,7 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
     }
 
     /**
-     * Can be overridden by implementations to add an effect when the block if right-clicked.
+     * Can be overridden by implementations to add an effect when the block is right-clicked.
      *
      * @param event The {@link PlayerRightClickEvent} being sent from Slimefun
      */
