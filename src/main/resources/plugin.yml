@@ -1,19 +1,19 @@
-name: BotanyStory
+name: Cultivation
 author: Sefiraat, J3fftw, JustAHuman
 description: A Spiritual Successor to ExoticGarden
-main: dev.sefiraat.botanystory.BotanyStory
-website: https://github.com/Sefiraat/BotanyStory
+main: dev.sefiraat.cultivation.Cultivation
+website: https://github.com/Sefiraat/Cultivation
 version: ${project.version}
 api-version: 1.19
 depend:
   - Slimefun
 commands:
-  netheopoiesis:
-    description: /botanystory
-    usage: /botanystory <sub>
+  cultivation:
+    description: /cultivation
+    usage: /cultivation <sub>
 permissions:
-  botanystory.*:
-    description: Provides permissions for all Botany functions
+  cultivation.*:
+    description: Provides permissions for all Cultivation functions
     default: op
     children:
-      botanystory.admin: true
+      cultivation.admin: true
