@@ -1,0 +1,19 @@
+name: BotanyStory
+author: Sefiraat, J3fftw, JustAHuman
+description: A Spiritual Successor to ExoticGarden
+main: dev.sefiraat.botanystory.BotanyStory
+website: https://github.com/Sefiraat/BotanyStory
+version: ${project.version}
+api-version: 1.19
+depend:
+  - Slimefun
+commands:
+  netheopoiesis:
+    description: /botanystory
+    usage: /botanystory <sub>
+permissions:
+  botanystory.*:
+    description: Provides permissions for all Botany functions
+    default: op
+    children:
+      botanystory.admin: true
