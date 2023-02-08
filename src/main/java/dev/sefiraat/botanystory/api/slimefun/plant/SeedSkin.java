@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import javax.annotation.Nonnull;
 
 /**
- * This enum the hashes for the skulls used in the addon with Methods for generating ItemStacks/Skins
+ * This enum contains hashes for the skulls used in the addon with Methods for generating ItemStacks/Skins
  */
 public enum SeedSkin {
 
