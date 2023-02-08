@@ -153,7 +153,7 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
     }
 
     /**
-     * Can be overridden by implementations to add an effect when the block if right-clicked.
+     * Can be overridden by implementations to add an effect when the block is right-clicked.
      *
      * @param event The {@link PlayerRightClickEvent} being sent from Slimefun
      */
@@ -164,7 +164,7 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
     private void tryBreed(@Nonnull Block motherBlock, @Nonnull BotanySeed mother) {
         final double breedChance = ThreadLocalRandom.current().nextDouble();
         if (breedChance > getGrowthRate()) {
-            // No breed attempt this tick
+            // No breed attempted this tick
             return;
         }
 

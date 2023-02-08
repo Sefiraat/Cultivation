@@ -29,13 +29,13 @@ public class ConfigManager {
     private void setupDefaultConfig() {
         final BotanyStory plugin = BotanyStory.getInstance();
         final InputStream inputStream = plugin.getResource("config.yml");
-        final File existingFile = new File(plugin.getDataFolder(), "config.yml");
 
         if (inputStream == null) {
             // Not sure how? Regardless cannot copy over new keys
             return;
         }
 
+        final File existingFile = new File(plugin.getDataFolder(), "config.yml");
         final Reader reader = new InputStreamReader(inputStream);
         final FileConfiguration resourceConfig = YamlConfiguration.loadConfiguration(reader);
         final FileConfiguration existingConfig = YamlConfiguration.loadConfiguration(existingFile);
