@@ -9,7 +9,7 @@ public final class BotanyThemes {
         throw new IllegalStateException("Utility class");
     }
 
-    public static final Theme MAIN = new Theme(ChatColor.of("#8a0e0e"), "SlimeTinker2");
+    public static final Theme MAIN = new Theme(ChatColor.of("#8a0e0e"), "BotanyStory");
     public static final Theme DISCOVEREY = new Theme(ChatColor.of("#a60e03"), "Discovery");
     public static final Theme CRAFTING = new Theme(ChatColor.of("#dbcea9"), "Crafting Material");
     public static final Theme RECIPE_TYPE = new Theme(ChatColor.of("#ffe89c"), "Recipe Type");

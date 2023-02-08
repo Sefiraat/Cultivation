@@ -15,7 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Set;
 
 /**
- * This interface represents a plant in the Nether, and it's behavior as it ticks and grows
+ * This interface represents a plant placed in a/the world, and it's behavior as it ticks and grows
  * including information about how it grows and develops
  */
 public interface BotanyPlant {
@@ -69,10 +69,10 @@ public interface BotanyPlant {
     }
 
     /**
-     * Returns the {@link ItemStack} that should drop when harvested. Defaults to null.
+     * Defines the {@link ItemStack} that will drop when harvested. Defaults to null.
      * Ensure you check {@link BotanyPlant#isHarvestable()} first
      *
-     * @return The {@link ItemStack} that should drop when harvested. Defaults to null.
+     * @return The {@link ItemStack} that will drop when harvested. Defaults to null.
      */
     @Nullable
     default ItemStack getHarvestingResult() {

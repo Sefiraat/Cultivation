@@ -10,7 +10,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * Final class used to store the ItemGroups used in this addon
+ * This class is used to store the ItemGroups used in this addon
  */
 public final class BotanyGroups {
 

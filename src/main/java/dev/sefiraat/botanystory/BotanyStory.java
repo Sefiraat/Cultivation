@@ -39,7 +39,8 @@ public class BotanyStory extends JavaPlugin implements SlimefunAddon {
         instance = this;
 
         getLogger().info("########################################");
-        getLogger().info("     BotanyStory by Sefiraat, J3fftw    ");
+        getLogger().info("               BotanyStory              ");
+        getLogger().info("   By Sefiraat, J3fftw and JustAHuman   ");
         getLogger().info("########################################");
 
         saveDefaultConfig();

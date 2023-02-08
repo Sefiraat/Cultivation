@@ -65,7 +65,7 @@ public class PlantGrowEvent extends Event implements Cancellable {
     }
 
     /**
-     * @return The current growth stage between 0-4
+     * @return The current growth stage, between 0-4
      */
     public int getGrowthStage() {
         return growthStage;

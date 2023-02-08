@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 public class CustomPlacementListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
-    public void onBlockPlaced(@Nonnull BlockPlaceEvent event) {
+    public void onBlockPlace(@Nonnull BlockPlaceEvent event) {
         final SlimefunItem slimefunItem = SlimefunItem.getByItem(event.getItemInHand());
         if (slimefunItem instanceof CustomPlacementBlock block) {
             block.whenPlaced(event);

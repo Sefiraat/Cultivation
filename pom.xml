@@ -138,6 +138,12 @@
             <version>1.2.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>dev.sefiraat</groupId>
+            <artifactId>SefiLib</artifactId>
+            <version>0.1.4.7</version>
+            <scope>compile</scope>
+        </dependency>
 
         <!-- Tools etc. -->
         <dependency>
@@ -167,12 +173,6 @@
             <groupId>co.aikar</groupId>
             <artifactId>acf-paper</artifactId>
             <version>0.5.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.sefiraat</groupId>
-            <artifactId>SefiLib</artifactId>
-            <version>0.1.4.5</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- Supported Plugins -->

@@ -7,7 +7,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Defines how a plant can/will breed
+ * This class is used to define how a plant can/will breed
  */
 public class BreedingPair {
 
@@ -59,8 +59,8 @@ public class BreedingPair {
     }
 
     /**
-     * Checks if the two given seeds can breed regardless of chance.
-     * No need to call this if you will also be rolling
+     * Checks if the two given seeds can breed, regardless of chance.
+     * No need to call this if you are following up with {@link BreedingPair#testBreed(String, String)}
      *
      * @param seed1 The first {@link BotanySeed}'s ID to check for breeding
      * @param seed2 The partner {@link BotanySeed}'s ID to check against the first.

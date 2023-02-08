@@ -8,7 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Set;
 
 /**
- * This class collates the various classes used to describe the way a plant grows
+ * This class is used to collate the various classes used to describe the way a plant grows
  * and/or interacts with the world.
  */
 public class Growth {

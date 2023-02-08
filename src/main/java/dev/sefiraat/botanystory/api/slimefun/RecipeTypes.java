@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
- * Final class used to store and initialise the {@link RecipeType}s used in the addon
+ * This is used to store and initialise the {@link RecipeType}s used in the addon.
  */
 public final class RecipeTypes {
 

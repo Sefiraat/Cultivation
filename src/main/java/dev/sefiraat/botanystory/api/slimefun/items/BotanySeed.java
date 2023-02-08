@@ -18,6 +18,7 @@ import dev.sefiraat.botanystory.api.utils.StatisticUtils;
 import dev.sefiraat.botanystory.implementation.listeners.CustomPlacementListener;
 import dev.sefiraat.botanystory.implementation.utils.Keys;
 import dev.sefiraat.botanystory.implementation.utils.WorldUtils;
+import dev.sefiraat.sefilib.block.BlockUtils;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.bakedlibs.dough.items.CustomItemStack;
@@ -62,7 +63,7 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * This class is used to define a Seed item that will grow as a {@link BotanyPlant}
+ * This class is used to define a BotanySeed that will grow as a {@link BotanyPlant}
  */
 public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, CustomPlacementBlock {
 
@@ -161,8 +162,8 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
     }
 
     private void tryBreed(@Nonnull Block motherBlock, @Nonnull BotanySeed mother) {
-        final double breedRandom = ThreadLocalRandom.current().nextDouble();
-        if (breedRandom > getGrowthRate()) {
+        final double breedChance = ThreadLocalRandom.current().nextDouble();
+        if (breedChance > getGrowthRate()) {
             // No breed attempt this tick
             return;
         }
@@ -177,21 +178,26 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
             final SlimefunItem mateItem = BlockStorage.check(potentialMate);
 
             if (mateItem instanceof BotanySeed mate) {
-                final BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
-
-                if (result.getResultType() == BreedResultType.NO_PAIRS) {
-                    // No matching breeding pairs, lets feedback to the player then move to the next direction
-                    breedInvalidDisplay(middleBlock.getLocation());
-                } else if (result.getResultType() == BreedResultType.SUCCESS) {
-                    // Breed was a success - spawn child, log discovery
-                    final BotanySeed child = result.getMatchedPair().getChild();
-                    trySetChildSeed(motherBlock.getLocation(), middleBlock, child);
-                    StatisticUtils.incrementExp(getOwner(motherBlock.getLocation()), LevelType.HORTICULTURALIST, 1);
-                } else if (result.getResultType() == BreedResultType.SPREAD) {
-                    // Breed failed, spread success - spawn copy of mother
-                    trySetChildSeed(motherBlock.getLocation(), middleBlock, mother);
-                }
+                testBreed(mother, mate, middleBlock, motherBlock);
             }
+        }
+    }
+
+    @ParametersAreNonnullByDefault
+    private void testBreed(BotanySeed mother, BotanySeed mate, Block middleBlock, Block motherBlock) {
+        final BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
+
+        if (result.getResultType() == BreedResultType.NO_PAIRS) {
+            // No matching breeding pairs, lets feedback to the player then move to the next direction
+            breedInvalidDisplay(middleBlock.getLocation());
+        } else if (result.getResultType() == BreedResultType.SUCCESS) {
+            // Breed was a success - spawn child, log discovery
+            final BotanySeed child = result.getMatchedPair().getChild();
+            trySetChildSeed(motherBlock.getLocation(), middleBlock, child);
+            StatisticUtils.incrementExp(getOwner(motherBlock.getLocation()), LevelType.HORTICULTURALIST, 1);
+        } else if (result.getResultType() == BreedResultType.SPREAD) {
+            // Breed failed, spread success - spawn copy of mother
+            trySetChildSeed(motherBlock.getLocation(), middleBlock, mother);
         }
     }
 
@@ -242,7 +248,7 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
     }
 
     public void updateGrowthStage(@Nonnull Block block, int growthStage) {
-        if (block.getType() == Material.PLAYER_HEAD || block.getType() == Material.PLAYER_WALL_HEAD) {
+        if (BlockUtils.isSkullBlock(block)) {
             final SeedSkin nextTexture = getGrowthStages().get(growthStage - 1);
             PlayerHead.setSkin(block, nextTexture.getPlayerSkin(), false);
             PaperLib.getBlockState(block, false).getState().update(true, false);
@@ -308,10 +314,10 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
 
             @Override
             public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block block) {
-                final String ownerUuidString = BlockStorage.getLocationInfo(block.getLocation(), Keys.BLOCK_OWNER);
-                if (ownerUuidString != null) {
-                    final UUID ownerUuid = UUID.fromString(ownerUuidString);
-                    addOwner(block.getLocation(), ownerUuid);
+                final String owner = BlockStorage.getLocationInfo(block.getLocation(), Keys.BLOCK_OWNER);
+                if (owner != null) {
+                    final UUID uuid = UUID.fromString(owner);
+                    addOwner(block.getLocation(), uuid);
                 }
             }
         };
@@ -326,11 +332,11 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
     }
 
     public boolean isMature(@Nonnull Location location) {
-        final String stageString = BlockStorage.getLocationInfo(location, Keys.SEED_GROWTH_STAGE);
-        if (stageString == null) {
+        final String stage = BlockStorage.getLocationInfo(location, Keys.SEED_GROWTH_STAGE);
+        if (stage == null) {
             return false;
         }
-        final int growthStage = Integer.parseInt(stageString);
+        final int growthStage = Integer.parseInt(stage);
         return growthStage >= getGrowthStages().stages();
     }
 
@@ -356,7 +362,7 @@ public abstract class BotanySeed extends SlimefunItem implements BotanyPlant, Cu
             ownerCache.put(location, uuid);
             return;
         }
-        // Wasn't placable, so cancel the event
+        // Can't be placed here so cancel the event
         event.setCancelled(true);
     }
 

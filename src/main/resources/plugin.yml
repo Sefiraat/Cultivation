@@ -1,5 +1,5 @@
 name: BotanyStory
-author: Sefiraat, J3fftw
+author: Sefiraat, J3fftw, JustAHuman
 description: A Spiritual Successor to ExoticGarden
 main: dev.sefiraat.botanystory.BotanyStory
 website: https://github.com/Sefiraat/BotanyStory
@@ -13,7 +13,7 @@ commands:
     usage: /botanystory <sub>
 permissions:
   botanystory.*:
-    description: Provides permissions for all Netheo functions
+    description: Provides permissions for all Botany functions
     default: op
     children:
       botanystory.admin: true
