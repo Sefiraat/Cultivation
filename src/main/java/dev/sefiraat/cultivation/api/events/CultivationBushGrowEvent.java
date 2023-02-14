@@ -9,7 +9,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * This event is fired before a bush grows a stage. This event can be cancelled to stop growth
  *
- * @see CultivationPlant
+ * @see CultivationBush
  */
 public class CultivationBushGrowEvent extends CultivationGrowEvent<CultivationBush> {
 

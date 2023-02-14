@@ -197,6 +197,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
 
     @Nullable
     private CultivationGrowEvent<T> getEvent(T flora, Location location, int growthStage) {
+        // Todo Change this to something more manageable before v1
         if (flora instanceof CultivationBush bush) {
             return (CultivationGrowEvent<T>) new CultivationBushGrowEvent(location, bush, growthStage);
         } else if (flora instanceof CultivationPlant plant) {
@@ -327,5 +328,4 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     public ItemStack getDisplayItemStack() {
         return displayStack;
     }
-
 }

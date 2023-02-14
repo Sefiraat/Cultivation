@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * This event is fired before a flora object grows a stage. This event can be cancelled to stop growth
  *
- * @see CultivationPlant
+ * @see CultivationFlora
  */
 public class CultivationGrowEvent<T extends CultivationFlora> extends Event implements Cancellable {
 

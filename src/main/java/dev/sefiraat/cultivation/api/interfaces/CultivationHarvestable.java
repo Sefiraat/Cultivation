@@ -52,5 +52,4 @@ public interface CultivationHarvestable {
     default boolean isHarvestReady(@Nonnull Block block) {
         return isHarvestReady(block.getLocation());
     }
-
 }
