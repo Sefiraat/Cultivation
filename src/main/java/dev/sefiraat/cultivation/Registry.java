@@ -1,7 +1,8 @@
 package dev.sefiraat.cultivation;
 
 import com.google.common.base.Preconditions;
-import dev.sefiraat.cultivation.api.slimefun.items.CultivationSeed;
+import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
+import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResultType;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
@@ -15,7 +16,7 @@ public class Registry {
     private static Registry instance;
 
     @Nonnull
-    private final List<CultivationSeed> registeredPlants = new ArrayList<>();
+    private final List<CultivationFlora> registeredPlants = new ArrayList<>();
     @Nonnull
     private final List<BreedingPair> breedingPairs = new ArrayList<>();
 
@@ -24,9 +25,11 @@ public class Registry {
         instance = this;
     }
 
-    public void addPlant(@Nonnull CultivationSeed cultivationSeed) {
-        this.registeredPlants.add(cultivationSeed);
-        this.breedingPairs.addAll(cultivationSeed.getBreedingPairs());
+    public void addPlant(@Nonnull CultivationFlora cultivationFlora) {
+        this.registeredPlants.add(cultivationFlora);
+        if (cultivationFlora instanceof CultivationPlant seed) {
+            this.breedingPairs.addAll(seed.getBreedingPairs());
+        }
     }
 
     @Nonnull
@@ -46,7 +49,7 @@ public class Registry {
     }
 
     @Nonnull
-    public List<CultivationSeed> getRegisteredPlants() {
+    public List<CultivationFlora> getRegisteredPlants() {
         return Collections.unmodifiableList(registeredPlants);
     }
 

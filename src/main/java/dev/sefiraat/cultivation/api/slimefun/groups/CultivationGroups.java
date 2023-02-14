@@ -44,23 +44,44 @@ public final class CultivationGroups {
         )
     );
 
-    public static final DummyItemGroup SEEDS = new DummyItemGroup(
-        Keys.newKey("seeds"),
+    public static final DummyItemGroup PLANTS = new DummyItemGroup(
+        Keys.newKey("plants"),
         new CustomItemStack(
             new ItemStack(Material.MELON_SEEDS),
-            CultivationThemes.MAIN.color("Seeds")
+            CultivationThemes.MAIN.color("Plants")
+        )
+    );
+
+    public static final DummyItemGroup BUSHES = new DummyItemGroup(
+        Keys.newKey("bushes"),
+        new CustomItemStack(
+            new ItemStack(Material.SWEET_BERRIES),
+            CultivationThemes.MAIN.color("Bushes")
+        )
+    );
+
+    public static final DummyItemGroup TREES = new DummyItemGroup(
+        Keys.newKey("trees"),
+        new CustomItemStack(
+            new ItemStack(Material.ACACIA_SAPLING),
+            CultivationThemes.MAIN.color("Trees")
         )
     );
 
     static {
         final Cultivation plugin = Cultivation.getInstance();
 
-        SEEDS.setCrossAddonItemGroup(true);
+        PLANTS.setCrossAddonItemGroup(true);
+        BUSHES.setCrossAddonItemGroup(true);
+        TREES.setCrossAddonItemGroup(true);
 
         // Slimefun Registry
         MAIN.register(plugin);
         CRAFTING.register(plugin);
         TOOLS.register(plugin);
-        SEEDS.register(plugin);
+
+        PLANTS.register(plugin);
+        BUSHES.register(plugin);
+        TREES.register(plugin);
     }
 }

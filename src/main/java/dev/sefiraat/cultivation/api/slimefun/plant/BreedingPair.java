@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.plant;
 
-import dev.sefiraat.cultivation.api.slimefun.items.CultivationSeed;
+import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class BreedingPair {
 
     @Nonnull
-    private final CultivationSeed childId;
+    private final CultivationPlant childId;
     @Nonnull
     private final String motherId;
     @Nonnull
@@ -23,14 +23,14 @@ public class BreedingPair {
     /**
      * This class defines a possible breeding pair, the chance of success or spread
      *
-     * @param childId      The {@link CultivationSeed} that will grow as a result of a successful breed
-     * @param motherId     The {@link CultivationSeed}'s ID representing one of the parents (the one initiating the breed)
-     * @param fatherId     The {@link CultivationSeed}'s ID representing the other parent
+     * @param childId      The {@link CultivationPlant} that will grow as a result of a successful breed
+     * @param motherId     The {@link CultivationPlant}'s ID representing one of the parents (the one initiating the breed)
+     * @param fatherId     The {@link CultivationPlant}'s ID representing the other parent
      * @param breedChance  The chance for the breed to be successful (spawning a child)
      * @param spreadChance The chance that, should a true breed fail, a spread can occur (spawning a copy of the mother)
      */
     @ParametersAreNonnullByDefault
-    public BreedingPair(CultivationSeed childId,
+    public BreedingPair(CultivationPlant childId,
                         String motherId,
                         String fatherId,
                         double breedChance,
@@ -44,7 +44,7 @@ public class BreedingPair {
     }
 
     @Nonnull
-    public CultivationSeed getChild() {
+    public CultivationPlant getChild() {
         return childId;
     }
 
@@ -62,8 +62,8 @@ public class BreedingPair {
      * Checks if the two given seeds can breed, regardless of chance.
      * No need to call this if you are following up with {@link BreedingPair#testBreed(String, String)}
      *
-     * @param seed1 The first {@link CultivationSeed}'s ID to check for breeding
-     * @param seed2 The partner {@link CultivationSeed}'s ID to check against the first.
+     * @param seed1 The first {@link CultivationPlant}'s ID to check for breeding
+     * @param seed2 The partner {@link CultivationPlant}'s ID to check against the first.
      * @return True if the plants can breed
      */
     public boolean isBreedPossible(@Nonnull String seed1, @Nonnull String seed2) {
@@ -79,8 +79,8 @@ public class BreedingPair {
      * Checks if the two given seeds can breed and, if so, tests against the
      * chances to get the breed result
      *
-     * @param seed1 The first {@link CultivationSeed} to check for breeding
-     * @param seed2 The partner {@link CultivationSeed} to check against the first.
+     * @param seed1 The first {@link CultivationPlant} to check for breeding
+     * @param seed2 The partner {@link CultivationPlant} to check against the first.
      * @return The {@link BreedResultType} of the breed attampt
      */
     @Nonnull

@@ -15,7 +15,8 @@ public final class CultivationThemes {
     public static final Theme RECIPE_TYPE = new Theme(ChatColor.of("#ffe89c"), "Recipe Type");
     public static final Theme MACHINE = new Theme(ChatColor.of("#3295a8"), "Machine");
     public static final Theme TOOL = new Theme(ChatColor.of("#3295a8"), "Tool");
-    public static final Theme SEED = new Theme(ChatColor.of("#a241bf"), "Seed");
+    public static final Theme PLANT = new Theme(ChatColor.of("#a241bf"), "Plant");
+    public static final Theme BUSH = new Theme(ChatColor.of("#a241bf"), "Bush");
     public static final Theme SAPLING = new Theme(ChatColor.of("#a241bf"), "Sapling");
 
     // Seeds

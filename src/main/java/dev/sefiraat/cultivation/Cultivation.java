@@ -1,5 +1,6 @@
 package dev.sefiraat.cultivation;
 
+import dev.sefiraat.cultivation.implementation.slimefun.CultivationItems;
 import dev.sefiraat.cultivation.managers.ConfigManager;
 import dev.sefiraat.cultivation.managers.DispatchManager;
 import dev.sefiraat.cultivation.managers.ListenerManager;
@@ -53,7 +54,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
         this.dispatchManager = new DispatchManager(this);
         this.registry = new Registry();
 
-        // Items.setup(this);
+        CultivationItems.setup(this);
 
         setupStats();
     }

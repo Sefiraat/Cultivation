@@ -82,7 +82,7 @@ public class ConfigManager {
     }
 
     public void saveAll() {
-        Cultivation.getInstance().getLogger().info("Netheopoiesis saving data.");
+        Cultivation.getInstance().getLogger().info("Cultivation saving data.");
         saveExp();
     }
 
