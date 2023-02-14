@@ -5,7 +5,6 @@ import dev.sefiraat.cultivation.api.interfaces.CultivationHarvestable;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.api.slimefun.plant.GrowthStages;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.HarvestingTool;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Location;
@@ -47,11 +46,6 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     @Override
     public ItemStack getHarvestingResult() {
         return this.harvestItemStack;
-    }
-
-    @Override
-    public boolean isHarvestReady(@NotNull Location location) {
-        return this.isMature(location);
     }
 
     @Override

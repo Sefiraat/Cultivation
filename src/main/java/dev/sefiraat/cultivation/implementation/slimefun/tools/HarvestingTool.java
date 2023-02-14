@@ -45,10 +45,7 @@ public class HarvestingTool extends RefillableUseItem {
             final Block block = playerRightClickEvent.getClickedBlock().get();
             final SlimefunItem item = BlockStorage.check(block);
 
-            if (item instanceof HarvestablePlant harvestable
-                && harvestable.isHarvestable()
-                && harvestable.isHarvestReady(block)
-            ) {
+            if (item instanceof HarvestablePlant harvestable && harvestable.isMature(block)) {
                 final ItemStack harvestResult = harvestable.getHarvestingResult();
                 if (harvestResult == null) {
                     // shouldn't be possible, but just to be safe

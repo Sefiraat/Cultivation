@@ -16,8 +16,8 @@ import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
- * This plant can be harvested by right-clicking with an open hand
- * The plant then reverts to its first stage.
+ * This bush can be harvested by right-clicking with an open hand
+ * The bush then reverts to its first stage.
  */
 public class HarvestableBush extends CultivationBush implements CultivationHarvestable {
 
@@ -39,11 +39,6 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     @Override
     public ItemStack getHarvestingResult() {
         return this.harvestItemStack;
-    }
-
-    @Override
-    public boolean isHarvestReady(@NotNull Location location) {
-        return this.isMature(location);
     }
 
     @Override
