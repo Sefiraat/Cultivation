@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
+import dev.sefiraat.sefilib.world.LocationUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -74,7 +75,7 @@ public class DropListener implements Listener {
             final double roll = ThreadLocalRandom.current().nextDouble();
             if (roll <= this.dropChance) {
                 final ItemStack drop = stackToDrop.clone();
-                final Location location = event.getBlock().getLocation().clone().add(.5, .5, .5);
+                final Location location = LocationUtils.centre(event.getBlock().getLocation());
                 location.getWorld().dropItem(location, drop);
             }
         }
