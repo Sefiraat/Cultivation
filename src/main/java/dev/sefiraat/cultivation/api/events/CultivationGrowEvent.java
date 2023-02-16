@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.api.events;
 
-import dev.sefiraat.cultivation.api.slimefun.items.CultivationSeed;
+import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
+import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import org.bukkit.Location;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
@@ -10,25 +11,25 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
- * This event is fired before a plant grows a stage. This event can be cancelled to stop growth
+ * This event is fired before a flora object grows a stage. This event can be cancelled to stop growth
  *
- * @see CultivationSeed
+ * @see CultivationFlora
  */
-public class PlantGrowEvent extends Event implements Cancellable {
+public class CultivationGrowEvent extends Event implements Cancellable {
 
     private static final HandlerList HANDLER_LIST = new HandlerList();
 
     @Nonnull
     private final Location location;
     @Nonnull
-    private final CultivationSeed growingPlant;
+    private final CultivationFloraItem<?> growingFlora;
     private final int growthStage;
     private boolean cancelled;
 
     @ParametersAreNonnullByDefault
-    public PlantGrowEvent(Location location, CultivationSeed growingPlant, int growthStage) {
+    public CultivationGrowEvent(Location location, CultivationFloraItem<?> growingFlora, int growthStage) {
         this.location = location;
-        this.growingPlant = growingPlant;
+        this.growingFlora = growingFlora;
         this.growthStage = growthStage;
     }
 
@@ -49,7 +50,7 @@ public class PlantGrowEvent extends Event implements Cancellable {
     }
 
     /**
-     * @return The {@link Location} of the currently growing plant
+     * @return The {@link Location} of the currently growing flora
      */
     @Nonnull
     public Location getLocation() {
@@ -57,15 +58,15 @@ public class PlantGrowEvent extends Event implements Cancellable {
     }
 
     /**
-     * @return The {@link CultivationSeed} that is about to grow
+     * @return The {@link CultivationFlora} that is about to grow
      */
     @Nonnull
-    public CultivationSeed getGrowingPlant() {
-        return growingPlant;
+    public CultivationFlora getGrowingFlora() {
+        return growingFlora;
     }
 
     /**
-     * @return The current growth stage, between 0-4
+     * @return The current growth stage
      */
     public int getGrowthStage() {
         return growthStage;

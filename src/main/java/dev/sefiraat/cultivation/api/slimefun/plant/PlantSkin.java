@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 /**
  * This enum contains hashes for the skulls used in the addon with Methods for generating ItemStacks/Skins
  */
-public enum SeedSkin {
+public enum PlantSkin {
 
     // https://minesk.in/420812538
     SEED_RED("660e8f971fcc83cf57a3e15b458317119e9f623d441bbf197e68125c80a23f30"),
@@ -335,11 +335,11 @@ public enum SeedSkin {
     FUNGAL_PURPLE_5("fc15c73a48d15942aa7a1861ae4fd088f0d0cab75b8dd1e9ad98b2851f5986bc");
 
     @Nonnull
-    private static final SeedSkin[] CACHED_VALUES = values();
+    private static final PlantSkin[] CACHED_VALUES = values();
     @Nonnull
     private final String hash;
 
-    SeedSkin(@Nonnull String hash) {
+    PlantSkin(@Nonnull String hash) {
         this.hash = hash;
     }
 
@@ -359,7 +359,7 @@ public enum SeedSkin {
     }
 
     @Nonnull
-    public static SeedSkin[] getCachedValues() {
+    public static PlantSkin[] getCachedValues() {
         return CACHED_VALUES;
     }
 }

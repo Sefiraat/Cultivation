@@ -26,6 +26,7 @@ public final class RecipeTypes {
             List.of("This item can be harvested from a plant.")
         )
     );
+
     @Nonnull
     public static final RecipeType PLANT_BREEDING = new RecipeType(
         Keys.newKey("plant_breeding"),
@@ -44,6 +45,19 @@ public final class RecipeTypes {
                 "",
                 "Hint: Black particles mean the",
                 "two plants CANNOT breed."
+            )
+        )
+    );
+    @Nonnull
+    public static final RecipeType BUSH_TRIMMING = new RecipeType(
+        Keys.newKey("bush_trimming"),
+        Theme.themedItemStack(
+            Material.SWEET_BERRIES,
+            CultivationThemes.RECIPE_TYPE,
+            "Bush Trimming",
+            List.of(
+                "Hi"
+                // todo
             )
         )
     );

@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Set;
 
@@ -13,20 +14,20 @@ import java.util.Set;
  */
 public class Growth {
 
-    @Nonnull
+    @Nullable
     private final GrowthStages stages;
     @Nonnull
     private final Set<Material> placements;
     private final double growthRate;
 
     @ParametersAreNonnullByDefault
-    public Growth(GrowthStages stages, Set<Material> places, double growthRate) {
+    public Growth(@Nullable GrowthStages stages, Set<Material> places, double growthRate) {
         this.stages = stages;
         this.placements = places;
         this.growthRate = growthRate;
     }
 
-    @Nonnull
+    @Nullable
     public GrowthStages getStages() {
         return stages;
     }
@@ -40,8 +41,12 @@ public class Growth {
         return growthRate;
     }
 
-    @Nonnull
+    @Nullable
     public ItemStack getFullyGrownPlant() {
+        // todo Needs to change when bushes are completed
+        if (this.stages == null) {
+            return null;
+        }
         return this.stages.getStages().get(this.stages.getStages().size() - 1).getPlayerHead();
     }
 }
