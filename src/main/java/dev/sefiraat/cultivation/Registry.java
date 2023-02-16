@@ -16,7 +16,7 @@ public class Registry {
     private static Registry instance;
 
     @Nonnull
-    private final List<CultivationFlora> registeredPlants = new ArrayList<>();
+    private final List<CultivationFlora> registeredFlora = new ArrayList<>();
     @Nonnull
     private final List<BreedingPair> breedingPairs = new ArrayList<>();
 
@@ -25,10 +25,11 @@ public class Registry {
         instance = this;
     }
 
-    public void addPlant(@Nonnull CultivationFlora cultivationFlora) {
-        this.registeredPlants.add(cultivationFlora);
-        if (cultivationFlora instanceof CultivationPlant seed) {
-            this.breedingPairs.addAll(seed.getBreedingPairs());
+    public void addFlora(@Nonnull CultivationFlora cultivationFlora) {
+        // todo Split into different types of flora into other dicts
+        this.registeredFlora.add(cultivationFlora);
+        if (cultivationFlora instanceof CultivationPlant plant) {
+            this.breedingPairs.addAll(plant.getBreedingPairs());
         }
     }
 
@@ -49,8 +50,8 @@ public class Registry {
     }
 
     @Nonnull
-    public List<CultivationFlora> getRegisteredPlants() {
-        return Collections.unmodifiableList(registeredPlants);
+    public List<CultivationFlora> getRegisteredFlora() {
+        return Collections.unmodifiableList(registeredFlora);
     }
 
     @Nonnull

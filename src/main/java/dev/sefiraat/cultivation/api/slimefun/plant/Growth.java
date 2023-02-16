@@ -43,6 +43,7 @@ public class Growth {
 
     @Nullable
     public ItemStack getFullyGrownPlant() {
+        // todo Needs to change when bushes are completed
         if (this.stages == null) {
             return null;
         }

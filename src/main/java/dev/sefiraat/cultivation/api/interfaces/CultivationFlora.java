@@ -12,7 +12,7 @@ import java.util.Set;
 public interface CultivationFlora extends CultivationGrower, CultivationTicking, CustomPlacementBlock {
 
     /**
-     * Defines the plant's theme. Used for particle generation.
+     * Defines the flora's theme. Used for particle generation.
      *
      * @return The {@link Theme} to be used
      */
@@ -20,7 +20,7 @@ public interface CultivationFlora extends CultivationGrower, CultivationTicking,
     Theme getTheme();
 
     /**
-     * This set defines the types of Crux that the plant can be placed/grow on.
+     * This set defines Materials that the plant can be placed/grow on.
      * The placement will be cancelled otherwise.
      *
      * @return The set of {@link Material} that are valid for placement
@@ -29,7 +29,7 @@ public interface CultivationFlora extends CultivationGrower, CultivationTicking,
     Set<Material> getPlacements();
 
     /**
-     * Defines the chance at which this plant will grow each tick, between 0 (0%) and 1 (100%)
+     * Defines the chance at which this flora will grow each tick, between 0 (0%) and 1 (100%)
      * When fully grown this will govern breeding attempts
      *
      * @return The growth rate

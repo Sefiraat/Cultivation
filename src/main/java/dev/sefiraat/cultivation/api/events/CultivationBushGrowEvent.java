@@ -1,7 +1,6 @@
 package dev.sefiraat.cultivation.api.events;
 
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
-import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import org.bukkit.Location;
 
 import javax.annotation.ParametersAreNonnullByDefault;

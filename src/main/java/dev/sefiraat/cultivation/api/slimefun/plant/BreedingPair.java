@@ -62,15 +62,15 @@ public class BreedingPair {
      * Checks if the two given seeds can breed, regardless of chance.
      * No need to call this if you are following up with {@link BreedingPair#testBreed(String, String)}
      *
-     * @param seed1 The first {@link CultivationPlant}'s ID to check for breeding
-     * @param seed2 The partner {@link CultivationPlant}'s ID to check against the first.
+     * @param plant1 The first {@link CultivationPlant}'s ID to check for breeding
+     * @param plant2 The partner {@link CultivationPlant}'s ID to check against the first.
      * @return True if the plants can breed
      */
-    public boolean isBreedPossible(@Nonnull String seed1, @Nonnull String seed2) {
-        if (seed1.equals(motherId)) {
-            return seed2.equals(fatherId);
-        } else if (seed1.equals(fatherId)) {
-            return seed2.equals(motherId);
+    public boolean isBreedPossible(@Nonnull String plant1, @Nonnull String plant2) {
+        if (plant1.equals(motherId)) {
+            return plant2.equals(fatherId);
+        } else if (plant1.equals(fatherId)) {
+            return plant2.equals(motherId);
         }
         return false;
     }
@@ -79,13 +79,13 @@ public class BreedingPair {
      * Checks if the two given seeds can breed and, if so, tests against the
      * chances to get the breed result
      *
-     * @param seed1 The first {@link CultivationPlant} to check for breeding
-     * @param seed2 The partner {@link CultivationPlant} to check against the first.
+     * @param plant1 The first {@link CultivationPlant} to check for breeding
+     * @param plant2 The partner {@link CultivationPlant} to check against the first.
      * @return The {@link BreedResultType} of the breed attampt
      */
     @Nonnull
-    public BreedResultType testBreed(@Nonnull String seed1, @Nonnull String seed2) {
-        if (isBreedPossible(seed1, seed2)) {
+    public BreedResultType testBreed(@Nonnull String plant1, @Nonnull String plant2) {
+        if (isBreedPossible(plant1, plant2)) {
             final double chance = ThreadLocalRandom.current().nextDouble();
             if (chance <= getBreedChance()) {
                 return BreedResultType.SUCCESS;

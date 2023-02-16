@@ -50,7 +50,7 @@ public class CultivationGrowEvent extends Event implements Cancellable {
     }
 
     /**
-     * @return The {@link Location} of the currently growing plant
+     * @return The {@link Location} of the currently growing flora
      */
     @Nonnull
     public Location getLocation() {

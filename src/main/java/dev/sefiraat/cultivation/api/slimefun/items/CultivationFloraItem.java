@@ -279,7 +279,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     }
 
     /**
-     * Sets the {@link Growth} of the plant
+     * Sets the {@link Growth} of the flora
      *
      * @param growth The required {@link Growth}
      */
@@ -299,22 +299,22 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     }
 
     /**
-     * Tries to register the seed (if it passes validation) first into the Registry, then its
+     * Tries to register the flora (if it passes validation) first into the Registry, then its
      * breeding pairs and finally with Slimefun.
      *
-     * @param addon The addon registering this Seed
+     * @param addon The addon registering this Flora
      */
     public T tryRegister(@Nonnull SlimefunAddon addon) {
         if (validateFlora()) {
-            Registry.getInstance().addPlant(this);
+            Registry.getInstance().addFlora(this);
             register(addon);
         }
         return (T) this;
     }
 
     /**
-     * This method should validate a seed's fields have been initialised correctly
-     * before it's registered. This will also set the Display plant used.
+     * This method should validate a flora's fields have been initialised correctly
+     * before it's registered. This will also set the Display item used.
      * Be sure to call super() if extending further
      */
     @OverridingMethodsMustInvokeSuper

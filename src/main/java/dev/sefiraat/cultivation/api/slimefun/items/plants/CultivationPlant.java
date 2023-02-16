@@ -82,7 +82,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     }
 
     @Override
-    protected void tryBreed(@Nonnull Block motherBlock, @Nonnull CultivationPlant flora) {
+    protected void tryBreed(@Nonnull Block motherBlock, @Nonnull CultivationPlant plant) {
         final double breedChance = ThreadLocalRandom.current().nextDouble();
         if (breedChance > getGrowthRate()) {
             // No breed attempted this tick
@@ -99,7 +99,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             final SlimefunItem mateItem = BlockStorage.check(potentialMate);
 
             if (mateItem instanceof CultivationPlant mate) {
-                testBreed(flora, mate, middleBlock, motherBlock);
+                testBreed(plant, mate, middleBlock, motherBlock);
             }
         }
     }
@@ -184,7 +184,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
      *
      * @param mother       The ID of the potential Mother
      * @param father       The ID of the potential Mother
-     * @param breedChance  The chance for the breed to return this seed
+     * @param breedChance  The chance for the breed to return this plant
      * @param spreadChance The chance that the Mother will spread
      * @return Returns self
      */
