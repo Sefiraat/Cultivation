@@ -172,15 +172,8 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     void tryGrow(Block block, T flora, Config data, Location location, int growthStage) {
         final double growthRandom = ThreadLocalRandom.current().nextDouble();
         if (growthRandom <= getGrowthRate() && getMaxGrowthStages() > growthStage) {
+            CultivationGrowEvent event = callEvent(flora, location, growthStage);
 
-            CultivationGrowEvent<T> event = getEvent(flora, location, growthStage);
-
-            if (event == null) {
-                // todo Don't like this, can we change
-                return;
-            }
-
-            Bukkit.getPluginManager().callEvent(event);
             if (event.isCancelled()) {
                 return;
             }
@@ -195,16 +188,18 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
         }
     }
 
-    @Nullable
-    private CultivationGrowEvent<T> getEvent(T flora, Location location, int growthStage) {
-        // Todo Change this to something more manageable before v1
+    @Nonnull
+    private CultivationGrowEvent callEvent(T flora, Location location, int growthStage) {
+        CultivationGrowEvent event;
         if (flora instanceof CultivationBush bush) {
-            return (CultivationGrowEvent<T>) new CultivationBushGrowEvent(location, bush, growthStage);
+            event = new CultivationBushGrowEvent(location, bush, growthStage);
         } else if (flora instanceof CultivationPlant plant) {
-            return (CultivationGrowEvent<T>) new CultivationPlantGrowEvent(location, plant, growthStage);
+            event = new CultivationPlantGrowEvent(location, plant, growthStage);
         } else {
-            return null;
+            event = new CultivationGrowEvent(location, this, growthStage);
         }
+        Bukkit.getPluginManager().callEvent(event);
+        return event;
     }
 
     protected abstract void updateGrowthStage(@Nonnull Block block, int growthStage);
@@ -309,11 +304,12 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
      *
      * @param addon The addon registering this Seed
      */
-    public void tryRegister(@Nonnull SlimefunAddon addon) {
+    public T tryRegister(@Nonnull SlimefunAddon addon) {
         if (validateFlora()) {
             Registry.getInstance().addPlant(this);
             register(addon);
         }
+        return (T) this;
     }
 
     /**

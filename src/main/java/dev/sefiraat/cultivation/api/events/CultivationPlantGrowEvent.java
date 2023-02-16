@@ -10,7 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  *
  * @see CultivationPlant
  */
-public class CultivationPlantGrowEvent extends CultivationGrowEvent<CultivationPlant> {
+public class CultivationPlantGrowEvent extends CultivationGrowEvent {
 
     @ParametersAreNonnullByDefault
     public CultivationPlantGrowEvent(Location location, CultivationPlant growingPlant, int growthStage) {

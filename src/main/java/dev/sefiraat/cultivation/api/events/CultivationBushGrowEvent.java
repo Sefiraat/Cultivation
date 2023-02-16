@@ -11,7 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  *
  * @see CultivationBush
  */
-public class CultivationBushGrowEvent extends CultivationGrowEvent<CultivationBush> {
+public class CultivationBushGrowEvent extends CultivationGrowEvent {
 
     @ParametersAreNonnullByDefault
     public CultivationBushGrowEvent(Location location, CultivationBush growingBush, int growthStage) {

@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.api.events;
 
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
-import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
+import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import org.bukkit.Location;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
@@ -15,19 +15,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
  *
  * @see CultivationFlora
  */
-public class CultivationGrowEvent<T extends CultivationFlora> extends Event implements Cancellable {
+public class CultivationGrowEvent extends Event implements Cancellable {
 
     private static final HandlerList HANDLER_LIST = new HandlerList();
 
     @Nonnull
     private final Location location;
     @Nonnull
-    private final T growingFlora;
+    private final CultivationFloraItem<?> growingFlora;
     private final int growthStage;
     private boolean cancelled;
 
     @ParametersAreNonnullByDefault
-    public CultivationGrowEvent(Location location, T growingFlora, int growthStage) {
+    public CultivationGrowEvent(Location location, CultivationFloraItem<?> growingFlora, int growthStage) {
         this.location = location;
         this.growingFlora = growingFlora;
         this.growthStage = growthStage;
