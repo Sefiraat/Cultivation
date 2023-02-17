@@ -7,9 +7,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.GrowthStages;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.HarvestingTool;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
