@@ -14,6 +14,12 @@ import java.util.List;
 
 public final class CultivationStacks {
 
+    private CultivationStacks() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    // region Crafting Materials
+
     public static final SlimefunItemStack MYSTICAL_LOG = Theme.themedSlimefunItemStack(
         "CLT_MYSTICAL_WOOD",
         ItemStackGenerators.createEnchantedItemStack(
@@ -27,22 +33,48 @@ public final class CultivationStacks {
         "with an unknown power"
     );
 
-    // region Crafting Materials
-    public static final SlimefunItemStack STONE_PLANT = Theme.themedSlimefunItemStack(
+    // endregion
+
+    // region Plants
+
+    public static final SlimefunItemStack COBBLESTONE_PLANT = Theme.themedSlimefunItemStack(
         "CLT_STONE_PLANT",
         PlantSkin.SEED_CYAN.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Stone",
+        "Cultivation Plant: Cobblestone",
         List.of(
             "A plant that sits in stoney silence",
             "awaiting anything nearby to peak",
-            "it's interest"
+            "it's interest."
+        )
+    );
+
+    public static final SlimefunItemStack DIRT_PLANT = Theme.themedSlimefunItemStack(
+        "CLT_DIRT_PLANT",
+        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Dirt",
+        List.of(
+            "A plant that holds the burgeoning power",
+            "of nature itself."
+        )
+    );
+
+    public static final SlimefunItemStack FURNACE_PLANT = Theme.themedSlimefunItemStack(
+        "CLT_FURNACE_PLANT",
+        PlantSkin.SEED_RED.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Furnace",
+        List.of(
+            "A plant that somehow grew from",
+            "inside of a furnace?"
         )
     );
 
     // endregion
 
-    // region Plants
+    // region Bushes
+
     public static final SlimefunItemStack BERRY_BUSH = Theme.themedSlimefunItemStack(
         "CLT_BERRY_BUSH",
         Material.SWEET_BERRY_BUSH,
@@ -55,7 +87,7 @@ public final class CultivationStacks {
 
     // endregion
 
-    // region Bushes
+    // region Tools
     public static final SlimefunItemStack HARVESTING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
         "CLT_ADDON_BERRY",
         Material.SHEARS,
@@ -71,13 +103,4 @@ public final class CultivationStacks {
     );
 
     // endregion
-
-    // region Tools
-
-    private CultivationStacks() {
-        throw new IllegalStateException("Utility class");
-    }
-
-    // endregion
-
 }

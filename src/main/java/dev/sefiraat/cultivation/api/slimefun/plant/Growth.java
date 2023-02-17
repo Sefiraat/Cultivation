@@ -27,6 +27,11 @@ public class Growth {
         this.growthRate = growthRate;
     }
 
+    @ParametersAreNonnullByDefault
+    public Growth(@Nullable GrowthStages stages, Material placementMaterial, double growthRate) {
+        this(stages, Set.of(placementMaterial), growthRate);
+    }
+
     @Nullable
     public GrowthStages getStages() {
         return stages;

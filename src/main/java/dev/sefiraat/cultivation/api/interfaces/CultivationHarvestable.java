@@ -1,10 +1,7 @@
 package dev.sefiraat.cultivation.api.interfaces;
 
-import org.bukkit.Location;
-import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
