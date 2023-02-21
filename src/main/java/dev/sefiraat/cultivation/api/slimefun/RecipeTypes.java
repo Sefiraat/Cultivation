@@ -31,6 +31,7 @@ public final class RecipeTypes {
             List.of("This item can be harvested from a plant.")
         )
     );
+
     @Nonnull
     public static final RecipeType PLANT_BREEDING = new RecipeType(
         Keys.newKey("plant_breeding"),
