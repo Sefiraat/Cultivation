@@ -24,6 +24,7 @@ public class AirTimeTask extends BukkitRunnable {
 
     @Override
     public void run() {
+        // todo - Test for exploits/loopholes before v1
         if (DROPS.isEmpty()) {
             // No drops registered, no need to action anything.
             return;
