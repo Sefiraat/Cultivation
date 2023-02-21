@@ -2,7 +2,9 @@ package dev.sefiraat.cultivation.api.slimefun;
 
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.implementation.listeners.DropListener;
+import dev.sefiraat.cultivation.implementation.tasks.AirTimeTask;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
+import dev.sefiraat.cultivation.managers.TaskManager;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
@@ -15,6 +17,9 @@ import java.util.List;
  * This is used to store and initialise the {@link RecipeType}s used in the addon.
  */
 public final class RecipeTypes {
+    private RecipeTypes() {
+        throw new IllegalStateException("Utility class");
+    }
 
     @Nonnull
     public static final RecipeType PLANT_HARVEST = new RecipeType(
@@ -26,7 +31,6 @@ public final class RecipeTypes {
             List.of("This item can be harvested from a plant.")
         )
     );
-
     @Nonnull
     public static final RecipeType PLANT_BREEDING = new RecipeType(
         Keys.newKey("plant_breeding"),
@@ -48,6 +52,7 @@ public final class RecipeTypes {
             )
         )
     );
+
     @Nonnull
     public static final RecipeType BUSH_TRIMMING = new RecipeType(
         Keys.newKey("bush_trimming"),
@@ -61,6 +66,7 @@ public final class RecipeTypes {
             )
         )
     );
+
     @Nonnull
     public static final RecipeType VANILLA_DROP = new RecipeType(
         Keys.newKey("vanilla_block_drop"),
@@ -72,9 +78,20 @@ public final class RecipeTypes {
         )
     );
 
-    private RecipeTypes() {
-        throw new IllegalStateException("Utility class");
-    }
+    @Nonnull
+    public static final RecipeType AIR_TIME = new RecipeType(
+        Keys.newKey("air_time"),
+        Theme.themedItemStack(
+            Material.FEATHER,
+            CultivationThemes.RECIPE_TYPE,
+            "Air Time",
+            List.of(
+                "Has a chance to drop when you gain air time",
+                "without dying."
+            )
+        )
+    );
+
 
     /**
      * This method both registers the drop and returns an ItemStack array that can be used
@@ -97,5 +114,21 @@ public final class RecipeTypes {
             null, dropFrom, null,
             null, null, null
         };
+    }
+
+    /**
+     * This method both registers the drop and returns a blank ItemStack array that can be used
+     * for Slimefun's recipe system. {@link RecipeTypes#AIR_TIME}
+     *
+     * @param stackToDrop         The {@link ItemStack} that will drop if roll succeeds.
+     * @param fullOddsTimeSeconds The time, in seconds, of air time required for a 100% drop chance.
+     * @return A Blank ItemStack array as is required for the SlimefunItem constructor.
+     * @see AirTimeTask
+     */
+    @Nonnull
+    public static ItemStack[] createAirTimeRecipe(@Nonnull ItemStack stackToDrop, double fullOddsTimeSeconds) {
+        AirTimeTask.AirTimeDrop drop = new AirTimeTask.AirTimeDrop(stackToDrop, fullOddsTimeSeconds);
+        TaskManager.getInstance().getAirTimeTask().addDrop(drop);
+        return new ItemStack[0];
     }
 }
