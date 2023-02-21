@@ -26,7 +26,7 @@ public final class CultivationBushes {
                 CommonPlacements.COMMON_OVERWORLD,
                 0.1
             )
-        ).setHarvestingResult(new ItemStack(Material.SWEET_BERRIES))
+        ).addHarvestingResult(new ItemStack(Material.SWEET_BERRIES))
             .tryRegister(addon);
     }
 }

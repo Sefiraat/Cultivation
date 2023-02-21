@@ -1,8 +1,7 @@
 package dev.sefiraat.cultivation.api.interfaces;
 
+import io.github.bakedlibs.dough.collections.RandomizedSet;
 import org.bukkit.inventory.ItemStack;
-
-import javax.annotation.Nullable;
 
 /**
  * This interface defines a Cultivation object that can be harvested, describing what can be harvested from
@@ -11,12 +10,11 @@ import javax.annotation.Nullable;
 public interface CultivationHarvestable {
 
     /**
-     * Defines the {@link ItemStack} that will drop when harvested. Defaults to null.
+     * Defines the {@link ItemStack}'s that will/can drop when harvested. Defaults to null.
      *
-     * @return The {@link ItemStack} that will drop when harvested. Defaults to null.
+     * @return The {@link ItemStack}'s that will/can drop when harvested. Defaults to null.
      */
-    @Nullable
-    default ItemStack getHarvestingResult() {
+    default RandomizedSet<ItemStack> getHarvestingResults() {
         return null;
     }
 }

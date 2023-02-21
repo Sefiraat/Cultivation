@@ -28,7 +28,7 @@ public final class CultivationPlants {
                 CommonPlacements.COMMON_OVERWORLD,
                 0.1
             )
-        ).setHarvestingResult(new ItemStack(Material.COBBLESTONE))
+        ).addHarvestingResult(new ItemStack(Material.COBBLESTONE))
             .tryRegister(addon);
 
         new HarvestablePlant(
@@ -40,7 +40,7 @@ public final class CultivationPlants {
                 CommonPlacements.COMMON_OVERWORLD,
                 0.1
             )
-        ).setHarvestingResult(new ItemStack(Material.DIRT))
+        ).addHarvestingResult(new ItemStack(Material.DIRT))
             .tryRegister(addon);
 
         new NothingPlant(
