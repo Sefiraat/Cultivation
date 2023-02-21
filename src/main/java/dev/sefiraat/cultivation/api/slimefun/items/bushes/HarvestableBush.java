@@ -3,6 +3,7 @@ package dev.sefiraat.cultivation.api.slimefun.items.bushes;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.interfaces.CultivationHarvestable;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
+import io.github.bakedlibs.dough.collections.RandomizedSet;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.block.Block;
@@ -20,8 +21,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 public class HarvestableBush extends CultivationBush implements CultivationHarvestable {
 
-    @Nullable
-    private ItemStack harvestItemStack;
+    private final RandomizedSet<ItemStack> harvestItems = new RandomizedSet<>();
 
     @ParametersAreNonnullByDefault
     public HarvestableBush(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Growth growth) {
@@ -29,15 +29,19 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     }
 
     @Nonnull
-    public HarvestableBush setHarvestingResult(@Nonnull ItemStack harvestStack) {
-        this.harvestItemStack = harvestStack;
+    public HarvestableBush addHarvestingResult(@Nonnull ItemStack harvestStack) {
+        return addHarvestingResult(harvestStack, 1);
+    }
+
+    @Nonnull
+    public HarvestableBush addHarvestingResult(@Nonnull ItemStack harvestStack, int weight) {
+        this.harvestItems.add(harvestStack, weight);
         return this;
     }
 
-    @Nullable
     @Override
-    public ItemStack getHarvestingResult() {
-        return this.harvestItemStack;
+    public RandomizedSet<ItemStack> getHarvestingResults() {
+        return this.harvestItems;
     }
 
     @Override
@@ -48,7 +52,7 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     @Override
     @OverridingMethodsMustInvokeSuper
     protected boolean validateFlora() {
-        if (this.harvestItemStack == null) {
+        if (this.harvestItems.size() == 0) {
             Cultivation.logWarning(this.getId() + " has no ItemStack for harvesting, it will not be registered.");
             return false;
         }
