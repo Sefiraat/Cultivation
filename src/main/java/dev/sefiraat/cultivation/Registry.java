@@ -6,11 +6,17 @@ import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResultType;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
+import io.github.bakedlibs.dough.blocks.BlockPosition;
+import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Registry {
     private static Registry instance;
@@ -19,6 +25,12 @@ public class Registry {
     private final List<CultivationFlora> registeredFlora = new ArrayList<>();
     @Nonnull
     private final List<BreedingPair> breedingPairs = new ArrayList<>();
+
+    @Nonnull
+    private final Map<UUID, BlockPosition> storedPositionOne = new HashMap<>();
+
+    @Nonnull
+    private final Map<UUID, BlockPosition> storedPositionTwo = new HashMap<>();
 
     public Registry() {
         Preconditions.checkArgument(instance == null, "Cannot create a new instance of the Registry");
@@ -57,6 +69,26 @@ public class Registry {
     @Nonnull
     public List<BreedingPair> getBreedingPairs() {
         return Collections.unmodifiableList(breedingPairs);
+    }
+
+    public void addPositionOne(@Nonnull Player player) {
+        UUID uuid = player.getUniqueId();
+        storedPositionOne.put(uuid, new BlockPosition(player.getLocation()));
+    }
+
+    public void addPositionTwo(@Nonnull Player player) {
+        UUID uuid = player.getUniqueId();
+        storedPositionTwo.put(uuid, new BlockPosition(player.getLocation()));
+    }
+
+    @Nullable
+    public BlockPosition getPositionOne(@Nonnull Player player) {
+        return storedPositionOne.get(player.getUniqueId());
+    }
+
+    @Nullable
+    public BlockPosition getPositionTwo(@Nonnull Player player) {
+        return storedPositionTwo.get(player.getUniqueId());
     }
 
     public static Registry getInstance() {
