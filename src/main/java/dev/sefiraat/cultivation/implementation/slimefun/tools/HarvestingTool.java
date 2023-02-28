@@ -43,11 +43,11 @@ public class HarvestingTool extends RefillableUseItem {
                 return;
             }
 
-            final Block block = playerRightClickEvent.getClickedBlock().get();
-            final SlimefunItem item = BlockStorage.check(block);
+            Block block = playerRightClickEvent.getClickedBlock().get();
+            SlimefunItem item = BlockStorage.check(block);
 
             if (item instanceof HarvestablePlant harvestable && harvestable.isMature(block)) {
-                final RandomizedSet<ItemStack> harvestResult = harvestable.getHarvestingResults();
+                RandomizedSet<ItemStack> harvestResult = harvestable.getHarvestingResults();
                 if (harvestResult.size() == 0) {
                     // shouldn't be possible, but just to be safe
                     return;

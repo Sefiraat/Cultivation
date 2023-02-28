@@ -27,18 +27,18 @@ public class ConfigManager {
     }
 
     private void setupDefaultConfig() {
-        final Cultivation plugin = Cultivation.getInstance();
-        final InputStream inputStream = plugin.getResource("config.yml");
+        Cultivation plugin = Cultivation.getInstance();
+        InputStream inputStream = plugin.getResource("config.yml");
 
         if (inputStream == null) {
             // Not sure how? Regardless cannot copy over new keys
             return;
         }
 
-        final File existingFile = new File(plugin.getDataFolder(), "config.yml");
-        final Reader reader = new InputStreamReader(inputStream);
-        final FileConfiguration resourceConfig = YamlConfiguration.loadConfiguration(reader);
-        final FileConfiguration existingConfig = YamlConfiguration.loadConfiguration(existingFile);
+        File existingFile = new File(plugin.getDataFolder(), "config.yml");
+        Reader reader = new InputStreamReader(inputStream);
+        FileConfiguration resourceConfig = YamlConfiguration.loadConfiguration(reader);
+        FileConfiguration existingConfig = YamlConfiguration.loadConfiguration(existingFile);
 
         for (String key : resourceConfig.getKeys(false)) {
             checkKey(existingConfig, resourceConfig, key);
@@ -53,8 +53,8 @@ public class ConfigManager {
 
     @ParametersAreNonnullByDefault
     private void checkKey(FileConfiguration existingConfig, FileConfiguration resourceConfig, String key) {
-        final Object currentValue = existingConfig.get(key);
-        final Object newValue = resourceConfig.get(key);
+        Object currentValue = existingConfig.get(key);
+        Object newValue = resourceConfig.get(key);
         if (newValue instanceof ConfigurationSection section) {
             for (String sectionKey : section.getKeys(false)) {
                 checkKey(existingConfig, resourceConfig, key + "." + sectionKey);
@@ -67,8 +67,8 @@ public class ConfigManager {
     @Nonnull
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private FileConfiguration getConfig(@Nonnull String fileName) {
-        final Cultivation plugin = Cultivation.getInstance();
-        final File file = new File(plugin.getDataFolder(), fileName);
+        Cultivation plugin = Cultivation.getInstance();
+        File file = new File(plugin.getDataFolder(), fileName);
 
         try {
             if (!file.exists()) {

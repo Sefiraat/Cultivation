@@ -69,7 +69,7 @@ public final class CultivationGroups {
     );
 
     static {
-        final Cultivation plugin = Cultivation.getInstance();
+        Cultivation plugin = Cultivation.getInstance();
 
         PLANTS.setCrossAddonItemGroup(true);
         BUSHES.setCrossAddonItemGroup(true);

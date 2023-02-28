@@ -17,7 +17,7 @@ public class TaskManager {
     public TaskManager() {
         Preconditions.checkArgument(instance == null, "Cannot create a new instance of the TaskManager");
         instance = this;
-        final Cultivation plugin = Cultivation.getInstance();
+        Cultivation plugin = Cultivation.getInstance();
 
         airTimeTask.runTaskTimerAsynchronously(plugin, 20, AirTimeTask.TICK_RATE);
     }

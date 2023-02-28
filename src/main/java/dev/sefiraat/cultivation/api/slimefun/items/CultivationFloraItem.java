@@ -129,9 +129,9 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
 
             @Override
             public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block block) {
-                final String owner = BlockStorage.getLocationInfo(block.getLocation(), Keys.FLORA_OWNER);
+                String owner = BlockStorage.getLocationInfo(block.getLocation(), Keys.FLORA_OWNER);
                 if (owner != null) {
-                    final UUID uuid = UUID.fromString(owner);
+                    UUID uuid = UUID.fromString(owner);
                     addOwner(block.getLocation(), uuid);
                 }
             }
@@ -170,7 +170,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
 
     @ParametersAreNonnullByDefault
     void tryGrow(Block block, T flora, Config data, Location location, int growthStage) {
-        final double growthRandom = ThreadLocalRandom.current().nextDouble();
+        double growthRandom = ThreadLocalRandom.current().nextDouble();
         if (growthRandom <= getGrowthRate() && getMaxGrowthStages() > growthStage) {
             CultivationGrowEvent event = callEvent(flora, location, growthStage);
 

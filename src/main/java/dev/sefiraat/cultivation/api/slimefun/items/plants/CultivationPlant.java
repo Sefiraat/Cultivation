@@ -82,20 +82,20 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
 
     @Override
     protected void tryBreed(@Nonnull Block motherBlock, @Nonnull CultivationPlant plant) {
-        final double breedChance = ThreadLocalRandom.current().nextDouble();
+        double breedChance = ThreadLocalRandom.current().nextDouble();
         if (breedChance > getGrowthRate()) {
             // No breed attempted this tick
             return;
         }
 
         for (BlockFace face : BREEDING_DIRECTIONS) {
-            final Block middleBlock = motherBlock.getRelative(face);
+            Block middleBlock = motherBlock.getRelative(face);
             // There must be space for the new block
             if (middleBlock.getType() != Material.AIR) {
                 return;
             }
-            final Block potentialMate = middleBlock.getRelative(face);
-            final SlimefunItem mateItem = BlockStorage.check(potentialMate);
+            Block potentialMate = middleBlock.getRelative(face);
+            SlimefunItem mateItem = BlockStorage.check(potentialMate);
 
             if (mateItem instanceof CultivationPlant mate) {
                 testBreed(plant, mate, middleBlock, motherBlock);
@@ -106,7 +106,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     @Override
     public void updateGrowthStage(@Nonnull Block block, int growthStage) {
         if (BlockUtils.isSkullBlock(block)) {
-            final PlantSkin nextTexture = getGrowthStages().get(growthStage - 1);
+            PlantSkin nextTexture = getGrowthStages().get(growthStage - 1);
             PlayerHead.setSkin(block, nextTexture.getPlayerSkin(), false);
             PaperLib.getBlockState(block, false).getState().update(true, false);
             BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));
@@ -137,14 +137,14 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
 
     @ParametersAreNonnullByDefault
     private void testBreed(CultivationPlant mother, CultivationPlant mate, Block middleBlock, Block motherBlock) {
-        final BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
+        BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
 
         if (result.getResultType() == BreedResultType.NO_PAIRS) {
             // No matching breeding pairs, lets feedback to the player then move to the next direction
             breedInvalidDisplay(middleBlock.getLocation());
         } else if (result.getResultType() == BreedResultType.SUCCESS) {
             // Breed was a success - spawn child, log discovery
-            final CultivationPlant child = result.getMatchedPair().getChild();
+            CultivationPlant child = result.getMatchedPair().getChild();
             trySetChildSeed(motherBlock.getLocation(), middleBlock, child);
             StatisticUtils.incrementExp(getOwner(motherBlock.getLocation()), LevelType.HORTICULTURALIST, 1);
         } else if (result.getResultType() == BreedResultType.SPREAD) {
