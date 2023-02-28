@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
+import dev.sefiraat.sefilib.entity.LivingEntityDefinition;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
@@ -16,11 +17,10 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * The purpose of this listener is to drop registered items when breaking the specified vanilla
- * block.
- * Recipes should be registered using {@link RecipeTypes#createBlockDropRecipe(ItemStack, ItemStack, double)}
+ * The purpose of this listener is to drop registered items when killing a specified Mob.
+ * Recipes should be registered using {@link RecipeTypes#createMobDropRecipe(ItemStack, LivingEntityDefinition, double)}
  * which returns an ItemStack array used for Slimefun's recipe
- * {@link RecipeTypes#VANILLA_DROP}
+ * {@link RecipeTypes#MOB}
  */
 public class MobDropListener implements Listener {
 

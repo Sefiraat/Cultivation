@@ -54,20 +54,6 @@ public final class RecipeTypes {
     );
 
     @Nonnull
-    public static final RecipeType BOSS_MOB = new RecipeType(
-        Keys.newKey("mob_boss"),
-        Theme.themedItemStack(
-            Material.WITHER_ROSE,
-            CultivationThemes.RECIPE_TYPE,
-            "Mob Drop: Boss",
-            List.of(
-                "This item has a chance to drop from",
-                "a 'boss' mob."
-            )
-        )
-    );
-
-    @Nonnull
     public static final RecipeType PLANT_BREEDING = new RecipeType(
         Keys.newKey("plant_breeding"),
         Theme.themedItemStack(
