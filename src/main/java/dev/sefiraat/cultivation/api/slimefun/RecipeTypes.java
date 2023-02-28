@@ -40,29 +40,15 @@ public final class RecipeTypes {
     );
 
     @Nonnull
-    public static final RecipeType HOSTILE_MOB = new RecipeType(
-        Keys.newKey("mob_hostile"),
+    public static final RecipeType MOB = new RecipeType(
+        Keys.newKey("mob"),
         Theme.themedItemStack(
             Material.ZOMBIE_HEAD,
             CultivationThemes.RECIPE_TYPE,
-            "Mob Drop: Hostile",
+            "Mob Drop",
             List.of(
                 "This item has a chance to drop from",
-                "a hostile mob."
-            )
-        )
-    );
-
-    @Nonnull
-    public static final RecipeType PASSIVE_MOB = new RecipeType(
-        Keys.newKey("mob_hostile"),
-        Theme.themedItemStack(
-            Material.ZOMBIE_HEAD,
-            CultivationThemes.RECIPE_TYPE,
-            "Mob Drop: Hostile",
-            List.of(
-                "This item has a chance to drop from",
-                "a passive mob."
+                "the following mob(s)."
             )
         )
     );
