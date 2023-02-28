@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.api.slimefun.items.plants;
 
 import dev.sefiraat.cultivation.Registry;
+import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.interfaces.CustomPlacementBlock;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
@@ -18,6 +19,7 @@ import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.block.BlockUtils;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.world.LocationUtils;
+import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
 import io.github.bakedlibs.dough.skins.PlayerHead;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -30,7 +32,10 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -101,6 +106,24 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
                 testBreed(plant, mate, middleBlock, motherBlock);
             }
         }
+    }
+
+    @Override
+    protected void onBreak(@NotNull BlockBreakEvent event) {
+        Location location = event.getBlock().getLocation();
+        ItemStack itemToDrop = this.getItem().clone();
+        ItemMeta itemMeta = itemToDrop.getItemMeta();
+
+        PersistentDataAPI.set(
+            itemMeta,
+            FloraLevelProfileDataType.KEY,
+            FloraLevelProfileDataType.TYPE,
+            getLevelProfile(location)
+        );
+        itemToDrop.setItemMeta(itemMeta);
+        location.getWorld().dropItem(location.clone().add(0.5, 0.5, 0.5), itemToDrop);
+        event.setDropItems(false);
+
     }
 
     @Override
