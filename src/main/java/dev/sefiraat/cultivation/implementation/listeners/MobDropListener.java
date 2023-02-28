@@ -1,57 +1,64 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
-import dev.sefiraat.sefilib.world.LocationUtils;
 import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import java.util.EnumMap;
-import java.util.Map;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The purpose of this listener is to drop registered items when breaking the specified vanilla
  * block.
- * Recipes should be registered using {@link RecipeTypes#createWorldDropRecipe(ItemStack, ItemStack, double)}
+ * Recipes should be registered using {@link RecipeTypes#createBlockDropRecipe(ItemStack, ItemStack, double)}
  * which returns an ItemStack array used for Slimefun's recipe
  * {@link RecipeTypes#VANILLA_DROP}
  */
-public class DropListener implements Listener {
+public class MobDropListener implements Listener {
 
     @Nonnull
-    private static final Map<Material, BlockDrop> DROP_MAP = new EnumMap<>(Material.class);
+    private static final Set<MobDrop> DROPS = new HashSet<>();
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
-    public void onBlockBreak(@Nonnull BlockBreakEvent event) {
-        final BlockDrop blockDrop = DROP_MAP.get(event.getBlock().getType());
-
-        if (blockDrop == null) {
-            return;
+    public void onBlockBreak(@Nonnull EntityDeathEvent event) {
+        for (MobDrop mobDrop : DROPS) {
+            if (mobDrop.dropsFrom(event.getEntityType())) {
+                mobDrop.rollDrop(event);
+            }
         }
-        blockDrop.rollDrop(event);
     }
 
     @Nonnull
-    public static Map<Material, BlockDrop> getDropMap() {
-        return DROP_MAP;
+    public static Set<MobDrop> getDrops() {
+        return Collections.unmodifiableSet(DROPS);
+    }
+
+    public static void addDrop(@Nonnull MobDrop drop) {
+        DROPS.add(drop);
     }
 
     /**
      * This class represents a drop including its source, the item to drop and the chance for it to occur
      * Including a method to roll for and spawn the drop itself.
      */
-    public static class BlockDrop {
+    public static class MobDrop {
         private final ItemStack stackToDrop;
-        private final Material dropFrom;
+        private final Set<EntityType> dropFrom;
         private final double dropChance;
 
-        public BlockDrop(@Nonnull ItemStack stackToDrop, @Nonnull Material dropFrom, double dropChance) {
+        public MobDrop(@Nonnull ItemStack stackToDrop, @Nonnull EntityType dropFrom, double dropChance) {
+            this(stackToDrop, Set.of(dropFrom), dropChance);
+        }
+
+        public MobDrop(@Nonnull ItemStack stackToDrop, @Nonnull Set<EntityType> dropFrom, double dropChance) {
             this.stackToDrop = stackToDrop;
             this.dropFrom = dropFrom;
             this.dropChance = dropChance;
@@ -63,19 +70,23 @@ public class DropListener implements Listener {
         }
 
         @Nonnull
-        public Material getDropFrom() {
+        public Set<EntityType> getDropFrom() {
             return dropFrom;
+        }
+
+        public boolean dropsFrom(@Nonnull EntityType entityType) {
+            return dropFrom.contains(entityType);
         }
 
         public double getDropChance() {
             return dropChance;
         }
 
-        public void rollDrop(@Nonnull BlockBreakEvent event) {
+        public void rollDrop(@Nonnull EntityDeathEvent event) {
             final double roll = ThreadLocalRandom.current().nextDouble();
             if (roll <= this.dropChance) {
                 final ItemStack drop = stackToDrop.clone();
-                final Location location = LocationUtils.centre(event.getBlock().getLocation());
+                final Location location = event.getEntity().getLocation();
                 location.getWorld().dropItem(location, drop);
             }
         }

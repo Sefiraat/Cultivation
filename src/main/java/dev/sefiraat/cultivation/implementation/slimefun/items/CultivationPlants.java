@@ -22,7 +22,7 @@ public final class CultivationPlants {
         new HarvestablePlant(
             CultivationStacks.COBBLESTONE_PLANT,
             RecipeTypes.VANILLA_DROP,
-            RecipeTypes.createWorldDropRecipe(CultivationStacks.COBBLESTONE_PLANT, new ItemStack(Material.DIRT), 0.05),
+            RecipeTypes.createBlockDropRecipe(CultivationStacks.COBBLESTONE_PLANT, new ItemStack(Material.DIRT), 0.05),
             new Growth(
                 GrowthStages.FUNGAL_CYAN,
                 CommonPlacements.COMMON_OVERWORLD,
@@ -34,7 +34,7 @@ public final class CultivationPlants {
         new HarvestablePlant(
             CultivationStacks.DIRT_PLANT,
             RecipeTypes.VANILLA_DROP,
-            RecipeTypes.createWorldDropRecipe(CultivationStacks.DIRT_PLANT, new ItemStack(Material.DIRT), 0.05),
+            RecipeTypes.createBlockDropRecipe(CultivationStacks.DIRT_PLANT, new ItemStack(Material.DIRT), 0.05),
             new Growth(
                 GrowthStages.VINEY_PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
@@ -46,7 +46,7 @@ public final class CultivationPlants {
         new NothingPlant(
             CultivationStacks.FURNACE_PLANT,
             RecipeTypes.VANILLA_DROP,
-            RecipeTypes.createWorldDropRecipe(CultivationStacks.FURNACE_PLANT, new ItemStack(Material.FURNACE), 0.05),
+            RecipeTypes.createBlockDropRecipe(CultivationStacks.FURNACE_PLANT, new ItemStack(Material.FURNACE), 0.05),
             new Growth(
                 GrowthStages.SPIKEY_RED,
                 Material.MAGMA_BLOCK,
