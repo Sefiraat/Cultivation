@@ -12,7 +12,6 @@ import javax.annotation.Nonnull;
 /**
  * A {@link PersistentDataType} for {@link FloraLevelProfile}
  */
-
 public class FloraLevelProfileDataType implements PersistentDataType<PersistentDataContainer, FloraLevelProfile> {
 
     public static final PersistentDataType<PersistentDataContainer, FloraLevelProfile> TYPE = new FloraLevelProfileDataType();
@@ -53,8 +52,8 @@ public class FloraLevelProfileDataType implements PersistentDataType<PersistentD
     public FloraLevelProfile fromPrimitive(@Nonnull PersistentDataContainer primitive,
                                            @Nonnull PersistentDataAdapterContext context
     ) {
-        int level = primitive.getOrDefault(LEVEL_DROP_RATE, INTEGER, 1);
         int speed = primitive.getOrDefault(LEVEL_GROWTH_SPEED, INTEGER, 1);
+        int level = primitive.getOrDefault(LEVEL_DROP_RATE, INTEGER, 1);
         int strength = primitive.getOrDefault(LEVEL_STRENGTH, INTEGER, 1);
         return new FloraLevelProfile(level, speed, strength);
     }

@@ -110,9 +110,9 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
 
     @Override
     protected void onBreak(@NotNull BlockBreakEvent event) {
-        final Location location = event.getBlock().getLocation();
-        final ItemStack itemToDrop = this.getItem().clone();
-        final ItemMeta itemMeta = itemToDrop.getItemMeta();
+        Location location = event.getBlock().getLocation();
+        ItemStack itemToDrop = this.getItem().clone();
+        ItemMeta itemMeta = itemToDrop.getItemMeta();
 
         PersistentDataAPI.set(
             itemMeta,

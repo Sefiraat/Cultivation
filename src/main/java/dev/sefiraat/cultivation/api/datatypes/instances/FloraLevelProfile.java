@@ -82,7 +82,7 @@ public class FloraLevelProfile {
 
     @Nullable
     public static FloraLevelProfile fromBlockStorage(@Nonnull Location location) {
-        final SlimefunItem slimefunItem = BlockStorage.check(location);
+        SlimefunItem slimefunItem = BlockStorage.check(location);
         if (slimefunItem instanceof CultivationLevelProfileHolder holder) {
             return holder.getLevelProfile(location);
         }
