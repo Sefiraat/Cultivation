@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.sefilib.world.LocationUtils;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -29,6 +30,10 @@ public class BlockDropListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onBlockBreak(@Nonnull BlockBreakEvent event) {
+        if (BlockStorage.hasBlockInfo(event.getBlock())) {
+            // Don't want to fire on SF Blocks
+            return;
+        }
         for (BlockDrop drop : DROPS) {
             if (drop.dropsFrom(event.getBlock().getType())) {
                 drop.rollDrop(event);
