@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.sefilib.world.LocationUtils;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -11,35 +12,42 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import java.util.EnumMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The purpose of this listener is to drop registered items when breaking the specified vanilla
  * block.
- * Recipes should be registered using {@link RecipeTypes#createWorldDropRecipe(ItemStack, ItemStack, double)}
+ * Recipes should be registered using {@link RecipeTypes#createBlockDropRecipe(ItemStack, ItemStack, double)}
  * which returns an ItemStack array used for Slimefun's recipe
  * {@link RecipeTypes#VANILLA_DROP}
  */
-public class DropListener implements Listener {
+public class BlockDropListener implements Listener {
 
     @Nonnull
-    private static final Map<Material, BlockDrop> DROP_MAP = new EnumMap<>(Material.class);
+    private static final Set<BlockDrop> DROPS = new HashSet<>();
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onBlockBreak(@Nonnull BlockBreakEvent event) {
-        final BlockDrop blockDrop = DROP_MAP.get(event.getBlock().getType());
-
-        if (blockDrop == null) {
+        if (BlockStorage.hasBlockInfo(event.getBlock())) {
+            // Don't want to fire on SF Blocks
             return;
         }
-        blockDrop.rollDrop(event);
+        for (BlockDrop drop : DROPS) {
+            if (drop.dropsFrom(event.getBlock().getType())) {
+                drop.rollDrop(event);
+            }
+        }
     }
 
     @Nonnull
-    public static Map<Material, BlockDrop> getDropMap() {
-        return DROP_MAP;
+    public static Set<BlockDrop> getDrops() {
+        return DROPS;
+    }
+
+    public static void addDrop(@Nonnull BlockDrop drop) {
+        DROPS.add(drop);
     }
 
     /**
@@ -48,10 +56,14 @@ public class DropListener implements Listener {
      */
     public static class BlockDrop {
         private final ItemStack stackToDrop;
-        private final Material dropFrom;
+        private final Set<Material> dropFrom;
         private final double dropChance;
 
         public BlockDrop(@Nonnull ItemStack stackToDrop, @Nonnull Material dropFrom, double dropChance) {
+            this(stackToDrop, Set.of(dropFrom), dropChance);
+        }
+
+        public BlockDrop(@Nonnull ItemStack stackToDrop, @Nonnull Set<Material> dropFrom, double dropChance) {
             this.stackToDrop = stackToDrop;
             this.dropFrom = dropFrom;
             this.dropChance = dropChance;
@@ -63,8 +75,12 @@ public class DropListener implements Listener {
         }
 
         @Nonnull
-        public Material getDropFrom() {
+        public Set<Material> getDropFrom() {
             return dropFrom;
+        }
+
+        public boolean dropsFrom(@Nonnull Material material) {
+            return dropFrom.contains(material);
         }
 
         public double getDropChance() {

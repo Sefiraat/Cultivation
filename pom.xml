@@ -278,7 +278,7 @@
         <dependency>
             <groupId>dev.sefiraat</groupId>
             <artifactId>SefiLib</artifactId>
-            <version>0.1.5.0</version>
+            <version>0.1.5.4</version>
             <scope>compile</scope>
         </dependency>
 
