@@ -2,7 +2,6 @@ package dev.sefiraat.cultivation.api.slimefun.items;
 
 import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.Registry;
-import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.events.CultivationBushGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationGrowEvent;
@@ -19,7 +18,6 @@ import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.string.Theme;
 import dev.sefiraat.sefilib.world.LocationUtils;
-import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
 import io.github.bakedlibs.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
@@ -46,7 +44,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
