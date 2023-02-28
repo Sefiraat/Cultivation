@@ -9,6 +9,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Location;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -52,6 +53,11 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
 
     @Override
     public void updateGrowthStage(@NotNull Location location, int growthStage) {
+        // TODO
+    }
+
+    @Override
+    protected void onBreak(@NotNull BlockBreakEvent event) {
         // TODO
     }
 }

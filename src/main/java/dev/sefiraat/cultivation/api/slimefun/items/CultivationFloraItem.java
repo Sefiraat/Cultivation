@@ -2,10 +2,13 @@ package dev.sefiraat.cultivation.api.slimefun.items;
 
 import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.Registry;
+import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
+import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.events.CultivationBushGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationPlantGrowEvent;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
+import dev.sefiraat.cultivation.api.interfaces.CultivationLevelProfileHolder;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
@@ -16,6 +19,7 @@ import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.string.Theme;
 import dev.sefiraat.sefilib.world.LocationUtils;
+import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
 import io.github.bakedlibs.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
@@ -42,6 +46,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -55,7 +60,7 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> extends SlimefunItem
-    implements CultivationFlora {
+    implements CultivationFlora, CultivationLevelProfileHolder {
 
     @Nonnull
     protected final Map<Location, UUID> ownerCache = new HashMap<>();
@@ -100,6 +105,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
                 @Override
                 @ParametersAreNonnullByDefault
                 public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
+                    onBreak(blockBreakEvent);
                     // Todo
                 }
             },
@@ -137,6 +143,8 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
             }
         };
     }
+
+    protected abstract void onBreak(@Nonnull BlockBreakEvent event);
 
     public void addOwner(@Nonnull Location location, @Nonnull UUID uuid) {
         ownerCache.put(location, uuid);
@@ -323,5 +331,14 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     @Nullable
     public ItemStack getDisplayItemStack() {
         return displayStack;
+    }
+
+    @Nonnull
+    @Override
+    public FloraLevelProfile getLevelProfile(@Nonnull Location location) {
+        int level = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL));
+        int speed = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED));
+        int strength = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH));
+        return new FloraLevelProfile(level, speed, strength);
     }
 }
