@@ -21,7 +21,7 @@ public class CustomPlacementListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     public void onBlockPlace(@Nonnull BlockPlaceEvent event) {
-        final SlimefunItem slimefunItem = SlimefunItem.getByItem(event.getItemInHand());
+        SlimefunItem slimefunItem = SlimefunItem.getByItem(event.getItemInHand());
         if (slimefunItem instanceof CustomPlacementBlock block) {
             block.whenPlaced(event);
         }

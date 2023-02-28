@@ -22,7 +22,7 @@ public final class StatisticUtils {
 
     @ParametersAreNonnullByDefault
     public static void incrementExp(UUID player, LevelType type, Integer amount) {
-        final Integer currentExp = Cultivation.getConfigManager().getExp().getInt(
+        Integer currentExp = Cultivation.getConfigManager().getExp().getInt(
             EXP.format(new Object[]{player, type.name()}),
             0
         );

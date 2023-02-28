@@ -37,7 +37,7 @@ public class Registry {
     public BreedResult getBreedResult(@Nonnull String seed1, @Nonnull String seed2) {
         int matches = 0;
         for (BreedingPair pair : breedingPairs) {
-            final BreedResultType result = pair.testBreed(seed1, seed2);
+            BreedResultType result = pair.testBreed(seed1, seed2);
             if (result != BreedResultType.NOT_PAIR) {
                 if (result != BreedResultType.FAIL) {
                     return new BreedResult(pair, result);

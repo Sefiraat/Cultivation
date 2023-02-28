@@ -145,11 +145,11 @@ public final class RecipeTypes {
                                                     @Nonnull Set<Material> dropFrom,
                                                     double dropChance
     ) {
-        final Material material = dropFrom.stream().findFirst().orElse(Material.DIRT);
+        Material material = dropFrom.stream().findFirst().orElse(Material.DIRT);
         List<String> lore = dropFrom.stream()
             .map(material1 -> Theme.CLICK_INFO.apply(WordUtils.capitalize(material1.name().toLowerCase(Locale.ROOT))))
             .toList();
-        final ItemStack itemStack = Theme.themedItemStack(material, CultivationThemes.RECIPE_TYPE, "Drops From", lore);
+        ItemStack itemStack = Theme.themedItemStack(material, CultivationThemes.RECIPE_TYPE, "Drops From", lore);
         BlockDropListener.addDrop(new BlockDropListener.BlockDrop(stackToDrop, dropFrom, dropChance));
         return new ItemStack[]{
             null, null, null,
