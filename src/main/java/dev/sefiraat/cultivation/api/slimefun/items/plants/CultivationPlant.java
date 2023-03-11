@@ -2,13 +2,14 @@ package dev.sefiraat.cultivation.api.slimefun.items.plants;
 
 import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
+import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
+import dev.sefiraat.cultivation.api.interfaces.CultivationLevelProfileHolder;
 import dev.sefiraat.cultivation.api.interfaces.CustomPlacementBlock;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
-import dev.sefiraat.cultivation.api.slimefun.plant.BreedResultType;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.api.slimefun.plant.GrowthStages;
@@ -33,6 +34,7 @@ import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
@@ -48,7 +50,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * This class is used to define a CultivationPlant that will grow as a {@link CultivationFlora}
  */
 public abstract class CultivationPlant extends CultivationFloraItem<CultivationPlant>
-    implements CultivationFlora, CustomPlacementBlock {
+    implements CultivationFlora, CustomPlacementBlock, CultivationLevelProfileHolder {
 
     @Nonnull
     public static final Set<BlockFace> BREEDING_DIRECTIONS = Set.of(
@@ -103,9 +105,33 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             SlimefunItem mateItem = BlockStorage.check(potentialMate);
 
             if (mateItem instanceof CultivationPlant mate) {
-                testBreed(plant, mate, middleBlock, motherBlock);
+                testBreed(plant, mate, middleBlock, motherBlock, potentialMate);
             }
         }
+    }
+
+    @Override
+    public void whenPlaced(@NotNull BlockPlaceEvent event) {
+        super.whenPlaced(event);
+
+        Location location = event.getBlock().getLocation();
+        ItemStack itemStack = event.getItemInHand();
+        ItemMeta itemMeta = itemStack.getItemMeta();
+
+        FloraLevelProfile profile = PersistentDataAPI.get(
+            itemMeta,
+            FloraLevelProfileDataType.KEY,
+            FloraLevelProfileDataType.TYPE,
+            new FloraLevelProfile(1, 1, 1)
+        );
+
+        applyProfile(location, profile.getLevel(), profile.getSpeed(), profile.getStrength());
+    }
+
+    private void applyProfile(@Nonnull Location location, int level, int speed, int strength) {
+        BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_LEVEL, String.valueOf(level));
+        BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_SPEED, String.valueOf(speed));
+        BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_STRENGTH, String.valueOf(strength));
     }
 
     @Override
@@ -159,20 +185,41 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     }
 
     @ParametersAreNonnullByDefault
-    private void testBreed(CultivationPlant mother, CultivationPlant mate, Block middleBlock, Block motherBlock) {
+    private void testBreed(CultivationPlant mother,
+                           CultivationPlant mate,
+                           Block middleBlock,
+                           Block motherBlock,
+                           Block fatherBlock
+    ) {
         BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
 
-        if (result.getResultType() == BreedResultType.NO_PAIRS) {
-            // No matching breeding pairs, lets feedback to the player then move to the next direction
-            breedInvalidDisplay(middleBlock.getLocation());
-        } else if (result.getResultType() == BreedResultType.SUCCESS) {
-            // Breed was a success - spawn child, log discovery
-            CultivationPlant child = result.getMatchedPair().getChild();
-            trySetChildSeed(motherBlock.getLocation(), middleBlock, child);
-            StatisticUtils.incrementExp(getOwner(motherBlock.getLocation()), LevelType.HORTICULTURALIST, 1);
-        } else if (result.getResultType() == BreedResultType.SPREAD) {
-            // Breed failed, spread success - spawn copy of mother
-            trySetChildSeed(motherBlock.getLocation(), middleBlock, mother);
+        if (!isMature(motherBlock) || !isMature(fatherBlock)) {
+            return;
+        }
+
+        switch (result.getResultType()) {
+            case NO_PAIRS ->
+                // No matching breeding pairs, lets feedback to the player then move to the next direction
+                breedInvalidDisplay(middleBlock.getLocation());
+            case SUCCESS -> {
+                // Breed was a success - spawn child, log discovery
+                CultivationPlant child = result.getMatchedPair().getChild();
+                trySetChildSeed(motherBlock.getLocation(), middleBlock, child);
+                StatisticUtils.incrementExp(getOwner(motherBlock.getLocation()), LevelType.HORTICULTURALIST, 2);
+            }
+            case SPREAD_NO_MUTATE -> {
+                // Breed failed, spread success - spawn copy of mother
+                trySetChildSeed(motherBlock.getLocation(), middleBlock, mother);
+                StatisticUtils.incrementExp(getOwner(motherBlock.getLocation()), LevelType.HORTICULTURALIST, 1);
+            }
+            case SPREAD_MUTATE -> {
+                // Breed not possible, but mutation possible.
+                FloraLevelProfile motherProfile = getLevelProfile(motherBlock.getLocation());
+                FloraLevelProfile fatherProfile = getLevelProfile(fatherBlock.getLocation());
+                trySetChildSeed(motherBlock.getLocation(), middleBlock, mother);
+                tryMutate(middleBlock, motherProfile, fatherProfile);
+                StatisticUtils.incrementExp(getOwner(motherBlock.getLocation()), LevelType.HORTICULTURALIST, 1);
+            }
         }
     }
 
@@ -194,6 +241,12 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         BlockStorage.addBlockInfo(cloneBlock, Keys.FLORA_GROWTH_STAGE, "0");
         BlockStorage.addBlockInfo(cloneBlock, Keys.FLORA_OWNER, getOwner(motherLocation).toString());
         breedSuccess(cloneBlock.getLocation());
+    }
+
+    @ParametersAreNonnullByDefault
+    private void tryMutate(Block cloneBlock, FloraLevelProfile motherProfile, FloraLevelProfile fatherProfile) {
+        FloraLevelProfile profile = FloraLevelProfile.testMutation(motherProfile, fatherProfile);
+        applyProfile(cloneBlock.getLocation(), profile.getLevel(), profile.getSpeed(), profile.getStrength());
     }
 
     protected void breedSuccess(@Nonnull Location location) {
@@ -225,5 +278,14 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     @Nonnull
     public Set<BreedingPair> getBreedingPairs() {
         return this.breedingPairs;
+    }
+
+    @Nonnull
+    @Override
+    public FloraLevelProfile getLevelProfile(@Nonnull Location location) {
+        int level = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL));
+        int speed = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED));
+        int strength = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH));
+        return new FloraLevelProfile(level, speed, strength);
     }
 }
