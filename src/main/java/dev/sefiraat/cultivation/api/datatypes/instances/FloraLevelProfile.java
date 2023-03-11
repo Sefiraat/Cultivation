@@ -84,7 +84,7 @@ public class FloraLevelProfile {
         int combinedStrength = profile1.getStrength() + profile2.getStrength();
         int averageStrength = (int) Math.ceil(combinedStrength / 2.0);
 
-        // Divide by two for strength average, divide by 10 for int > double
+        // Divide by 10 for int > double
         double mutateChance = BASE_MUTATION_RATE + (averageStrength / 10.0);
 
         return new FloraLevelProfile(
