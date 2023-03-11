@@ -46,7 +46,15 @@ public class Registry {
                 }
             }
         }
-        return new BreedResult(breedingPairs.get(0), matches == 0 ? BreedResultType.NO_PAIRS : BreedResultType.FAIL);
+        if (matches == 0) {
+            if (seed1.equals(seed2)) {
+                return new BreedResult(breedingPairs.get(0), BreedResultType.SPREAD_MUTATE);
+            } else {
+                return new BreedResult(breedingPairs.get(0), BreedResultType.NO_PAIRS);
+            }
+        } else {
+            return new BreedResult(breedingPairs.get(0), BreedResultType.FAIL);
+        }
     }
 
     @Nonnull

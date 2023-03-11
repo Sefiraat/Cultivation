@@ -21,7 +21,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 public class HarvestablePlant extends CultivationPlant implements CultivationHarvestable {
 
-    private RandomizedSet<ItemStack> harvestItems = new RandomizedSet<>();
+    private final RandomizedSet<ItemStack> harvestItems = new RandomizedSet<>();
 
     @ParametersAreNonnullByDefault
     public HarvestablePlant(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Growth growth) {
@@ -52,8 +52,8 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     @Override
     @OverridingMethodsMustInvokeSuper
     protected boolean validateFlora() {
-        if (this.harvestItems == null) {
-            Cultivation.logWarning(this.getId() + " has no ItemStack for harvesting, it will not be registered.");
+        if (this.harvestItems.isEmpty()) {
+            Cultivation.logWarning(this.getId() + " has no ItemStack(s) for harvesting, it will not be registered.");
             return false;
         }
         return true;

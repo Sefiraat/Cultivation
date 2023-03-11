@@ -52,6 +52,11 @@ public final class CultivationPlants {
                 Material.MAGMA_BLOCK,
                 0.1
             )
+        ).addBreedingPair(
+            CultivationStacks.COBBLESTONE_PLANT.getItemId(),
+            CultivationStacks.DIRT_PLANT.getItemId(),
+            0.1,
+            0.1
         ).tryRegister(addon);
     }
 }
