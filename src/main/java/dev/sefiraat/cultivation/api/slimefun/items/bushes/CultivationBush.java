@@ -60,7 +60,6 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
     public int getMaxGrowthStages() {
         return 4;
     }
-    
     @Override
     public void updateGrowthStage(@NotNull Location location, int growthStage) {
         updateGrowthStage(location.getBlock(), growthStage);

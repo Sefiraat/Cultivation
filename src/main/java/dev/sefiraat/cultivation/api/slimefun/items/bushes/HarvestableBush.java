@@ -55,7 +55,6 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     public RandomizedSet<ItemStack> getHarvestingResults() {
         return this.harvestItems;
     }
-    
     @Override
     public void updateGrowthStage(@NotNull Block block, int growthStage) {
         super.updateGrowthStage(block, growthStage);
