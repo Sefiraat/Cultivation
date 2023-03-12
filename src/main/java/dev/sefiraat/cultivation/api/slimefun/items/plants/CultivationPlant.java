@@ -42,6 +42,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashSet;
 import java.util.List;
@@ -150,6 +151,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_STRENGTH, String.valueOf(strength));
     }
 
+    @OverridingMethodsMustInvokeSuper
     protected void onBreak(@NotNull BlockBreakEvent event) {
         Location location = event.getBlock().getLocation();
         ItemStack itemToDrop = this.getItem().clone();

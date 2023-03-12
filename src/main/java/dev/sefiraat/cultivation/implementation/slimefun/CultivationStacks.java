@@ -110,9 +110,8 @@ public final class CultivationStacks {
             "Simple Trimming Tool",
             "A very basic tool that allows",
             "the user to trim Cultivation Bushes.",
-            Theme.WARNING + "Works on Tier 1 bushes",
             "",
-            Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Harvests a fully grown Cultivation Bush"),
+            Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Takes a trimming of a fully grown Cultivation Bush"),
             "",
             LoreBuilder.usesLeft(50)
     );

@@ -73,6 +73,7 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
     }
     
     @Override
+    @Nullable
     public ItemStack getTrimmingResult() {
         return this.trimmingResult;
     }
