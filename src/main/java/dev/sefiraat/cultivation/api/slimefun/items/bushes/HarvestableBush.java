@@ -70,6 +70,6 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
             Cultivation.logWarning(this.getId() + " has no ItemStack for harvesting, it will not be registered.");
             return false;
         }
-        return super.validateFlora();
+        return true;
     }
 }
