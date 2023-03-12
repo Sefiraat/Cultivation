@@ -2,10 +2,13 @@ package dev.sefiraat.cultivation.api.datatypes.instances;
 
 import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
 import dev.sefiraat.cultivation.api.interfaces.CultivationLevelProfileHolder;
+import dev.sefiraat.sefilib.misc.Chance;
+import dev.sefiraat.sefilib.number.NumberUtils;
 import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -22,6 +25,8 @@ public class FloraLevelProfile {
     private static final int MAX_LEVEL = 10;
     private static final int MAX_SPEED = 10;
     private static final int MAX_STRENGTH = 10;
+
+    private static final double BASE_MUTATION_RATE = 0.1;
 
     private int level;
     private int speed;
@@ -67,6 +72,26 @@ public class FloraLevelProfile {
 
     public void incrementStrength() {
         setStrength(getStrength() + 1);
+    }
+
+    public static FloraLevelProfile testMutation(FloraLevelProfile profile1, FloraLevelProfile profile2) {
+        int combinedLevel = profile1.getLevel() + profile2.getLevel();
+        int averageLevel = (int) Math.ceil(combinedLevel / 2.0);
+
+        int combinedSpeed = profile1.getSpeed() + profile2.getSpeed();
+        int averageSpeed = (int) Math.ceil(combinedSpeed / 2.0);
+
+        int combinedStrength = profile1.getStrength() + profile2.getStrength();
+        int averageStrength = (int) Math.ceil(combinedStrength / 2.0);
+
+        // Divide by 10 for int > double
+        double mutateChance = BASE_MUTATION_RATE + (averageStrength / 10.0);
+
+        return new FloraLevelProfile(
+            Chance.testChance(mutateChance) ? averageLevel + 1 : averageLevel,
+            Chance.testChance(mutateChance) ? averageSpeed + 1 : averageSpeed,
+            Chance.testChance(mutateChance) ? averageStrength + 1 : averageStrength
+        );
     }
 
     @Nullable

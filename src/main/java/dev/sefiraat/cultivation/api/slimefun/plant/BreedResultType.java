@@ -6,9 +6,15 @@ public enum BreedResultType {
      */
     FAIL,
     /**
-     * Breed triggered a spread of the original plant
+     * Breed triggered a spread of one of the original plants. Plants didn't match
+     * and will not trigger a mutation
      */
-    SPREAD,
+    SPREAD_NO_MUTATE,
+    /**
+     * Breed triggered a spread of one of the original plants. Plants did match
+     * and can now trigger a mutation
+     */
+    SPREAD_MUTATE,
     /**
      * Breed successful resulting in child plant
      */

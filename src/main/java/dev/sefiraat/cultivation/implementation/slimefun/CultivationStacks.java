@@ -90,7 +90,7 @@ public final class CultivationStacks {
     // region Tools
     
     public static final SlimefunItemStack HARVESTING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
-        "CLT_ADDON_BERRY",
+        "CLT_HARVESTING_TOOL",
         Material.TRIPWIRE_HOOK,
         CultivationThemes.TOOL,
         "Simple Harvesting Tool",

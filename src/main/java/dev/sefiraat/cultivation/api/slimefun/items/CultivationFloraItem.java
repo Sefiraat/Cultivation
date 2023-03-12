@@ -2,12 +2,10 @@ package dev.sefiraat.cultivation.api.slimefun.items;
 
 import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.Registry;
-import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.events.CultivationBushGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationPlantGrowEvent;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
-import dev.sefiraat.cultivation.api.interfaces.CultivationLevelProfileHolder;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
@@ -54,7 +52,7 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> extends SlimefunItem
-    implements CultivationFlora, CultivationLevelProfileHolder {
+    implements CultivationFlora {
 
     @Nonnull
     protected final Map<Location, UUID> ownerCache = new HashMap<>();
@@ -236,6 +234,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
      * @param event The {@link BlockPlaceEvent} triggered from the block placement
      */
     @Override
+    @OverridingMethodsMustInvokeSuper
     public void whenPlaced(@Nonnull BlockPlaceEvent event) {
         final Block block = event.getBlock();
         final Block blockBelow = block.getRelative(BlockFace.DOWN);
@@ -315,14 +314,5 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     @Nullable
     public ItemStack getDisplayItemStack() {
         return displayStack;
-    }
-
-    @Nonnull
-    @Override
-    public FloraLevelProfile getLevelProfile(@Nonnull Location location) {
-        int level = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL));
-        int speed = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED));
-        int strength = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH));
-        return new FloraLevelProfile(level, speed, strength);
     }
 }
