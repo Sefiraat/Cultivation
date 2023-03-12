@@ -25,7 +25,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
@@ -41,7 +40,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
@@ -50,7 +48,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -98,14 +95,6 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
                     }
                 }
             },
-            new BlockBreakHandler(false, false) {
-                @Override
-                @ParametersAreNonnullByDefault
-                public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
-                    onBreak(blockBreakEvent);
-                    // Todo
-                }
-            },
             (BlockUseHandler) this::onBlockUse
         );
     }
@@ -140,8 +129,6 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
             }
         };
     }
-
-    protected abstract void onBreak(@Nonnull BlockBreakEvent event);
 
     public void addOwner(@Nonnull Location location, @Nonnull UUID uuid) {
         ownerCache.put(location, uuid);

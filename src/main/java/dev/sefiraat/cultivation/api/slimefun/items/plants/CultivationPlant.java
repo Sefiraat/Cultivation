@@ -24,6 +24,7 @@ import io.github.bakedlibs.dough.skins.PlayerHead;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.papermc.lib.PaperLib;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Color;
@@ -41,6 +42,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -84,6 +86,21 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     ) {
         super(CultivationGroups.PLANTS, item, recipeType, recipe, recipeOutput, growth);
     }
+    
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler(
+                new BlockBreakHandler(false, false) {
+                    @Override
+                    @ParametersAreNonnullByDefault
+                    public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
+                        onBreak(blockBreakEvent);
+                        // Todo
+                    }
+                }
+        );
+    }
 
     @Override
     protected void tryBreed(@Nonnull Block motherBlock, @Nonnull CultivationPlant plant) {
@@ -107,8 +124,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             }
         }
     }
-
-    @Override
+    
     protected void onBreak(@NotNull BlockBreakEvent event) {
         Location location = event.getBlock().getLocation();
         ItemStack itemToDrop = this.getItem().clone();
@@ -123,7 +139,6 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         itemToDrop.setItemMeta(itemMeta);
         location.getWorld().dropItem(location.clone().add(0.5, 0.5, 0.5), itemToDrop);
         event.setDropItems(false);
-
     }
 
     @Override

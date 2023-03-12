@@ -4,6 +4,7 @@ import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.interfaces.CultivationHarvestable;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import io.github.bakedlibs.dough.collections.RandomizedSet;
+import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.block.Block;
@@ -26,6 +27,18 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     public HarvestableBush(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Growth growth) {
         super(item, recipeType, recipe, growth);
     }
+    
+    protected void onBlockUse(PlayerRightClickEvent playerRightClickEvent) {
+        playerRightClickEvent.cancel();
+    
+        final Block block = playerRightClickEvent.getClickedBlock().orElse(null);
+        if (block == null || !this.isMature(block) || harvestItems.size() == 0) {
+            return;
+        }
+    
+        this.updateGrowthStage(block, 1);
+        block.getWorld().dropItem(block.getLocation(), harvestItems.getRandom().clone());
+    }
 
     @Nonnull
     public HarvestableBush addHarvestingResult(@Nonnull ItemStack harvestStack) {
@@ -42,10 +55,12 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     public RandomizedSet<ItemStack> getHarvestingResults() {
         return this.harvestItems;
     }
-
+    
     @Override
-    protected void updateGrowthStage(@NotNull Block block, int growthStage) {
-        // TODO to be added as part of bush development
+    public void updateGrowthStage(@NotNull Block block, int growthStage) {
+        super.updateGrowthStage(block, growthStage);
+        
+        // TODO: add display entities
     }
 
     @Override
@@ -55,6 +70,6 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
             Cultivation.logWarning(this.getId() + " has no ItemStack for harvesting, it will not be registered.");
             return false;
         }
-        return true;
+        return super.validateFlora();
     }
 }
