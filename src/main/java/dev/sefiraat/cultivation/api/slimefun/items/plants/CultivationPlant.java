@@ -126,7 +126,6 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             }
         }
     }
-    
     @Override
     public void whenPlaced(@NotNull BlockPlaceEvent event) {
         super.whenPlaced(event);
