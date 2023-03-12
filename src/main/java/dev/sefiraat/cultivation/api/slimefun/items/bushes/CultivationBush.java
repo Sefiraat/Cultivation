@@ -1,6 +1,5 @@
 package dev.sefiraat.cultivation.api.slimefun.items.bushes;
 
-import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.interfaces.CultivationTrimmable;
 import dev.sefiraat.cultivation.api.interfaces.CustomPlacementBlock;
@@ -9,7 +8,6 @@ import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.TrimmingTool;
-import io.github.bakedlibs.dough.collections.RandomizedSet;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Location;
@@ -20,7 +18,6 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
@@ -31,7 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public abstract class CultivationBush extends CultivationFloraItem<CultivationBush>
     implements CultivationFlora, CultivationTrimmable, CustomPlacementBlock {
     
-    private final RandomizedSet<ItemStack> trimItems = new RandomizedSet<>();
+    private final ItemStack trimmingResult;
     
     @ParametersAreNonnullByDefault
     protected CultivationBush(SlimefunItemStack item, Growth growth) {
@@ -55,6 +52,8 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
                               @Nullable ItemStack recipeOutput
     ) {
         super(CultivationGroups.BUSHES, item, recipeType, recipe, recipeOutput, growth);
+        
+        this.trimmingResult = item;
     }
 
     @Override
@@ -75,17 +74,7 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
     }
     
     @Override
-    public RandomizedSet<ItemStack> getTrimmingResult() {
-        return this.trimItems;
-    }
-    
-    @Override
-    @OverridingMethodsMustInvokeSuper
-    protected boolean validateFlora() {
-        if (this.trimItems.size() == 0) {
-            Cultivation.logWarning(this.getId() + " has no ItemStack for trimming, it will not be registered.");
-            return false;
-        }
-        return true;
+    public ItemStack getTrimmingResult() {
+        return this.trimmingResult;
     }
 }

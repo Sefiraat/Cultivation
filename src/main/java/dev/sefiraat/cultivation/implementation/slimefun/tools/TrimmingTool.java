@@ -2,7 +2,6 @@ package dev.sefiraat.cultivation.implementation.slimefun.tools;
 
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.sefilib.slimefun.items.RefillableUseItem;
-import io.github.bakedlibs.dough.collections.RandomizedSet;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -31,13 +30,9 @@ public class TrimmingTool extends RefillableUseItem {
             SlimefunItem item = BlockStorage.check(block);
     
             if (item instanceof CultivationBush trimmable && trimmable.isMature(block)) {
-                RandomizedSet<ItemStack> trimResult = trimmable.getTrimmingResult();
-                if (trimResult.size() == 0) {
-                    // shouldn't be possible, but just to be safe
-                    return;
-                }
+                ItemStack trimmingResult = trimmable.getTrimmingResult();
                 trimmable.updateGrowthStage(block, 1);
-                block.getWorld().dropItem(block.getLocation(), trimResult.getRandom().clone());
+                block.getWorld().dropItem(block.getLocation(), trimmingResult.clone());
             }
     
             damageItem(playerRightClickEvent.getPlayer(), playerRightClickEvent.getItem());

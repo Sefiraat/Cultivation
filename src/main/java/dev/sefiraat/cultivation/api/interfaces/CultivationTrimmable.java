@@ -1,6 +1,5 @@
 package dev.sefiraat.cultivation.api.interfaces;
 
-import io.github.bakedlibs.dough.collections.RandomizedSet;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -10,11 +9,11 @@ import org.bukkit.inventory.ItemStack;
 public interface CultivationTrimmable {
     
     /**
-     * Defines the {@link ItemStack}'s that will/can drop when trimmed. Defaults to null.
+     * Defines the {@link ItemStack} that will/can drop when trimmed. Defaults to null.
      *
-     * @return The {@link ItemStack}'s that will/can drop when trimmed. Defaults to null.
+     * @return The {@link ItemStack} that will/can drop when trimmed. Defaults to null.
      */
-    default RandomizedSet<ItemStack> getTrimmingResult() {
+    default ItemStack getTrimmingResult() {
         return null;
     }
 }
