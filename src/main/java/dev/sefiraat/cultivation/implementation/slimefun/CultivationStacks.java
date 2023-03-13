@@ -88,9 +88,10 @@ public final class CultivationStacks {
     // endregion
 
     // region Tools
+    
     public static final SlimefunItemStack HARVESTING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
         "CLT_HARVESTING_TOOL",
-        Material.SHEARS,
+        Material.TRIPWIRE_HOOK,
         CultivationThemes.TOOL,
         "Simple Harvesting Tool",
         "A very basic tool that allows",
@@ -100,6 +101,19 @@ public final class CultivationStacks {
         Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Harvests a fully grown Cultivation Plant"),
         "",
         LoreBuilder.usesLeft(50)
+    );
+    
+    public static final SlimefunItemStack TRIMMING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
+            "CLT_TRIMMING_TOOL_SIMPLE",
+            Material.SHEARS,
+            CultivationThemes.TOOL,
+            "Simple Trimming Tool",
+            "A very basic tool that allows",
+            "the user to trim Cultivation Bushes.",
+            "",
+            Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Takes a trimming of a fully grown Cultivation Bush"),
+            "",
+            LoreBuilder.usesLeft(50)
     );
 
     // endregion
