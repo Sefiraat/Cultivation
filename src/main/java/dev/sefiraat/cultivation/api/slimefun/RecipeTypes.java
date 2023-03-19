@@ -32,10 +32,27 @@ public final class RecipeTypes {
     public static final RecipeType PLANT_HARVEST = new RecipeType(
         Keys.newKey("plant_harvest"),
         Theme.themedItemStack(
-            Material.PRISMARINE_SHARD,
+            Material.TRIPWIRE_HOOK,
             CultivationThemes.RECIPE_TYPE,
             "Plant Harvesting",
-            List.of("This item can be harvested from a plant.")
+            List.of(
+                "This item can be harvested from a",
+                "Cultivation Plant"
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType TREE_HARVEST = new RecipeType(
+        Keys.newKey("tree_harvest"),
+        Theme.themedItemStack(
+            Material.ACACIA_SAPLING,
+            CultivationThemes.RECIPE_TYPE,
+            "Tree Harvesting",
+            List.of(
+                "This item can be harvested from a",
+                "Cultivation Tree"
+            )
         )
     );
 
@@ -121,6 +138,71 @@ public final class RecipeTypes {
             List.of(
                 "Has a chance to drop when you gain air time",
                 "without dying."
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType CHOPPED = new RecipeType(
+        Keys.newKey("chopped"),
+        Theme.themedItemStack(
+            Material.BEETROOT_SEEDS,
+            CultivationThemes.RECIPE_TYPE,
+            "Chopped",
+            List.of(
+                "Simply chop with a knife!"
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType MASHED = new RecipeType(
+        Keys.newKey("mashed"),
+        Theme.themedItemStack(
+            Material.FROGSPAWN,
+            CultivationThemes.RECIPE_TYPE,
+            "Mashed",
+            List.of(
+                "Mash Mash Mash"
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType BLENDED = new RecipeType(
+        Keys.newKey("blended"),
+        Theme.themedItemStack(
+            Material.WATER_BUCKET,
+            CultivationThemes.RECIPE_TYPE,
+            "Blended",
+            List.of(
+                "Is made by putting an item in the blender."
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType SLICED = new RecipeType(
+        Keys.newKey("sliced"),
+        Theme.themedItemStack(
+            Material.DIAMOND_SWORD,
+            CultivationThemes.RECIPE_TYPE,
+            "Sliced",
+            List.of(
+                "So thin and delicate"
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType GROUND = new RecipeType(
+        Keys.newKey("ground"),
+        Theme.themedItemStack(
+            Material.BROWN_DYE,
+            CultivationThemes.RECIPE_TYPE,
+            "Ground",
+            List.of(
+                "To a fine degree"
             )
         )
     );

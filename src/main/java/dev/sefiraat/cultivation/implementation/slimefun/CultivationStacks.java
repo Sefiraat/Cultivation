@@ -1008,7 +1008,7 @@ public final class CultivationStacks {
     );
 
     public static final SlimefunItemStack HARVESTING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
-        "CLT_HARVESTING_TOOL",
+        "CLT_HARVESTING_TOOL_SIMPLE",
         Material.TRIPWIRE_HOOK,
         CultivationThemes.TOOL,
         "Simple Harvesting Tool",
@@ -1058,4 +1058,40 @@ public final class CultivationStacks {
     );
 
     // endregion
+
+    // region Produce
+
+    public static final SlimefunItemStack PRODUCE_BANANA = Theme.themedSlimefunItemStack(
+        "CLT_BANANA",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Banana",
+        "I like the look and peel of this!"
+    );
+
+    public static final SlimefunItemStack PRODUCE_ORANGE = Theme.themedSlimefunItemStack(
+        "CLT_ORANGE",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Orange",
+        "Isn't this meant to be clockwork?"
+    );
+
+    public static final SlimefunItemStack PRODUCE_GREEN_APPLE = Theme.themedSlimefunItemStack(
+        "CLT_GREEN_APPLE",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Green Apple",
+        "The note says... Dear Teacher?"
+    );
+
+    public static final SlimefunItemStack BACON_BERRY = Theme.themedSlimefunItemStack(
+        "CLT_GREEN_APPLE",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Green Apple",
+        "The note says... Dear Teacher?"
+    );
+
+    //
 }

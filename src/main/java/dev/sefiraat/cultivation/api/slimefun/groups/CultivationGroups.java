@@ -86,6 +86,22 @@ public final class CultivationGroups {
         )
     );
 
+    public static final DummyItemGroup PRODUCE = new DummyItemGroup(
+        Keys.newKey("produce"),
+        new CustomItemStack(
+            new ItemStack(Material.APPLE),
+            CultivationThemes.MAIN.color("Produce")
+        )
+    );
+
+    public static final DummyItemGroup BY_PRODUCTS = new DummyItemGroup(
+        Keys.newKey("by-products"),
+        new CustomItemStack(
+            new ItemStack(Material.BEETROOT_SEEDS),
+            CultivationThemes.MAIN.color("By-Products")
+        )
+    );
+
     public static final PlantCodexFlexGroup PLANT_CODEX = new PlantCodexFlexGroup(
         Keys.newKey("plant_codex"),
         new CustomItemStack(
@@ -111,6 +127,8 @@ public final class CultivationGroups {
         PLANTS.register(plugin);
         BUSHES.register(plugin);
         TREES.register(plugin);
+        PRODUCE.register(plugin);
+        BY_PRODUCTS.register(plugin);
 
         MAIN.addItemGroup(CRAFTING);
         MAIN.addItemGroup(TOOLS);
