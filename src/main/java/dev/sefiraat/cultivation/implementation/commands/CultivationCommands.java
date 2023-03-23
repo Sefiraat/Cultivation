@@ -6,6 +6,7 @@ import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Description;
 import co.aikar.commands.annotation.Subcommand;
+import dev.sefiraat.cultivation.implementation.utils.DisplayUtils;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.entity.display.builders.ItemDisplayBuilder;
 import dev.sefiraat.sefilib.string.Theme;
@@ -181,6 +182,24 @@ public class CultivationCommands extends BaseCommand {
             );
         } else {
             sender.sendMessage("NO!");
+        }
+    }
+
+    @Subcommand("test_spawn_3")
+    @CommandPermission("Cultivation.Admin")
+    @Description("Testing Only")
+    public void test_spawn_3(CommandSender sender) {
+        if (sender instanceof Player player) {
+            DisplayUtils.generateCrossedCropStickGroup(player.getLocation());
+        }
+    }
+
+    @Subcommand("test_spawn_4")
+    @CommandPermission("Cultivation.Admin")
+    @Description("Testing Only")
+    public void test_spawn_4(CommandSender sender) {
+        if (sender instanceof Player player) {
+            DisplayUtils.generateCropStickGroup(player.getLocation());
         }
     }
 

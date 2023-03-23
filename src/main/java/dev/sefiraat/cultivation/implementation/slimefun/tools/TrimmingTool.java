@@ -13,8 +13,9 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class TrimmingTool extends RefillableUseItem {
-    public TrimmingTool(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public TrimmingTool(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int maxUses) {
         super(group, item, recipeType, recipe);
+        setMaxUseCount(maxUses);
     }
     
     @NotNull

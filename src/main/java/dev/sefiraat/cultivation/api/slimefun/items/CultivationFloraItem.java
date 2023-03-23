@@ -9,6 +9,7 @@ import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
+import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.LevelType;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
 import dev.sefiraat.cultivation.implementation.listeners.CustomPlacementListener;
@@ -160,6 +161,9 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
 
     @ParametersAreNonnullByDefault
     void tryGrow(Block block, T flora, Config data, Location location, int growthStage) {
+        if (!canGrow(block, flora, data, location, growthStage)) {
+            return;
+        }
         double growthRandom = ThreadLocalRandom.current().nextDouble();
         if (growthRandom <= getGrowthRate() && getMaxGrowthStages() > growthStage) {
             CultivationGrowEvent event = callEvent(flora, location, growthStage);
@@ -176,6 +180,17 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
                 growthDisplay(location);
             }
         }
+    }
+
+    /**
+     * Override this method to control when or if this plant can grow.
+     *
+     * @return True if the {@link #tryGrow(Block, CultivationFloraItem, Config, Location, int)} method is allowed
+     * to function.
+     */
+    @ParametersAreNonnullByDefault
+    protected boolean canGrow(Block block, T flora, Config data, Location location, int growthStage) {
+        return true;
     }
 
     @Nonnull
@@ -213,7 +228,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     @Nonnull
     @Override
     public Theme getTheme() {
-        return growth.getStages().getTheme();
+        return growth.getTheme().getTheme();
     }
 
     @Nonnull
@@ -281,12 +296,21 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
         if (this.getItem().getItemMeta().hasLore()) {
             lore = this.getItem().getItemMeta().getLore().toArray(lore);
         }
+        PlantTheme theme = this.growth.getTheme();
+        // todo watch with bushes
+        if (theme == null) {
+            throw new IllegalStateException("The growth has no theme.");
+        }
         this.displayStack = new CustomItemStack(
-            this.growth.getFullyGrownPlant(),
+            this.growth.getTheme().getSeed().getPlayerHead(),
             this.getItemName(),
             lore
         );
         return (T) this;
+    }
+
+    public Growth getGrowth() {
+        return this.growth;
     }
 
     /**

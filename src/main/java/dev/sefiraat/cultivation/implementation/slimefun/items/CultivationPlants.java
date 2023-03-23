@@ -6,7 +6,7 @@ import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.NothingPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.CommonPlacements;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
-import dev.sefiraat.cultivation.api.slimefun.plant.GrowthStages;
+import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -24,7 +24,7 @@ public final class CultivationPlants {
             RecipeTypes.VANILLA_DROP,
             RecipeTypes.createBlockDropRecipe(CultivationStacks.COBBLESTONE_PLANT, new ItemStack(Material.DIRT), 0.05),
             new Growth(
-                GrowthStages.FUNGAL_CYAN,
+                PlantTheme.CYAN,
                 CommonPlacements.COMMON_OVERWORLD,
                 0.1
             )
@@ -36,7 +36,7 @@ public final class CultivationPlants {
             RecipeTypes.VANILLA_DROP,
             RecipeTypes.createBlockDropRecipe(CultivationStacks.DIRT_PLANT, new ItemStack(Material.DIRT), 0.05),
             new Growth(
-                GrowthStages.VINEY_PURPLE,
+                PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
                 0.1
             )
@@ -48,7 +48,7 @@ public final class CultivationPlants {
             RecipeTypes.VANILLA_DROP,
             RecipeTypes.createBlockDropRecipe(CultivationStacks.FURNACE_PLANT, new ItemStack(Material.FURNACE), 0.05),
             new Growth(
-                GrowthStages.SPIKEY_RED,
+                PlantTheme.RED,
                 Material.MAGMA_BLOCK,
                 0.1
             )
