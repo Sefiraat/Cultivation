@@ -14,7 +14,6 @@ import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
-import dev.sefiraat.cultivation.api.slimefun.plant.PlantSkin;
 import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.LevelType;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
@@ -102,7 +101,6 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
                 @ParametersAreNonnullByDefault
                 public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
                     onBreak(blockBreakEvent);
-                    // Todo
                 }
             }
         );

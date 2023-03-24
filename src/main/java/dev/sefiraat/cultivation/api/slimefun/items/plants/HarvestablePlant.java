@@ -9,6 +9,7 @@ import dev.sefiraat.cultivation.implementation.slimefun.tools.HarvestingTool;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import io.github.bakedlibs.dough.collections.RandomizedSet;
 import io.github.bakedlibs.dough.skins.PlayerHead;
+import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.papermc.lib.PaperLib;
@@ -16,10 +17,12 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Optional;
 
 /**
  * This plant can be harvested by right-clicking with a {@link HarvestingTool}
@@ -52,6 +55,20 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     }
 
     @Override
+    protected void onBlockUse(@NotNull PlayerRightClickEvent event) {
+        // shouldn't be possible, but just to be safe
+        Optional<Block> blockOptional = event.getClickedBlock();
+        if (blockOptional.isEmpty() || harvestItems.size() == 0) {
+            return;
+        }
+        Block block = blockOptional.get();
+        if (this.isMature(block)) {
+            updateGrowthStage(block, 1);
+            block.getWorld().dropItem(block.getLocation(), harvestItems.getRandom().clone());
+        }
+    }
+
+    @Override
     public void updateGrowthStage(@Nonnull Block block, int growthStage) {
         // todo Fuck numbers
         if (growthStage == 0) {
@@ -68,8 +85,7 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
             } else {
                 removeItems(block.getLocation());
             }
-            // todo Fuck string
-            block.setType(Material.FLOWER_POT);
+            block.setType(Material.AIR);
         } else if (growthStage == 2) {
             ItemStack itemStack = this.harvestItems.getRandom();
             if (itemStack != null) {

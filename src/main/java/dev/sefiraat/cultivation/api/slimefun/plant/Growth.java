@@ -1,7 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.plant;
 
 import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
