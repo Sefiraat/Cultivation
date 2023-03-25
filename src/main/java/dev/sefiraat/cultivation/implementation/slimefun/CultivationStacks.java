@@ -90,7 +90,7 @@ public final class CultivationStacks {
     // region Tools
     
     public static final SlimefunItemStack CROP_STICKS = Theme.themedSlimefunItemStack(
-        "CLT_CROP_STICK",
+        "CLT_CROP_STICKS",
         Material.STICK,
         CultivationThemes.TOOL,
         "Crop Stick",
