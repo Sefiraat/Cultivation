@@ -181,8 +181,11 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     ) {
         BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
 
-        if (!isMature(motherBlock) || !isMature(fatherBlock) || !isCrossCropped(motherBlock) || !isCrossCropped(
-            fatherBlock)) {
+        if (!isMature(motherBlock)
+            || !isMature(fatherBlock)
+            || !isCrossCropped(motherBlock)
+            || !isCrossCropped(fatherBlock)
+        ) {
             return;
         }
 

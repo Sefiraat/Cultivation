@@ -302,7 +302,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
             throw new IllegalStateException("The growth has no theme.");
         }
         this.displayStack = new CustomItemStack(
-            this.growth.getTheme().getSeed().getPlayerHead(),
+            theme.getSeed().getPlayerHead(),
             this.getItemName(),
             lore
         );

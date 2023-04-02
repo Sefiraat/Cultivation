@@ -28,8 +28,7 @@ public class InteractionListener implements Listener {
     public void onInteraction(@Nonnull PlayerInteractEntityEvent event) {
         if (event.getRightClicked().getType() == EntityType.INTERACTION) {
             Player player = event.getPlayer();
-            Location location = event.getRightClicked().getLocation();
-            Block block = location.getBlock();
+            Block block = event.getRightClicked().getLocation().getBlock();
             SlimefunItem item = BlockStorage.check(block);
 
             if (!(item instanceof CultivationPlant) || !Protections.hasPermission(player, block, Interaction.INTERACT_BLOCK)) {
@@ -58,8 +57,7 @@ public class InteractionListener implements Listener {
     @EventHandler
     public void onAttack(@Nonnull EntityDamageByEntityEvent event) {
         if (event.getDamager() instanceof Player player && event.getEntity().getType() == EntityType.INTERACTION) {
-            Location location = event.getEntity().getLocation();
-            Block block = location.getBlock();
+            Block block = event.getEntity().getLocation().getBlock();
             SlimefunItem slimefunItem = BlockStorage.check(block);
             if (slimefunItem instanceof CultivationPlant
                 && Protections.hasPermission(player, block, Interaction.BREAK_BLOCK)
