@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The purpose of this listener is to drop registered items when breaking the specified vanilla
- * block.
+ * block and/or bucketing up blocks.
  * Recipes should be registered using {@link RecipeTypes#createBlockDropRecipe(ItemStack, ItemStack, double)}
  * which returns an ItemStack array used for Slimefun's recipe
  * {@link RecipeTypes#VANILLA_DROP}

@@ -170,13 +170,12 @@ public final class RecipeTypes {
     }
 
     /**
-     * This method both registers the drop and returns an ItemStack array that can be used
-     * for Slimefun's recipe system. {@link RecipeTypes#VANILLA_DROP}
+     * Creates and registers the given recipe for Bucketing up blocks in the world. {@link RecipeTypes#BUCKETING}
      *
-     * @param stackToDrop The {@link ItemStack} to drop in the world
-     * @param dropFrom    The {@link ItemStack} to drop from (#getType() is used) and the stack is used in the recipe.
+     * @param stackToDrop The {@link ItemStack} to be dropped when bucketing
+     * @param dropFrom    The {@link Material} to drop from
      * @param dropChance  The chance (0-1) for the drop to occur
-     * @return A {@link ItemStack[]} used for Slimefun's Recipe registration with the dropFrom item in the middle.
+     * @return A {@link ItemStack[]} used for Slimefun's Recipe registration, blank.
      */
     @Nonnull
     public static ItemStack[] createBucketingRecipe(@Nonnull ItemStack stackToDrop,
@@ -187,13 +186,12 @@ public final class RecipeTypes {
     }
 
     /**
-     * This method both registers the drop and returns an ItemStack array that can be used
-     * for Slimefun's recipe system. {@link RecipeTypes#VANILLA_DROP}
+     * Creates and registers the given recipe for Bucketing up blocks in the world. {@link RecipeTypes#BUCKETING}
      *
-     * @param stackToDrop The {@link ItemStack} to drop in the world
-     * @param dropFrom    The {@link ItemStack}'s to drop from (#getType() for the first is used) and the stack is used in the recipe.
+     * @param stackToDrop The {@link ItemStack} to be dropped when bucketing
+     * @param dropFrom    The set of {@link Material} to drop from
      * @param dropChance  The chance (0-1) for the drop to occur
-     * @return A {@link ItemStack[]} used for Slimefun's Recipe registration with the dropFrom item in the middle.
+     * @return A {@link ItemStack[]} used for Slimefun's Recipe registration, blank.
      */
     @Nonnull
     public static ItemStack[] createBucketingRecipe(@Nonnull ItemStack stackToDrop,
