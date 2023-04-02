@@ -4,6 +4,9 @@ import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.implementation.listeners.BlockDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.CustomPlacementListener;
+import dev.sefiraat.cultivation.implementation.listeners.InteractionListener;
+import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
+import dev.sefiraat.cultivation.implementation.listeners.PlayerDeathListener;
 import org.bukkit.event.Listener;
 
 import javax.annotation.Nonnull;
@@ -20,6 +23,9 @@ public class ListenerManager {
         instance = this;
         addListener(new BlockDropListener());
         addListener(new CustomPlacementListener());
+        addListener(new PlayerDeathListener());
+        addListener(new MobDropListener());
+        addListener(new InteractionListener());
     }
 
     private void addListener(@Nonnull Listener listener) {

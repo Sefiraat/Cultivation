@@ -3,8 +3,10 @@ package dev.sefiraat.cultivation.api.slimefun.items.plants;
 import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
+import dev.sefiraat.cultivation.api.interfaces.CultivationCroppable;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.interfaces.CultivationLevelProfileHolder;
+import dev.sefiraat.cultivation.api.interfaces.CultivationPlantHolder;
 import dev.sefiraat.cultivation.api.interfaces.CustomPlacementBlock;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
@@ -12,12 +14,10 @@ import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
-import dev.sefiraat.cultivation.api.slimefun.plant.GrowthStages;
-import dev.sefiraat.cultivation.api.slimefun.plant.PlantSkin;
+import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.LevelType;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
-import dev.sefiraat.sefilib.block.BlockUtils;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.world.LocationUtils;
 import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
@@ -27,6 +27,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.papermc.lib.PaperLib;
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Color;
 import org.bukkit.Location;
@@ -53,7 +54,8 @@ import java.util.concurrent.ThreadLocalRandom;
  * This class is used to define a CultivationPlant that will grow as a {@link CultivationFlora}
  */
 public abstract class CultivationPlant extends CultivationFloraItem<CultivationPlant>
-    implements CultivationFlora, CustomPlacementBlock, CultivationLevelProfileHolder {
+    implements CultivationFlora, CustomPlacementBlock, CultivationLevelProfileHolder, CultivationCroppable,
+               CultivationPlantHolder {
 
     @Nonnull
     public static final Set<BlockFace> BREEDING_DIRECTIONS = Set.of(
@@ -89,19 +91,18 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     ) {
         super(CultivationGroups.PLANTS, item, recipeType, recipe, recipeOutput, growth);
     }
-    
+
     @Override
     public void preRegister() {
         super.preRegister();
         addItemHandler(
-                new BlockBreakHandler(false, false) {
-                    @Override
-                    @ParametersAreNonnullByDefault
-                    public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
-                        onBreak(blockBreakEvent);
-                        // Todo
-                    }
+            new BlockBreakHandler(false, false) {
+                @Override
+                @ParametersAreNonnullByDefault
+                public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
+                    onBreak(blockBreakEvent);
                 }
+            }
         );
     }
 
@@ -127,6 +128,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             }
         }
     }
+
     @Override
     public void whenPlaced(@NotNull BlockPlaceEvent event) {
         super.whenPlaced(event);
@@ -142,13 +144,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             new FloraLevelProfile(1, 1, 1)
         );
 
-        applyProfile(location, profile.getLevel(), profile.getSpeed(), profile.getStrength());
-    }
-
-    private void applyProfile(@Nonnull Location location, int level, int speed, int strength) {
-        BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_LEVEL, String.valueOf(level));
-        BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_SPEED, String.valueOf(speed));
-        BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_STRENGTH, String.valueOf(strength));
+        setLevelProfile(location, profile);
     }
 
     @OverridingMethodsMustInvokeSuper
@@ -164,40 +160,16 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             getLevelProfile(location)
         );
         itemToDrop.setItemMeta(itemMeta);
+        removeCropped(location);
+        removePlant(location);
         location.getWorld().dropItem(location.clone().add(0.5, 0.5, 0.5), itemToDrop);
         event.setDropItems(false);
     }
 
     @Override
-    public void updateGrowthStage(@Nonnull Block block, int growthStage) {
-        if (BlockUtils.isSkullBlock(block)) {
-            PlantSkin nextTexture = getGrowthStages().get(growthStage - 1);
-            PlayerHead.setSkin(block, nextTexture.getPlayerSkin(), false);
-            PaperLib.getBlockState(block, false).getState().update(true, false);
-            BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));
-            growthDisplay(block.getLocation());
-        }
-    }
-
-    @Override
-    public int getMaxGrowthStages() {
-        if (growth.getStages() == null) {
-            return 0;
-        }
-        return growth.getStages().stages();
-    }
-
-    /**
-     * Defines the possible growth stages for this plant.
-     *
-     * @return The list of {@link GrowthStages} of valid growth stages (including the Seed)
-     */
-    @Nonnull
-    public GrowthStages getGrowthStages() {
-        if (growth.getStages() == null) {
-            return GrowthStages.FUNGAL_BLUE;
-        }
-        return growth.getStages();
+    @ParametersAreNonnullByDefault
+    protected boolean canGrow(Block block, CultivationPlant flora, Config data, Location location, int growthStage) {
+        return isCropped(data);
     }
 
     @ParametersAreNonnullByDefault
@@ -209,7 +181,11 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     ) {
         BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
 
-        if (!isMature(motherBlock) || !isMature(fatherBlock)) {
+        if (!isMature(motherBlock)
+            || !isMature(fatherBlock)
+            || !isCrossCropped(motherBlock)
+            || !isCrossCropped(fatherBlock)
+        ) {
             return;
         }
 
@@ -250,8 +226,14 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
 
     @ParametersAreNonnullByDefault
     private void trySetChildSeed(Location motherLocation, Block cloneBlock, CultivationPlant childSeed) {
+        PlantTheme theme = childSeed.growth.getTheme();
+
+        if (theme == null) {
+            return;
+        }
+
         cloneBlock.setType(Material.PLAYER_HEAD);
-        PlayerHead.setSkin(cloneBlock, childSeed.getGrowthStages().get(0).getPlayerSkin(), false);
+        PlayerHead.setSkin(cloneBlock, theme.getSeed().getPlayerSkin(), false);
         PaperLib.getBlockState(cloneBlock, false).getState().update(true, false);
         BlockStorage.store(cloneBlock, childSeed.getId());
         BlockStorage.addBlockInfo(cloneBlock, Keys.FLORA_GROWTH_STAGE, "0");
@@ -262,7 +244,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     @ParametersAreNonnullByDefault
     private void tryMutate(Block cloneBlock, FloraLevelProfile motherProfile, FloraLevelProfile fatherProfile) {
         FloraLevelProfile profile = FloraLevelProfile.testMutation(motherProfile, fatherProfile);
-        applyProfile(cloneBlock.getLocation(), profile.getLevel(), profile.getSpeed(), profile.getStrength());
+        setLevelProfile(cloneBlock.getLocation(), profile.getLevel(), profile.getSpeed(), profile.getStrength());
     }
 
     protected void breedSuccess(@Nonnull Location location) {
@@ -296,12 +278,8 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         return this.breedingPairs;
     }
 
-    @Nonnull
     @Override
-    public FloraLevelProfile getLevelProfile(@Nonnull Location location) {
-        int level = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL));
-        int speed = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED));
-        int strength = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH));
-        return new FloraLevelProfile(level, speed, strength);
+    public int getMaxGrowthStages() {
+        return 2;
     }
 }

@@ -89,6 +89,18 @@ public final class CultivationStacks {
 
     // region Tools
     
+    public static final SlimefunItemStack CROP_STICKS = Theme.themedSlimefunItemStack(
+        "CLT_CROP_STICKS",
+        Material.STICK,
+        CultivationThemes.TOOL,
+        "Crop Sticks",
+        "Crop sticks must be applied to a",
+        "placed seed in order for it to grow.",
+        "Placing a second set will cross-crop",
+        "the plant allowing it to spread and/or",
+        "breed."
+    );
+
     public static final SlimefunItemStack HARVESTING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
         "CLT_HARVESTING_TOOL",
         Material.TRIPWIRE_HOOK,
