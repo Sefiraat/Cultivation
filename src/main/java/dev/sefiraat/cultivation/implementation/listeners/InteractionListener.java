@@ -57,7 +57,7 @@ public class InteractionListener implements Listener {
     @EventHandler
     public void onAttack(@Nonnull EntityDamageByEntityEvent event) {
         if (event.getDamager() instanceof Player player 
-        	&& event.getEntity().getType() == EntityType.INTERACTION
+            && event.getEntity().getType() == EntityType.INTERACTION
         ) {
             Block block = event.getEntity().getLocation().getBlock();
             SlimefunItem slimefunItem = BlockStorage.check(block);
