@@ -90,10 +90,10 @@ public final class CultivationStacks {
     // region Tools
     
     public static final SlimefunItemStack CROP_STICKS = Theme.themedSlimefunItemStack(
-        "CLT_CROP_STICK",
+        "CLT_CROP_STICKS",
         Material.STICK,
         CultivationThemes.TOOL,
-        "Crop Stick",
+        "Crop Sticks",
         "Crop sticks must be applied to a",
         "placed seed in order for it to grow.",
         "Placing a second set will cross-crop",
