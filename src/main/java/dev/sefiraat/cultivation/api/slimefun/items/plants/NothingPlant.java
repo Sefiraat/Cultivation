@@ -37,8 +37,7 @@ public class NothingPlant extends CultivationPlant {
         if (growthStage == 0) {
             PlantTheme theme = growth.getTheme();
             if (theme != null) {
-                PlantSkin nextTexture = theme.getSeed();
-                PlayerHead.setSkin(block, nextTexture.getPlayerSkin(), false);
+                PlayerHead.setSkin(block, theme.getSeed().getPlayerSkin(), false);
                 PaperLib.getBlockState(block, false).getState().update(true, false);
                 BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));
                 growthDisplay(block.getLocation());

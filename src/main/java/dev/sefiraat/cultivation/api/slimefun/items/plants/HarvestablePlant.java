@@ -74,8 +74,7 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
         if (growthStage == 0) {
             PlantTheme theme = growth.getTheme();
             if (theme != null) {
-                PlantSkin nextTexture = theme.getSeed();
-                PlayerHead.setSkin(block, nextTexture.getPlayerSkin(), false);
+                PlayerHead.setSkin(block, theme.getSeed().getPlayerSkin(), false);
                 PaperLib.getBlockState(block, false).getState().update(true, false);
                 growthDisplay(block.getLocation());
             }
