@@ -27,15 +27,16 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     public HarvestableBush(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Growth growth) {
         super(item, recipeType, recipe, growth);
     }
-    
+
+    @Override
     protected void onBlockUse(PlayerRightClickEvent playerRightClickEvent) {
         playerRightClickEvent.cancel();
-    
+
         final Block block = playerRightClickEvent.getClickedBlock().orElse(null);
         if (block == null || !this.isMature(block) || harvestItems.size() == 0) {
             return;
         }
-    
+
         this.updateGrowthStage(block, 1);
         block.getWorld().dropItem(block.getLocation(), harvestItems.getRandom().clone());
     }
@@ -55,10 +56,11 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     public RandomizedSet<ItemStack> getHarvestingResults() {
         return this.harvestItems;
     }
+
     @Override
     public void updateGrowthStage(@NotNull Block block, int growthStage) {
         super.updateGrowthStage(block, growthStage);
-        
+
         // TODO: add display entities
     }
 

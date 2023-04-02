@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.api.slimefun;
 
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
-import dev.sefiraat.cultivation.implementation.listeners.BlockDropListener;
+import dev.sefiraat.cultivation.implementation.listeners.CustomDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
 import dev.sefiraat.cultivation.implementation.tasks.AirTimeTask;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
@@ -101,6 +101,17 @@ public final class RecipeTypes {
     );
 
     @Nonnull
+    public static final RecipeType BUCKETING = new RecipeType(
+        Keys.newKey("bucketing"),
+        Theme.themedItemStack(
+            Material.BUCKET,
+            CultivationThemes.RECIPE_TYPE,
+            "World Drop",
+            List.of("Drops from the world when using a bucket.")
+        )
+    );
+
+    @Nonnull
     public static final RecipeType AIR_TIME = new RecipeType(
         Keys.newKey("air_time"),
         Theme.themedItemStack(
@@ -150,10 +161,47 @@ public final class RecipeTypes {
             .map(material1 -> Theme.CLICK_INFO.apply(WordUtils.capitalize(material1.name().toLowerCase(Locale.ROOT))))
             .toList();
         ItemStack itemStack = Theme.themedItemStack(material, CultivationThemes.RECIPE_TYPE, "Drops From", lore);
-        BlockDropListener.addDrop(new BlockDropListener.BlockDrop(stackToDrop, dropFrom, dropChance));
+        CustomDropListener.addBlockDrop(new CustomDropListener.BlockDrop(stackToDrop, dropFrom, dropChance));
         return new ItemStack[]{
             null, null, null,
             null, itemStack, null,
+            null, null, null
+        };
+    }
+
+    /**
+     * Creates and registers the given recipe for Bucketing up blocks in the world. {@link RecipeTypes#BUCKETING}
+     *
+     * @param stackToDrop The {@link ItemStack} to be dropped when bucketing
+     * @param dropFrom    The {@link Material} to drop from
+     * @param dropChance  The chance (0-1) for the drop to occur
+     * @return A {@link ItemStack[]} used for Slimefun's Recipe registration, blank.
+     */
+    @Nonnull
+    public static ItemStack[] createBucketingRecipe(@Nonnull ItemStack stackToDrop,
+                                                    @Nonnull Material dropFrom,
+                                                    double dropChance
+    ) {
+        return createBucketingRecipe(stackToDrop, Set.of(dropFrom), dropChance);
+    }
+
+    /**
+     * Creates and registers the given recipe for Bucketing up blocks in the world. {@link RecipeTypes#BUCKETING}
+     *
+     * @param stackToDrop The {@link ItemStack} to be dropped when bucketing
+     * @param dropFrom    The set of {@link Material} to drop from
+     * @param dropChance  The chance (0-1) for the drop to occur
+     * @return A {@link ItemStack[]} used for Slimefun's Recipe registration, blank.
+     */
+    @Nonnull
+    public static ItemStack[] createBucketingRecipe(@Nonnull ItemStack stackToDrop,
+                                                    @Nonnull Set<Material> dropFrom,
+                                                    double dropChance
+    ) {
+        CustomDropListener.addBucketingDrop(new CustomDropListener.BlockDrop(stackToDrop, dropFrom, dropChance));
+        return new ItemStack[]{
+            null, null, null,
+            null, null, null,
             null, null, null
         };
     }

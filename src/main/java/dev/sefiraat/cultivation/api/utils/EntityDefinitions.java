@@ -21,6 +21,7 @@ public final class EntityDefinitions {
     private static Set<LivingEntityDefinition> passiveMobs;
     private static Set<LivingEntityDefinition> hostileMobs;
     private static Set<LivingEntityDefinition> bossMobs;
+    private static Set<LivingEntityDefinition> flyingMobs;
 
     static {
         Server server = Cultivation.getInstance().getServer();
@@ -54,6 +55,16 @@ public final class EntityDefinitions {
             bossMobs = new HashSet<>();
             server.getLogger().severe(e.getMessage());
         }
+
+        try {
+            flyingMobs = LivingEntitySelector.start()
+                .includeCategories(LivingEntityCategory.FLYING)
+                .setVersion(MinecraftVersion.of(Cultivation.getInstance().getServer()))
+                .process(LivingEntitySelector.MatchType.MATCH_ALL);
+        } catch (UnknownServerVersionException e) {
+            flyingMobs = new HashSet<>();
+            server.getLogger().severe(e.getMessage());
+        }
     }
 
     public static Set<LivingEntityDefinition> getPassiveMobs() {
@@ -66,5 +77,9 @@ public final class EntityDefinitions {
 
     public static Set<LivingEntityDefinition> getBossMobs() {
         return Collections.unmodifiableSet(bossMobs);
+    }
+
+    public static Set<LivingEntityDefinition> getFlyingMobs() {
+        return flyingMobs;
     }
 }

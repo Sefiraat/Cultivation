@@ -13,11 +13,16 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class TrimmingTool extends RefillableUseItem {
-    public TrimmingTool(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int maxUses) {
+    public TrimmingTool(ItemGroup group,
+                        SlimefunItemStack item,
+                        RecipeType recipeType,
+                        ItemStack[] recipe,
+                        int maxUses
+    ) {
         super(group, item, recipeType, recipe);
         setMaxUseCount(maxUses);
     }
-    
+
     @NotNull
     @Override
     public ItemUseHandler getItemHandler() {
@@ -26,16 +31,16 @@ public class TrimmingTool extends RefillableUseItem {
                 // No block preset
                 return;
             }
-    
+
             Block block = playerRightClickEvent.getClickedBlock().get();
             SlimefunItem item = BlockStorage.check(block);
-    
+
             if (item instanceof CultivationBush trimmable && trimmable.isMature(block)) {
                 ItemStack trimmingResult = trimmable.getTrimmingResult();
                 trimmable.updateGrowthStage(block, 1);
                 block.getWorld().dropItem(block.getLocation(), trimmingResult.clone());
             }
-    
+
             damageItem(playerRightClickEvent.getPlayer(), playerRightClickEvent.getItem());
         };
     }
