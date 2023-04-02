@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
  * it as well as if it is trimmable
  */
 public interface CultivationTrimmable {
-    
+
     /**
      * Defines the {@link ItemStack} that will/can drop when trimmed. Defaults to null.
      *

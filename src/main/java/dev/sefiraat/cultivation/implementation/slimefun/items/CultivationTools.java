@@ -40,17 +40,17 @@ public final class CultivationTools {
             },
             50
         ).register(addon);
-        
+
         new TrimmingTool(
-                CultivationGroups.TOOLS,
-                CultivationStacks.TRIMMING_TOOL_SIMPLE,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        null, CultivationStacks.MYSTICAL_LOG, new ItemStack(Material.IRON_INGOT),
-                        CultivationStacks.MYSTICAL_LOG, null, null,
-                        null, CultivationStacks.MYSTICAL_LOG, new ItemStack(Material.IRON_INGOT)
-                },
-                50
+            CultivationGroups.TOOLS,
+            CultivationStacks.TRIMMING_TOOL_SIMPLE,
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            new ItemStack[]{
+                null, CultivationStacks.MYSTICAL_LOG, new ItemStack(Material.IRON_INGOT),
+                CultivationStacks.MYSTICAL_LOG, null, null,
+                null, CultivationStacks.MYSTICAL_LOG, new ItemStack(Material.IRON_INGOT)
+            },
+            50
         ).register(addon);
     }
 }

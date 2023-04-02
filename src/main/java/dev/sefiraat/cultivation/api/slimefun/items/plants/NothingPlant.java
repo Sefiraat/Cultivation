@@ -1,7 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.items.plants;
 
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
-import dev.sefiraat.cultivation.api.slimefun.plant.PlantSkin;
 import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import io.github.bakedlibs.dough.skins.PlayerHead;

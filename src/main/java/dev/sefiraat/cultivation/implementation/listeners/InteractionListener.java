@@ -6,7 +6,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.EntityType;
@@ -31,7 +30,11 @@ public class InteractionListener implements Listener {
             Block block = event.getRightClicked().getLocation().getBlock();
             SlimefunItem item = BlockStorage.check(block);
 
-            if (!(item instanceof CultivationPlant) || !Protections.hasPermission(player, block, Interaction.INTERACT_BLOCK)) {
+            if (!(item instanceof CultivationPlant) || !Protections.hasPermission(
+                player,
+                block,
+                Interaction.INTERACT_BLOCK
+            )) {
                 return;
             }
 
@@ -56,7 +59,7 @@ public class InteractionListener implements Listener {
 
     @EventHandler
     public void onAttack(@Nonnull EntityDamageByEntityEvent event) {
-        if (event.getDamager() instanceof Player player 
+        if (event.getDamager() instanceof Player player
             && event.getEntity().getType() == EntityType.INTERACTION
         ) {
             Block block = event.getEntity().getLocation().getBlock();
@@ -72,8 +75,6 @@ public class InteractionListener implements Listener {
             }
         }
     }
-
-
 
 
 }

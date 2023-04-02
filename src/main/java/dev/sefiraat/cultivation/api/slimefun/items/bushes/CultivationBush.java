@@ -27,9 +27,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 public abstract class CultivationBush extends CultivationFloraItem<CultivationBush>
     implements CultivationFlora, CultivationTrimmable, CustomPlacementBlock {
-    
+
     private final ItemStack trimmingResult;
-    
+
     @ParametersAreNonnullByDefault
     protected CultivationBush(SlimefunItemStack item, Growth growth) {
         this(item, RecipeTypes.BUSH_TRIMMING, new ItemStack[0], growth);
@@ -52,7 +52,7 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
                               @Nullable ItemStack recipeOutput
     ) {
         super(CultivationGroups.BUSHES, item, recipeType, recipe, recipeOutput, growth);
-        
+
         this.trimmingResult = item;
     }
 
@@ -60,18 +60,19 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
     public int getMaxGrowthStages() {
         return 4;
     }
+
     @Override
     public void updateGrowthStage(@NotNull Location location, int growthStage) {
         updateGrowthStage(location.getBlock(), growthStage);
     }
-    
+
     @Override
     public void updateGrowthStage(@NotNull Block block, int growthStage) {
         if (block.getType() == Material.SWEET_BERRY_BUSH && block.getBlockData() instanceof Levelled blockData) {
             blockData.setLevel(growthStage);
         }
     }
-    
+
     @Override
     @Nullable
     public ItemStack getTrimmingResult() {

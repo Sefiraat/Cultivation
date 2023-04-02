@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -23,10 +24,12 @@ import java.util.concurrent.ThreadLocalRandom;
  * which returns an ItemStack array used for Slimefun's recipe
  * {@link RecipeTypes#VANILLA_DROP}
  */
-public class BlockDropListener implements Listener {
+public class CustomDropListener implements Listener {
 
     @Nonnull
-    private static final Set<BlockDrop> DROPS = new HashSet<>();
+    private static final Set<BlockDrop> BLOCK_DROPS = new HashSet<>();
+    @Nonnull
+    private static final Set<BlockDrop> BUCKETING_DROPS = new HashSet<>();
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onBlockBreak(@Nonnull BlockBreakEvent event) {
@@ -34,7 +37,20 @@ public class BlockDropListener implements Listener {
             // Don't want to fire on SF Blocks
             return;
         }
-        for (BlockDrop drop : DROPS) {
+        for (BlockDrop drop : BLOCK_DROPS) {
+            if (drop.dropsFrom(event.getBlock().getType())) {
+                drop.rollDrop(event);
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
+    public void onBucketFill(@Nonnull PlayerBucketFillEvent event) {
+        if (BlockStorage.hasBlockInfo(event.getBlock())) {
+            // Don't want to fire on SF Blocks
+            return;
+        }
+        for (BlockDrop drop : BUCKETING_DROPS) {
             if (drop.dropsFrom(event.getBlock().getType())) {
                 drop.rollDrop(event);
             }
@@ -42,12 +58,21 @@ public class BlockDropListener implements Listener {
     }
 
     @Nonnull
-    public static Set<BlockDrop> getDrops() {
-        return DROPS;
+    public static Set<BlockDrop> getBlockDrops() {
+        return BLOCK_DROPS;
     }
 
-    public static void addDrop(@Nonnull BlockDrop drop) {
-        DROPS.add(drop);
+    @Nonnull
+    public static Set<BlockDrop> getBucketingDrops() {
+        return BUCKETING_DROPS;
+    }
+
+    public static void addBlockDrop(@Nonnull BlockDrop drop) {
+        BLOCK_DROPS.add(drop);
+    }
+
+    public static void addBucketingDrop(@Nonnull BlockDrop drop) {
+        BUCKETING_DROPS.add(drop);
     }
 
     /**
@@ -92,6 +117,15 @@ public class BlockDropListener implements Listener {
             if (roll <= this.dropChance) {
                 final ItemStack drop = stackToDrop.clone();
                 final Location location = LocationUtils.centre(event.getBlock().getLocation());
+                location.getWorld().dropItem(location, drop);
+            }
+        }
+
+        public void rollDrop(@Nonnull PlayerBucketFillEvent event) {
+            final double roll = ThreadLocalRandom.current().nextDouble();
+            if (roll <= this.dropChance) {
+                final ItemStack drop = stackToDrop.clone();
+                final Location location = LocationUtils.centre(event.getPlayer().getLocation());
                 location.getWorld().dropItem(location, drop);
             }
         }

@@ -37,37 +37,71 @@ public final class CultivationStacks {
 
     // region Plants
 
-    public static final SlimefunItemStack COBBLESTONE_PLANT = Theme.themedSlimefunItemStack(
-        "CLT_STONE_PLANT",
-        PlantSkin.SEED_CYAN.getPlayerHead(),
-        CultivationThemes.PLANT,
-        "Cultivation Plant: Cobblestone",
-        List.of(
-            "A plant that sits in stoney silence",
-            "awaiting anything nearby to peak",
-            "it's interest."
-        )
-    );
-
-    public static final SlimefunItemStack DIRT_PLANT = Theme.themedSlimefunItemStack(
-        "CLT_DIRT_PLANT",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
-        CultivationThemes.PLANT,
-        "Cultivation Plant: Dirt",
-        List.of(
-            "A plant that holds the burgeoning power",
-            "of nature itself."
-        )
-    );
-
-    public static final SlimefunItemStack FURNACE_PLANT = Theme.themedSlimefunItemStack(
-        "CLT_FURNACE_PLANT",
+    public static final SlimefunItemStack PLANT_DARKNESS = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_DARKNESS",
         PlantSkin.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Furnace",
+        "Cultivation Plant: Darkness",
         List.of(
-            "A plant that somehow grew from",
-            "inside of a furnace?"
+            "A plant that seethes in unbridled",
+            "rage."
+        )
+    );
+
+    public static final SlimefunItemStack PLANT_LIGHT = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_LIGHT",
+        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Light",
+        List.of(
+            "A plant that exudes an aura",
+            "of pure love."
+        )
+    );
+
+    public static final SlimefunItemStack PLANT_EARTH = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_EARTH",
+        PlantSkin.SEED_GREEN.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Earth",
+        List.of(
+            "A plant that enriches the world",
+            "surrounding it."
+        )
+    );
+
+    public static final SlimefunItemStack PLANT_WATER = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_WATER",
+        PlantSkin.SEED_BLUE.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Water",
+        List.of(
+            "A plant that nurtures and provides",
+            "life to the surrounding area."
+        )
+    );
+
+    public static final SlimefunItemStack PLANT_FIRE = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_FIRE",
+        PlantSkin.SEED_RED.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Fire",
+        List.of(
+            "A plant that both provides the",
+            "sources of destruction as well as",
+            "rebirth."
+        )
+    );
+
+
+    public static final SlimefunItemStack PLANT_AIR = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_AIR",
+        PlantSkin.SEED_CYAN.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Air",
+        List.of(
+            "A plant that quietly hums with",
+            "the melody of the surrounding nature."
         )
     );
 
@@ -75,20 +109,11 @@ public final class CultivationStacks {
 
     // region Bushes
 
-    public static final SlimefunItemStack BERRY_BUSH = Theme.themedSlimefunItemStack(
-        "CLT_BERRY_BUSH",
-        Material.SWEET_BERRY_BUSH,
-        CultivationThemes.PLANT,
-        "Cultivation Plant: Stone",
-        "A plant that sits in stoney silence",
-        "awaiting anything nearby to peak",
-        "it's interest"
-    );
 
     // endregion
 
     // region Tools
-    
+
     public static final SlimefunItemStack CROP_STICKS = Theme.themedSlimefunItemStack(
         "CLT_CROP_STICKS",
         Material.STICK,
@@ -114,18 +139,18 @@ public final class CultivationStacks {
         "",
         LoreBuilder.usesLeft(50)
     );
-    
+
     public static final SlimefunItemStack TRIMMING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
-            "CLT_TRIMMING_TOOL_SIMPLE",
-            Material.SHEARS,
-            CultivationThemes.TOOL,
-            "Simple Trimming Tool",
-            "A very basic tool that allows",
-            "the user to trim Cultivation Bushes.",
-            "",
-            Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Takes a trimming of a fully grown Cultivation Bush"),
-            "",
-            LoreBuilder.usesLeft(50)
+        "CLT_TRIMMING_TOOL_SIMPLE",
+        Material.SHEARS,
+        CultivationThemes.TOOL,
+        "Simple Trimming Tool",
+        "A very basic tool that allows",
+        "the user to trim Cultivation Bushes.",
+        "",
+        Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Takes a trimming of a fully grown Cultivation Bush"),
+        "",
+        LoreBuilder.usesLeft(50)
     );
 
     // endregion
