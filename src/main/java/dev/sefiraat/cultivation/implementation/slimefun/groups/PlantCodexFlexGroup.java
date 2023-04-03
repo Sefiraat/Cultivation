@@ -64,7 +64,9 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
     };
 
     private static final int GROWTH_RATE_SLOT = 37;
-    private static final int[] HELD_SLOTS = new int[]{38, 39, 40, 41, 42, 43};
+    private static final int[] HELD_SLOTS = new int[]{
+        38, 39, 40, 41, 42, 43
+    };
 
     private static final ItemStack MOTHER_INFO = new CustomItemStack(
         Material.LIGHT_BLUE_STAINED_GLASS_PANE,
