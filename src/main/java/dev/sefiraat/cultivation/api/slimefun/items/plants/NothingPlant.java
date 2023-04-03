@@ -43,9 +43,9 @@ public class NothingPlant extends CultivationPlant {
             }
         } else if (growthStage == 1) {
             addDisplayPlant(block.getLocation());
-            // todo Fuck string
-            block.setType(Material.REDSTONE);
+            block.setType(Material.AIR);
         }
+        BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));
     }
 
     @Override

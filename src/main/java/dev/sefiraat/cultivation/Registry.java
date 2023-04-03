@@ -18,7 +18,7 @@ public class Registry {
     @Nonnull
     private final List<CultivationFlora> registeredFlora = new ArrayList<>();
     @Nonnull
-    private final List<BreedingPair> breedingPairs = new ArrayList<>();
+    private final List<BreedingPair> plantBreedingPairs = new ArrayList<>();
 
     public Registry() {
         Preconditions.checkArgument(instance == null, "Cannot create a new instance of the Registry");
@@ -29,14 +29,14 @@ public class Registry {
         // todo Split into different types of flora into other dicts
         this.registeredFlora.add(cultivationFlora);
         if (cultivationFlora instanceof CultivationPlant plant) {
-            this.breedingPairs.addAll(plant.getBreedingPairs());
+            this.plantBreedingPairs.addAll(plant.getBreedingPairs());
         }
     }
 
     @Nonnull
     public BreedResult getBreedResult(@Nonnull String seed1, @Nonnull String seed2) {
         int matches = 0;
-        for (BreedingPair pair : breedingPairs) {
+        for (BreedingPair pair : plantBreedingPairs) {
             BreedResultType result = pair.testBreed(seed1, seed2);
             if (result != BreedResultType.NOT_PAIR) {
                 if (result != BreedResultType.FAIL) {
@@ -48,12 +48,12 @@ public class Registry {
         }
         if (matches == 0) {
             if (seed1.equals(seed2)) {
-                return new BreedResult(breedingPairs.get(0), BreedResultType.SPREAD_MUTATE);
+                return new BreedResult(plantBreedingPairs.get(0), BreedResultType.SPREAD_MUTATE);
             } else {
-                return new BreedResult(breedingPairs.get(0), BreedResultType.NO_PAIRS);
+                return new BreedResult(plantBreedingPairs.get(0), BreedResultType.NO_PAIRS);
             }
         } else {
-            return new BreedResult(breedingPairs.get(0), BreedResultType.FAIL);
+            return new BreedResult(plantBreedingPairs.get(0), BreedResultType.FAIL);
         }
     }
 
@@ -63,8 +63,8 @@ public class Registry {
     }
 
     @Nonnull
-    public List<BreedingPair> getBreedingPairs() {
-        return Collections.unmodifiableList(breedingPairs);
+    public List<BreedingPair> getPlantBreedingPairs() {
+        return Collections.unmodifiableList(plantBreedingPairs);
     }
 
     public static Registry getInstance() {

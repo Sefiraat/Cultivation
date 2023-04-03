@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation.api.slimefun.groups;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
+import dev.sefiraat.cultivation.implementation.slimefun.groups.PlantCodexFlexGroup;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.slimefun.itemgroup.DummyItemGroup;
 import dev.sefiraat.sefilib.slimefun.itemgroup.SimpleFlexGroup;
@@ -68,6 +69,14 @@ public final class CultivationGroups {
         )
     );
 
+    public static final PlantCodexFlexGroup PLANT_CODEX = new PlantCodexFlexGroup(
+        Keys.newKey("plant_codex"),
+        new CustomItemStack(
+            new ItemStack(Material.BEETROOT_SEEDS),
+            CultivationThemes.MAIN.color("Plants Codex")
+        )
+    );
+
     static {
         Cultivation plugin = Cultivation.getInstance();
 
@@ -83,5 +92,14 @@ public final class CultivationGroups {
         PLANTS.register(plugin);
         BUSHES.register(plugin);
         TREES.register(plugin);
+
+        PLANT_CODEX.register(plugin);
+
+        MAIN.addItemGroup(CRAFTING);
+        MAIN.addItemGroup(TOOLS);
+        MAIN.addItemGroup(PLANTS);
+        MAIN.addItemGroup(BUSHES);
+        MAIN.addItemGroup(TREES);
+        MAIN.addItemGroup(PLANT_CODEX);
     }
 }

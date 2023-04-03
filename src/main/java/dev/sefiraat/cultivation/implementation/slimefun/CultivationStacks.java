@@ -93,7 +93,6 @@ public final class CultivationStacks {
         )
     );
 
-
     public static final SlimefunItemStack PLANT_AIR = Theme.themedSlimefunItemStack(
         "CLT_PLANT_AIR",
         PlantSkin.SEED_CYAN.getPlayerHead(),
@@ -102,6 +101,17 @@ public final class CultivationStacks {
         List.of(
             "A plant that quietly hums with",
             "the melody of the surrounding nature."
+        )
+    );
+
+    public static final SlimefunItemStack PLANT_DIRT = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_DIRT",
+        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Dirt",
+        List.of(
+            "Dirty on the surface but holding the",
+            "building blocks for life itself."
         )
     );
 

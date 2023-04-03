@@ -7,6 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNullableByDefault;
 
 public interface CultivationLevelProfileHolder {
 
@@ -17,17 +18,25 @@ public interface CultivationLevelProfileHolder {
 
     @Nonnull
     default FloraLevelProfile getLevelProfile(@Nonnull Location location) {
-        int level = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL));
-        int speed = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED));
-        int strength = Integer.parseInt(BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH));
-        return new FloraLevelProfile(level, speed, strength);
+        String levelString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL);
+        String speedString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED);
+        String strengthString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH);
+        return getLevelProfile(levelString, speedString, strengthString);
     }
 
     @Nonnull
     default FloraLevelProfile getLevelProfile(@Nonnull Config config) {
-        int level = Integer.parseInt(config.getString(FloraLevelProfile.BS_KEY_LEVEL));
-        int speed = Integer.parseInt(config.getString(FloraLevelProfile.BS_KEY_SPEED));
-        int strength = Integer.parseInt(config.getString(FloraLevelProfile.BS_KEY_STRENGTH));
+        String levelString = config.getString(FloraLevelProfile.BS_KEY_LEVEL);
+        String speedString = config.getString(FloraLevelProfile.BS_KEY_SPEED);
+        String strengthString = config.getString(FloraLevelProfile.BS_KEY_STRENGTH);
+        return getLevelProfile(levelString, speedString, strengthString);
+    }
+
+    @ParametersAreNullableByDefault
+    default FloraLevelProfile getLevelProfile(String levelString, String speedString, String strengthString) {
+        int level = levelString == null ? 1 : Integer.parseInt(levelString);
+        int speed = speedString == null ? 1 : Integer.parseInt(speedString);
+        int strength = strengthString == null ? 1 : Integer.parseInt(strengthString);
         return new FloraLevelProfile(level, speed, strength);
     }
 

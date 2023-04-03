@@ -18,12 +18,17 @@ import java.io.Reader;
  */
 public class ConfigManager {
 
+    public static final String FILE_NAME_EXP = "exp.yml";
+    public static final String FILE_NAME_CODEX = "codex.yml";
+
     // Player exp
     private final FileConfiguration exp;
+    private final FileConfiguration codex;
 
     public ConfigManager() {
         setupDefaultConfig();
-        this.exp = getConfig("exp.yml");
+        this.exp = getConfig(FILE_NAME_EXP);
+        this.codex = getConfig(FILE_NAME_CODEX);
     }
 
     private void setupDefaultConfig() {
@@ -83,13 +88,14 @@ public class ConfigManager {
 
     public void saveAll() {
         Cultivation.getInstance().getLogger().info("Cultivation saving data.");
-        saveExp();
+        save(exp, FILE_NAME_EXP);
+        save(codex, FILE_NAME_CODEX);
     }
 
-    private void saveExp() {
-        File file = new File(Cultivation.getInstance().getDataFolder(), "exp.yml");
+    private void save(@Nonnull FileConfiguration config, @Nonnull String fileName) {
+        File file = new File(Cultivation.getInstance().getDataFolder(), fileName);
         try {
-            exp.save(file);
+            config.save(file);
         } catch (IOException exception) {
             exception.printStackTrace();
         }
@@ -97,6 +103,10 @@ public class ConfigManager {
 
     public FileConfiguration getExp() {
         return exp;
+    }
+
+    public FileConfiguration getCodex() {
+        return codex;
     }
 
     public boolean isAutoUpdate() {
