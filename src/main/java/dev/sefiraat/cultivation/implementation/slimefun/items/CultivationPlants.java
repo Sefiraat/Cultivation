@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation.implementation.slimefun.items;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
+import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.NothingPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.CommonPlacements;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
@@ -10,6 +11,7 @@ import dev.sefiraat.cultivation.api.utils.EntityDefinitions;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Set;
 
@@ -50,7 +52,7 @@ public final class CultivationPlants {
             RecipeTypes.VANILLA_DROP,
             RecipeTypes.createBlockDropRecipe(CultivationStacks.PLANT_EARTH, SlimefunTag.ORES.getValues(), 0.05),
             new Growth(
-                PlantTheme.YELLOW,
+                PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
                 0.1
             )
@@ -91,6 +93,23 @@ public final class CultivationPlants {
                 CommonPlacements.COMMON_OVERWORLD,
                 0.1
             )
+        ).tryRegister(addon);
+
+        new HarvestablePlant(
+            CultivationStacks.PLANT_DIRT,
+            RecipeTypes.PLANT_BREEDING,
+            new ItemStack[0],
+            new Growth(
+                PlantTheme.PURPLE,
+                CommonPlacements.COMMON_OVERWORLD,
+                0.05
+            )
+        ).addHarvestingResult(new ItemStack(Material.DIRT, 1)
+        ).addBreedingPair(
+            CultivationStacks.PLANT_EARTH.getItemId(),
+            CultivationStacks.PLANT_WATER.getItemId(),
+            0.05,
+            0.10
         ).tryRegister(addon);
 
         // endregion

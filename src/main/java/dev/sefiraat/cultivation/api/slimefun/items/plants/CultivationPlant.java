@@ -48,6 +48,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -232,12 +233,15 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             return;
         }
 
+        UUID owner = getOwner(motherLocation);
+
         cloneBlock.setType(Material.PLAYER_HEAD);
         PlayerHead.setSkin(cloneBlock, theme.getSeed().getPlayerSkin(), false);
         PaperLib.getBlockState(cloneBlock, false).getState().update(true, false);
         BlockStorage.store(cloneBlock, childSeed.getId());
         BlockStorage.addBlockInfo(cloneBlock, Keys.FLORA_GROWTH_STAGE, "0");
-        BlockStorage.addBlockInfo(cloneBlock, Keys.FLORA_OWNER, getOwner(motherLocation).toString());
+        BlockStorage.addBlockInfo(cloneBlock, Keys.FLORA_OWNER, owner.toString());
+        StatisticUtils.unlockDiscovery(owner, childSeed.getId());
         breedSuccess(cloneBlock.getLocation());
     }
 
