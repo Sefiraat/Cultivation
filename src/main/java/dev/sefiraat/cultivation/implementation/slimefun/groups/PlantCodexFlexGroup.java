@@ -49,16 +49,24 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
     };
 
     private static final int CHILD_SLOT = 22;
-    private static final int[] CHILD_INFO_SLOT = new int[]{13, 31};
+    private static final int[] CHILD_INFO_SLOT = new int[]{
+        13, 31
+    };
 
     private static final int MOTHER_SLOT = 21;
-    private static final int[] MOTHER_INFO_SLOT = new int[]{12, 30};
+    private static final int[] MOTHER_INFO_SLOT = new int[]{
+        12, 30
+    };
 
     private static final int FATHER_SLOT = 23;
-    private static final int[] FATHER_INFO_SLOT = new int[]{14, 32};
+    private static final int[] FATHER_INFO_SLOT = new int[]{
+        14, 32
+    };
 
     private static final int GROWTH_RATE_SLOT = 37;
-    private static final int[] HELD_SLOTS = new int[]{38, 39, 40, 41, 42, 43};
+    private static final int[] HELD_SLOTS = new int[]{
+        38, 39, 40, 41, 42, 43
+    };
 
     private static final ItemStack MOTHER_INFO = new CustomItemStack(
         Material.LIGHT_BLUE_STAINED_GLASS_PANE,
@@ -95,7 +103,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
     @Override
     @ParametersAreNonnullByDefault
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
-        final ChestMenu chestMenu = new ChestMenu(CultivationThemes.MAIN.getColor() + "Plant Codex");
+        ChestMenu chestMenu = new ChestMenu(CultivationThemes.MAIN.getColor() + "Plant Codex");
 
         for (int slot : HEADER) {
             chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
@@ -112,15 +120,15 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
 
     @ParametersAreNonnullByDefault
     private void setupPage(Player player, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu, int page) {
-        final List<BreedingPair> breedingPairs = new ArrayList<>(Registry.getInstance().getPlantBreedingPairs());
-        final int amount = breedingPairs.size();
-        final int totalPages = (int) Math.ceil(amount / (double) PAGE_SIZE);
-        final int start = (page - 1) * PAGE_SIZE;
-        final int end = Math.min(start + PAGE_SIZE, breedingPairs.size());
+        List<BreedingPair> breedingPairs = new ArrayList<>(Registry.getInstance().getPlantBreedingPairs());
+        int amount = breedingPairs.size();
+        int totalPages = (int) Math.ceil(amount / (double) PAGE_SIZE);
+        int start = (page - 1) * PAGE_SIZE;
+        int end = Math.min(start + PAGE_SIZE, breedingPairs.size());
 
         breedingPairs.sort(Comparator.comparing(pair -> pair.getChild().getId()));
 
-        final List<BreedingPair> pairSubList = breedingPairs.subList(start, end);
+        List<BreedingPair> pairSubList = breedingPairs.subList(start, end);
 
         reapplyFooter(player, profile, mode, menu, page, totalPages);
 
@@ -138,12 +146,12 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
         });
 
         for (int i = 0; i < 36; i++) {
-            final int slot = i + 9;
+            int slot = i + 9;
 
             if (i + 1 <= pairSubList.size()) {
-                final BreedingPair pair = pairSubList.get(i);
-                final CultivationPlant child = pair.getChild();
-                final boolean researched = StatisticUtils.isDiscovered(player, child.getId());
+                BreedingPair pair = pairSubList.get(i);
+                CultivationPlant child = pair.getChild();
+                boolean researched = StatisticUtils.isDiscovered(player, child.getId());
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
                     menu.replaceExistingItem(
@@ -188,9 +196,9 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
 
         clearDisplay(menu);
 
-        final CultivationPlant child = pair.getChild();
-        final CultivationPlant mother = (CultivationPlant) SlimefunItem.getById(pair.getMotherId());
-        final CultivationPlant father = (CultivationPlant) SlimefunItem.getById(pair.getFatherId());
+        CultivationPlant child = pair.getChild();
+        CultivationPlant mother = (CultivationPlant) SlimefunItem.getById(pair.getMotherId());
+        CultivationPlant father = (CultivationPlant) SlimefunItem.getById(pair.getFatherId());
 
         // Child
         menu.replaceExistingItem(CHILD_SLOT, child.getItem().clone());
@@ -230,7 +238,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
     @ParametersAreNonnullByDefault
     private void clearDisplay(ChestMenu menu) {
         for (int i = 0; i < 45; i++) {
-            final int slot = i + 9;
+            int slot = i + 9;
             menu.replaceExistingItem(slot, null);
             menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
         }
@@ -251,7 +259,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
 
         menu.replaceExistingItem(PAGE_PREVIOUS, ChestMenuUtils.getPreviousButton(p, page, totalPages));
         menu.addMenuClickHandler(PAGE_PREVIOUS, (player1, slot, itemStack, clickAction) -> {
-            final int previousPage = page - 1;
+            int previousPage = page - 1;
             if (previousPage >= 1) {
                 setupPage(player1, profile, mode, menu, previousPage);
             }
@@ -260,7 +268,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
 
         menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, totalPages));
         menu.addMenuClickHandler(PAGE_NEXT, (player1, slot, itemStack, clickAction) -> {
-            final int nextPage = page + 1;
+            int nextPage = page + 1;
             if (nextPage <= totalPages) {
                 setupPage(player1, profile, mode, menu, nextPage);
             }

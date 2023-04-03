@@ -95,6 +95,23 @@ public final class CultivationPlants {
             )
         ).tryRegister(addon);
 
+        new HarvestablePlant(
+            CultivationStacks.PLANT_DIRT,
+            RecipeTypes.PLANT_BREEDING,
+            new ItemStack[0],
+            new Growth(
+                PlantTheme.PURPLE,
+                CommonPlacements.COMMON_OVERWORLD,
+                0.05
+            )
+        ).addHarvestingResult(new ItemStack(Material.DIRT, 1)
+        ).addBreedingPair(
+            CultivationStacks.PLANT_EARTH.getItemId(),
+            CultivationStacks.PLANT_WATER.getItemId(),
+            0.05,
+            0.10
+        ).tryRegister(addon);
+
         // endregion
 
         new HarvestablePlant(
