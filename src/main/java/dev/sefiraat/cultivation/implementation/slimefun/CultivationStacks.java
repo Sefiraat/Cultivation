@@ -115,6 +115,17 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack PLANT_GRASS = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_GRASS",
+        PlantSkin.SEED_GREEN.getPlayerHead(),
+        CultivationThemes.PLANT,
+        "Cultivation Plant: Grass",
+        List.of(
+            "The burgeoning life bound fourth",
+            "from the ground."
+        )
+    );
+
     // endregion
 
     // region Bushes
@@ -161,6 +172,17 @@ public final class CultivationStacks {
         Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Takes a trimming of a fully grown Cultivation Bush"),
         "",
         LoreBuilder.usesLeft(50)
+    );
+
+    public static final SlimefunItemStack RECIPE_UNLOCK = Theme.themedSlimefunItemStack(
+        "CLT_RECIPE_UNLOCK",
+        Material.PAPER,
+        CultivationThemes.TOOL,
+        "Cultivation Knowledge Script",
+        "Right click to learn a Cultivation",
+        "breeding recipe.",
+        "",
+        Theme.CLICK_INFO.asTitle("Unlocks", "{0}")
     );
 
     // endregion

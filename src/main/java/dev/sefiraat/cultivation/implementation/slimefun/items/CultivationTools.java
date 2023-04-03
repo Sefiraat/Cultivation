@@ -5,12 +5,15 @@ import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.CropSticks;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.HarvestingTool;
+import dev.sefiraat.cultivation.implementation.slimefun.tools.RecipeUnlock;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.TrimmingTool;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public final class CultivationTools {
+
+    public static final RecipeUnlock RECIPE_UNLOCK = new RecipeUnlock();
 
     private CultivationTools() {
         throw new IllegalStateException("Utility class");
@@ -52,5 +55,7 @@ public final class CultivationTools {
             },
             50
         ).register(addon);
+
+        RECIPE_UNLOCK.register(addon);
     }
 }
