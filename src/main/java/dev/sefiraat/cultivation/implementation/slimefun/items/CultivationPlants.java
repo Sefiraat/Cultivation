@@ -95,6 +95,8 @@ public final class CultivationPlants {
             )
         ).tryRegister(addon);
 
+        // endregion
+
         new HarvestablePlant(
             CultivationStacks.PLANT_DIRT,
             RecipeTypes.PLANT_BREEDING,
@@ -112,6 +114,22 @@ public final class CultivationPlants {
             0.10
         ).tryRegister(addon);
 
-        // endregion
+        new HarvestablePlant(
+            CultivationStacks.PLANT_GRASS,
+            RecipeTypes.PLANT_BREEDING,
+            new ItemStack[0],
+            new Growth(
+                PlantTheme.GREEN,
+                CommonPlacements.COMMON_OVERWORLD,
+                0.05
+            )
+        ).addHarvestingResult(new ItemStack(Material.GRASS_BLOCK, 1)
+        ).addBreedingPair(
+            CultivationStacks.PLANT_DIRT.getItemId(),
+            CultivationStacks.PLANT_WATER.getItemId(),
+            0.05,
+            0.10
+        ).tryRegister(addon);
+
     }
 }

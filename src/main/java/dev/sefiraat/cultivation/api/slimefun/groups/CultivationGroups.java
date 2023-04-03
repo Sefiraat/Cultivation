@@ -29,6 +29,15 @@ public final class CultivationGroups {
         )
     );
 
+    public static final DummyItemGroup HIDDEN_CONTENT = new DummyItemGroup(
+        Keys.newKey("hidden"),
+        new CustomItemStack(
+            Material.BARRIER,
+            "Hidden",
+            "Items that should not be accessed directly."
+        )
+    );
+
     public static final DummyItemGroup CRAFTING = new DummyItemGroup(
         Keys.newKey("crafting"),
         new CustomItemStack(
@@ -86,6 +95,7 @@ public final class CultivationGroups {
 
         // Slimefun Registry
         MAIN.register(plugin);
+        HIDDEN_CONTENT.register(plugin);
         CRAFTING.register(plugin);
         TOOLS.register(plugin);
 
