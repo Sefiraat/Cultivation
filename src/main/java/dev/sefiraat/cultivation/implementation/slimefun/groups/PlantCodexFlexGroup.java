@@ -54,7 +54,9 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
     };
 
     private static final int MOTHER_SLOT = 21;
-    private static final int[] MOTHER_INFO_SLOT = new int[]{12, 30};
+    private static final int[] MOTHER_INFO_SLOT = new int[]{
+        12, 30
+    };
 
     private static final int FATHER_SLOT = 23;
     private static final int[] FATHER_INFO_SLOT = new int[]{
