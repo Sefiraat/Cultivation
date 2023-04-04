@@ -3,6 +3,7 @@ package dev.sefiraat.cultivation.implementation.slimefun.groups;
 import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
+import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
@@ -154,10 +155,14 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
                 boolean researched = StatisticUtils.isDiscovered(player, child.getId());
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
-                    menu.replaceExistingItem(
-                        slot,
-                        new ItemStack(child.getItem().clone())
-                    );
+                    ItemStack itemStack = new ItemStack(child.getItem().clone());
+                    if (child instanceof HarvestablePlant harvestablePlant) {
+                        ItemStack possibleStack = harvestablePlant.getHarvestingResults().getRandom();
+                        if (possibleStack != null) {
+                            itemStack.setType(possibleStack.getType());
+                        }
+                    }
+                    menu.replaceExistingItem(slot, itemStack);
                     menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
                         displayDetail(player1, profile, mode, menu, page, pair);
                         return false;
