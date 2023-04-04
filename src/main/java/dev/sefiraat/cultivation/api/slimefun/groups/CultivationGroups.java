@@ -103,8 +103,6 @@ public final class CultivationGroups {
         BUSHES.register(plugin);
         TREES.register(plugin);
 
-        PLANT_CODEX.register(plugin);
-
         MAIN.addItemGroup(CRAFTING);
         MAIN.addItemGroup(TOOLS);
         MAIN.addItemGroup(PLANTS);
