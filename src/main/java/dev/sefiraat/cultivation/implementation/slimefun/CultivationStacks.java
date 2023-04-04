@@ -1046,4 +1046,16 @@ public final class CultivationStacks {
     );
 
     // endregion
+
+    // region Machines
+
+    public static final SlimefunItemStack GARDEN_CLOCHE = Theme.themedSlimefunItemStack(
+        "CLT_GARDEN_CLOCHE",
+        Material.GLASS,
+        CultivationThemes.MACHINE,
+        "Garden Cloche",
+        "Grows plants inside it automatically."
+    );
+
+    // endregion
 }

@@ -299,7 +299,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
     public static ItemStack getGrowthRate(@Nonnull CultivationPlant seed) {
         return new CustomItemStack(
             Material.WHEAT_SEEDS,
-            Theme.CLICK_INFO.asTitle("Growth Rate", FORMAT.format(seed.getGrowthRate()))
+            Theme.CLICK_INFO.asTitle("Growth Rate", FORMAT.format(seed.getDefaultGrowthRate()))
         );
     }
 }

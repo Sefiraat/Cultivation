@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.api.slimefun.items.plants;
 
 import dev.sefiraat.cultivation.Cultivation;
+import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.interfaces.CultivationHarvestable;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
@@ -13,14 +14,18 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.papermc.lib.PaperLib;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -31,6 +36,7 @@ import java.util.Optional;
 public class HarvestablePlant extends CultivationPlant implements CultivationHarvestable {
 
     private final RandomizedSet<ItemStack> harvestItems = new RandomizedSet<>();
+    private final Map<Location, ItemStack> nextDrop = new HashMap<>();
 
     @ParametersAreNonnullByDefault
     public HarvestablePlant(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Growth growth) {
@@ -61,15 +67,21 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
             return;
         }
         Block block = blockOptional.get();
+        harvest(block);
+    }
+
+    public void harvest(@Nonnull Block block) {
         if (this.isMature(block)) {
             updateGrowthStage(block, 1);
-            block.getWorld().dropItem(block.getLocation(), harvestItems.getRandom().clone());
+            ItemStack itemStack = nextDrop.remove(block.getLocation());
+            if (itemStack != null) {
+                block.getWorld().dropItem(block.getLocation(), itemStack);
+            }
         }
     }
 
     @Override
     public void updateGrowthStage(@Nonnull Block block, int growthStage) {
-        // todo Fuck numbers
         if (growthStage == 0) {
             PlantTheme theme = growth.getTheme();
             if (theme != null) {
@@ -85,8 +97,9 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
             }
             block.setType(Material.AIR);
         } else if (growthStage == 2) {
-            ItemStack itemStack = this.harvestItems.getRandom();
+            ItemStack itemStack = getRandomItemWithDropModifier(block.getLocation());
             if (itemStack != null) {
+                nextDrop.put(block.getLocation(), itemStack);
                 addItemsToDisplay(block.getLocation(), itemStack.getType());
             }
         }
@@ -97,6 +110,33 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     @Override
     public RandomizedSet<ItemStack> getHarvestingResults() {
         return this.harvestItems;
+    }
+
+    @Nullable
+    public ItemStack getRandomItemWithDropModifier(@Nonnull Location location) {
+        FloraLevelProfile profile = getLevelProfile(location);
+        return getRandomItemWithDropModifier(profile);
+    }
+
+    @Nullable
+    public ItemStack getRandomItemWithDropModifier(@Nonnull FloraLevelProfile profile) {
+        ItemStack itemStack = this.harvestItems.getRandom();
+
+        if (itemStack == null) {
+            return null;
+        }
+
+        ItemStack clone = itemStack.clone();
+
+        int amount = clone.getAmount();
+        int adjustedAmount = getDropAmount(profile.getLevel(), amount);
+
+        clone.setAmount(adjustedAmount);
+        return clone;
+    }
+
+    public int getDropAmount(int level, int defaultAmount) {
+        return (int) defaultAmount + (defaultAmount * (level / 5));
     }
 
     @Override
