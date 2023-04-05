@@ -8,6 +8,7 @@ import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.interfaces.CultivationLevelProfileHolder;
 import dev.sefiraat.cultivation.api.interfaces.CultivationPlantHolder;
 import dev.sefiraat.cultivation.api.interfaces.CustomPlacementBlock;
+import dev.sefiraat.cultivation.api.interfaces.DisplayIntractable;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
@@ -56,7 +57,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public abstract class CultivationPlant extends CultivationFloraItem<CultivationPlant>
     implements CultivationFlora, CustomPlacementBlock, CultivationLevelProfileHolder, CultivationCroppable,
-               CultivationPlantHolder {
+               CultivationPlantHolder, DisplayIntractable {
 
     @Nonnull
     public static final Set<BlockFace> BREEDING_DIRECTIONS = Set.of(
@@ -110,7 +111,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     @Override
     protected void tryBreed(@Nonnull Block motherBlock, @Nonnull CultivationPlant plant) {
         double breedChance = ThreadLocalRandom.current().nextDouble();
-        if (breedChance > getGrowthRate()) {
+        if (breedChance > getDefaultGrowthRate()) {
             // No breed attempted this tick
             return;
         }
@@ -146,6 +147,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         );
 
         setLevelProfile(location, profile);
+        PROFILE_MAP.put(location, profile);
     }
 
     @OverridingMethodsMustInvokeSuper
@@ -171,6 +173,15 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     @ParametersAreNonnullByDefault
     protected boolean canGrow(Block block, CultivationPlant flora, Config data, Location location, int growthStage) {
         return isCropped(data);
+    }
+
+    @Override
+    public double getGrowthRate(@Nonnull Location location) {
+        return getDefaultGrowthRate() * getLevelProfile(location).getLevel();
+    }
+
+    public double getGrowthRate(@Nonnull FloraLevelProfile profile) {
+        return getDefaultGrowthRate() * profile.getLevel();
     }
 
     @ParametersAreNonnullByDefault

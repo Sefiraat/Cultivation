@@ -165,7 +165,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
             return;
         }
         double growthRandom = ThreadLocalRandom.current().nextDouble();
-        if (growthRandom <= getGrowthRate() && getMaxGrowthStages() > growthStage) {
+        if (growthRandom <= getGrowthRate(location) && getMaxGrowthStages() > growthStage) {
             CultivationGrowEvent event = callEvent(flora, location, growthStage);
 
             if (event.isCancelled()) {
@@ -238,8 +238,12 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     }
 
     @Override
-    public double getGrowthRate() {
+    public double getDefaultGrowthRate() {
         return growth.getGrowthRate();
+    }
+
+    public double getGrowthRate(@Nonnull Location location) {
+        return getDefaultGrowthRate();
     }
 
     /**

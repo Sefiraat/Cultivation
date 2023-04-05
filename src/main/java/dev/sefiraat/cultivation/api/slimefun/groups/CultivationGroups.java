@@ -54,6 +54,14 @@ public final class CultivationGroups {
         )
     );
 
+    public static final DummyItemGroup MACHINES = new DummyItemGroup(
+        Keys.newKey("machines"),
+        new CustomItemStack(
+            new ItemStack(Material.GLASS),
+            CultivationThemes.MAIN.color("Machines")
+        )
+    );
+
     public static final DummyItemGroup PLANTS = new DummyItemGroup(
         Keys.newKey("plants"),
         new CustomItemStack(
@@ -98,6 +106,7 @@ public final class CultivationGroups {
         HIDDEN_CONTENT.register(plugin);
         CRAFTING.register(plugin);
         TOOLS.register(plugin);
+        MACHINES.register(plugin);
 
         PLANTS.register(plugin);
         BUSHES.register(plugin);

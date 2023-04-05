@@ -2,7 +2,6 @@ package dev.sefiraat.cultivation.implementation.slimefun.tools;
 
 import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
 import dev.sefiraat.sefilib.slimefun.items.RefillableUseItem;
-import io.github.bakedlibs.dough.collections.RandomizedSet;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -48,16 +47,9 @@ public class HarvestingTool extends RefillableUseItem implements NotPlaceable {
             SlimefunItem item = BlockStorage.check(block);
 
             if (item instanceof HarvestablePlant harvestable && harvestable.isMature(block)) {
-                RandomizedSet<ItemStack> harvestResult = harvestable.getHarvestingResults();
-                if (harvestResult.size() == 0) {
-                    // shouldn't be possible, but just to be safe
-                    return;
-                }
-                harvestable.updateGrowthStage(block, 1);
-                block.getWorld().dropItem(block.getLocation(), harvestResult.getRandom().clone());
+                harvestable.harvest(block);
+                damageItem(playerRightClickEvent.getPlayer(), playerRightClickEvent.getItem());
             }
-
-            damageItem(playerRightClickEvent.getPlayer(), playerRightClickEvent.getItem());
         };
     }
 }

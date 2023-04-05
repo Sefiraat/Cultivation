@@ -25,6 +25,18 @@ public enum Transformations {
     PLANT_HANGING_DROP(new TransformationBuilder()
                            .scale(0.2f, 0.2f, 0.2f)
                            .build()
+    ),
+    CLOCHE_BASE(new TransformationBuilder()
+                           .scale(0.5f, 1f, 0.5f)
+                           .build()
+    ),
+    CLOCHE_GLASS(new TransformationBuilder()
+                           .scale(0.5f, 0.5f, 0.5f)
+                           .build()
+    ),
+    CLOCHE_DIRT(new TransformationBuilder()
+                           .scale(0.4f, 0.4f, 0.4f)
+                           .build()
     );
 
     private final Transformation transformation;

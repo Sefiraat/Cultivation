@@ -8,8 +8,13 @@ import org.bukkit.block.Block;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNullableByDefault;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public interface CultivationLevelProfileHolder {
+
+    Map<Location, FloraLevelProfile> PROFILE_MAP = new HashMap<>();
 
     @Nonnull
     default FloraLevelProfile getLevelProfile(@Nonnull Block block) {
@@ -18,10 +23,15 @@ public interface CultivationLevelProfileHolder {
 
     @Nonnull
     default FloraLevelProfile getLevelProfile(@Nonnull Location location) {
-        String levelString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL);
-        String speedString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED);
-        String strengthString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH);
-        return getLevelProfile(levelString, speedString, strengthString);
+        return Objects.requireNonNullElseGet(
+            PROFILE_MAP.get(location),
+            () -> {
+                String levelString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL);
+                String speedString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED);
+                String strengthString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH);
+                return getLevelProfile(levelString, speedString, strengthString);
+            }
+        );
     }
 
     @Nonnull
@@ -42,6 +52,7 @@ public interface CultivationLevelProfileHolder {
 
     default void setLevelProfile(@Nonnull Location location, FloraLevelProfile profile) {
         setLevelProfile(location, profile.getLevel(), profile.getSpeed(), profile.getStrength());
+        PROFILE_MAP.put(location, profile);
     }
 
     default void setLevelProfile(@Nonnull Location location, int level, int speed, int strength) {

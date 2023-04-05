@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Objects;
 
 public class FloraLevelProfile {
 
@@ -92,10 +93,15 @@ public class FloraLevelProfile {
         );
     }
 
-    @Nullable
+    @Nonnull
     public static FloraLevelProfile fromItemStack(@Nonnull ItemStack itemStack) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        return PersistentDataAPI.get(itemMeta, FloraLevelProfileDataType.KEY, FloraLevelProfileDataType.TYPE);
+        FloraLevelProfile profile = PersistentDataAPI.get(
+            itemMeta,
+            FloraLevelProfileDataType.KEY,
+            FloraLevelProfileDataType.TYPE
+        );
+        return Objects.requireNonNullElseGet(profile, () -> new FloraLevelProfile(1, 1, 1));
     }
 
     @Nullable
