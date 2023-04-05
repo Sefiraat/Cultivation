@@ -17,7 +17,7 @@ public class Growth {
     private final PlantTheme theme;
     @Nonnull
     private final Set<Material> placements;
-    private final double growthRate;
+    private double growthRate;
 
     @ParametersAreNonnullByDefault
     public Growth(@Nullable PlantTheme theme, Set<Material> places, double growthRate) {
@@ -45,4 +45,7 @@ public class Growth {
         return growthRate;
     }
 
+    public void setGrowthRate(double growthRate) {
+        this.growthRate = growthRate;
+    }
 }
