@@ -24,6 +24,7 @@ public final class CultivationProducts {
             .setCanBlend(true)
             .setCanSlice(true)
             .setCanMash(true)
+            .setCanChop(true)
             .register(addon);
     }
 }

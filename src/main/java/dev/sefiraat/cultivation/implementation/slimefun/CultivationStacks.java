@@ -1057,6 +1057,46 @@ public final class CultivationStacks {
         "Grows plants inside it automatically."
     );
 
+    public static final SlimefunItemStack COUNTER_CHOPPING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_CHOPPING",
+        Material.SMITHING_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Chopping Board",
+        "Right click this block to chop produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_SLICING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_SLICING",
+        Material.CARTOGRAPHY_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Slicing Board",
+        "Right click this block to slice produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_MASHER = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_MASHER",
+        Material.CRAFTING_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Mashing Bowl",
+        "Right click this block to mash produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_GRINDER = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_GRINDER",
+        Material.CAULDRON,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Grinding Pestle and Mortar",
+        "Right click this block to grind produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_BLENDER = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_BLENDER",
+        Material.FLETCHING_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Blender",
+        "Right click this block to blend produce."
+    );
+
     // endregion
 
     // region Produce

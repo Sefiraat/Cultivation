@@ -3,9 +3,11 @@ package dev.sefiraat.cultivation.api.slimefun.items.produce;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
+import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
@@ -19,7 +21,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Locale;
 
-public class CultivationProduce extends UnplaceableBlock {
+public class CultivationProduce extends SlimefunItem {
     public static final String PRODUCTION_METHODS_TITLE = "Can be:";
     private boolean canChop;
     private boolean canMash;
@@ -91,7 +93,7 @@ public class CultivationProduce extends UnplaceableBlock {
             registerByProduct("Chopped", RecipeTypes.CHOPPED, Material.BEETROOT_SEEDS);
         }
         if (canMash) {
-            registerByProduct("Mashed", RecipeTypes.MASHED, Material.BEETROOT_SEEDS);
+            registerByProduct("Mashed", RecipeTypes.MASHED, Material.SUSPICIOUS_STEW);
         }
         if (canSlice) {
             registerByProduct("Sliced", RecipeTypes.SLICED, Material.KELP);
@@ -106,7 +108,7 @@ public class CultivationProduce extends UnplaceableBlock {
 
     @ParametersAreNonnullByDefault
     private void registerByProduct(String name, RecipeType recipeType, Material material) {
-        new CultivationByProduct(
+        CultivationByProduct byProduct = new CultivationByProduct(
             Theme.themedSlimefunItemStack(
                 "CLT_" + name.toUpperCase(Locale.ROOT) + "_" + this.getId().substring(4),
                 material,
@@ -115,7 +117,29 @@ public class CultivationProduce extends UnplaceableBlock {
             ),
             recipeType,
             this.getItem()
-        ).register(Cultivation.getInstance());
+        );
+        byProduct.register(Cultivation.getInstance());
+
+        if (recipeType == RecipeTypes.CHOPPED) {
+            CultivationMachines.COUNTER_CHOPPING.addRecipe(this.getId(), byProduct.getItem());
+        }
+
+        if (recipeType == RecipeTypes.BLENDED) {
+            CultivationMachines.COUNTER_BLENDER.addRecipe(this.getId(), byProduct.getItem());
+        }
+
+        if (recipeType == RecipeTypes.MASHED) {
+            CultivationMachines.COUNTER_MASHER.addRecipe(this.getId(), byProduct.getItem());
+        }
+
+        if (recipeType == RecipeTypes.GROUND) {
+            CultivationMachines.COUNTER_GRINDER.addRecipe(this.getId(), byProduct.getItem());
+        }
+
+        if (recipeType == RecipeTypes.SLICED) {
+            CultivationMachines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
+        }
+
         ItemMeta itemMeta = this.getItem().getItemMeta();
         List<String> lore = itemMeta.getLore();
         if (lore.stream().noneMatch(s -> ChatColor.stripColor(s).equals(PRODUCTION_METHODS_TITLE))) {

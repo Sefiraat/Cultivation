@@ -73,6 +73,7 @@ public class GardenCloche extends SlimefunItem implements DisplayIntractable {
                 public void onPlayerBreak(BlockBreakEvent e, ItemStack item, List<ItemStack> drops) {
                     Location location = e.getBlock().getLocation();
                     removeDisplay(location);
+                    e.getBlock().setType(Material.AIR);
                     BlockMenu blockMenu = BlockStorage.getInventory(location);
                     if (blockMenu != null) {
                         blockMenu.dropItems(location, PLANT_SLOT);
