@@ -10,7 +10,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -28,6 +27,9 @@ public class CultivationProduce extends SlimefunItem {
     private boolean canSlice;
     private boolean canGrind;
     private boolean canBlend;
+    private boolean canBake;
+    private boolean canFry;
+    private boolean canGrill;
 
     public CultivationProduce(ItemGroup itemGroup,
                               SlimefunItemStack item,
@@ -82,6 +84,25 @@ public class CultivationProduce extends SlimefunItem {
         return this;
     }
 
+    public boolean isCanBake() {
+        return canBake;
+    }
+
+    public CultivationProduce setCanBake(boolean canBake) {
+        this.canBake = canBake;
+        return this;
+    }
+
+    public CultivationProduce setCanFry(boolean canFry) {
+        this.canFry = canFry;
+        return this;
+    }
+
+    public CultivationProduce setCanGrill(boolean canGrill) {
+        this.canGrill = canGrill;
+        return this;
+    }
+
     @Override
     public void register(@NotNull SlimefunAddon addon) {
         createByProducts();
@@ -103,6 +124,15 @@ public class CultivationProduce extends SlimefunItem {
         }
         if (canBlend) {
             registerByProduct("Blended", RecipeTypes.BLENDED, Material.WATER_BUCKET);
+        }
+        if (canBake) {
+            registerByProduct("Baked", RecipeTypes.BAKED, Material.DRIED_KELP);
+        }
+        if (canFry) {
+            registerByProduct("Fried", RecipeTypes.FRIED, Material.RED_DYE);
+        }
+        if (canGrill) {
+            registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
         }
     }
 
@@ -138,6 +168,18 @@ public class CultivationProduce extends SlimefunItem {
 
         if (recipeType == RecipeTypes.SLICED) {
             CultivationMachines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
+        }
+
+        if (recipeType == RecipeTypes.BAKED) {
+            CultivationMachines.COUNTER_OVEN.addRecipe(this.getId(), byProduct.getItem());
+        }
+
+        if (recipeType == RecipeTypes.FRIED) {
+            CultivationMachines.COUNTER_FRYING.addRecipe(this.getId(), byProduct.getItem());
+        }
+
+        if (recipeType == RecipeTypes.GRILLED) {
+            CultivationMachines.COUNTER_GRILL.addRecipe(this.getId(), byProduct.getItem());
         }
 
         ItemMeta itemMeta = this.getItem().getItemMeta();

@@ -10,9 +10,9 @@ import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;
 
-public final class DisplayUtils {
+public final class DisplayGroupGenerators {
 
-    private DisplayUtils() {
+    private DisplayGroupGenerators() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -179,13 +179,13 @@ public final class DisplayUtils {
         displayGroup.killDisplay("drop_3");
     }
 
-    private static DisplayGroup generateBaseCounter(@Nonnull Location location) {
+    public static DisplayGroup generateBaseCounter(@Nonnull Location location) {
         final DisplayGroup displayGroup = new DisplayGroup(location, 1.01f, 1.01f);
         displayGroup.addDisplay(
             "counter_base",
             new ItemDisplayBuilder()
                 .setGroupParentOffset(new Vector(0, 0.4, 0))
-                .setItemStack(new ItemStack(Material.DARK_OAK_LOG))
+                .setItemStack(new ItemStack(Material.STRIPPED_DARK_OAK_LOG))
                 .setTransformation(Transformations.COUNTER_BODY.getTransformation())
                 .build(displayGroup)
         );
@@ -193,7 +193,7 @@ public final class DisplayUtils {
             "counter_top",
             new ItemDisplayBuilder()
                 .setGroupParentOffset(new Vector(0, 0.8, 0))
-                .setItemStack(new ItemStack(Material.IRON_BLOCK))
+                .setItemStack(new ItemStack(Material.WHITE_CONCRETE))
                 .setTransformation(Transformations.COUNTER_TOP.getTransformation())
                 .build(displayGroup)
         );
@@ -301,6 +301,77 @@ public final class DisplayUtils {
                 .setGroupParentOffset(new Vector(-0.1, 0.85, 0.3))
                 .setItemStack(new ItemStack(Material.BONE))
                 .setTransformation(Transformations.BONE.getTransformation())
+                .build(displayGroup)
+        );
+        return displayGroup;
+    }
+
+    public static DisplayGroup generateOvenCounter(@Nonnull Location location) {
+        DisplayGroup displayGroup = generateBaseCounter(location);
+        displayGroup.addDisplay(
+            "oven_door",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.34, 0.45))
+                .setItemStack(new ItemStack(Material.POLISHED_BLACKSTONE))
+                .setTransformation(Transformations.OVEN_DOOR.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "buttons",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.68, 0.45))
+                .setItemStack(new ItemStack(Material.ACTIVATOR_RAIL))
+                .setTransformation(Transformations.COOKING_BUTTONS.getTransformation())
+                .build(displayGroup)
+        );
+        return displayGroup;
+    }
+
+    public static DisplayGroup generateFryingCounter(@Nonnull Location location) {
+        DisplayGroup displayGroup = generateBaseCounter(location);
+        displayGroup.addDisplay(
+            "hob",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.85, 0))
+                .setItemStack(new ItemStack(Material.TINTED_GLASS))
+                .setTransformation(Transformations.FRY_HOB.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "hob_core",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.82, 0))
+                .setItemStack(new ItemStack(Material.BLACK_CONCRETE))
+                .setTransformation(Transformations.FRY_HOB_CORE.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "buttons",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.68, 0.45))
+                .setItemStack(new ItemStack(Material.ACTIVATOR_RAIL))
+                .setTransformation(Transformations.COOKING_BUTTONS.getTransformation())
+                .build(displayGroup)
+        );
+        return displayGroup;
+    }
+
+    public static DisplayGroup generateGrillingCounter(@Nonnull Location location) {
+        DisplayGroup displayGroup = generateBaseCounter(location);
+        displayGroup.addDisplay(
+            "grill_door",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.50, 0.45))
+                .setItemStack(new ItemStack(Material.POLISHED_BLACKSTONE))
+                .setTransformation(Transformations.GRILL_DOOR.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "buttons",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.68, 0.45))
+                .setItemStack(new ItemStack(Material.ACTIVATOR_RAIL))
+                .setTransformation(Transformations.COOKING_BUTTONS.getTransformation())
                 .build(displayGroup)
         );
         return displayGroup;

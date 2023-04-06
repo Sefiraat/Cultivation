@@ -1057,6 +1057,14 @@ public final class CultivationStacks {
         "Grows plants inside it automatically."
     );
 
+    public static final SlimefunItemStack COUNTER_NOTHING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_NOTHING",
+        Material.STRIPPED_DARK_OAK_LOG,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Empty",
+        "Just for decoration!"
+    );
+
     public static final SlimefunItemStack COUNTER_CHOPPING = Theme.themedSlimefunItemStack(
         "CLT_COUNTER_CHOPPING",
         Material.SMITHING_TABLE,
@@ -1097,6 +1105,30 @@ public final class CultivationStacks {
         "Right click this block to blend produce."
     );
 
+    public static final SlimefunItemStack COUNTER_OVEN = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_OVEN",
+        Material.FURNACE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Oven",
+        "Can bake certain produce items."
+    );
+
+    public static final SlimefunItemStack COUNTER_FRYING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_FRYING",
+        Material.BLACK_STAINED_GLASS,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Frying Pan",
+        "Can fry certain produce items."
+    );
+
+    public static final SlimefunItemStack COUNTER_GRILL = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_GRILL",
+        Material.CAMPFIRE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Grill",
+        "Can grill certain produce items."
+    );
+
     // endregion
 
     // region Produce
@@ -1118,14 +1150,6 @@ public final class CultivationStacks {
     );
 
     public static final SlimefunItemStack PRODUCE_GREEN_APPLE = Theme.themedSlimefunItemStack(
-        "CLT_GREEN_APPLE",
-        Material.PAPER,
-        CultivationThemes.PRODUCE,
-        "Green Apple",
-        "The note says... Dear Teacher?"
-    );
-
-    public static final SlimefunItemStack BACON_BERRY = Theme.themedSlimefunItemStack(
         "CLT_GREEN_APPLE",
         Material.PAPER,
         CultivationThemes.PRODUCE,

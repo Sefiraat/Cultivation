@@ -135,6 +135,8 @@ public final class CultivationGroups {
         MAIN.addItemGroup(PLANTS);
         MAIN.addItemGroup(BUSHES);
         MAIN.addItemGroup(TREES);
+        MAIN.addItemGroup(PRODUCE);
+        MAIN.addItemGroup(BY_PRODUCTS);
         MAIN.addItemGroup(PLANT_CODEX);
     }
 }

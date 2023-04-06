@@ -207,6 +207,45 @@ public final class RecipeTypes {
         )
     );
 
+    @Nonnull
+    public static final RecipeType BAKED = new RecipeType(
+        Keys.newKey("baked"),
+        Theme.themedItemStack(
+            Material.BAKED_POTATO,
+            CultivationThemes.RECIPE_TYPE,
+            "Baked",
+            List.of(
+                "Perfectly baked."
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType FRIED = new RecipeType(
+        Keys.newKey("fried"),
+        Theme.themedItemStack(
+            Material.RED_DYE,
+            CultivationThemes.RECIPE_TYPE,
+            "Fried",
+            List.of(
+                "Crispy Perfection."
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType GRILLED = new RecipeType(
+        Keys.newKey("grilled"),
+        Theme.themedItemStack(
+            Material.COOKED_PORKCHOP,
+            CultivationThemes.RECIPE_TYPE,
+            "Grilled",
+            List.of(
+                "Juicy and Tender."
+            )
+        )
+    );
+
     /**
      * This method both registers the drop and returns an ItemStack array that can be used
      * for Slimefun's recipe system. {@link RecipeTypes#VANILLA_DROP}

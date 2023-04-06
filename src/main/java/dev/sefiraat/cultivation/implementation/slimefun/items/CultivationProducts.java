@@ -25,6 +25,30 @@ public final class CultivationProducts {
             .setCanSlice(true)
             .setCanMash(true)
             .setCanChop(true)
+            .setCanBake(true)
+            .setCanFry(true)
+            .setCanGrill(true)
+            .register(addon);
+
+        new CultivationProduce(
+            CultivationGroups.PRODUCE,
+            CultivationStacks.PRODUCE_ORANGE,
+            RecipeTypes.TREE_HARVEST,
+            new ItemStack[0]
+        )
+            .setCanBlend(true)
+            .setCanSlice(true)
+            .register(addon);
+
+        new CultivationProduce(
+            CultivationGroups.PRODUCE,
+            CultivationStacks.PRODUCE_GREEN_APPLE,
+            RecipeTypes.TREE_HARVEST,
+            new ItemStack[0]
+        )
+            .setCanBlend(true)
+            .setCanSlice(true)
+            .setCanBake(true)
             .register(addon);
     }
 }

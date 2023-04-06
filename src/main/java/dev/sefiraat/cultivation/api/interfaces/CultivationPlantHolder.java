@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.api.interfaces;
 
-import dev.sefiraat.cultivation.implementation.utils.DisplayUtils;
+import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -38,7 +38,7 @@ public interface CultivationPlantHolder {
     }
 
     default void addDisplayPlant(@Nonnull Location location) {
-        DisplayGroup displayGroup = DisplayUtils.generatePlant(location.clone().add(0.5, 0, 0.5));
+        DisplayGroup displayGroup = DisplayGroupGenerators.generatePlant(location.clone().add(0.5, 0, 0.5));
         BlockStorage.addBlockInfo(location, PLANT, "true");
         BlockStorage.addBlockInfo(location, GROUP_PARENT, displayGroup.getParentUUID().toString());
     }
@@ -46,14 +46,14 @@ public interface CultivationPlantHolder {
     default void addItemsToDisplay(@Nonnull Location location, @Nonnull Material material) {
         if (hasDisplayPlant(location)) {
             DisplayGroup group = getPlantDisplayGroup(location);
-            DisplayUtils.addItemsToPlant(group, material);
+            DisplayGroupGenerators.addItemsToPlant(group, material);
         }
     }
 
     default void removeItems(@Nonnull Location location) {
         if (hasDisplayPlant(location)) {
             DisplayGroup group = getPlantDisplayGroup(location);
-            DisplayUtils.removeItemsFromPlant(group);
+            DisplayGroupGenerators.removeItemsFromPlant(group);
         }
     }
 
