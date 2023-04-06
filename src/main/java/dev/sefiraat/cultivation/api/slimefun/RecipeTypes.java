@@ -172,7 +172,7 @@ public final class RecipeTypes {
     public static final RecipeType BLENDED = new RecipeType(
         Keys.newKey("blended"),
         Theme.themedItemStack(
-            Material.WATER_BUCKET,
+            Material.MILK_BUCKET,
             CultivationThemes.RECIPE_TYPE,
             "Blended",
             List.of(
@@ -185,7 +185,7 @@ public final class RecipeTypes {
     public static final RecipeType SLICED = new RecipeType(
         Keys.newKey("sliced"),
         Theme.themedItemStack(
-            Material.DIAMOND_SWORD,
+            Material.IRON_SWORD,
             CultivationThemes.RECIPE_TYPE,
             "Sliced",
             List.of(
