@@ -43,7 +43,7 @@ public class CultivationProduce extends SlimefunItem {
         return canChop;
     }
 
-    public CultivationProduce setCoppable(boolean canChop) {
+    public CultivationProduce setChoppable(boolean canChop) {
         this.canChop = canChop;
         return this;
     }

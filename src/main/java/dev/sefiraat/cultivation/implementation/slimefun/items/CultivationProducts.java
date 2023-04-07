@@ -24,7 +24,7 @@ public final class CultivationProducts {
             .setBlendable(true)
             .setSliceable(true)
             .setMashable(true)
-            .setCoppable(true)
+            .setChoppable(true)
             .setBakeable(true)
             .setFryable(true)
             .setGrillable(true)
