@@ -18,6 +18,8 @@ public final class CultivationThemes {
     public static final Theme PLANT = new Theme(ChatColor.of("#a241bf"), "Plant");
     public static final Theme BUSH = new Theme(ChatColor.of("#a241bf"), "Bush");
     public static final Theme SAPLING = new Theme(ChatColor.of("#a241bf"), "Sapling");
+    public static final Theme PRODUCE = new Theme(ChatColor.of("#ccd123"), "Produce");
+    public static final Theme BY_PRODUCT = new Theme(ChatColor.of("#ccd123"), "By-Product");
 
     // Seeds
     public static final Theme SEED_RED = new Theme(ChatColor.of("#c41d1d"));

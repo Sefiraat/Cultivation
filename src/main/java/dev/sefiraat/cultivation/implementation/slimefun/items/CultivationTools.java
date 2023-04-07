@@ -53,7 +53,7 @@ public final class CultivationTools {
                 CultivationStacks.MYSTICAL_LOG, null, null,
                 null, CultivationStacks.MYSTICAL_LOG, new ItemStack(Material.IRON_INGOT)
             },
-            50
+                50
         ).register(addon);
 
         RECIPE_UNLOCK.register(addon);

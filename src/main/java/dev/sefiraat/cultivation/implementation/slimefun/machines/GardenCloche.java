@@ -5,7 +5,7 @@ import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.interfaces.DisplayIntractable;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
-import dev.sefiraat.cultivation.implementation.utils.DisplayUtils;
+import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.bakedlibs.dough.items.CustomItemStack;
@@ -35,6 +35,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
@@ -70,9 +71,11 @@ public class GardenCloche extends SlimefunItem implements DisplayIntractable {
             },
             new BlockBreakHandler(false, false) {
                 @Override
+                @ParametersAreNonnullByDefault
                 public void onPlayerBreak(BlockBreakEvent e, ItemStack item, List<ItemStack> drops) {
                     Location location = e.getBlock().getLocation();
                     removeDisplay(location);
+                    e.getBlock().setType(Material.AIR);
                     BlockMenu blockMenu = BlockStorage.getInventory(location);
                     if (blockMenu != null) {
                         blockMenu.dropItems(location, PLANT_SLOT);
@@ -153,7 +156,7 @@ public class GardenCloche extends SlimefunItem implements DisplayIntractable {
     }
 
     private void setupDisplay(@Nonnull Location location) {
-        DisplayGroup displayGroup = DisplayUtils.generateCloche(location.clone().add(0.5, 0, 0.5));
+        DisplayGroup displayGroup = DisplayGroupGenerators.generateCloche(location.clone().add(0.5, 0, 0.5));
         BlockStorage.addBlockInfo(location, KEY_UUID, displayGroup.getParentUUID().toString());
     }
 
@@ -168,22 +171,14 @@ public class GardenCloche extends SlimefunItem implements DisplayIntractable {
         BlockStorage.addBlockInfo(location, KEY_PLANT, "true");
         DisplayGroup group = getDisplayGroup(location);
         if (group != null) {
-            DisplayUtils.addPlantToCloche(group);
-        }
-    }
-
-    private void togglePlant(@Nonnull Location location) {
-        if (hasDisplayPlant(location)) {
-            removePlantFromDisplay(location);
-        } else {
-            addPlantToDisplay(location);
+            DisplayGroupGenerators.addPlantToCloche(group);
         }
     }
 
     private void removePlantFromDisplay(@Nonnull Location location) {
         DisplayGroup displayGroup = getDisplayGroup(location);
         if (displayGroup != null) {
-            DisplayUtils.removePlantFromCloche(displayGroup);
+            DisplayGroupGenerators.removePlantFromCloche(displayGroup);
             BlockStorage.addBlockInfo(location, KEY_PLANT, null);
         }
     }

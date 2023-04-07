@@ -1008,7 +1008,7 @@ public final class CultivationStacks {
     );
 
     public static final SlimefunItemStack HARVESTING_TOOL_SIMPLE = Theme.themedSlimefunItemStack(
-        "CLT_HARVESTING_TOOL",
+        "CLT_HARVESTING_TOOL_SIMPLE",
         Material.TRIPWIRE_HOOK,
         CultivationThemes.TOOL,
         "Simple Harvesting Tool",
@@ -1057,5 +1057,106 @@ public final class CultivationStacks {
         "Grows plants inside it automatically."
     );
 
+    public static final SlimefunItemStack COUNTER_NOTHING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_NOTHING",
+        Material.STRIPPED_DARK_OAK_LOG,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Empty",
+        "Just for decoration!"
+    );
+
+    public static final SlimefunItemStack COUNTER_CHOPPING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_CHOPPING",
+        Material.SMITHING_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Chopping Board",
+        "Right click this block to chop produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_SLICING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_SLICING",
+        Material.CARTOGRAPHY_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Slicing Board",
+        "Right click this block to slice produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_MASHER = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_MASHER",
+        Material.CRAFTING_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Mashing Bowl",
+        "Right click this block to mash produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_GRINDER = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_GRINDER",
+        Material.CAULDRON,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Grinding Pestle and Mortar",
+        "Right click this block to grind produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_BLENDER = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_BLENDER",
+        Material.FLETCHING_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Blender",
+        "Right click this block to blend produce."
+    );
+
+    public static final SlimefunItemStack COUNTER_OVEN = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_OVEN",
+        Material.FURNACE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Oven",
+        "Can bake certain produce items."
+    );
+
+    public static final SlimefunItemStack COUNTER_FRYER = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_FRYING",
+        Material.BLACK_STAINED_GLASS,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Frying Pan",
+        "Can fry certain produce items."
+    );
+
+    public static final SlimefunItemStack COUNTER_GRILL = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_GRILL",
+        Material.CAMPFIRE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Grill",
+        "Can grill certain produce items."
+    );
+
     // endregion
+
+    // region Produce
+
+    public static final SlimefunItemStack PRODUCE_BANANA = Theme.themedSlimefunItemStack(
+        "CLT_BANANA",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Banana",
+        "I like the look and peel of this!"
+    );
+
+    public static final SlimefunItemStack PRODUCE_ORANGE = Theme.themedSlimefunItemStack(
+        "CLT_ORANGE",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Orange",
+        "Isn't this meant to be clockwork?"
+    );
+
+    public static final SlimefunItemStack PRODUCE_GREEN_APPLE = Theme.themedSlimefunItemStack(
+        "CLT_GREEN_APPLE",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Green Apple",
+        "The note says... Dear Teacher?"
+    );
+
+    // endregion
+
 }

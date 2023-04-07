@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
 import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -44,16 +44,11 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     private final Map<Location, ItemStack> nextDrop = new HashMap<>();
 
     @ParametersAreNonnullByDefault
-    public HarvestablePlant(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Growth growth) {
-        super(item, recipeType, recipe, growth);
+    public HarvestablePlant(SlimefunItemStack item, Growth growth) {
+        super(item, growth);
         addItemSetting(new DoubleRangeSetting(this, KEY_GROWTH_RATE, 0.001, growth.getGrowthRate(), 1D));
         Optional<ItemSetting<Double>> doubleOptional = getItemSetting(KEY_GROWTH_RATE, double.class);
         doubleOptional.ifPresent(doubleItemSetting -> this.growth.setGrowthRate(doubleItemSetting.getValue()));
-    }
-
-    @ParametersAreNonnullByDefault
-    public HarvestablePlant(SlimefunItemStack item, Growth growth) {
-        super(item, growth);
     }
 
     @Nonnull
