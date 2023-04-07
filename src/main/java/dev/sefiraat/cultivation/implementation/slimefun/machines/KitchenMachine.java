@@ -1,6 +1,5 @@
 package dev.sefiraat.cultivation.implementation.slimefun.machines;
 
-import dev.sefiraat.cultivation.api.interfaces.DisplayIntractable;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -17,13 +16,13 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.Function;
 
-public abstract class KitchenMachine extends KitchenObject implements DisplayIntractable {
+public abstract class KitchenMachine extends KitchenObject {
 
     protected KitchenMachine(ItemGroup itemGroup,
-                          SlimefunItemStack item,
-                          RecipeType recipeType,
-                          ItemStack[] recipe,
-                          Function<Location, DisplayGroup> displayGroupFunction
+                             SlimefunItemStack item,
+                             RecipeType recipeType,
+                             ItemStack[] recipe,
+                             Function<Location, DisplayGroup> displayGroupFunction
     ) {
         super(itemGroup, item, recipeType, recipe, displayGroupFunction);
     }

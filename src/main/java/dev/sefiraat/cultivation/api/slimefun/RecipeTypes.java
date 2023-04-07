@@ -43,7 +43,21 @@ public final class RecipeTypes {
     );
 
     @Nonnull
-    public static final RecipeType TREE_HARVEST = new RecipeType(
+    public static final RecipeType BUSH = new RecipeType(
+        Keys.newKey("bush_harvest"),
+        Theme.themedItemStack(
+            Material.TRIPWIRE_HOOK,
+            CultivationThemes.RECIPE_TYPE,
+            "Bush Harvesting",
+            List.of(
+                "This item can be harvested from a",
+                "Cultivation Bush"
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType TREE = new RecipeType(
         Keys.newKey("tree_harvest"),
         Theme.themedItemStack(
             Material.ACACIA_SAPLING,

@@ -26,6 +26,11 @@ public enum Transformations {
                            .scale(0.2f, 0.2f, 0.2f)
                            .build()
     ),
+    BUSH_HANGING_DROP(new TransformationBuilder()
+                           .scale(0.31f, 0.31f, 0.31f)
+                          .firstRotation(RotationFace.SIDE, 15)
+                           .build()
+    ),
     CLOCHE_BASE(new TransformationBuilder()
                     .scale(0.5f, 1f, 0.5f)
                     .build()

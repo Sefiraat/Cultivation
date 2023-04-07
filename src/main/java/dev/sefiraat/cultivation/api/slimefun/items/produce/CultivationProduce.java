@@ -33,10 +33,9 @@ public class CultivationProduce extends SlimefunItem {
 
     public CultivationProduce(ItemGroup itemGroup,
                               SlimefunItemStack item,
-                              RecipeType recipeType,
-                              ItemStack[] recipe
+                              RecipeType recipeType
     ) {
-        super(itemGroup, item, recipeType, recipe);
+        super(itemGroup, item, recipeType, new ItemStack[0]);
     }
 
     public boolean isChoppable() {

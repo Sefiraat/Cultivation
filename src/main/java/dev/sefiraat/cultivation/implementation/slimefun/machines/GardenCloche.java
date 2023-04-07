@@ -2,11 +2,11 @@ package dev.sefiraat.cultivation.implementation.slimefun.machines;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
-import dev.sefiraat.cultivation.api.interfaces.DisplayIntractable;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
 import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
+import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.bakedlibs.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class GardenCloche extends SlimefunItem implements DisplayIntractable {
+public class GardenCloche extends SlimefunItem implements DisplayInteractable {
 
     private static final String KEY_PLANT = "plant";
     private static final String KEY_UUID = "display-uuid";

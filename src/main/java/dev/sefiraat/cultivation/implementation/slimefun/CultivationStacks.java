@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -31,6 +32,21 @@ public final class CultivationStacks {
         "Mystical Log",
         "This seemingly simple log it brimming",
         "with an unknown power"
+    );
+
+    // endregion
+
+    // region Bushes
+
+    public static final SlimefunItemStack BUSH_GRAPE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_GRAPE",
+        PlantSkin.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Grape",
+        List.of(
+            "Ripe and juicy grapes that practically fall",
+            "off the bush."
+        )
     );
 
     // endregion
@@ -1139,6 +1155,15 @@ public final class CultivationStacks {
         CultivationThemes.PRODUCE,
         "Banana",
         "I like the look and peel of this!"
+    );
+
+
+    public static final SlimefunItemStack PRODUCE_GRAPE = Theme.themedSlimefunItemStack(
+        "CLT_GRAPE",
+        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Grape",
+        "So plump!"
     );
 
     public static final SlimefunItemStack PRODUCE_ORANGE = Theme.themedSlimefunItemStack(

@@ -4,7 +4,6 @@ import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.implementation.listeners.CustomDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.CustomPlacementListener;
-import dev.sefiraat.cultivation.implementation.listeners.InteractionListener;
 import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.PlayerDeathListener;
 import dev.sefiraat.cultivation.implementation.listeners.WanderingTraderListener;
@@ -26,7 +25,7 @@ public class ListenerManager {
         addListener(new CustomPlacementListener());
         addListener(new PlayerDeathListener());
         addListener(new MobDropListener());
-        addListener(new InteractionListener());
+        // addListener(new InteractionListener());
         addListener(new WanderingTraderListener());
     }
 

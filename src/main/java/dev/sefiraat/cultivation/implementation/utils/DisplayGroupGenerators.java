@@ -1,9 +1,14 @@
 package dev.sefiraat.cultivation.implementation.utils;
 
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
+import dev.sefiraat.sefilib.entity.display.builders.BlockDisplayBuilder;
 import dev.sefiraat.sefilib.entity.display.builders.ItemDisplayBuilder;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.data.Ageable;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.entity.BlockDisplay;
 import org.bukkit.entity.Display;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
@@ -146,12 +151,37 @@ public final class DisplayGroupGenerators {
         return displayGroup;
     }
 
+    public static DisplayGroup generateBush(@Nonnull Location location) {
+        final DisplayGroup displayGroup = new DisplayGroup(location);
+        displayGroup.addDisplay(
+            "bush",
+            new BlockDisplayBuilder()
+                .setGroupParentOffset(new Vector(-0.5, 0, -0.5))
+                .setBlockData(Material.SWEET_BERRY_BUSH.createBlockData())
+                .build(displayGroup)
+        );
+        return displayGroup;
+    }
+
+    public static void setBushAge(@Nonnull DisplayGroup displayGroup, int age) {
+        BlockDisplay blockDisplay = (BlockDisplay) displayGroup.getDisplays().get("bush");
+        BlockData blockData = blockDisplay.getBlock();
+        if (blockData instanceof Ageable ageable) {
+            ageable.setAge(age);
+            blockDisplay.setBlock(ageable);
+        }
+    }
+
     public static void addItemsToPlant(@Nonnull DisplayGroup displayGroup, @Nonnull Material material) {
+        addItemsToPlant(displayGroup, new ItemStack(material));
+    }
+
+    public static void addItemsToPlant(@Nonnull DisplayGroup displayGroup, @Nonnull ItemStack itemStack) {
         displayGroup.addDisplay(
             "drop_1",
             new ItemDisplayBuilder()
                 .setGroupParentOffset(new Vector(0.32, 0.08, 0.32))
-                .setItemStack(new ItemStack(material))
+                .setItemStack(itemStack)
                 .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
                 .build(displayGroup)
         );
@@ -159,7 +189,7 @@ public final class DisplayGroupGenerators {
             "drop_2",
             new ItemDisplayBuilder()
                 .setGroupParentOffset(new Vector(-0.32, 0.39, -0.32))
-                .setItemStack(new ItemStack(material))
+                .setItemStack(itemStack)
                 .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
                 .build(displayGroup)
         );
@@ -167,7 +197,38 @@ public final class DisplayGroupGenerators {
             "drop_3",
             new ItemDisplayBuilder()
                 .setGroupParentOffset(new Vector(-0.32, 0.64, 0.32))
-                .setItemStack(new ItemStack(material))
+                .setItemStack(itemStack)
+                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
+                .build(displayGroup)
+        );
+    }
+
+    public static void addItemsToBush(@Nonnull DisplayGroup displayGroup, @Nonnull Material material) {
+        addItemsToBush(displayGroup, new ItemStack(material));
+    }
+
+    public static void addItemsToBush(@Nonnull DisplayGroup displayGroup, @Nonnull ItemStack itemStack) {
+        displayGroup.addDisplay(
+            "drop_1",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0.32, 0.19, 0.32))
+                .setItemStack(itemStack)
+                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "drop_2",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(-0.32, 0.43, -0.32))
+                .setItemStack(itemStack)
+                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "drop_3",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(-0.32, 0.71, 0.32))
+                .setItemStack(itemStack)
                 .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
                 .build(displayGroup)
         );

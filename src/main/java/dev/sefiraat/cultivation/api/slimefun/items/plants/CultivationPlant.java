@@ -7,8 +7,6 @@ import dev.sefiraat.cultivation.api.interfaces.CultivationCroppable;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.interfaces.CultivationLevelProfileHolder;
 import dev.sefiraat.cultivation.api.interfaces.CultivationPlantHolder;
-import dev.sefiraat.cultivation.api.interfaces.CustomPlacementBlock;
-import dev.sefiraat.cultivation.api.interfaces.DisplayIntractable;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
@@ -19,6 +17,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.LevelType;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
+import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.world.LocationUtils;
 import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
@@ -56,8 +55,8 @@ import java.util.concurrent.ThreadLocalRandom;
  * This class is used to define a CultivationPlant that will grow as a {@link CultivationFlora}
  */
 public abstract class CultivationPlant extends CultivationFloraItem<CultivationPlant>
-    implements CultivationFlora, CustomPlacementBlock, CultivationLevelProfileHolder, CultivationCroppable,
-               CultivationPlantHolder, DisplayIntractable {
+    implements CultivationFlora, CultivationLevelProfileHolder, CultivationCroppable, CultivationPlantHolder,
+               DisplayInteractable {
 
     @Nonnull
     public static final Set<BlockFace> BREEDING_DIRECTIONS = Set.of(

@@ -5,7 +5,6 @@ import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.CultivationProduce;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
-import org.bukkit.inventory.ItemStack;
 
 public final class CultivationProducts {
 
@@ -14,13 +13,11 @@ public final class CultivationProducts {
     }
 
     public static void setup(Cultivation addon) {
+        new CultivationProduce(CultivationGroups.PRODUCE, CultivationStacks.PRODUCE_GRAPE, RecipeTypes.BUSH)
+            .setBlendable(true)
+            .register(addon);
 
-        new CultivationProduce(
-            CultivationGroups.PRODUCE,
-            CultivationStacks.PRODUCE_BANANA,
-            RecipeTypes.TREE_HARVEST,
-            new ItemStack[0]
-        )
+        new CultivationProduce(CultivationGroups.PRODUCE, CultivationStacks.PRODUCE_BANANA, RecipeTypes.TREE)
             .setBlendable(true)
             .setSliceable(true)
             .setMashable(true)
@@ -30,22 +27,12 @@ public final class CultivationProducts {
             .setGrillable(true)
             .register(addon);
 
-        new CultivationProduce(
-            CultivationGroups.PRODUCE,
-            CultivationStacks.PRODUCE_ORANGE,
-            RecipeTypes.TREE_HARVEST,
-            new ItemStack[0]
-        )
+        new CultivationProduce(CultivationGroups.PRODUCE, CultivationStacks.PRODUCE_ORANGE, RecipeTypes.TREE)
             .setBlendable(true)
             .setSliceable(true)
             .register(addon);
 
-        new CultivationProduce(
-            CultivationGroups.PRODUCE,
-            CultivationStacks.PRODUCE_GREEN_APPLE,
-            RecipeTypes.TREE_HARVEST,
-            new ItemStack[0]
-        )
+        new CultivationProduce(CultivationGroups.PRODUCE, CultivationStacks.PRODUCE_GREEN_APPLE, RecipeTypes.TREE)
             .setBlendable(true)
             .setSliceable(true)
             .setBakeable(true)
