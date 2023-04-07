@@ -14,4 +14,7 @@ public class CultivationByProduct extends UnplaceableBlock {
             null, null, null
         });
     }
+    public CultivationByProduct(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+        super(CultivationGroups.BY_PRODUCTS, item, recipeType, recipe);
+    }
 }

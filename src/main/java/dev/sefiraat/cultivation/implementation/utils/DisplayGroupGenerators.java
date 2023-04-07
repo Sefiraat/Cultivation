@@ -5,7 +5,6 @@ import dev.sefiraat.sefilib.entity.display.builders.BlockDisplayBuilder;
 import dev.sefiraat.sefilib.entity.display.builders.ItemDisplayBuilder;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.BlockDisplay;
@@ -412,6 +411,19 @@ public final class DisplayGroupGenerators {
                 .setGroupParentOffset(new Vector(0, 0.68, 0.45))
                 .setItemStack(new ItemStack(Material.ACTIVATOR_RAIL))
                 .setTransformation(Transformations.COOKING_BUTTONS.getTransformation())
+                .build(displayGroup)
+        );
+        return displayGroup;
+    }
+
+    public static DisplayGroup generateFinishingCounter(@Nonnull Location location) {
+        DisplayGroup displayGroup = generateBaseCounter(location);
+        displayGroup.addDisplay(
+            "hob",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.85, 0))
+                .setItemStack(new ItemStack(Material.POLISHED_DIORITE))
+                .setTransformation(Transformations.FRY_HOB.getTransformation())
                 .build(displayGroup)
         );
         return displayGroup;

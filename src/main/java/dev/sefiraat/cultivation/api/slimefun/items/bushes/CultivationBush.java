@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.items.bushes;
 
-import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
+import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.interfaces.CultivationBushHolder;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.interfaces.CultivationTrimmable;
@@ -9,14 +9,12 @@ import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.TrimmingTool;
 import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
-import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
-import org.bukkit.Location;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.OverridingMethodsMustInvokeSuper;
@@ -58,5 +56,11 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
     @OverridingMethodsMustInvokeSuper
     protected void onBreak(@NotNull BlockBreakEvent event) {
         removeBush(event.getBlock().getLocation());
+    }
+
+    @Override
+    public CultivationBush tryRegister(@NotNull SlimefunAddon addon) {
+        Registry.getInstance().addBush(this);
+        return super.tryRegister(addon);
     }
 }

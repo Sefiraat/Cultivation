@@ -4,6 +4,7 @@ import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.entity.Display;
@@ -16,13 +17,13 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.Function;
 
-public abstract class KitchenMachine extends KitchenObject {
+public abstract class KitchenRecipeMachineComplex extends KitchenObject {
 
-    protected KitchenMachine(ItemGroup itemGroup,
-                             SlimefunItemStack item,
-                             RecipeType recipeType,
-                             ItemStack[] recipe,
-                             Function<Location, DisplayGroup> displayGroupFunction
+    protected KitchenRecipeMachineComplex(ItemGroup itemGroup,
+                                          SlimefunItemStack item,
+                                          RecipeType recipeType,
+                                          ItemStack[] recipe,
+                                          Function<Location, DisplayGroup> displayGroupFunction
     ) {
         super(itemGroup, item, recipeType, recipe, displayGroupFunction);
     }
@@ -62,19 +63,26 @@ public abstract class KitchenMachine extends KitchenObject {
         return DisplayGroup.fromUUID(uuid);
     }
 
-    public void addRecipe(@Nonnull String input, @Nonnull ItemStack output) {
-        getRecipes().put(input, output);
+    public void addRecipe(@Nonnull ItemStack[] inputs, @Nonnull ItemStack output) {
+        getRecipes().put(inputs, output);
     }
 
     @Nullable
-    public ItemStack testRecipe(@Nonnull String input) {
-        ItemStack itemStack = getRecipes().get(input);
-        if (itemStack == null) {
-            return null;
+    public ItemStack testRecipe(@Nonnull ItemStack[] input) {
+        for (Map.Entry<ItemStack[], ItemStack> entry : this.getRecipes().entrySet()) {
+            ItemStack[] itemStacks = entry.getKey();
+            for (int i = 0; i < itemStacks.length; i++) {
+                ItemStack inputStack = input[i];
+                ItemStack recipeStack = itemStacks[i];
+                if (SlimefunUtils.isItemSimilar(inputStack, recipeStack, false)) {
+                    return entry.getValue();
+                }
+                break;
+            }
         }
-        return itemStack.clone();
+        return null;
     }
 
     @Nonnull
-    protected abstract Map<String, ItemStack> getRecipes();
+    protected abstract Map<ItemStack[], ItemStack> getRecipes();
 }

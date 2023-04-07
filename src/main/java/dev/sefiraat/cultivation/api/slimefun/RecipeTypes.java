@@ -3,6 +3,7 @@ package dev.sefiraat.cultivation.api.slimefun;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.implementation.listeners.CustomDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
+import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
 import dev.sefiraat.cultivation.implementation.tasks.AirTimeTask;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.cultivation.managers.TaskManager;
@@ -260,6 +261,19 @@ public final class RecipeTypes {
         )
     );
 
+    @Nonnull
+    public static final RecipeType FINISHING = new RecipeType(
+        Keys.newKey("finishing"),
+        Theme.themedItemStack(
+            Material.GOLDEN_APPLE,
+            CultivationThemes.RECIPE_TYPE,
+            "Finishing",
+            List.of(
+                "Use the kitchen's finishing counter to make this item."
+            )
+        )
+    );
+
     /**
      * This method both registers the drop and returns an ItemStack array that can be used
      * for Slimefun's recipe system. {@link RecipeTypes#VANILLA_DROP}
@@ -404,5 +418,11 @@ public final class RecipeTypes {
         AirTimeTask.AirTimeDrop drop = new AirTimeTask.AirTimeDrop(stackToDrop, fullOddsTimeSeconds);
         TaskManager.getInstance().getAirTimeTask().addDrop(drop);
         return new ItemStack[0];
+    }
+
+    @Nonnull
+    public static ItemStack[] createFoodFinishingRecipe(@Nonnull ItemStack result, ItemStack[] recipe) {
+        CultivationMachines.COUNTER_FINISHING.addRecipe(recipe, result);
+        return recipe;
     }
 }

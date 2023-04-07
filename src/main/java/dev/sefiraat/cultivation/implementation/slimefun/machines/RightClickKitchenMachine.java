@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class RightClickKitchenMachine extends KitchenMachine {
+public class RightClickKitchenMachine extends KitchenRecipeMachineSimple {
 
     private final Map<String, ItemStack> recipes = new HashMap<>();
 

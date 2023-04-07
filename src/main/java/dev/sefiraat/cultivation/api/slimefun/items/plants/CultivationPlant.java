@@ -22,6 +22,7 @@ import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.world.LocationUtils;
 import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
 import io.github.bakedlibs.dough.skins.PlayerHead;
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -295,5 +296,11 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     @Override
     public int getMaxGrowthStages() {
         return 2;
+    }
+
+    @Override
+    public CultivationPlant tryRegister(@NotNull SlimefunAddon addon) {
+        Registry.getInstance().addPlant(this);
+        return super.tryRegister(addon);
     }
 }

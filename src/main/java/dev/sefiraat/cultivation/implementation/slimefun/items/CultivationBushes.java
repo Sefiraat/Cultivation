@@ -20,7 +20,23 @@ public final class CultivationBushes {
             CommonPlacements.COMMON_OVERWORLD,
             0.01
         ))
-            .addHarvestingResult(CultivationStacks.PRODUCE_GRAPE)
+            .addHarvestingResult(CultivationStacks.GRAPE)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_STRAWBERRY, new Growth(
+            PlantTheme.RED,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.STRAWBERRY)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_PEANUTS, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.PEANUT)
             .tryRegister(addon);
 
     }

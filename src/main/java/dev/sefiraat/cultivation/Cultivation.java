@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation;
 
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationBushes;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationCrafting;
+import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationFoods;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationIngredients;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationPlants;
@@ -50,7 +51,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
 
         getLogger().info("########################################");
         getLogger().info("               Cultivation              ");
-        getLogger().info("   By Sefiraat, J3fftw and JustAHuman   ");
+        getLogger().info("         By Sefiraat and J3fftw         ");
         getLogger().info("########################################");
 
         saveDefaultConfig();
@@ -77,6 +78,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
         CultivationTrees.setup(this);
         CultivationProducts.setup(this);
         CultivationIngredients.setup(this);
+        CultivationFoods.setup(this);
     }
 
     @Override
