@@ -115,9 +115,9 @@ public final class CultivationMachines {
         200
     );
 
-    public static final TemperatureKitchenMachine COUNTER_FRYING = new TemperatureKitchenMachine(
+    public static final TemperatureKitchenMachine COUNTER_FRYER = new TemperatureKitchenMachine(
         CultivationGroups.MACHINES,
-        CultivationStacks.COUNTER_FRYING,
+        CultivationStacks.COUNTER_FRYER,
         RecipeType.ENHANCED_CRAFTING_TABLE,
         new ItemStack[]{
             null, new ItemStack(Material.TINTED_GLASS), null,
@@ -150,7 +150,7 @@ public final class CultivationMachines {
         COUNTER_GRINDER.register(addon);
         COUNTER_MASHER.register(addon);
         COUNTER_OVEN.register(addon);
-        COUNTER_FRYING.register(addon);
+        COUNTER_FRYER.register(addon);
         COUNTER_GRILL.register(addon);
     }
 }

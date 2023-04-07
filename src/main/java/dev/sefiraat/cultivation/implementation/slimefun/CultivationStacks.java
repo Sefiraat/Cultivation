@@ -1113,7 +1113,7 @@ public final class CultivationStacks {
         "Can bake certain produce items."
     );
 
-    public static final SlimefunItemStack COUNTER_FRYING = Theme.themedSlimefunItemStack(
+    public static final SlimefunItemStack COUNTER_FRYER = Theme.themedSlimefunItemStack(
         "CLT_COUNTER_FRYING",
         Material.BLACK_STAINED_GLASS,
         CultivationThemes.MACHINE,

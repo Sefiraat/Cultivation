@@ -70,7 +70,10 @@ public abstract class KitchenMachine extends KitchenObject implements DisplayInt
     @Nullable
     public ItemStack testRecipe(@Nonnull String input) {
         ItemStack itemStack = getRecipes().get(input);
-        return itemStack == null ? null : itemStack.clone();
+        if (itemStack == null) {
+            return null;
+        }
+        return itemStack.clone();
     }
 
     @Nonnull

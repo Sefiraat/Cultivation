@@ -39,66 +39,74 @@ public class CultivationProduce extends SlimefunItem {
         super(itemGroup, item, recipeType, recipe);
     }
 
-    public boolean isCanChop() {
+    public boolean isChoppable() {
         return canChop;
     }
 
-    public CultivationProduce setCanChop(boolean canChop) {
+    public CultivationProduce setCoppable(boolean canChop) {
         this.canChop = canChop;
         return this;
     }
 
-    public boolean isCanMash() {
+    public boolean isMashable() {
         return canMash;
     }
 
-    public CultivationProduce setCanMash(boolean canMash) {
+    public CultivationProduce setMashable(boolean canMash) {
         this.canMash = canMash;
         return this;
     }
 
-    public boolean isCanSlice() {
+    public boolean isSliceable() {
         return canSlice;
     }
 
-    public CultivationProduce setCanSlice(boolean canSlice) {
+    public CultivationProduce setSliceable(boolean canSlice) {
         this.canSlice = canSlice;
         return this;
     }
 
-    public boolean isCanGrind() {
+    public boolean isGrindable() {
         return canGrind;
     }
 
-    public CultivationProduce setCanGrind(boolean canGrind) {
+    public CultivationProduce setGrindable(boolean canGrind) {
         this.canGrind = canGrind;
         return this;
     }
 
-    public boolean isCanBlend() {
+    public boolean isBlendable() {
         return canBlend;
     }
 
-    public CultivationProduce setCanBlend(boolean canBlend) {
+    public CultivationProduce setBlendable(boolean canBlend) {
         this.canBlend = canBlend;
         return this;
     }
 
-    public boolean isCanBake() {
+    public boolean isBakeable() {
         return canBake;
     }
 
-    public CultivationProduce setCanBake(boolean canBake) {
+    public CultivationProduce setBakeable(boolean canBake) {
         this.canBake = canBake;
         return this;
     }
 
-    public CultivationProduce setCanFry(boolean canFry) {
+    public boolean isFryable() {
+        return canFry;
+    }
+
+    public CultivationProduce setFryable(boolean canFry) {
         this.canFry = canFry;
         return this;
     }
 
-    public CultivationProduce setCanGrill(boolean canGrill) {
+    public boolean isGrillable() {
+        return canGrill;
+    }
+
+    public CultivationProduce setGrillable(boolean canGrill) {
         this.canGrill = canGrill;
         return this;
     }
@@ -175,7 +183,7 @@ public class CultivationProduce extends SlimefunItem {
         }
 
         if (recipeType == RecipeTypes.FRIED) {
-            CultivationMachines.COUNTER_FRYING.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_FRYER.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.GRILLED) {

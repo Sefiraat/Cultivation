@@ -21,13 +21,13 @@ public final class CultivationProducts {
             RecipeTypes.TREE_HARVEST,
             new ItemStack[0]
         )
-            .setCanBlend(true)
-            .setCanSlice(true)
-            .setCanMash(true)
-            .setCanChop(true)
-            .setCanBake(true)
-            .setCanFry(true)
-            .setCanGrill(true)
+            .setBlendable(true)
+            .setSliceable(true)
+            .setMashable(true)
+            .setCoppable(true)
+            .setBakeable(true)
+            .setFryable(true)
+            .setGrillable(true)
             .register(addon);
 
         new CultivationProduce(
@@ -36,8 +36,8 @@ public final class CultivationProducts {
             RecipeTypes.TREE_HARVEST,
             new ItemStack[0]
         )
-            .setCanBlend(true)
-            .setCanSlice(true)
+            .setBlendable(true)
+            .setSliceable(true)
             .register(addon);
 
         new CultivationProduce(
@@ -46,9 +46,9 @@ public final class CultivationProducts {
             RecipeTypes.TREE_HARVEST,
             new ItemStack[0]
         )
-            .setCanBlend(true)
-            .setCanSlice(true)
-            .setCanBake(true)
+            .setBlendable(true)
+            .setSliceable(true)
+            .setBakeable(true)
             .register(addon);
     }
 }

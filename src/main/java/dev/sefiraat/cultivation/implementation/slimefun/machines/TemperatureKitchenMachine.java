@@ -124,11 +124,11 @@ public class TemperatureKitchenMachine extends KitchenMachine implements EnergyN
             @Override
             public void newInstance(@NotNull BlockMenu menu, @NotNull Block b) {
                 menu.addMenuClickHandler(COOK_SLOT, (p, slot, item, action) -> {
-                    ItemStack itemStack = menu.getItemInSlot(INPUT_SLOT);
                     if (getCharge(menu.getLocation()) < powerRequirement) {
                         p.sendMessage(Theme.ERROR.apply("Not enough power."));
                         return false;
                     }
+                    ItemStack itemStack = menu.getItemInSlot(INPUT_SLOT);
                     if (itemStack == null || itemStack.getType().isAir()) {
                         p.sendMessage(Theme.ERROR.apply("Put an item in the input slot."));
                         return false;
@@ -140,7 +140,6 @@ public class TemperatureKitchenMachine extends KitchenMachine implements EnergyN
                     }
 
                     ItemStack result = testRecipe(id);
-
                     if (result == null || !menu.fits(result, OUTPUT_SLOT)) {
                         p.sendMessage(Theme.ERROR.apply("No matching recipe."));
                         return false;
