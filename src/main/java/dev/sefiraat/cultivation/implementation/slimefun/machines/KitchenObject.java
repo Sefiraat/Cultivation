@@ -1,24 +1,37 @@
 package dev.sefiraat.cultivation.implementation.slimefun.machines;
 
+import dev.sefiraat.cultivation.api.interfaces.DisplayIntractable;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
-import dev.sefiraat.sefilib.slimefun.blocks.DisplayGroupBlock;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Display;
 import org.bukkit.entity.ItemDisplay;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
+import java.util.UUID;
 import java.util.function.Function;
 
-public abstract class KitchenObject extends DisplayGroupBlock {
+public abstract class KitchenObject extends SlimefunItem implements DisplayIntractable {
+
+    public static final String KEY_UUID = "display-uuid";
+    private final Function<Location, DisplayGroup> displayGroupFunction;
 
     protected KitchenObject(ItemGroup itemGroup,
                             SlimefunItemStack item,
@@ -26,7 +39,8 @@ public abstract class KitchenObject extends DisplayGroupBlock {
                             ItemStack[] recipe,
                             Function<Location, DisplayGroup> displayGroupFunction
     ) {
-        super(itemGroup, item, recipeType, recipe, displayGroupFunction);
+        super(itemGroup, item, recipeType, recipe);
+        this.displayGroupFunction = displayGroupFunction;
     }
 
     @Override
@@ -84,9 +98,25 @@ public abstract class KitchenObject extends DisplayGroupBlock {
         }
     }
 
-    @Nonnull
-    @Override
-    protected Material getBaseMaterial() {
-        return Material.BARRIER;
+    public void setUUID(@Nonnull DisplayGroup displayGroup, @Nonnull Location location) {
+        BlockStorage.addBlockInfo(location, KEY_UUID, displayGroup.getParentUUID().toString());
+    }
+
+    @Nullable
+    public UUID getUUID(@Nonnull Location location) {
+        String uuid = BlockStorage.getLocationInfo(location, KEY_UUID);
+        if (uuid == null) {
+            return null;
+        }
+        return UUID.fromString(uuid);
+    }
+
+    @Nullable
+    public DisplayGroup getDisplayGroup(@Nonnull Location location) {
+        UUID uuid = getUUID(location);
+        if (uuid == null) {
+            return null;
+        }
+        return DisplayGroup.fromUUID(uuid);
     }
 }
