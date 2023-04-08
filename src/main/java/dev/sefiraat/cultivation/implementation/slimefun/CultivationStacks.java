@@ -68,6 +68,36 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack BUSH_RICE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RICE",
+        PlantSkin.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Rice",
+        List.of(
+            "The ultimate staple food."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_GARLIC = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_GARLIC",
+        PlantSkin.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Garlic",
+        List.of(
+            "This bush has simply the worst breath."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CAYENNE_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CAYENNE_PEPPER",
+        PlantSkin.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Cayenne Pepper",
+        List.of(
+            "A bush with a peppery attitude."
+        )
+    );
+
     // endregion
 
     // region Plants
@@ -1209,7 +1239,31 @@ public final class CultivationStacks {
         "Just add cream!"
     );
 
-    public static final SlimefunItemStack PRODUCE_ORANGE = Theme.themedSlimefunItemStack(
+    public static final SlimefunItemStack RICE = Theme.themedSlimefunItemStack(
+        "CLT_RICE",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Rice",
+        "Remember, you only live rice!"
+    );
+
+    public static final SlimefunItemStack GARLIC = Theme.themedSlimefunItemStack(
+        "CLT_GARLIC",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Garlic",
+        "Quick, before the vampires come!"
+    );
+
+    public static final SlimefunItemStack CAYENNE_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_CAYENNE_PEPPER",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Cayenne Pepper",
+        "A soft spicy treat."
+    );
+
+    public static final SlimefunItemStack ORANGE = Theme.themedSlimefunItemStack(
         "CLT_ORANGE",
         Material.PAPER,
         CultivationThemes.PRODUCE,
@@ -1217,7 +1271,7 @@ public final class CultivationStacks {
         "Isn't this meant to be clockwork?"
     );
 
-    public static final SlimefunItemStack PRODUCE_GREEN_APPLE = Theme.themedSlimefunItemStack(
+    public static final SlimefunItemStack GREEN_APPLE = Theme.themedSlimefunItemStack(
         "CLT_GREEN_APPLE",
         Material.PAPER,
         CultivationThemes.PRODUCE,
@@ -1266,6 +1320,41 @@ public final class CultivationStacks {
         "",
         Theme.CLICK_INFO.asTitle("Healing", "5 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Power + 3")
+    );
+
+    public static final SlimefunItemStack BACON_SANDWICH = Theme.themedSlimefunItemStack(
+        "CLT_BACON_SANDWICH",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Bacon Sandwich",
+        "A simple classic!",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "2 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Power + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 1")
+    );
+
+    public static final SlimefunItemStack SALMON_NIGIRI = Theme.themedSlimefunItemStack(
+        "CLT_SALMON_NIGIRI",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Salmon Nigiri",
+        "A delightful yet subtle flavour.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "2 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Regen + 1")
+    );
+
+    public static final SlimefunItemStack CAJUN_GARLIC_BUTTER_COD = Theme.themedSlimefunItemStack(
+        "CLT_CAJUN_GARLIC_BUTTER_COD",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Cajun Garlic Butter Cod",
+        "A very simple dish busting with flavour.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Regen + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 1")
     );
 
 

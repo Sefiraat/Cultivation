@@ -6,8 +6,8 @@ import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.CraftingKitchenMachine;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.DoNothingKitchenObject;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.GardenCloche;
+import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenMachine;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.RightClickKitchenMachine;
-import dev.sefiraat.cultivation.implementation.slimefun.machines.TemperatureKitchenMachine;
 import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -103,7 +103,7 @@ public final class CultivationMachines {
         DisplayGroupGenerators::generateBlenderCounter
     );
 
-    public static final TemperatureKitchenMachine COUNTER_OVEN = new TemperatureKitchenMachine(
+    public static final PoweredKitchenMachine COUNTER_OVEN = new PoweredKitchenMachine(
         CultivationGroups.MACHINES,
         CultivationStacks.COUNTER_OVEN,
         RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -116,7 +116,7 @@ public final class CultivationMachines {
         200
     );
 
-    public static final TemperatureKitchenMachine COUNTER_FRYER = new TemperatureKitchenMachine(
+    public static final PoweredKitchenMachine COUNTER_FRYER = new PoweredKitchenMachine(
         CultivationGroups.MACHINES,
         CultivationStacks.COUNTER_FRYER,
         RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -129,7 +129,7 @@ public final class CultivationMachines {
         100
     );
 
-    public static final TemperatureKitchenMachine COUNTER_GRILL = new TemperatureKitchenMachine(
+    public static final PoweredKitchenMachine COUNTER_GRILL = new PoweredKitchenMachine(
         CultivationGroups.MACHINES,
         CultivationStacks.COUNTER_GRILL,
         RecipeType.ENHANCED_CRAFTING_TABLE,

@@ -71,13 +71,16 @@ public abstract class KitchenRecipeMachineComplex extends KitchenObject {
     public ItemStack testRecipe(@Nonnull ItemStack[] input) {
         for (Map.Entry<ItemStack[], ItemStack> entry : this.getRecipes().entrySet()) {
             ItemStack[] itemStacks = entry.getKey();
+            int misses = 0;
             for (int i = 0; i < itemStacks.length; i++) {
                 ItemStack inputStack = input[i];
                 ItemStack recipeStack = itemStacks[i];
-                if (SlimefunUtils.isItemSimilar(inputStack, recipeStack, false)) {
-                    return entry.getValue();
+                if (!SlimefunUtils.isItemSimilar(inputStack, recipeStack, false)) {
+                    misses++;
                 }
-                break;
+            }
+            if (misses == 0) {
+                return entry.getValue().clone();
             }
         }
         return null;

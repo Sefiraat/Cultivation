@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class TemperatureKitchenMachine extends KitchenRecipeMachineSimple implements EnergyNetComponent {
+public class PoweredKitchenMachine extends KitchenRecipeMachineSimple implements EnergyNetComponent {
     private static final int INPUT_SLOT = 20;
     private static final int OUTPUT_SLOT = 24;
     private static final int COOK_SLOT = 22;
@@ -47,12 +47,12 @@ public class TemperatureKitchenMachine extends KitchenRecipeMachineSimple implem
     private final Map<String, ItemStack> recipes = new HashMap<>();
     private final int powerRequirement;
 
-    public TemperatureKitchenMachine(ItemGroup itemGroup,
-                                     SlimefunItemStack item,
-                                     RecipeType recipeType,
-                                     ItemStack[] recipe,
-                                     Function<Location, DisplayGroup> displayGroupFunction,
-                                     int powerRequirement
+    public PoweredKitchenMachine(ItemGroup itemGroup,
+                                 SlimefunItemStack item,
+                                 RecipeType recipeType,
+                                 ItemStack[] recipe,
+                                 Function<Location, DisplayGroup> displayGroupFunction,
+                                 int powerRequirement
     ) {
         super(itemGroup, item, recipeType, recipe, displayGroupFunction);
         this.powerRequirement = powerRequirement;

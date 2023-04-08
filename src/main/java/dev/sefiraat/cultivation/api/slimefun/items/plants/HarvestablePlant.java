@@ -91,7 +91,12 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
         if (this.isMature(block)) {
             updateGrowthStage(block, 1);
             ItemStack itemStack = nextDrop.remove(block.getLocation());
-            if (itemStack != null) {
+            if (itemStack == null) {
+                ItemStack drop = harvestItems.getRandom();
+                if (drop != null) {
+                    block.getWorld().dropItem(block.getLocation(), harvestItems.getRandom());
+                }
+            } else {
                 block.getWorld().dropItem(block.getLocation(), itemStack);
             }
         }
