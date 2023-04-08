@@ -3,6 +3,7 @@ package dev.sefiraat.cultivation.implementation.slimefun.items;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
+import dev.sefiraat.cultivation.implementation.slimefun.machines.CraftingKitchenMachine;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.DoNothingKitchenObject;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.GardenCloche;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.RightClickKitchenMachine;
@@ -135,10 +136,22 @@ public final class CultivationMachines {
         new ItemStack[]{
             null, new ItemStack(Material.IRON_BLOCK), null,
             new ItemStack(Material.IRON_BLOCK), new ItemStack(Material.CHISELED_POLISHED_BLACKSTONE), new ItemStack(Material.IRON_BLOCK),
-            new ItemStack(Material.DARK_OAK_LOG), SlimefunItems.CRAFTING_MOTOR, new ItemStack(Material.DARK_OAK_LOG)
+            new ItemStack(Material.DARK_OAK_LOG), SlimefunItems.ELECTRIC_MOTOR, new ItemStack(Material.DARK_OAK_LOG)
         },
         DisplayGroupGenerators::generateGrillingCounter,
         150
+    );
+
+    public static final CraftingKitchenMachine COUNTER_FINISHING = new CraftingKitchenMachine(
+        CultivationGroups.MACHINES,
+        CultivationStacks.COUNTER_FINISHING,
+        RecipeType.ENHANCED_CRAFTING_TABLE,
+        new ItemStack[]{
+            null, null, null,
+            new ItemStack(Material.IRON_BLOCK), new ItemStack(Material.POLISHED_DIORITE), new ItemStack(Material.IRON_BLOCK),
+            new ItemStack(Material.DARK_OAK_LOG), SlimefunItems.CRAFTING_MOTOR, new ItemStack(Material.DARK_OAK_LOG)
+        },
+        DisplayGroupGenerators::generateFinishingCounter
     );
 
     public static void setup(Cultivation addon) {
@@ -152,5 +165,6 @@ public final class CultivationMachines {
         COUNTER_OVEN.register(addon);
         COUNTER_FRYER.register(addon);
         COUNTER_GRILL.register(addon);
+        COUNTER_FINISHING.register(addon);
     }
 }

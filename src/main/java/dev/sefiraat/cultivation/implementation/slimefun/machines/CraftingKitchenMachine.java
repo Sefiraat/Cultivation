@@ -6,11 +6,8 @@ import dev.sefiraat.sefilib.string.Theme;
 import io.github.bakedlibs.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
-import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
@@ -30,32 +27,28 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class TemperatureKitchenMachine extends KitchenRecipeMachineSimple implements EnergyNetComponent {
-    private static final int INPUT_SLOT = 20;
-    private static final int OUTPUT_SLOT = 24;
-    private static final int COOK_SLOT = 22;
-    private static final int[] OUTPUT_SLOT_BACKGROUND = new int[]{
-        14, 15, 16, 23, 25, 32, 33, 34
+public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
+    private static final int[] INPUT_SLOTS = new int[]{
+        10, 11, 12, 19, 20, 21, 28, 29, 30
     };
-    private static final int[] INPUT_SLOT_BACKGROUND = new int[]{
-        10, 11, 12, 19, 21, 28, 29, 30
+    private static final int OUTPUT_SLOT = 25;
+    private static final int COOK_SLOT = 23;
+    private static final int[] OUTPUT_SLOT_BACKGROUND = new int[]{
+        16, 34
     };
     private static final int[] BACKGROUND = new int[]{
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 17, 18, 22, 26, 27, 31, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 14, 15, 16, 17, 18, 22, 24, 26, 27, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
     };
 
-    private final Map<String, ItemStack> recipes = new HashMap<>();
-    private final int powerRequirement;
+    private final Map<ItemStack[], ItemStack> recipes = new HashMap<>();
 
-    public TemperatureKitchenMachine(ItemGroup itemGroup,
-                                     SlimefunItemStack item,
-                                     RecipeType recipeType,
-                                     ItemStack[] recipe,
-                                     Function<Location, DisplayGroup> displayGroupFunction,
-                                     int powerRequirement
+    public CraftingKitchenMachine(ItemGroup itemGroup,
+                                  SlimefunItemStack item,
+                                  RecipeType recipeType,
+                                  ItemStack[] recipe,
+                                  Function<Location, DisplayGroup> displayGroupFunction
     ) {
         super(itemGroup, item, recipeType, recipe, displayGroupFunction);
-        this.powerRequirement = powerRequirement;
     }
 
     @Override
@@ -81,19 +74,8 @@ public class TemperatureKitchenMachine extends KitchenRecipeMachineSimple implem
 
     @Nonnull
     @Override
-    protected Map<String, ItemStack> getRecipes() {
+    protected Map<ItemStack[], ItemStack> getRecipes() {
         return recipes;
-    }
-
-    @NotNull
-    @Override
-    public EnergyNetComponentType getEnergyComponentType() {
-        return EnergyNetComponentType.CONSUMER;
-    }
-
-    @Override
-    public int getCapacity() {
-        return 2500;
     }
 
     @Override
@@ -102,21 +84,15 @@ public class TemperatureKitchenMachine extends KitchenRecipeMachineSimple implem
 
             @Override
             public void init() {
-                ItemStack backgroundInput = new CustomItemStack(
-                    Material.GREEN_STAINED_GLASS_PANE,
-                    Theme.PASSIVE.apply("Insert Produce")
-                );
                 ItemStack backgroundOutput = new CustomItemStack(
                     Material.ORANGE_STAINED_GLASS_PANE,
-                    Theme.PASSIVE.apply("Cooked Output")
+                    Theme.PASSIVE.apply("Finished Food")
                 );
                 ItemStack cookButton = new CustomItemStack(
                     Material.RED_STAINED_GLASS_PANE,
-                    Theme.CLICK_INFO.apply("Cook Produce"),
-                    Theme.CLICK_INFO.asTitle("Power Required", powerRequirement)
+                    Theme.CLICK_INFO.apply("Prepare Food")
                 );
                 drawBackground(BACKGROUND);
-                drawBackground(backgroundInput, INPUT_SLOT_BACKGROUND);
                 drawBackground(backgroundOutput, OUTPUT_SLOT_BACKGROUND);
                 addItem(COOK_SLOT, cookButton, ChestMenuUtils.getEmptyClickHandler());
             }
@@ -124,30 +100,24 @@ public class TemperatureKitchenMachine extends KitchenRecipeMachineSimple implem
             @Override
             public void newInstance(@NotNull BlockMenu menu, @NotNull Block b) {
                 menu.addMenuClickHandler(COOK_SLOT, (p, slot, item, action) -> {
-                    if (getCharge(menu.getLocation()) < powerRequirement) {
-                        p.sendMessage(Theme.ERROR.apply("Not enough power."));
-                        return false;
+                    ItemStack[] itemStacks = new ItemStack[9];
+                    for (int i = 0; i < INPUT_SLOTS.length; i++) {
+                        itemStacks[i] = menu.getItemInSlot(INPUT_SLOTS[i]);
                     }
-                    ItemStack itemStack = menu.getItemInSlot(INPUT_SLOT);
-                    if (itemStack == null || itemStack.getType().isAir()) {
-                        p.sendMessage(Theme.ERROR.apply("Put an item in the input slot."));
-                        return false;
-                    }
-                    SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
-                    String id = itemStack.getType().name();
-                    if (slimefunItem != null) {
-                        id = slimefunItem.getId();
-                    }
-
-                    ItemStack result = testRecipe(id);
+                    ItemStack result = testRecipe(itemStacks);
                     if (result == null || !menu.fits(result, OUTPUT_SLOT)) {
                         p.sendMessage(Theme.ERROR.apply("No matching recipe."));
                         return false;
                     }
 
                     menu.pushItem(result, OUTPUT_SLOT);
-                    itemStack.setAmount(itemStack.getAmount() - 1);
-                    removeCharge(menu.getLocation(), powerRequirement);
+                    for (int inputSlot : INPUT_SLOTS) {
+                        ItemStack inputItem = menu.getItemInSlot(inputSlot);
+                        if (inputItem == null || inputItem.getType().isAir()) {
+                            continue;
+                        }
+                        inputItem.setAmount(inputItem.getAmount() - 1);
+                    }
                     p.sendMessage(Theme.SUCCESS.apply("Tasty!"));
                     return false;
                 });

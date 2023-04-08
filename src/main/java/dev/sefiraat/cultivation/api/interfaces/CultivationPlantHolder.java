@@ -5,8 +5,8 @@ import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -22,13 +22,13 @@ public interface CultivationPlantHolder {
     }
 
     default boolean hasDisplayPlant(@Nonnull Location location) {
-        String cropped = BlockStorage.getLocationInfo(location, PLANT);
-        return Boolean.parseBoolean(cropped);
+        String hasPlant = BlockStorage.getLocationInfo(location, PLANT);
+        return Boolean.parseBoolean(hasPlant);
     }
 
     default boolean hasDisplayPlant(@Nonnull Config config) {
-        String cropped = config.getString(PLANT);
-        return Boolean.parseBoolean(cropped);
+        String hasPlant = config.getString(PLANT);
+        return Boolean.parseBoolean(hasPlant);
     }
 
     default void removePlant(@Nonnull Location location) {
@@ -43,10 +43,10 @@ public interface CultivationPlantHolder {
         BlockStorage.addBlockInfo(location, GROUP_PARENT, displayGroup.getParentUUID().toString());
     }
 
-    default void addItemsToDisplay(@Nonnull Location location, @Nonnull Material material) {
+    default void addItemsToDisplay(@Nonnull Location location, @Nonnull ItemStack itemStack) {
         if (hasDisplayPlant(location)) {
             DisplayGroup group = getPlantDisplayGroup(location);
-            DisplayGroupGenerators.addItemsToPlant(group, material);
+            DisplayGroupGenerators.addItemsToPlant(group, itemStack);
         }
     }
 

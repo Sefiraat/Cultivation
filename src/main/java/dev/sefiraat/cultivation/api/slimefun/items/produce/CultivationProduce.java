@@ -16,11 +16,20 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Locale;
 
 public class CultivationProduce extends SlimefunItem {
+    private CultivationByProduct chopped;
+    private CultivationByProduct mashed;
+    private CultivationByProduct sliced;
+    private CultivationByProduct ground;
+    private CultivationByProduct blended;
+    private CultivationByProduct baked;
+    private CultivationByProduct fried;
+    private CultivationByProduct grilled;
     public static final String PRODUCTION_METHODS_TITLE = "Can be:";
     private boolean canChop;
     private boolean canMash;
@@ -33,17 +42,56 @@ public class CultivationProduce extends SlimefunItem {
 
     public CultivationProduce(ItemGroup itemGroup,
                               SlimefunItemStack item,
-                              RecipeType recipeType,
-                              ItemStack[] recipe
+                              RecipeType recipeType
     ) {
-        super(itemGroup, item, recipeType, recipe);
+        super(itemGroup, item, recipeType, new ItemStack[0]);
+    }
+
+    @Nullable
+    public CultivationByProduct getChopped() {
+        return chopped;
+    }
+
+    @Nullable
+    public CultivationByProduct getMashed() {
+        return mashed;
+    }
+
+    @Nullable
+    public CultivationByProduct getSliced() {
+        return sliced;
+    }
+
+    @Nullable
+    public CultivationByProduct getGround() {
+        return ground;
+    }
+
+    @Nullable
+    public CultivationByProduct getBlended() {
+        return blended;
+    }
+
+    @Nullable
+    public CultivationByProduct getBaked() {
+        return baked;
+    }
+
+    @Nullable
+    public CultivationByProduct getFried() {
+        return fried;
+    }
+
+    @Nullable
+    public CultivationByProduct getGrilled() {
+        return grilled;
     }
 
     public boolean isChoppable() {
         return canChop;
     }
 
-    public CultivationProduce setChoppable(boolean canChop) {
+    public CultivationProduce setCoppable(boolean canChop) {
         this.canChop = canChop;
         return this;
     }
@@ -119,33 +167,33 @@ public class CultivationProduce extends SlimefunItem {
 
     private void createByProducts() {
         if (canChop) {
-            registerByProduct("Chopped", RecipeTypes.CHOPPED, Material.BEETROOT_SEEDS);
+            this.chopped = registerByProduct("Chopped", RecipeTypes.CHOPPED, Material.BEETROOT_SEEDS);
         }
         if (canMash) {
-            registerByProduct("Mashed", RecipeTypes.MASHED, Material.SUSPICIOUS_STEW);
+            this.mashed = registerByProduct("Mashed", RecipeTypes.MASHED, Material.SUSPICIOUS_STEW);
         }
         if (canSlice) {
-            registerByProduct("Sliced", RecipeTypes.SLICED, Material.KELP);
+            this.sliced = registerByProduct("Sliced", RecipeTypes.SLICED, Material.KELP);
         }
         if (canGrind) {
-            registerByProduct("Ground", RecipeTypes.GROUND, Material.BROWN_DYE);
+            this.ground = registerByProduct("Ground", RecipeTypes.GROUND, Material.BROWN_DYE);
         }
         if (canBlend) {
-            registerByProduct("Blended", RecipeTypes.BLENDED, Material.WATER_BUCKET);
+            this.blended = registerByProduct("Blended", RecipeTypes.BLENDED, Material.WATER_BUCKET);
         }
         if (canBake) {
-            registerByProduct("Baked", RecipeTypes.BAKED, Material.DRIED_KELP);
+            this.baked = registerByProduct("Baked", RecipeTypes.BAKED, Material.DRIED_KELP);
         }
         if (canFry) {
-            registerByProduct("Fried", RecipeTypes.FRIED, Material.RED_DYE);
+            this.fried = registerByProduct("Fried", RecipeTypes.FRIED, Material.RED_DYE);
         }
         if (canGrill) {
-            registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
+            this.grilled = registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
         }
     }
 
     @ParametersAreNonnullByDefault
-    private void registerByProduct(String name, RecipeType recipeType, Material material) {
+    private CultivationByProduct registerByProduct(String name, RecipeType recipeType, Material material) {
         CultivationByProduct byProduct = new CultivationByProduct(
             Theme.themedSlimefunItemStack(
                 "CLT_" + name.toUpperCase(Locale.ROOT) + "_" + this.getId().substring(4),
@@ -199,5 +247,6 @@ public class CultivationProduce extends SlimefunItem {
         lore.add(Theme.applyThemeToString(Theme.PASSIVE, name));
         itemMeta.setLore(lore);
         this.getItem().setItemMeta(itemMeta);
+        return byProduct;
     }
 }

@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation;
 
 import com.google.common.base.Preconditions;
-import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
+import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResultType;
@@ -16,7 +16,9 @@ public class Registry {
     private static Registry instance;
 
     @Nonnull
-    private final List<CultivationFlora> registeredFlora = new ArrayList<>();
+    private final List<CultivationPlant> registeredPlants = new ArrayList<>();
+    @Nonnull
+    private final List<CultivationBush> registeredBushes = new ArrayList<>();
     @Nonnull
     private final List<BreedingPair> plantBreedingPairs = new ArrayList<>();
 
@@ -25,12 +27,15 @@ public class Registry {
         instance = this;
     }
 
-    public void addFlora(@Nonnull CultivationFlora cultivationFlora) {
-        // todo Split into different types of flora into other dicts
-        this.registeredFlora.add(cultivationFlora);
-        if (cultivationFlora instanceof CultivationPlant plant) {
-            this.plantBreedingPairs.addAll(plant.getBreedingPairs());
-        }
+    public void addPlant(@Nonnull CultivationPlant cultivationPlant) {
+        this.registeredPlants.add(cultivationPlant);
+        this.plantBreedingPairs.addAll(cultivationPlant.getBreedingPairs());
+
+    }
+
+    public void addBush(@Nonnull CultivationBush cultivationBush) {
+        this.registeredBushes.add(cultivationBush);
+
     }
 
     @Nonnull
@@ -58,8 +63,13 @@ public class Registry {
     }
 
     @Nonnull
-    public List<CultivationFlora> getRegisteredFlora() {
-        return Collections.unmodifiableList(registeredFlora);
+    public List<CultivationPlant> getRegisteredPlants() {
+        return Collections.unmodifiableList(registeredPlants);
+    }
+
+    @Nonnull
+    public List<CultivationBush> getRegisteredBushes() {
+        return Collections.unmodifiableList(registeredBushes);
     }
 
     @Nonnull

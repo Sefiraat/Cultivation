@@ -1,7 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.items;
 
 import com.google.common.base.Preconditions;
-import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.events.CultivationBushGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationPlantGrowEvent;
@@ -325,7 +324,6 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
      */
     public T tryRegister(@Nonnull SlimefunAddon addon) {
         if (validateFlora()) {
-            Registry.getInstance().addFlora(this);
             register(addon);
         }
         return (T) this;

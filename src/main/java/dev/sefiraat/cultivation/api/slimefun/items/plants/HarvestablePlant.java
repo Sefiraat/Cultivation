@@ -14,7 +14,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemSetting;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.items.settings.DoubleRangeSetting;
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.papermc.lib.PaperLib;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
@@ -118,7 +117,7 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
             ItemStack itemStack = getRandomItemWithDropModifier(block.getLocation());
             if (itemStack != null) {
                 nextDrop.put(block.getLocation(), itemStack);
-                addItemsToDisplay(block.getLocation(), itemStack.getType());
+                addItemsToDisplay(block.getLocation(), itemStack.clone());
             }
         }
         BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));

@@ -35,6 +35,41 @@ public final class CultivationStacks {
 
     // endregion
 
+    // region Bushes
+
+    public static final SlimefunItemStack BUSH_GRAPE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_GRAPE",
+        PlantSkin.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Grape",
+        List.of(
+            "Ripe and juicy grapes that practically fall",
+            "off the bush."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_PEANUTS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_PEANUTS",
+        PlantSkin.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Peanuts",
+        List.of(
+            "Solid and fragrant and full of protein."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_STRAWBERRY = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_STRAWBERRY",
+        PlantSkin.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Strawberry",
+        List.of(
+            "Solid and fragrant and full of protein."
+        )
+    );
+
+    // endregion
+
     // region Plants
 
     public static final SlimefunItemStack PLANT_DARKNESS = Theme.themedSlimefunItemStack(
@@ -1129,6 +1164,15 @@ public final class CultivationStacks {
         "Can grill certain produce items."
     );
 
+    public static final SlimefunItemStack COUNTER_FINISHING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_FINISHING",
+        Material.CRAFTING_TABLE,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Finishing",
+        "Used to craft products/by-products into",
+        "other by-products or finished foods."
+    );
+
     // endregion
 
     // region Produce
@@ -1139,6 +1183,30 @@ public final class CultivationStacks {
         CultivationThemes.PRODUCE,
         "Banana",
         "I like the look and peel of this!"
+    );
+
+    public static final SlimefunItemStack GRAPE = Theme.themedSlimefunItemStack(
+        "CLT_GRAPE",
+        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Grape",
+        "So plump!"
+    );
+
+    public static final SlimefunItemStack PEANUT = Theme.themedSlimefunItemStack(
+        "CLT_PEANUT",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Peanut",
+        "Reece's here I come!"
+    );
+
+    public static final SlimefunItemStack STRAWBERRY = Theme.themedSlimefunItemStack(
+        "CLT_STRAWBERRY",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Strawberry",
+        "Just add cream!"
     );
 
     public static final SlimefunItemStack PRODUCE_ORANGE = Theme.themedSlimefunItemStack(
@@ -1158,5 +1226,49 @@ public final class CultivationStacks {
     );
 
     // endregion
+
+    // region Crafted By Products
+
+    public static final SlimefunItemStack PEANUT_BUTTER = Theme.themedSlimefunItemStack(
+        "CLT_PEANUT_BUTTER",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Peanut Butter",
+        "Akin only to liquid gold."
+    );
+
+    public static final SlimefunItemStack GRAPE_JELLY = Theme.themedSlimefunItemStack(
+        "CLT_GRAPE_JELLY",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Grape Jelly",
+        "Eating it with a spoon is a criminal offence."
+    );
+
+    public static final SlimefunItemStack STRAWBERRY_JELLY = Theme.themedSlimefunItemStack(
+        "CLT_STRAWBERRY_JELLY",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Strawberry Jelly",
+        "Eating it with a spoon is a criminal offence."
+    );
+
+    // endregion
+
+    // region Finished Foods
+
+    public static final SlimefunItemStack FOOD_PEANUT_BUTTER_JELLY_SANDWICH = Theme.themedSlimefunItemStack(
+        "CLT_PEANUT_BUTTER_JELLY_SANDWICH",
+        Material.PAPER,
+        CultivationThemes.PRODUCE,
+        "Peanut Butter Jelly Sandwich",
+        "It really is the pinnacle of sandwich technology.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "5 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Power + 3")
+    );
+
+
+    // end region
 
 }

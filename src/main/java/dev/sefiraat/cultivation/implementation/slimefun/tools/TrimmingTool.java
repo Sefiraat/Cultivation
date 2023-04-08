@@ -37,7 +37,7 @@ public class TrimmingTool extends RefillableUseItem {
 
             if (item instanceof CultivationBush trimmable && trimmable.isMature(block)) {
                 ItemStack trimmingResult = trimmable.getTrimmingResult();
-                trimmable.updateGrowthStage(block, 1);
+                trimmable.updateGrowthStage(block.getLocation(), 1);
                 block.getWorld().dropItem(block.getLocation(), trimmingResult.clone());
             }
 

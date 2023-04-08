@@ -102,6 +102,14 @@ public final class CultivationGroups {
         )
     );
 
+    public static final DummyItemGroup FOODS = new DummyItemGroup(
+        Keys.newKey("foods"),
+        new CustomItemStack(
+            new ItemStack(Material.BEETROOT_SOUP),
+            CultivationThemes.MAIN.color("Foods")
+        )
+    );
+
     public static final PlantCodexFlexGroup PLANT_CODEX = new PlantCodexFlexGroup(
         Keys.newKey("plant_codex"),
         new CustomItemStack(
@@ -129,6 +137,7 @@ public final class CultivationGroups {
         TREES.register(plugin);
         PRODUCE.register(plugin);
         BY_PRODUCTS.register(plugin);
+        FOODS.register(plugin);
 
         MAIN.addItemGroup(CRAFTING);
         MAIN.addItemGroup(TOOLS);
@@ -137,6 +146,7 @@ public final class CultivationGroups {
         MAIN.addItemGroup(TREES);
         MAIN.addItemGroup(PRODUCE);
         MAIN.addItemGroup(BY_PRODUCTS);
+        MAIN.addItemGroup(FOODS);
         MAIN.addItemGroup(PLANT_CODEX);
     }
 }

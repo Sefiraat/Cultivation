@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation;
 
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationBushes;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationCrafting;
+import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationFoods;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationIngredients;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationPlants;
@@ -13,6 +14,7 @@ import dev.sefiraat.cultivation.managers.DispatchManager;
 import dev.sefiraat.cultivation.managers.ListenerManager;
 import dev.sefiraat.cultivation.managers.SupportedPluginManager;
 import dev.sefiraat.cultivation.managers.TaskManager;
+import dev.sefiraat.sefilib.entity.display.DisplayGroupManager;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import org.bstats.bukkit.Metrics;
@@ -34,6 +36,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
     private ListenerManager listenerManager;
     private TaskManager taskManager;
     private DispatchManager dispatchManager;
+    private DisplayGroupManager displayGroupManager;
     private Registry registry;
 
     public Cultivation() {
@@ -48,7 +51,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
 
         getLogger().info("########################################");
         getLogger().info("               Cultivation              ");
-        getLogger().info("   By Sefiraat, J3fftw and JustAHuman   ");
+        getLogger().info("         By Sefiraat and J3fftw         ");
         getLogger().info("########################################");
 
         saveDefaultConfig();
@@ -59,6 +62,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
         this.listenerManager = new ListenerManager();
         this.taskManager = new TaskManager();
         this.dispatchManager = new DispatchManager(this);
+        this.displayGroupManager = new DisplayGroupManager(this);
         this.registry = new Registry();
 
         setupItems();
@@ -74,6 +78,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
         CultivationTrees.setup(this);
         CultivationProducts.setup(this);
         CultivationIngredients.setup(this);
+        CultivationFoods.setup(this);
     }
 
     @Override
