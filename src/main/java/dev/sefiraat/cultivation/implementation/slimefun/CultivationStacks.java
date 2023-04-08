@@ -1099,6 +1099,17 @@ public final class CultivationStacks {
         LoreBuilder.usesLeft(50)
     );
 
+    public static final SlimefunItemStack PLANT_ANALYSER = Theme.themedSlimefunItemStack(
+        "CLT_PLANT_ANALYSER",
+        Material.DIAMOND,
+        CultivationThemes.TOOL,
+        "Plant Analyser",
+        "A very basic tool that allows",
+        "you to see a growing plant's details",
+        "",
+        Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Lets you know the species and growth details of a plant.")
+    );
+
     public static final SlimefunItemStack RECIPE_UNLOCK = Theme.themedSlimefunItemStack(
         "CLT_RECIPE_UNLOCK",
         Material.PAPER,
