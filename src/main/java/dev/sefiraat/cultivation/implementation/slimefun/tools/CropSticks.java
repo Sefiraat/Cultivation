@@ -43,14 +43,21 @@ public class CropSticks extends SlimefunItem implements NotPlaceable {
                 return;
             }
 
+            Player player = playerRightClickEvent.getPlayer();
+            ItemStack heldItemStack = player.getInventory().getItemInMainHand();
+            SlimefunItem heldItem = SlimefunItem.getByItem(heldItemStack);
+
+            if (!(heldItem instanceof CropSticks)) {
+                return;
+            }
+
             Block block = playerRightClickEvent.getClickedBlock().get();
             SlimefunItem item = BlockStorage.check(block);
 
             if (item instanceof CultivationCroppable croppable && croppable.incrementCrop(block.getLocation())) {
-                Player player = playerRightClickEvent.getPlayer();
                 player.swingMainHand();
                 if (player.getGameMode() != GameMode.CREATIVE) {
-                    player.getItemInUse().setAmount(player.getItemInUse().getAmount() - 1);
+                    heldItemStack.setAmount(heldItemStack.getAmount() - 1);
                 }
             }
         };
