@@ -5,6 +5,7 @@ import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.CultivationFood;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
+import dev.sefiraat.sefilib.misc.Chance;
 import io.github.bakedlibs.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
@@ -39,7 +40,7 @@ public final class CultivationFoods {
             10,
             new Pair<>(PotionEffectType.INCREASE_DAMAGE, 2)
         )
-    );
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationFood BACON_SANDWICH = new CultivationFood(
         CultivationGroups.FOODS,
@@ -58,7 +59,7 @@ public final class CultivationFoods {
             new Pair<>(PotionEffectType.INCREASE_DAMAGE, 0),
             new Pair<>(PotionEffectType.SPEED, 0)
         )
-    );
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationFood SALMON_NIGIRI = new CultivationFood(
         CultivationGroups.FOODS,
@@ -76,7 +77,7 @@ public final class CultivationFoods {
             4,
             new Pair<>(PotionEffectType.REGENERATION, 0)
         )
-    );
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationFood CAJUN_GARLIC_BUTTER_COD = new CultivationFood(
         CultivationGroups.FOODS,
@@ -95,13 +96,66 @@ public final class CultivationFoods {
             new Pair<>(PotionEffectType.REGENERATION, 1),
             new Pair<>(PotionEffectType.SPEED, 0)
         )
-    );
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationFood SHAKSHUKA = new CultivationFood(
+        CultivationGroups.FOODS,
+        CultivationStacks.SHAKSHUKA,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.SHAKSHUKA,
+            new ItemStack[]{
+                CultivationProducts.EGG.getBaked().getItem(), CultivationProducts.ONION.getChopped().getItem(), CultivationProducts.BELL_PEPPER.getBaked().getItem(),
+                CultivationProducts.GARLIC.getChopped().getItem(), CultivationProducts.BELL_PEPPER.getGround().getItem(), CultivationProducts.TOMATO.getBaked().getItem(),
+                null, null, null
+            }
+        ),
+        player -> simplePlayerEffect(
+            player,
+            8,
+            new Pair<>(PotionEffectType.HERO_OF_THE_VILLAGE, 0),
+            new Pair<>(PotionEffectType.LUCK, 0)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationFood FUGU = new CultivationFood(
+        CultivationGroups.FOODS,
+        CultivationStacks.FUGU,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.FUGU,
+            new ItemStack[]{
+                null, CultivationProducts.PUFFERFISH.getSliced().getItem(), null,
+                null, CultivationProducts.RICE.getItem(), null,
+                null, null, null
+            }
+        ),
+        player -> {
+            if (Chance.testChance(0.33)) {
+                player.damage(999);
+            } else {
+                simplePlayerEffect(player, 2, new Pair<>(PotionEffectType.INCREASE_DAMAGE, 4));
+            }
+        }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationFood SHEPHERDS_PIE = new CultivationFood(
+        CultivationGroups.FOODS,
+        CultivationStacks.SHEPHERDS_PIE,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.SHEPHERDS_PIE,
+            new ItemStack[]{
+                SlimefunItems.CHEESE, CultivationProducts.POTATO.getMashed().getItem(), SlimefunItems.CHEESE,
+                CultivationProducts.CARROT.getChopped().getItem(), CultivationProducts.PEA.getItem(), CultivationProducts.ONION.getFried().getItem(),
+                CultivationProducts.BEEF.getGround().getItem(), CultivationProducts.BEEF.getGround().getItem(), CultivationProducts.BEEF.getGround().getItem()
+            }
+        ),
+        player -> simplePlayerEffect(
+            player,
+            20,
+            new Pair<>(PotionEffectType.REGENERATION, 1)
+        )
+    ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {
-        PEANUT_BUTTER_JELLY_SANDWICH.register(addon);
-        BACON_SANDWICH.register(addon);
-        SALMON_NIGIRI.register(addon);
-        CAJUN_GARLIC_BUTTER_COD.register(addon);
     }
 
     @SafeVarargs

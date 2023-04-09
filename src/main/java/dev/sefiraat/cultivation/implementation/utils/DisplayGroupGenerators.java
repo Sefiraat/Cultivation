@@ -3,12 +3,14 @@ package dev.sefiraat.cultivation.implementation.utils;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.entity.display.builders.BlockDisplayBuilder;
 import dev.sefiraat.sefilib.entity.display.builders.ItemDisplayBuilder;
+import dev.sefiraat.sefilib.entity.display.builders.TextDisplayBuilder;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.BlockDisplay;
 import org.bukkit.entity.Display;
+import org.bukkit.entity.TextDisplay;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
@@ -448,5 +450,29 @@ public final class DisplayGroupGenerators {
                 .build(displayGroup)
         );
         return displayGroup;
+    }
+
+    public static void addNameToGroup(@Nonnull DisplayGroup displayGroup, @Nonnull String name) {
+        removeNameFromGroup(displayGroup);
+        displayGroup.addDisplay(
+            "name",
+            new TextDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 1.5, 0))
+                .setBillboard(Display.Billboard.VERTICAL)
+                .setLineWidth(100)
+                .setSeeThrough(true)
+                .setTextOpacity((byte) 40)
+                .setTextAlignment(TextDisplay.TextAligment.CENTER)
+                .setText(name)
+                .build(displayGroup)
+        );
+    }
+
+    public static void removeNameFromGroup(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.killDisplay("name");
+    }
+
+    public static boolean hasName(@Nonnull DisplayGroup displayGroup) {
+        return displayGroup.getDisplays().containsKey("name");
     }
 }

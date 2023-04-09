@@ -6,6 +6,7 @@ import dev.sefiraat.sefilib.string.Theme;
 import io.github.bakedlibs.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
@@ -105,6 +106,11 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
                         itemStacks[i] = menu.getItemInSlot(INPUT_SLOTS[i]);
                     }
                     ItemStack result = testRecipe(itemStacks);
+                    SlimefunItem slimefunItem = SlimefunItem.getByItem(result);
+                    if (slimefunItem != null && slimefunItem.isDisabled()) {
+                        p.sendMessage(Theme.ERROR.apply("This recipe is disabled."));
+                        return false;
+                    }
                     if (result == null || !menu.fits(result, OUTPUT_SLOT)) {
                         p.sendMessage(Theme.ERROR.apply("No matching recipe."));
                         return false;

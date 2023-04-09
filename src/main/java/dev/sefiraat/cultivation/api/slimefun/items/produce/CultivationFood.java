@@ -4,6 +4,7 @@ import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.itemstacks.Cooldowns;
 import dev.sefiraat.sefilib.string.Theme;
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -13,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
 public class CultivationFood extends SimpleSlimefunItem<ItemUseHandler> {
@@ -42,5 +44,10 @@ public class CultivationFood extends SimpleSlimefunItem<ItemUseHandler> {
                 player.sendMessage(Theme.SUCCESS.apply("Lovely! You're all full up."));
             }
         };
+    }
+
+    public CultivationFood buildRegister(@Nonnull SlimefunAddon addon) {
+        register(addon);
+        return this;
     }
 }
