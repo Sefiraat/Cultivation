@@ -94,7 +94,7 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
             if (itemStack == null) {
                 ItemStack drop = harvestItems.getRandom();
                 if (drop != null) {
-                    block.getWorld().dropItem(block.getLocation(), harvestItems.getRandom());
+                    block.getWorld().dropItem(block.getLocation(), drop.clone());
                 }
             } else {
                 block.getWorld().dropItem(block.getLocation(), itemStack);

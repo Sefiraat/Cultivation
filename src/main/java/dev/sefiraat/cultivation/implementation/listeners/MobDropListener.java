@@ -29,6 +29,10 @@ public class MobDropListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onBlockBreak(@Nonnull EntityDeathEvent event) {
+        if (event.getEntity().getKiller() == null) {
+            // Only allow player kills to count
+            return;
+        }
         for (MobDrop mobDrop : DROPS) {
             if (mobDrop.dropsFrom(event.getEntityType())) {
                 mobDrop.rollDrop(event);
