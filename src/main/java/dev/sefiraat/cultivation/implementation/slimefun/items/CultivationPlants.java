@@ -8,6 +8,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.CommonPlacements;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.EntityDefinitions;
+import dev.sefiraat.cultivation.api.utils.GrowthRates;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
 import org.bukkit.Material;
@@ -30,7 +31,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).tryRegister(addon);
 
@@ -41,7 +42,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).tryRegister(addon);
 
@@ -52,7 +53,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).tryRegister(addon);
 
@@ -67,7 +68,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).tryRegister(addon);
 
@@ -78,7 +79,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).tryRegister(addon);
 
@@ -89,7 +90,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.CYAN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).tryRegister(addon);
 
@@ -100,7 +101,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.01
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).tryRegister(addon);
 
@@ -109,7 +110,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.ORANGE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.05
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addBreedingPair(
             CultivationStacks.PLANT_VILLAGER.getItemId(),
@@ -123,7 +124,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.05
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addBreedingPair(
             CultivationStacks.PLANT_DARKNESS.getItemId(),
@@ -137,7 +138,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.05
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.DIRT)
         ).addBreedingPair(
@@ -152,7 +153,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.05
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.GRASS_BLOCK)
         ).addBreedingPair(
@@ -167,7 +168,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.ORANGE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.CORNFLOWER, 3)
         ).addHarvestingResult(new ItemStack(Material.LILAC, 3)
@@ -194,7 +195,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.VINE, 5)
         ).addBreedingPair(
@@ -209,7 +210,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.SAND)
         ).addBreedingPair(
@@ -239,7 +240,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.MOSS_BLOCK, 2)
         ).addBreedingPair(
@@ -254,7 +255,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.ACACIA_SAPLING)
         ).addHarvestingResult(new ItemStack(Material.BIRCH_SAPLING)
@@ -275,7 +276,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BROWN_MUSHROOM, 4)
         ).addHarvestingResult(new ItemStack(Material.RED_MUSHROOM, 4)
@@ -294,7 +295,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_EPIC
             )
         ).addHarvestingResult(new ItemStack(Material.WITHER_ROSE)
         ).addBreedingPair(
@@ -309,7 +310,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.WEEPING_VINES)
         ).addHarvestingResult(new ItemStack(Material.TWISTING_VINES)
@@ -325,7 +326,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.GLOW_LICHEN, 3)
         ).addBreedingPair(
@@ -340,7 +341,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.OCHRE_FROGLIGHT)
         ).addHarvestingResult(new ItemStack(Material.PEARLESCENT_FROGLIGHT)
@@ -357,7 +358,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BEEF, 2)
         ).addHarvestingResult(new ItemStack(Material.LEATHER)
@@ -373,7 +374,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.CYAN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.CHICKEN, 2)
         ).addHarvestingResult(new ItemStack(Material.FEATHER, 3)
@@ -390,7 +391,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.COD)
         ).addHarvestingResult(new ItemStack(Material.SALMON)
@@ -408,7 +409,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.SCUTE), 5
         ).addHarvestingResult(new ItemStack(Material.SEAGRASS, 5), 7
@@ -425,7 +426,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.PAPER, 10)
         ).addBreedingPair(
@@ -440,7 +441,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.ORANGE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.RABBIT), 4
         ).addHarvestingResult(new ItemStack(Material.RABBIT_HIDE), 4
@@ -457,7 +458,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.MUTTON)
         ).addHarvestingResult(new ItemStack(Material.WHITE_WOOL)
@@ -473,7 +474,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.PORKCHOP, 2)
         ).addBreedingPair(
@@ -488,7 +489,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.HONEYCOMB), 4
         ).addHarvestingResult(new ItemStack(Material.HONEY_BOTTLE), 1
@@ -504,7 +505,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.INK_SAC, 3)
         ).addBreedingPair(
@@ -519,7 +520,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.GLOW_INK_SAC, 3)
         ).addBreedingPair(
@@ -534,7 +535,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.FROGSPAWN, 2)
         ).addBreedingPair(
@@ -549,7 +550,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.ORANGE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.GOAT_HORN)
         ).addBreedingPair(
@@ -564,7 +565,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_DYE, 4)
         ).addHarvestingResult(new ItemStack(Material.BLUE_DYE, 4)
@@ -594,7 +595,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_CANDLE, 1)
         ).addHarvestingResult(new ItemStack(Material.BLUE_CANDLE, 1)
@@ -624,7 +625,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_WOOL, 2)
         ).addHarvestingResult(new ItemStack(Material.BLUE_WOOL, 2)
@@ -654,7 +655,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_TERRACOTTA, 2)
         ).addHarvestingResult(new ItemStack(Material.BLUE_TERRACOTTA, 2)
@@ -684,7 +685,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.ORANGE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_GLAZED_TERRACOTTA, 2)
         ).addHarvestingResult(new ItemStack(Material.BLUE_GLAZED_TERRACOTTA, 2)
@@ -714,7 +715,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.ORANGE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_CONCRETE_POWDER, 2)
         ).addHarvestingResult(new ItemStack(Material.BLUE_CONCRETE_POWDER, 2)
@@ -744,7 +745,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.CYAN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_CONCRETE, 2)
         ).addHarvestingResult(new ItemStack(Material.BLUE_CONCRETE, 2)
@@ -774,7 +775,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.CYAN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACK_STAINED_GLASS, 2)
         ).addHarvestingResult(new ItemStack(Material.BLUE_STAINED_GLASS, 2)
@@ -804,7 +805,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.COBBLESTONE, 4)
         ).addBreedingPair(
@@ -819,7 +820,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.GRAVEL, 4)
         ).addBreedingPair(
@@ -834,7 +835,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.CLAY)
         ).addBreedingPair(
@@ -849,7 +850,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.GRANITE, 4)
         ).addHarvestingResult(new ItemStack(Material.DIORITE, 4)
@@ -869,7 +870,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.DEEPSLATE, 4)
         ).addBreedingPair(
@@ -884,7 +885,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_LEGEND
             )
         ).addHarvestingResult(new ItemStack(Material.REINFORCED_DEEPSLATE)
         ).addBreedingPair(
@@ -899,7 +900,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLACKSTONE, 4)
         ).addBreedingPair(
@@ -914,7 +915,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_COMMON
             )
         ).addHarvestingResult(new ItemStack(Material.NETHERRACK, 5)
         ).addBreedingPair(
@@ -929,7 +930,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.WARPED_NYLIUM, 4)
         ).addHarvestingResult(new ItemStack(Material.CRIMSON_NYLIUM, 4)
@@ -945,7 +946,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.MAGMA_BLOCK, 4)
         ).addBreedingPair(
@@ -960,7 +961,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.SOUL_SAND, 4), 20
         ).addHarvestingResult(new ItemStack(Material.SOUL_SOIL, 3), 20
@@ -977,7 +978,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BASALT, 4)
         ).addBreedingPair(
@@ -992,7 +993,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.GLASS, 3)
         ).addBreedingPair(
@@ -1007,7 +1008,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.MUD, 3)
         ).addBreedingPair(
@@ -1022,7 +1023,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.END_STONE, 3)
         ).addBreedingPair(
@@ -1037,7 +1038,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.PURPUR_BLOCK, 3)
         ).addBreedingPair(
@@ -1052,7 +1053,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.COAL, 3)
         ).addBreedingPair(
@@ -1067,7 +1068,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.RAW_IRON, 2)
         ).addBreedingPair(
@@ -1082,7 +1083,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.ORANGE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.RAW_COPPER, 2)
         ).addBreedingPair(
@@ -1097,7 +1098,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.RAW_GOLD, 2)
         ).addBreedingPair(
@@ -1112,7 +1113,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.REDSTONE, 5)
         ).addBreedingPair(
@@ -1127,7 +1128,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.LAPIS_LAZULI, 5)
         ).addBreedingPair(
@@ -1142,7 +1143,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_EPIC
             )
         ).addHarvestingResult(new ItemStack(Material.DIAMOND)
         ).addBreedingPair(
@@ -1157,7 +1158,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_EPIC
             )
         ).addHarvestingResult(new ItemStack(Material.EMERALD)
         ).addBreedingPair(
@@ -1172,7 +1173,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.QUARTZ, 3)
         ).addBreedingPair(
@@ -1187,7 +1188,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_LEGEND
             )
         ).addHarvestingResult(new ItemStack(Material.NETHERITE_SCRAP)
         ).addBreedingPair(
@@ -1202,7 +1203,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.AMETHYST_SHARD, 3)
         ).addBreedingPair(
@@ -1217,7 +1218,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_EPIC
             )
         ).addHarvestingResult(new ItemStack(Material.ECHO_SHARD)
         ).addBreedingPair(
@@ -1232,7 +1233,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BONE, 2), 20
         ).addHarvestingResult(new ItemStack(Material.ARROW, 2), 20
@@ -1249,7 +1250,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.SPIDER_EYE), 5
         ).addHarvestingResult(new ItemStack(Material.FERMENTED_SPIDER_EYE), 1
@@ -1266,7 +1267,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.GUNPOWDER, 4), 30
         ).addHarvestingResult(new ItemStack(Material.CREEPER_HEAD), 1
@@ -1282,7 +1283,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.ROTTEN_FLESH, 4), 20
         ).addHarvestingResult(new ItemStack(Material.ZOMBIE_HEAD), 1
@@ -1298,7 +1299,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.ROTTEN_FLESH, 4), 90
         ).addHarvestingResult(new ItemStack(Material.NAUTILUS_SHELL), 9
@@ -1315,7 +1316,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.PRISMARINE_SHARD, 4), 5
         ).addHarvestingResult(new ItemStack(Material.PRISMARINE_CRYSTALS, 2), 1
@@ -1331,7 +1332,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_EPIC
             )
         ).addHarvestingResult(new ItemStack(Material.PRISMARINE_SHARD, 7), 5
         ).addHarvestingResult(new ItemStack(Material.PRISMARINE_CRYSTALS, 3), 3
@@ -1348,7 +1349,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.GHAST_TEAR)
         ).addBreedingPair(
@@ -1363,7 +1364,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.SLIME_BALL, 2)
         ).addBreedingPair(
@@ -1378,7 +1379,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.MAGMA_CREAM, 2)
         ).addBreedingPair(
@@ -1393,7 +1394,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.BLAZE_POWDER, 3), 3
         ).addHarvestingResult(new ItemStack(Material.BLAZE_ROD), 1
@@ -1409,7 +1410,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_EPIC
             )
         ).addHarvestingResult(new ItemStack(Material.BONE, 6), 9
         ).addHarvestingResult(new ItemStack(Material.WITHER_SKELETON_SKULL), 1
@@ -1425,7 +1426,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_LEGEND
             )
         ).addHarvestingResult(new ItemStack(Material.NETHER_STAR)
         ).addBreedingPair(
@@ -1440,7 +1441,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.BLUE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.PHANTOM_MEMBRANE, 2)
         ).addBreedingPair(
@@ -1455,7 +1456,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.SHULKER_SHELL, 2)
         ).addBreedingPair(
@@ -1470,7 +1471,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_UNCOMMON
             )
         ).addHarvestingResult(new ItemStack(Material.ENDER_PEARL, 2), 7
         ).addHarvestingResult(new ItemStack(Material.ENDER_EYE), 1
@@ -1486,7 +1487,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_LEGEND
             )
         ).addHarvestingResult(new ItemStack(Material.DRAGON_BREATH, 2), 20
         ).addHarvestingResult(new ItemStack(Material.DRAGON_HEAD), 10
@@ -1503,7 +1504,7 @@ public final class CultivationPlants {
             new Growth(
                 PlantTheme.PURPLE,
                 CommonPlacements.COMMON_OVERWORLD,
-                0.1
+                GrowthRates.GROWTH_RATE_RARE
             )
         ).addHarvestingResult(new ItemStack(Material.REDSTONE, 6), 3
         ).addHarvestingResult(new ItemStack(Material.GLOWSTONE, 8), 1
