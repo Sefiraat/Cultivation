@@ -80,7 +80,7 @@ public class CultivationProduceVanilla {
         return canChop;
     }
 
-    public CultivationProduceVanilla setCoppable(boolean canChop) {
+    public CultivationProduceVanilla setChoppable(boolean canChop) {
         this.canChop = canChop;
         return this;
     }

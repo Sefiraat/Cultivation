@@ -164,7 +164,7 @@ public final class CultivationProducts {
 
     public static final CultivationProduceVanilla CARROT = new CultivationProduceVanilla(Material.CARROT)
         .setBakeable(true)
-        .setCoppable(true)
+        .setChoppable(true)
         .setBlendable(true)
         .createByProducts();
 
