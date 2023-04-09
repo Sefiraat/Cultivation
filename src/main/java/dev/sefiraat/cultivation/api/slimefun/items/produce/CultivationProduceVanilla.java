@@ -5,23 +5,16 @@ import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
 import dev.sefiraat.sefilib.string.Theme;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
 import java.util.Locale;
 
-public class CultivationProduce extends SlimefunItem {
+public class CultivationProduceVanilla {
     private CultivationByProduct chopped;
     private CultivationByProduct mashed;
     private CultivationByProduct sliced;
@@ -30,7 +23,6 @@ public class CultivationProduce extends SlimefunItem {
     private CultivationByProduct baked;
     private CultivationByProduct fried;
     private CultivationByProduct grilled;
-    public static final String PRODUCTION_METHODS_TITLE = "Can be:";
     private boolean canChop;
     private boolean canMash;
     private boolean canSlice;
@@ -39,12 +31,9 @@ public class CultivationProduce extends SlimefunItem {
     private boolean canBake;
     private boolean canFry;
     private boolean canGrill;
-
-    public CultivationProduce(ItemGroup itemGroup,
-                              SlimefunItemStack item,
-                              RecipeType recipeType
-    ) {
-        super(itemGroup, item, recipeType, new ItemStack[0]);
+    private final ItemStack itemStack;
+    public CultivationProduceVanilla(@Nonnull Material material) {
+        this.itemStack = new ItemStack(material);
     }
 
     @Nullable
@@ -91,7 +80,7 @@ public class CultivationProduce extends SlimefunItem {
         return canChop;
     }
 
-    public CultivationProduce setCoppable(boolean canChop) {
+    public CultivationProduceVanilla setChoppable(boolean canChop) {
         this.canChop = canChop;
         return this;
     }
@@ -100,7 +89,7 @@ public class CultivationProduce extends SlimefunItem {
         return canMash;
     }
 
-    public CultivationProduce setMashable(boolean canMash) {
+    public CultivationProduceVanilla setMashable(boolean canMash) {
         this.canMash = canMash;
         return this;
     }
@@ -109,7 +98,7 @@ public class CultivationProduce extends SlimefunItem {
         return canSlice;
     }
 
-    public CultivationProduce setSliceable(boolean canSlice) {
+    public CultivationProduceVanilla setSliceable(boolean canSlice) {
         this.canSlice = canSlice;
         return this;
     }
@@ -118,7 +107,7 @@ public class CultivationProduce extends SlimefunItem {
         return canGrind;
     }
 
-    public CultivationProduce setGrindable(boolean canGrind) {
+    public CultivationProduceVanilla setGrindable(boolean canGrind) {
         this.canGrind = canGrind;
         return this;
     }
@@ -127,7 +116,7 @@ public class CultivationProduce extends SlimefunItem {
         return canBlend;
     }
 
-    public CultivationProduce setBlendable(boolean canBlend) {
+    public CultivationProduceVanilla setBlendable(boolean canBlend) {
         this.canBlend = canBlend;
         return this;
     }
@@ -136,7 +125,7 @@ public class CultivationProduce extends SlimefunItem {
         return canBake;
     }
 
-    public CultivationProduce setBakeable(boolean canBake) {
+    public CultivationProduceVanilla setBakeable(boolean canBake) {
         this.canBake = canBake;
         return this;
     }
@@ -145,7 +134,7 @@ public class CultivationProduce extends SlimefunItem {
         return canFry;
     }
 
-    public CultivationProduce setFryable(boolean canFry) {
+    public CultivationProduceVanilla setFryable(boolean canFry) {
         this.canFry = canFry;
         return this;
     }
@@ -154,18 +143,12 @@ public class CultivationProduce extends SlimefunItem {
         return canGrill;
     }
 
-    public CultivationProduce setGrillable(boolean canGrill) {
+    public CultivationProduceVanilla setGrillable(boolean canGrill) {
         this.canGrill = canGrill;
         return this;
     }
 
-    @Override
-    public void register(@NotNull SlimefunAddon addon) {
-        createByProducts();
-        super.register(addon);
-    }
-
-    private void createByProducts() {
+    public CultivationProduceVanilla createByProducts() {
         if (canChop) {
             this.chopped = registerByProduct("Chopped", RecipeTypes.CHOPPED, Material.BEETROOT_SEEDS);
         }
@@ -190,63 +173,57 @@ public class CultivationProduce extends SlimefunItem {
         if (canGrill) {
             this.grilled = registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
         }
+        return this;
     }
 
     @ParametersAreNonnullByDefault
     private CultivationByProduct registerByProduct(String name, RecipeType recipeType, Material material) {
+        String materialName = this.itemStack.getType().name();
+        String friendlyName = materialName.replaceAll("_", " ").toLowerCase(Locale.ROOT);
         CultivationByProduct byProduct = new CultivationByProduct(
             Theme.themedSlimefunItemStack(
-                "CLT_" + name.toUpperCase(Locale.ROOT) + "_" + this.getId().substring(4),
+                "CLT_" + name.toUpperCase(Locale.ROOT) + "_" + materialName.toUpperCase(Locale.ROOT),
                 material,
                 CultivationThemes.BY_PRODUCT,
-                name + " " + this.getItemName()
+                name + " " + friendlyName
             ),
             recipeType,
-            this.getItem()
+            this.itemStack
         );
         byProduct.register(Cultivation.getInstance());
 
         if (recipeType == RecipeTypes.CHOPPED) {
-            CultivationMachines.COUNTER_CHOPPING.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_CHOPPING.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.BLENDED) {
-            CultivationMachines.COUNTER_BLENDER.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_BLENDER.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.MASHED) {
-            CultivationMachines.COUNTER_MASHER.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_MASHER.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.GROUND) {
-            CultivationMachines.COUNTER_GRINDER.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_GRINDER.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.SLICED) {
-            CultivationMachines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_SLICING.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.BAKED) {
-            CultivationMachines.COUNTER_OVEN.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_OVEN.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.FRIED) {
-            CultivationMachines.COUNTER_FRYER.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_FRYER.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.GRILLED) {
-            CultivationMachines.COUNTER_GRILL.addRecipe(this.getId(), byProduct.getItem());
+            CultivationMachines.COUNTER_GRILL.addRecipe(materialName, byProduct.getItem());
         }
 
-        ItemMeta itemMeta = this.getItem().getItemMeta();
-        List<String> lore = itemMeta.getLore();
-        if (lore.stream().noneMatch(s -> ChatColor.stripColor(s).equals(PRODUCTION_METHODS_TITLE))) {
-            lore.add("");
-            lore.add(Theme.applyThemeToString(Theme.CLICK_INFO, PRODUCTION_METHODS_TITLE));
-        }
-        lore.add(Theme.applyThemeToString(Theme.PASSIVE, name));
-        itemMeta.setLore(lore);
-        this.getItem().setItemMeta(itemMeta);
         return byProduct;
     }
 }

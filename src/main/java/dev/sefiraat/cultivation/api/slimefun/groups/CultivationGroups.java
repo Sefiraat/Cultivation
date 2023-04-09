@@ -141,6 +141,7 @@ public final class CultivationGroups {
 
         MAIN.addItemGroup(CRAFTING);
         MAIN.addItemGroup(TOOLS);
+        MAIN.addItemGroup(MACHINES);
         MAIN.addItemGroup(PLANTS);
         MAIN.addItemGroup(BUSHES);
         MAIN.addItemGroup(TREES);

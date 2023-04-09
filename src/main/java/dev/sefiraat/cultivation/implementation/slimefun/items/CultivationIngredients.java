@@ -14,6 +14,8 @@ public final class CultivationIngredients {
         throw new IllegalStateException("Utility class");
     }
 
+    // region Custom Registrations
+
     public static final CultivationByProduct PEANUT_BUTTER = new CultivationByProduct(
         CultivationStacks.PEANUT_BUTTER,
         RecipeTypes.FINISHING,
@@ -53,7 +55,10 @@ public final class CultivationIngredients {
         )
     );
 
+    // endregion
+
     public static void setup(Cultivation addon) {
+        PEANUT_BUTTER.register(addon);
         GRAPE_JELLY.register(addon);
         STRAWBERRY_JELLY.register(addon);
     }

@@ -39,5 +39,29 @@ public final class CultivationBushes {
             .addHarvestingResult(CultivationStacks.PEANUT)
             .tryRegister(addon);
 
+        new HarvestableBush(CultivationStacks.BUSH_RICE, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.RICE)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_GARLIC, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.GARLIC)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CAYENNE_PEPPER, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CAYENNE_PEPPER)
+            .tryRegister(addon);
+
     }
 }
