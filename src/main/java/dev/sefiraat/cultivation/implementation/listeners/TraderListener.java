@@ -36,11 +36,14 @@ public class TraderListener implements Listener {
     public void onVillagerBecomesFarmer(@Nonnull VillagerCareerChangeEvent event) {
         Villager villager = event.getEntity();
         if (event.getProfession() == Villager.Profession.FARMER) {
-            Bukkit.getScheduler().runTaskLater(Cultivation.getInstance(), () -> {
-                List<MerchantRecipe> recipes = new ArrayList<>(villager.getRecipes());
-                addBushRecipe(recipes);
-                villager.setRecipes(recipes);
-            }, 1);
+            Bukkit.getScheduler().runTaskLater(
+                Cultivation.getInstance(), () -> {
+                    List<MerchantRecipe> recipes = new ArrayList<>(villager.getRecipes());
+                    addBushRecipe(recipes);
+                    villager.setRecipes(recipes);
+                },
+                1
+            );
         }
     }
 
