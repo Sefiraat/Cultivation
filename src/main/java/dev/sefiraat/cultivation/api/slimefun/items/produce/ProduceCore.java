@@ -3,7 +3,7 @@ package dev.sefiraat.cultivation.api.slimefun.items.produce;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -18,61 +18,101 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Locale;
 
-public class CultivationProduceCore extends SlimefunItem {
-    private CultivationByProduct chopped;
-    private CultivationByProduct mashed;
-    private CultivationByProduct sliced;
-    private CultivationByProduct ground;
-    private CultivationByProduct blended;
-    private CultivationByProduct boiled;
-    private CultivationByProduct fried;
-    private CultivationByProduct grilled;
+public class ProduceCore extends SlimefunItem {
+    private ByProduct chopped;
+    private ByProduct mashed;
+    private ByProduct sliced;
+    private ByProduct ground;
+    private ByProduct blended;
+    private ByProduct boiled;
+    private ByProduct fried;
+    private ByProduct grilled;
 
-    public CultivationProduceCore(ItemGroup itemGroup,
-                                  SlimefunItemStack item,
-                                  RecipeType recipeType
+    public ProduceCore(ItemGroup itemGroup,
+                       SlimefunItemStack item,
+                       RecipeType recipeType
     ) {
         super(itemGroup, item, recipeType, new ItemStack[0]);
     }
 
     @Nonnull
-    public CultivationByProduct getChopped() {
+    public ByProduct getChopped() {
         return chopped;
     }
 
     @Nonnull
-    public CultivationByProduct getMashed() {
+    public ByProduct getMashed() {
         return mashed;
     }
 
     @Nonnull
-    public CultivationByProduct getSliced() {
+    public ByProduct getSliced() {
         return sliced;
     }
 
     @Nonnull
-    public CultivationByProduct getGround() {
+    public ByProduct getGround() {
         return ground;
     }
 
     @Nonnull
-    public CultivationByProduct getBlended() {
+    public ByProduct getBlended() {
         return blended;
     }
 
     @Nonnull
-    public CultivationByProduct getBoiled() {
+    public ByProduct getBoiled() {
         return boiled;
     }
 
     @Nonnull
-    public CultivationByProduct getFried() {
+    public ByProduct getFried() {
         return fried;
     }
 
     @Nonnull
-    public CultivationByProduct getGrilled() {
+    public ByProduct getGrilled() {
         return grilled;
+    }
+
+    @Nonnull
+    public ItemStack getChoppedItem() {
+        return chopped.getItem();
+    }
+
+    @Nonnull
+    public ItemStack getMashedItem() {
+        return mashed.getItem();
+    }
+
+    @Nonnull
+    public ItemStack getSlicedItem() {
+        return sliced.getItem();
+    }
+
+    @Nonnull
+    public ItemStack getGroundItem() {
+        return ground.getItem();
+    }
+
+    @Nonnull
+    public ItemStack getBlendedItem() {
+        return blended.getItem();
+    }
+
+    @Nonnull
+    public ItemStack getBoiledItem() {
+        return boiled.getItem();
+    }
+
+    @Nonnull
+    public ItemStack getFriedItem() {
+        return fried.getItem();
+    }
+
+    @Nonnull
+    public ItemStack getGrilledItem() {
+        return grilled.getItem();
     }
 
     @Override
@@ -93,8 +133,8 @@ public class CultivationProduceCore extends SlimefunItem {
     }
 
     @ParametersAreNonnullByDefault
-    private CultivationByProduct registerByProduct(String name, RecipeType recipeType, Material material) {
-        CultivationByProduct byProduct = new CultivationByProduct(
+    private ByProduct registerByProduct(String name, RecipeType recipeType, Material material) {
+        ByProduct byProduct = new ByProduct(
             Theme.themedSlimefunItemStack(
                 "CLT_" + name.toUpperCase(Locale.ROOT) + "_" + this.getId().substring(4),
                 material,
@@ -107,41 +147,41 @@ public class CultivationProduceCore extends SlimefunItem {
         byProduct.register(Cultivation.getInstance());
 
         if (recipeType == RecipeTypes.CHOPPED) {
-            CultivationMachines.COUNTER_CHOPPING.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_CHOPPING.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.BLENDED) {
-            CultivationMachines.COUNTER_BLENDER.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_BLENDER.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.MASHED) {
-            CultivationMachines.COUNTER_MASHER.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_MASHER.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.GROUND) {
-            CultivationMachines.COUNTER_GRINDER.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_GRINDER.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.SLICED) {
-            CultivationMachines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.BOILED) {
-            CultivationMachines.COUNTER_BOILING.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_BOILING.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.FRIED) {
-            CultivationMachines.COUNTER_FRYER.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_FRYER.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.GRILLED) {
-            CultivationMachines.COUNTER_GRILL.addRecipe(this.getId(), byProduct.getItem());
+            Machines.COUNTER_GRILL.addRecipe(this.getId(), byProduct.getItem());
         }
 
         return byProduct;
     }
 
-    public CultivationProduceCore buildRegister(@Nonnull SlimefunAddon addon) {
+    public ProduceCore buildRegister(@Nonnull SlimefunAddon addon) {
         this.register(addon);
         return this;
     }

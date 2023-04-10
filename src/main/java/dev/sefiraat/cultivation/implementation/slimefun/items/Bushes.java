@@ -8,9 +8,9 @@ import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.GrowthRates;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 
-public final class CultivationBushes {
+public final class Bushes {
 
-    private CultivationBushes() {
+    private Bushes() {
         throw new IllegalStateException("Utility class");
     }
 

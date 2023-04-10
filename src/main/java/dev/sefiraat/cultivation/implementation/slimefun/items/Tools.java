@@ -11,11 +11,11 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public final class CultivationTools {
+public final class Tools {
 
     public static final RecipeUnlock RECIPE_UNLOCK = new RecipeUnlock();
 
-    private CultivationTools() {
+    private Tools() {
         throw new IllegalStateException("Utility class");
     }
 

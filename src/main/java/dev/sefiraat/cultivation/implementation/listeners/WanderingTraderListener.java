@@ -2,7 +2,7 @@ package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationTools;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Tools;
 import org.bukkit.Material;
 import org.bukkit.entity.WanderingTrader;
 import org.bukkit.event.EventHandler;
@@ -29,7 +29,7 @@ public class WanderingTraderListener implements Listener {
     }
 
     private void addBreedingRecipe(@Nonnull List<MerchantRecipe> recipes) {
-        ItemStack randomItem = CultivationTools.RECIPE_UNLOCK.generateRandomRecipeUnlock();
+        ItemStack randomItem = Tools.RECIPE_UNLOCK.generateRandomRecipeUnlock();
         MerchantRecipe merchantRecipe = new MerchantRecipe(randomItem, 1);
         merchantRecipe.addIngredient(new ItemStack(Material.EMERALD, 64));
         recipes.add(merchantRecipe);

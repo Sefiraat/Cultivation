@@ -3,7 +3,7 @@ package dev.sefiraat.cultivation.implementation.slimefun.machines;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
 import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
@@ -135,7 +135,7 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable {
 
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
-                return CultivationMachines.GARDEN_CLOCHE.canUse(player, false)
+                return Machines.GARDEN_CLOCHE.canUse(player, false)
                     && Slimefun.getProtectionManager()
                     .hasPermission(player, block.getLocation(), Interaction.INTERACT_BLOCK);
             }

@@ -3,7 +3,7 @@ package dev.sefiraat.cultivation.api.slimefun;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.implementation.listeners.CustomDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
 import dev.sefiraat.cultivation.implementation.tasks.AirTimeTask;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.cultivation.managers.TaskManager;
@@ -435,13 +435,13 @@ public final class RecipeTypes {
 
     @Nonnull
     public static ItemStack[] createFoodFinishingRecipe(@Nonnull ItemStack result, ItemStack[] recipe) {
-        CultivationMachines.COUNTER_FINISHING.addRecipe(recipe, result);
+        Machines.COUNTER_FINISHING.addRecipe(recipe, result);
         return recipe;
     }
 
     @Nonnull
     public static ItemStack[] createFoodBakingRecipe(@Nonnull ItemStack result, ItemStack[] recipe) {
-        CultivationMachines.COUNTER_OVEN.addRecipe(recipe, result);
+        Machines.COUNTER_OVEN.addRecipe(recipe, result);
         return recipe;
     }
 }
