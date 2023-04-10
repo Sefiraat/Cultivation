@@ -1,13 +1,17 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
+import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.implementation.slimefun.items.Tools;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Villager;
 import org.bukkit.entity.WanderingTrader;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntitySpawnEvent;
+import org.bukkit.event.entity.VillagerCareerChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;
 
@@ -16,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class WanderingTraderListener implements Listener {
+public class TraderListener implements Listener {
 
     @EventHandler
     public void onWanderingTraderSpawn(@Nonnull EntitySpawnEvent event) {
@@ -25,6 +29,21 @@ public class WanderingTraderListener implements Listener {
             addBreedingRecipe(recipes);
             addBushRecipe(recipes);
             trader.setRecipes(recipes);
+        }
+    }
+
+    @EventHandler
+    public void onVillagerBecomesFarmer(@Nonnull VillagerCareerChangeEvent event) {
+        Villager villager = event.getEntity();
+        if (event.getProfession() == Villager.Profession.FARMER) {
+            Bukkit.getScheduler().runTaskLater(
+                Cultivation.getInstance(), () -> {
+                    List<MerchantRecipe> recipes = new ArrayList<>(villager.getRecipes());
+                    addBushRecipe(recipes);
+                    villager.setRecipes(recipes);
+                },
+                1
+            );
         }
     }
 
