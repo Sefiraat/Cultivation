@@ -19,7 +19,7 @@ public class CultivationProduceVanilla {
     private CultivationByProduct sliced;
     private CultivationByProduct ground;
     private CultivationByProduct blended;
-    private CultivationByProduct baked;
+    private CultivationByProduct boiled;
     private CultivationByProduct fried;
     private CultivationByProduct grilled;
     private final ItemStack itemStack;
@@ -55,8 +55,8 @@ public class CultivationProduceVanilla {
     }
 
     @Nonnull
-    public CultivationByProduct getBaked() {
-        return baked;
+    public CultivationByProduct getBoiled() {
+        return boiled;
     }
 
     @Nonnull
@@ -75,7 +75,7 @@ public class CultivationProduceVanilla {
         this.sliced = registerByProduct("Sliced", RecipeTypes.SLICED, Material.KELP);
         this.ground = registerByProduct("Ground", RecipeTypes.GROUND, Material.BROWN_DYE);
         this.blended = registerByProduct("Blended", RecipeTypes.BLENDED, Material.WATER_BUCKET);
-        this.baked = registerByProduct("Baked", RecipeTypes.BAKED, Material.DRIED_KELP);
+        this.boiled = registerByProduct("Boiled", RecipeTypes.BOILED, Material.DRIED_KELP);
         this.fried = registerByProduct("Fried", RecipeTypes.FRIED, Material.RED_DYE);
         this.grilled = registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
     }
@@ -116,8 +116,8 @@ public class CultivationProduceVanilla {
             CultivationMachines.COUNTER_SLICING.addRecipe(materialName, byProduct.getItem());
         }
 
-        if (recipeType == RecipeTypes.BAKED) {
-            CultivationMachines.COUNTER_OVEN.addRecipe(materialName, byProduct.getItem());
+        if (recipeType == RecipeTypes.BOILED) {
+            CultivationMachines.COUNTER_BOILING.addRecipe(materialName, byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.FRIED) {

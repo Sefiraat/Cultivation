@@ -8,6 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.BlockDisplay;
 import org.bukkit.entity.Display;
 import org.bukkit.entity.TextDisplay;
@@ -348,12 +349,12 @@ public final class DisplayGroupGenerators {
 
     public static DisplayGroup generateGrindingCounter(@Nonnull Location location) {
         DisplayGroup displayGroup = generateBaseCounter(location);
+        BlockData blockData = Material.CAULDRON.createBlockData();
         displayGroup.addDisplay(
             "bowl",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(0.2, 0.92, -0.3))
-                .setItemStack(new ItemStack(Material.CAULDRON))
-                .setBillboard(Display.Billboard.HORIZONTAL)
+            new BlockDisplayBuilder()
+                .setGroupParentOffset(new Vector(0.1, 0.82, -0.2))
+                .setBlockData(blockData)
                 .setTransformation(Transformations.GRINDING_BOWL.getTransformation())
                 .build(displayGroup)
         );
@@ -415,6 +416,22 @@ public final class DisplayGroupGenerators {
                 .setTransformation(Transformations.COOKING_BUTTONS.getTransformation())
                 .build(displayGroup)
         );
+        return displayGroup;
+    }
+
+    public static DisplayGroup generateBoilingCounter(@Nonnull Location location) {
+        DisplayGroup displayGroup = generateFryingCounter(location);
+        Levelled blockData = (Levelled) Material.WATER_CAULDRON.createBlockData();
+        blockData.setLevel(3);
+        displayGroup.addDisplay(
+            "pot",
+            new BlockDisplayBuilder()
+                .setGroupParentOffset(new Vector(-0.15, 0.85, -0.15))
+                .setBlockData(blockData)
+                .setTransformation(Transformations.BOILING_POT.getTransformation())
+                .build(displayGroup)
+        );
+
         return displayGroup;
     }
 

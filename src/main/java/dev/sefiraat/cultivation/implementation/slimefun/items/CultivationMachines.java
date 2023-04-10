@@ -6,7 +6,8 @@ import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.CraftingKitchenMachine;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.DoNothingKitchenObject;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.GardenCloche;
-import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenMachine;
+import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenMachineComplex;
+import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenMachineSimple;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.RightClickKitchenMachine;
 import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -103,7 +104,19 @@ public final class CultivationMachines {
         DisplayGroupGenerators::generateBlenderCounter
     );
 
-    public static final PoweredKitchenMachine COUNTER_OVEN = new PoweredKitchenMachine(
+    public static final RightClickKitchenMachine COUNTER_BOILING = new RightClickKitchenMachine(
+        CultivationGroups.MACHINES,
+        CultivationStacks.COUNTER_BOILING,
+        RecipeType.ENHANCED_CRAFTING_TABLE,
+        new ItemStack[]{
+            null, new ItemStack(Material.TINTED_GLASS), new ItemStack(Material.CAULDRON),
+            new ItemStack(Material.IRON_BLOCK), new ItemStack(Material.CAMPFIRE), new ItemStack(Material.IRON_BLOCK),
+            new ItemStack(Material.DARK_OAK_LOG), SlimefunItems.ENHANCED_FURNACE, new ItemStack(Material.DARK_OAK_LOG)
+        },
+        DisplayGroupGenerators::generateBoilingCounter
+    );
+
+    public static final PoweredKitchenMachineComplex COUNTER_OVEN = new PoweredKitchenMachineComplex(
         CultivationGroups.MACHINES,
         CultivationStacks.COUNTER_OVEN,
         RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -116,7 +129,7 @@ public final class CultivationMachines {
         200
     );
 
-    public static final PoweredKitchenMachine COUNTER_FRYER = new PoweredKitchenMachine(
+    public static final PoweredKitchenMachineSimple COUNTER_FRYER = new PoweredKitchenMachineSimple(
         CultivationGroups.MACHINES,
         CultivationStacks.COUNTER_FRYER,
         RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -129,7 +142,7 @@ public final class CultivationMachines {
         100
     );
 
-    public static final PoweredKitchenMachine COUNTER_GRILL = new PoweredKitchenMachine(
+    public static final PoweredKitchenMachineSimple COUNTER_GRILL = new PoweredKitchenMachineSimple(
         CultivationGroups.MACHINES,
         CultivationStacks.COUNTER_GRILL,
         RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -162,6 +175,7 @@ public final class CultivationMachines {
         COUNTER_SLICING.register(addon);
         COUNTER_GRINDER.register(addon);
         COUNTER_MASHER.register(addon);
+        COUNTER_BOILING.register(addon);
         COUNTER_OVEN.register(addon);
         COUNTER_FRYER.register(addon);
         COUNTER_GRILL.register(addon);

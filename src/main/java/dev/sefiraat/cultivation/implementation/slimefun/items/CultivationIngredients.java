@@ -27,7 +27,7 @@ public final class CultivationIngredients {
                 null, null, null
             }
         )
-    );
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationByProduct GRAPE_JELLY = new CultivationByProduct(
         CultivationStacks.GRAPE_JELLY,
@@ -40,7 +40,7 @@ public final class CultivationIngredients {
                 null, null, null
             }
         )
-    );
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationByProduct STRAWBERRY_JELLY = new CultivationByProduct(
         CultivationStacks.STRAWBERRY_JELLY,
@@ -53,13 +53,37 @@ public final class CultivationIngredients {
                 null, null, null
             }
         )
-    );
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationByProduct MAYONNAISE = new CultivationByProduct(
+        CultivationStacks.MAYONNAISE,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.MAYONNAISE,
+            new ItemStack[]{
+                CultivationProducts.RAPESEED.getGround().getItem(), new ItemStack(Material.EGG), null,
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationByProduct EGG_SALAD = new CultivationByProduct(
+        CultivationStacks.EGG_SALAD,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.EGG_SALAD,
+            new ItemStack[]{
+                CultivationProducts.EGG.getBoiled().getItem(), CultivationIngredients.MAYONNAISE.getItem(), null,
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
 
     // endregion
 
     public static void setup(Cultivation addon) {
-        PEANUT_BUTTER.register(addon);
-        GRAPE_JELLY.register(addon);
-        STRAWBERRY_JELLY.register(addon);
+
     }
 }

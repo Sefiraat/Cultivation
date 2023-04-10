@@ -24,7 +24,7 @@ public class CultivationProduceCore extends SlimefunItem {
     private CultivationByProduct sliced;
     private CultivationByProduct ground;
     private CultivationByProduct blended;
-    private CultivationByProduct baked;
+    private CultivationByProduct boiled;
     private CultivationByProduct fried;
     private CultivationByProduct grilled;
 
@@ -61,8 +61,8 @@ public class CultivationProduceCore extends SlimefunItem {
     }
 
     @Nonnull
-    public CultivationByProduct getBaked() {
-        return baked;
+    public CultivationByProduct getBoiled() {
+        return boiled;
     }
 
     @Nonnull
@@ -87,7 +87,7 @@ public class CultivationProduceCore extends SlimefunItem {
         this.sliced = registerByProduct("Sliced", RecipeTypes.SLICED, Material.KELP);
         this.ground = registerByProduct("Ground", RecipeTypes.GROUND, Material.BROWN_DYE);
         this.blended = registerByProduct("Blended", RecipeTypes.BLENDED, Material.WATER_BUCKET);
-        this.baked = registerByProduct("Baked", RecipeTypes.BAKED, Material.DRIED_KELP);
+        this.boiled = registerByProduct("Boiled", RecipeTypes.BOILED, Material.CAULDRON);
         this.fried = registerByProduct("Fried", RecipeTypes.FRIED, Material.RED_DYE);
         this.grilled = registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
     }
@@ -126,8 +126,8 @@ public class CultivationProduceCore extends SlimefunItem {
             CultivationMachines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
         }
 
-        if (recipeType == RecipeTypes.BAKED) {
-            CultivationMachines.COUNTER_OVEN.addRecipe(this.getId(), byProduct.getItem());
+        if (recipeType == RecipeTypes.BOILED) {
+            CultivationMachines.COUNTER_BOILING.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.FRIED) {

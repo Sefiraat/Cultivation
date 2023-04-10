@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -136,6 +137,27 @@ public final class CultivationStacks {
         "Cultivation Bush: Peas",
         List.of(
             "I prefer Q's"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_RAPESEED = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RAPESEED",
+        Skins.SPIKEY_BLUE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Rapeseed",
+        List.of(
+            "This bush is exuding some oily substance."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_LETTUCE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_LETTUCE",
+        Skins.SPIKEY_GREEN_4.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Lettuce",
+        List.of(
+            "Does lettuce even grow on bushes?",
+            "Spoiler: No, it doesn't."
         )
     );
 
@@ -1239,6 +1261,14 @@ public final class CultivationStacks {
         "Can fry certain produce items."
     );
 
+    public static final SlimefunItemStack COUNTER_BOILING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_BOILING",
+        Material.BLACK_STAINED_GLASS,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Boiling Pot",
+        "Can boil certain items."
+    );
+
     public static final SlimefunItemStack COUNTER_GRILL = Theme.themedSlimefunItemStack(
         "CLT_COUNTER_GRILL",
         Material.CAMPFIRE,
@@ -1364,6 +1394,22 @@ public final class CultivationStacks {
         "Often found in pairs within a pod, or so I hear."
     );
 
+    public static final SlimefunItemStack RAPESEED = Theme.themedSlimefunItemStack(
+        "CLT_RAPESEED",
+        new ItemStack(Material.MELON_SEEDS),
+        CultivationThemes.PRODUCE,
+        "Rapeseed",
+        "Oft-used to create oils."
+    );
+
+    public static final SlimefunItemStack LETTUCE = Theme.themedSlimefunItemStack(
+        "CLT_LETTUCE",
+        Skins.LETTUCE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Lettuce",
+        "Thin, watery and yet delicious."
+    );
+
     // endregion
 
     // region Crafted By Products
@@ -1392,6 +1438,30 @@ public final class CultivationStacks {
         "Eating it with a spoon is a criminal offence."
     );
 
+    public static final SlimefunItemStack OIL = Theme.themedSlimefunItemStack(
+        "CLT_OIL",
+        Skins.SPICE_YELLOW.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Oil",
+        "Oil. Need I say more?"
+    );
+
+    public static final SlimefunItemStack MAYONNAISE = Theme.themedSlimefunItemStack(
+        "CLT_MAYONNAISE",
+        new ItemStack(Material.MILK_BUCKET),
+        CultivationThemes.PRODUCE,
+        "Mayonnaise",
+        "A silky smooth mayo that can go with nearly anything."
+    );
+
+    public static final SlimefunItemStack EGG_SALAD = Theme.themedSlimefunItemStack(
+        "CLT_EGG_SALAD",
+        Skins.SPICE_YELLOW.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Egg Salad",
+        "Open this on a train, I dare you!"
+    );
+
     // endregion
 
     // region Finished Foods
@@ -1405,6 +1475,17 @@ public final class CultivationStacks {
         "",
         Theme.CLICK_INFO.asTitle("Healing", "5 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Power + 3")
+    );
+
+    public static final SlimefunItemStack EGG_SALAD_SANDWICH = Theme.themedSlimefunItemStack(
+        "CLT_EGG_SALAD_SANDWICH",
+        Skins.CHEESY_SANDWICH.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Egg Salad Sandwich",
+        "Smells a bit, but tastes amazing!",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "5 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Haste + 2")
     );
 
     public static final SlimefunItemStack BACON_SANDWICH = Theme.themedSlimefunItemStack(

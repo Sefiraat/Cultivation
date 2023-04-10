@@ -1,6 +1,5 @@
 package dev.sefiraat.cultivation.api.slimefun.items.produce;
 
-import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.itemstacks.Cooldowns;
 import dev.sefiraat.sefilib.string.Theme;
@@ -8,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import org.bukkit.entity.Player;
@@ -21,8 +21,8 @@ public class CultivationFood extends SimpleSlimefunItem<ItemUseHandler> {
 
     private final Consumer<Player> eatingEffects;
 
-    public CultivationFood(ItemGroup group, SlimefunItemStack item, ItemStack[] recipe, Consumer<Player> effect) {
-        super(group, item, RecipeTypes.FINISHING, recipe);
+    public CultivationFood(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Consumer<Player> effect) {
+        super(group, item, recipeType, recipe);
         this.eatingEffects = effect;
     }
 

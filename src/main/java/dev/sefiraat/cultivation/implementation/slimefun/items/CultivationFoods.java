@@ -27,6 +27,7 @@ public final class CultivationFoods {
     public static final CultivationFood PEANUT_BUTTER_JELLY_SANDWICH = new CultivationFood(
         CultivationGroups.FOODS,
         CultivationStacks.FOOD_PEANUT_BUTTER_JELLY_SANDWICH,
+        RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.FOOD_PEANUT_BUTTER_JELLY_SANDWICH,
             new ItemStack[]{
@@ -45,6 +46,7 @@ public final class CultivationFoods {
     public static final CultivationFood BACON_SANDWICH = new CultivationFood(
         CultivationGroups.FOODS,
         CultivationStacks.BACON_SANDWICH,
+        RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.BACON_SANDWICH,
             new ItemStack[]{
@@ -64,11 +66,12 @@ public final class CultivationFoods {
     public static final CultivationFood SALMON_NIGIRI = new CultivationFood(
         CultivationGroups.FOODS,
         CultivationStacks.SALMON_NIGIRI,
+        RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.SALMON_NIGIRI,
             new ItemStack[]{
                 null, CultivationProducts.SALMON.getSliced().getItem(), null,
-                null, CultivationProducts.RICE.getItem(), null,
+                null, CultivationProducts.RICE.getBoiled().getItem(), null,
                 null, null, null
             }
         ),
@@ -82,10 +85,11 @@ public final class CultivationFoods {
     public static final CultivationFood CAJUN_GARLIC_BUTTER_COD = new CultivationFood(
         CultivationGroups.FOODS,
         CultivationStacks.CAJUN_GARLIC_BUTTER_COD,
-        RecipeTypes.createFoodFinishingRecipe(
+        RecipeTypes.BAKING,
+        RecipeTypes.createFoodBakingRecipe(
             CultivationStacks.CAJUN_GARLIC_BUTTER_COD,
             new ItemStack[]{
-                CultivationProducts.COD.getBaked().getItem(), SlimefunItems.BUTTER, null,
+                CultivationProducts.COD.getFried().getItem(), SlimefunItems.BUTTER, null,
                 CultivationProducts.GARLIC.getChopped().getItem(), CultivationProducts.CAYENNE_PEPPER.getGround().getItem(), null,
                 null, null, null
             }
@@ -101,11 +105,12 @@ public final class CultivationFoods {
     public static final CultivationFood SHAKSHUKA = new CultivationFood(
         CultivationGroups.FOODS,
         CultivationStacks.SHAKSHUKA,
+        RecipeTypes.BAKING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.SHAKSHUKA,
             new ItemStack[]{
-                CultivationProducts.EGG.getBaked().getItem(), CultivationProducts.ONION.getChopped().getItem(), CultivationProducts.BELL_PEPPER.getBaked().getItem(),
-                CultivationProducts.GARLIC.getChopped().getItem(), CultivationProducts.BELL_PEPPER.getGround().getItem(), CultivationProducts.TOMATO.getBaked().getItem(),
+                new ItemStack(Material.EGG), CultivationProducts.ONION.getChopped().getItem(), CultivationProducts.BELL_PEPPER.getItem(),
+                CultivationProducts.GARLIC.getChopped().getItem(), CultivationProducts.BELL_PEPPER.getGround().getItem(), CultivationProducts.TOMATO.getItem(),
                 null, null, null
             }
         ),
@@ -120,11 +125,12 @@ public final class CultivationFoods {
     public static final CultivationFood FUGU = new CultivationFood(
         CultivationGroups.FOODS,
         CultivationStacks.FUGU,
+        RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.FUGU,
             new ItemStack[]{
                 null, CultivationProducts.PUFFERFISH.getSliced().getItem(), null,
-                null, CultivationProducts.RICE.getItem(), null,
+                null, CultivationProducts.RICE.getBoiled().getItem(), null,
                 null, null, null
             }
         ),
@@ -140,7 +146,8 @@ public final class CultivationFoods {
     public static final CultivationFood SHEPHERDS_PIE = new CultivationFood(
         CultivationGroups.FOODS,
         CultivationStacks.SHEPHERDS_PIE,
-        RecipeTypes.createFoodFinishingRecipe(
+        RecipeTypes.BAKING,
+        RecipeTypes.createFoodBakingRecipe(
             CultivationStacks.SHEPHERDS_PIE,
             new ItemStack[]{
                 SlimefunItems.CHEESE, CultivationProducts.POTATO.getMashed().getItem(), SlimefunItems.CHEESE,
@@ -155,7 +162,27 @@ public final class CultivationFoods {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final CultivationFood EGG_SALAD_SANDWICH = new CultivationFood(
+        CultivationGroups.FOODS,
+        CultivationStacks.EGG_SALAD_SANDWICH,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.FOOD_PEANUT_BUTTER_JELLY_SANDWICH,
+            new ItemStack[]{
+                null, new ItemStack(Material.BREAD), null,
+                CultivationProducts.LETTUCE.getChopped().getItem(), CultivationIngredients.EGG_SALAD.getItem(), CultivationProducts.TOMATO.getSliced().getItem(),
+                null, new ItemStack(Material.BREAD), null
+            }
+        ),
+        player -> simplePlayerEffect(
+            player,
+            20,
+            new Pair<>(PotionEffectType.REGENERATION, 1)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
+
     }
 
     @SafeVarargs

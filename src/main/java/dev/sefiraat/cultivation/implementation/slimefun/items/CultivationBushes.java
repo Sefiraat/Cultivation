@@ -96,5 +96,21 @@ public final class CultivationBushes {
             .addHarvestingResult(CultivationStacks.PEA)
             .tryRegister(addon);
 
+        new HarvestableBush(CultivationStacks.BUSH_RAPESEED, new Growth(
+            PlantTheme.BLUE,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.RAPESEED)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_LETTUCE, new Growth(
+            PlantTheme.BLUE,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.LETTUCE)
+            .tryRegister(addon);
+
     }
 }

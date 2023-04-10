@@ -94,6 +94,18 @@ public final class CultivationProducts {
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
 
+    public static final CultivationProduceCore RAPESEED = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.RAPESEED,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationProduceCore LETTUCE = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.LETTUCE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     // region Vanilla Registrations

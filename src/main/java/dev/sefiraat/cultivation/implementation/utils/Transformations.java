@@ -85,7 +85,7 @@ public enum Transformations {
                .build()
     ),
     GRINDING_BOWL(new TransformationBuilder()
-                      .scale(0.5f, 0.3f, 0.5f)
+                      .scale(0.2f, 0.1f, 0.2f)
                       .build()
     ),
     BONE(new TransformationBuilder()
@@ -123,6 +123,10 @@ public enum Transformations {
     ),
     FRY_HOB_CORE(new TransformationBuilder()
                   .scale(0.85f, 0.05f, 0.85f)
+                  .build()
+    ),
+    BOILING_POT(new TransformationBuilder()
+                  .scale(0.3f, 0.3f, 0.3f)
                   .build()
     );
 

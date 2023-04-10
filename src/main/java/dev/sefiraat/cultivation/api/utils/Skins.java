@@ -385,6 +385,8 @@ public enum Skins {
     SPICE_YELLOW("e134dbb2e6d1c673b47b0f3a086160b480cb5d92a420c64c8f5c45ddb3e64015"),
     // https://minecraft-heads.com/custom-heads/plants/2241-onion
     ONION("a6ecc46dc3dc85fcd57198176ee841f1a041b15f73ecb19fde62ee4315c4a6"),
+    // https://minecraft-heads.com/custom-heads/plants/17984-lettuce
+    LETTUCE("2d52e883c6436ca7e764bda4b58afa53da6a649030f663953dce9fd6315f9fea"),
 
     // endregion
 
