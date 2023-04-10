@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation;
 
 import com.google.common.base.Preconditions;
-import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
+import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResultType;
@@ -22,9 +22,11 @@ public class Registry {
     private static Registry instance;
 
     @Nonnull
-    private final List<CultivationFlora> registeredFlora = new ArrayList<>();
+    private final List<CultivationPlant> registeredPlants = new ArrayList<>();
     @Nonnull
-    private final List<BreedingPair> breedingPairs = new ArrayList<>();
+    private final List<CultivationBush> registeredBushes = new ArrayList<>();
+    @Nonnull
+    private final List<BreedingPair> plantBreedingPairs = new ArrayList<>();
 
     @Nonnull
     private final Map<UUID, BlockPosition> storedPositionOne = new HashMap<>();
@@ -37,19 +39,22 @@ public class Registry {
         instance = this;
     }
 
-    public void addFlora(@Nonnull CultivationFlora cultivationFlora) {
-        // todo Split into different types of flora into other dicts
-        this.registeredFlora.add(cultivationFlora);
-        if (cultivationFlora instanceof CultivationPlant plant) {
-            this.breedingPairs.addAll(plant.getBreedingPairs());
-        }
+    public void addPlant(@Nonnull CultivationPlant cultivationPlant) {
+        this.registeredPlants.add(cultivationPlant);
+        this.plantBreedingPairs.addAll(cultivationPlant.getBreedingPairs());
+
+    }
+
+    public void addBush(@Nonnull CultivationBush cultivationBush) {
+        this.registeredBushes.add(cultivationBush);
+
     }
 
     @Nonnull
     public BreedResult getBreedResult(@Nonnull String seed1, @Nonnull String seed2) {
         int matches = 0;
-        for (BreedingPair pair : breedingPairs) {
-            final BreedResultType result = pair.testBreed(seed1, seed2);
+        for (BreedingPair pair : plantBreedingPairs) {
+            BreedResultType result = pair.testBreed(seed1, seed2);
             if (result != BreedResultType.NOT_PAIR) {
                 if (result != BreedResultType.FAIL) {
                     return new BreedResult(pair, result);
@@ -58,17 +63,30 @@ public class Registry {
                 }
             }
         }
-        return new BreedResult(breedingPairs.get(0), matches == 0 ? BreedResultType.NO_PAIRS : BreedResultType.FAIL);
+        if (matches == 0) {
+            if (seed1.equals(seed2)) {
+                return new BreedResult(plantBreedingPairs.get(0), BreedResultType.SPREAD_MUTATE);
+            } else {
+                return new BreedResult(plantBreedingPairs.get(0), BreedResultType.NO_PAIRS);
+            }
+        } else {
+            return new BreedResult(plantBreedingPairs.get(0), BreedResultType.FAIL);
+        }
     }
 
     @Nonnull
-    public List<CultivationFlora> getRegisteredFlora() {
-        return Collections.unmodifiableList(registeredFlora);
+    public List<CultivationPlant> getRegisteredPlants() {
+        return Collections.unmodifiableList(registeredPlants);
     }
 
     @Nonnull
-    public List<BreedingPair> getBreedingPairs() {
-        return Collections.unmodifiableList(breedingPairs);
+    public List<CultivationBush> getRegisteredBushes() {
+        return Collections.unmodifiableList(registeredBushes);
+    }
+
+    @Nonnull
+    public List<BreedingPair> getPlantBreedingPairs() {
+        return Collections.unmodifiableList(plantBreedingPairs);
     }
 
     public void addPositionOne(@Nonnull Player player) {

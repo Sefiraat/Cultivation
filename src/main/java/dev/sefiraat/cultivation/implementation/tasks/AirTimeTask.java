@@ -1,8 +1,6 @@
 package dev.sefiraat.cultivation.implementation.tasks;
 
 import dev.sefiraat.sefilib.misc.Chance;
-import io.github.bakedlibs.dough.collections.RandomizedSet;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

@@ -18,27 +18,32 @@ import java.io.Reader;
  */
 public class ConfigManager {
 
+    public static final String FILE_NAME_EXP = "exp.yml";
+    public static final String FILE_NAME_CODEX = "codex.yml";
+
     // Player exp
     private final FileConfiguration exp;
+    private final FileConfiguration codex;
 
     public ConfigManager() {
         setupDefaultConfig();
-        this.exp = getConfig("exp.yml");
+        this.exp = getConfig(FILE_NAME_EXP);
+        this.codex = getConfig(FILE_NAME_CODEX);
     }
 
     private void setupDefaultConfig() {
-        final Cultivation plugin = Cultivation.getInstance();
-        final InputStream inputStream = plugin.getResource("config.yml");
+        Cultivation plugin = Cultivation.getInstance();
+        InputStream inputStream = plugin.getResource("config.yml");
 
         if (inputStream == null) {
             // Not sure how? Regardless cannot copy over new keys
             return;
         }
 
-        final File existingFile = new File(plugin.getDataFolder(), "config.yml");
-        final Reader reader = new InputStreamReader(inputStream);
-        final FileConfiguration resourceConfig = YamlConfiguration.loadConfiguration(reader);
-        final FileConfiguration existingConfig = YamlConfiguration.loadConfiguration(existingFile);
+        File existingFile = new File(plugin.getDataFolder(), "config.yml");
+        Reader reader = new InputStreamReader(inputStream);
+        FileConfiguration resourceConfig = YamlConfiguration.loadConfiguration(reader);
+        FileConfiguration existingConfig = YamlConfiguration.loadConfiguration(existingFile);
 
         for (String key : resourceConfig.getKeys(false)) {
             checkKey(existingConfig, resourceConfig, key);
@@ -53,8 +58,8 @@ public class ConfigManager {
 
     @ParametersAreNonnullByDefault
     private void checkKey(FileConfiguration existingConfig, FileConfiguration resourceConfig, String key) {
-        final Object currentValue = existingConfig.get(key);
-        final Object newValue = resourceConfig.get(key);
+        Object currentValue = existingConfig.get(key);
+        Object newValue = resourceConfig.get(key);
         if (newValue instanceof ConfigurationSection section) {
             for (String sectionKey : section.getKeys(false)) {
                 checkKey(existingConfig, resourceConfig, key + "." + sectionKey);
@@ -67,8 +72,8 @@ public class ConfigManager {
     @Nonnull
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private FileConfiguration getConfig(@Nonnull String fileName) {
-        final Cultivation plugin = Cultivation.getInstance();
-        final File file = new File(plugin.getDataFolder(), fileName);
+        Cultivation plugin = Cultivation.getInstance();
+        File file = new File(plugin.getDataFolder(), fileName);
 
         try {
             if (!file.exists()) {
@@ -83,13 +88,14 @@ public class ConfigManager {
 
     public void saveAll() {
         Cultivation.getInstance().getLogger().info("Cultivation saving data.");
-        saveExp();
+        save(exp, FILE_NAME_EXP);
+        save(codex, FILE_NAME_CODEX);
     }
 
-    private void saveExp() {
-        File file = new File(Cultivation.getInstance().getDataFolder(), "exp.yml");
+    private void save(@Nonnull FileConfiguration config, @Nonnull String fileName) {
+        File file = new File(Cultivation.getInstance().getDataFolder(), fileName);
         try {
-            exp.save(file);
+            config.save(file);
         } catch (IOException exception) {
             exception.printStackTrace();
         }
@@ -97,6 +103,10 @@ public class ConfigManager {
 
     public FileConfiguration getExp() {
         return exp;
+    }
+
+    public FileConfiguration getCodex() {
+        return codex;
     }
 
     public boolean isAutoUpdate() {

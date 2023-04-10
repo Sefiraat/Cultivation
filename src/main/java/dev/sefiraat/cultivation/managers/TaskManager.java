@@ -3,7 +3,6 @@ package dev.sefiraat.cultivation.managers;
 import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.implementation.tasks.AirTimeTask;
-import org.bukkit.Bukkit;
 
 /**
  * This class is used to run Runnables from one place
@@ -17,7 +16,7 @@ public class TaskManager {
     public TaskManager() {
         Preconditions.checkArgument(instance == null, "Cannot create a new instance of the TaskManager");
         instance = this;
-        final Cultivation plugin = Cultivation.getInstance();
+        Cultivation plugin = Cultivation.getInstance();
 
         airTimeTask.runTaskTimerAsynchronously(plugin, 20, AirTimeTask.TICK_RATE);
     }

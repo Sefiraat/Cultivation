@@ -16,6 +16,8 @@ public final class Keys {
     public static final String FLORA_OWNER = "plant-owner";
     public static final NamespacedKey COOLDOWN = newKey("cooldown");
     public static final NamespacedKey DROPPED_PLAYER = newKey("dropped-player");
+    public static final NamespacedKey RECIPE_ID = newKey("recipe-id");
+    public static final NamespacedKey SATIATED = newKey("satiated");
 
     @Nonnull
     public static NamespacedKey newKey(@Nonnull String value) {

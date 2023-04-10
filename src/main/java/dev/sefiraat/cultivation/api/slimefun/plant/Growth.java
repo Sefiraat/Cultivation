@@ -1,7 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.plant;
 
 import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -15,26 +14,26 @@ import java.util.Set;
 public class Growth {
 
     @Nullable
-    private final GrowthStages stages;
+    private final PlantTheme theme;
     @Nonnull
     private final Set<Material> placements;
-    private final double growthRate;
+    private double growthRate;
 
     @ParametersAreNonnullByDefault
-    public Growth(@Nullable GrowthStages stages, Set<Material> places, double growthRate) {
-        this.stages = stages;
+    public Growth(@Nullable PlantTheme theme, Set<Material> places, double growthRate) {
+        this.theme = theme;
         this.placements = places;
         this.growthRate = growthRate;
     }
 
     @ParametersAreNonnullByDefault
-    public Growth(@Nullable GrowthStages stages, Material placementMaterial, double growthRate) {
-        this(stages, Set.of(placementMaterial), growthRate);
+    public Growth(@Nullable PlantTheme theme, Material placementMaterial, double growthRate) {
+        this(theme, Set.of(placementMaterial), growthRate);
     }
 
     @Nullable
-    public GrowthStages getStages() {
-        return stages;
+    public PlantTheme getTheme() {
+        return theme;
     }
 
     @Nonnull
@@ -46,12 +45,7 @@ public class Growth {
         return growthRate;
     }
 
-    @Nullable
-    public ItemStack getFullyGrownPlant() {
-        // todo Needs to change when bushes are completed
-        if (this.stages == null) {
-            return null;
-        }
-        return this.stages.getStages().get(this.stages.getStages().size() - 1).getPlayerHead();
+    public void setGrowthRate(double growthRate) {
+        this.growthRate = growthRate;
     }
 }

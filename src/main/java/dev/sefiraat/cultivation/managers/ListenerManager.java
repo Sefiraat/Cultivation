@@ -2,8 +2,11 @@ package dev.sefiraat.cultivation.managers;
 
 import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.Cultivation;
+import dev.sefiraat.cultivation.implementation.listeners.CustomDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.CustomPlacementListener;
-import dev.sefiraat.cultivation.implementation.listeners.DropListener;
+import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
+import dev.sefiraat.cultivation.implementation.listeners.PlayerDeathListener;
+import dev.sefiraat.cultivation.implementation.listeners.TraderListener;
 import org.bukkit.event.Listener;
 
 import javax.annotation.Nonnull;
@@ -18,8 +21,12 @@ public class ListenerManager {
     public ListenerManager() {
         Preconditions.checkArgument(instance == null, "Cannot create a new instance of the ListenerManager");
         instance = this;
-        addListener(new DropListener());
+        addListener(new CustomDropListener());
         addListener(new CustomPlacementListener());
+        addListener(new PlayerDeathListener());
+        addListener(new MobDropListener());
+        // addListener(new InteractionListener());
+        addListener(new TraderListener());
     }
 
     private void addListener(@Nonnull Listener listener) {

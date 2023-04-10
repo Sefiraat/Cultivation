@@ -1,15 +1,20 @@
 package dev.sefiraat.cultivation;
 
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationBushes;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationCrafting;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationPlants;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationTools;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationTrees;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Bushes;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Crafting;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Foods;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Ingredients;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Plants;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Products;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Tools;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Trees;
 import dev.sefiraat.cultivation.managers.ConfigManager;
 import dev.sefiraat.cultivation.managers.DispatchManager;
 import dev.sefiraat.cultivation.managers.ListenerManager;
 import dev.sefiraat.cultivation.managers.SupportedPluginManager;
 import dev.sefiraat.cultivation.managers.TaskManager;
+import dev.sefiraat.sefilib.entity.display.DisplayGroupManager;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import org.bstats.bukkit.Metrics;
@@ -31,6 +36,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
     private ListenerManager listenerManager;
     private TaskManager taskManager;
     private DispatchManager dispatchManager;
+    private DisplayGroupManager displayGroupManager;
     private Registry registry;
 
     public Cultivation() {
@@ -45,7 +51,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
 
         getLogger().info("########################################");
         getLogger().info("               Cultivation              ");
-        getLogger().info("   By Sefiraat, J3fftw and JustAHuman   ");
+        getLogger().info("         By Sefiraat and J3fftw         ");
         getLogger().info("########################################");
 
         saveDefaultConfig();
@@ -56,6 +62,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
         this.listenerManager = new ListenerManager();
         this.taskManager = new TaskManager();
         this.dispatchManager = new DispatchManager(this);
+        this.displayGroupManager = new DisplayGroupManager(this);
         this.registry = new Registry();
 
         setupItems();
@@ -63,11 +70,15 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
     }
 
     private void setupItems() {
-        CultivationBushes.setup(this);
-        CultivationCrafting.setup(this);
-        CultivationPlants.setup(this);
-        CultivationTools.setup(this);
-        CultivationTrees.setup(this);
+        Bushes.setup(this);
+        Crafting.setup(this);
+        Tools.setup(this);
+        Machines.setup(this);
+        Plants.setup(this);
+        Trees.setup(this);
+        Products.setup(this);
+        Ingredients.setup(this);
+        Foods.setup(this);
     }
 
     @Override

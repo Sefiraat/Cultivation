@@ -1,7 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.items;
 
 import com.google.common.base.Preconditions;
-import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.events.CultivationBushGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationGrowEvent;
 import dev.sefiraat.cultivation.api.events.CultivationPlantGrowEvent;
@@ -9,6 +8,7 @@ import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
+import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.LevelType;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
 import dev.sefiraat.cultivation.implementation.listeners.CustomPlacementListener;
@@ -23,7 +23,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
@@ -39,7 +38,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
@@ -48,7 +46,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -96,13 +93,6 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
                     }
                 }
             },
-            new BlockBreakHandler(false, false) {
-                @Override
-                @ParametersAreNonnullByDefault
-                public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
-                    // Todo
-                }
-            },
             (BlockUseHandler) this::onBlockUse
         );
     }
@@ -129,9 +119,9 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
 
             @Override
             public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block block) {
-                final String owner = BlockStorage.getLocationInfo(block.getLocation(), Keys.FLORA_OWNER);
+                String owner = BlockStorage.getLocationInfo(block.getLocation(), Keys.FLORA_OWNER);
                 if (owner != null) {
-                    final UUID uuid = UUID.fromString(owner);
+                    UUID uuid = UUID.fromString(owner);
                     addOwner(block.getLocation(), uuid);
                 }
             }
@@ -170,8 +160,11 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
 
     @ParametersAreNonnullByDefault
     void tryGrow(Block block, T flora, Config data, Location location, int growthStage) {
-        final double growthRandom = ThreadLocalRandom.current().nextDouble();
-        if (growthRandom <= getGrowthRate() && getMaxGrowthStages() > growthStage) {
+        if (!canGrow(block, flora, data, location, growthStage)) {
+            return;
+        }
+        double growthRandom = ThreadLocalRandom.current().nextDouble();
+        if (growthRandom <= getGrowthRate(location) && getMaxGrowthStages() > growthStage) {
             CultivationGrowEvent event = callEvent(flora, location, growthStage);
 
             if (event.isCancelled()) {
@@ -186,6 +179,17 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
                 growthDisplay(location);
             }
         }
+    }
+
+    /**
+     * Override this method to control when or if this plant can grow.
+     *
+     * @return True if the {@link #tryGrow(Block, CultivationFloraItem, Config, Location, int)} method is allowed
+     * to function.
+     */
+    @ParametersAreNonnullByDefault
+    protected boolean canGrow(Block block, T flora, Config data, Location location, int growthStage) {
+        return true;
     }
 
     @Nonnull
@@ -223,7 +227,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     @Nonnull
     @Override
     public Theme getTheme() {
-        return growth.getStages().getTheme();
+        return growth.getTheme().getTheme();
     }
 
     @Nonnull
@@ -233,8 +237,12 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
     }
 
     @Override
-    public double getGrowthRate() {
+    public double getDefaultGrowthRate() {
         return growth.getGrowthRate();
+    }
+
+    public double getGrowthRate(@Nonnull Location location) {
+        return getDefaultGrowthRate();
     }
 
     /**
@@ -244,6 +252,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
      * @param event The {@link BlockPlaceEvent} triggered from the block placement
      */
     @Override
+    @OverridingMethodsMustInvokeSuper
     public void whenPlaced(@Nonnull BlockPlaceEvent event) {
         final Block block = event.getBlock();
         final Block blockBelow = block.getRelative(BlockFace.DOWN);
@@ -290,12 +299,21 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
         if (this.getItem().getItemMeta().hasLore()) {
             lore = this.getItem().getItemMeta().getLore().toArray(lore);
         }
+        PlantTheme theme = this.growth.getTheme();
+        // todo watch with bushes
+        if (theme == null) {
+            throw new IllegalStateException("The growth has no theme.");
+        }
         this.displayStack = new CustomItemStack(
-            this.growth.getFullyGrownPlant(),
+            theme.getSeed().getPlayerHead(),
             this.getItemName(),
             lore
         );
         return (T) this;
+    }
+
+    public Growth getGrowth() {
+        return this.growth;
     }
 
     /**
@@ -306,7 +324,6 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
      */
     public T tryRegister(@Nonnull SlimefunAddon addon) {
         if (validateFlora()) {
-            Registry.getInstance().addFlora(this);
             register(addon);
         }
         return (T) this;

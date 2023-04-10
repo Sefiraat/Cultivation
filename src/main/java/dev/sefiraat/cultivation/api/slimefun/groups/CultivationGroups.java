@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation.api.slimefun.groups;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
+import dev.sefiraat.cultivation.implementation.slimefun.groups.PlantCodexFlexGroup;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.slimefun.itemgroup.DummyItemGroup;
 import dev.sefiraat.sefilib.slimefun.itemgroup.SimpleFlexGroup;
@@ -28,6 +29,15 @@ public final class CultivationGroups {
         )
     );
 
+    public static final DummyItemGroup HIDDEN_CONTENT = new DummyItemGroup(
+        Keys.newKey("hidden"),
+        new CustomItemStack(
+            Material.BARRIER,
+            "Hidden",
+            "Items that should not be accessed directly."
+        )
+    );
+
     public static final DummyItemGroup CRAFTING = new DummyItemGroup(
         Keys.newKey("crafting"),
         new CustomItemStack(
@@ -41,6 +51,14 @@ public final class CultivationGroups {
         new CustomItemStack(
             new ItemStack(Material.COMPASS),
             CultivationThemes.MAIN.color("Tools")
+        )
+    );
+
+    public static final DummyItemGroup MACHINES = new DummyItemGroup(
+        Keys.newKey("machines"),
+        new CustomItemStack(
+            new ItemStack(Material.GLASS),
+            CultivationThemes.MAIN.color("Machines")
         )
     );
 
@@ -68,8 +86,40 @@ public final class CultivationGroups {
         )
     );
 
+    public static final DummyItemGroup PRODUCE = new DummyItemGroup(
+        Keys.newKey("produce"),
+        new CustomItemStack(
+            new ItemStack(Material.APPLE),
+            CultivationThemes.MAIN.color("Produce")
+        )
+    );
+
+    public static final DummyItemGroup BY_PRODUCTS = new DummyItemGroup(
+        Keys.newKey("by-products"),
+        new CustomItemStack(
+            new ItemStack(Material.BEETROOT_SEEDS),
+            CultivationThemes.MAIN.color("By-Products")
+        )
+    );
+
+    public static final DummyItemGroup FOODS = new DummyItemGroup(
+        Keys.newKey("foods"),
+        new CustomItemStack(
+            new ItemStack(Material.BEETROOT_SOUP),
+            CultivationThemes.MAIN.color("Foods")
+        )
+    );
+
+    public static final PlantCodexFlexGroup PLANT_CODEX = new PlantCodexFlexGroup(
+        Keys.newKey("plant_codex"),
+        new CustomItemStack(
+            new ItemStack(Material.BEETROOT_SEEDS),
+            CultivationThemes.MAIN.color("Plants Codex")
+        )
+    );
+
     static {
-        final Cultivation plugin = Cultivation.getInstance();
+        Cultivation plugin = Cultivation.getInstance();
 
         PLANTS.setCrossAddonItemGroup(true);
         BUSHES.setCrossAddonItemGroup(true);
@@ -77,11 +127,27 @@ public final class CultivationGroups {
 
         // Slimefun Registry
         MAIN.register(plugin);
+        HIDDEN_CONTENT.register(plugin);
         CRAFTING.register(plugin);
         TOOLS.register(plugin);
+        MACHINES.register(plugin);
 
         PLANTS.register(plugin);
         BUSHES.register(plugin);
         TREES.register(plugin);
+        PRODUCE.register(plugin);
+        BY_PRODUCTS.register(plugin);
+        FOODS.register(plugin);
+
+        MAIN.addItemGroup(CRAFTING);
+        MAIN.addItemGroup(TOOLS);
+        MAIN.addItemGroup(MACHINES);
+        MAIN.addItemGroup(PLANTS);
+        MAIN.addItemGroup(BUSHES);
+        MAIN.addItemGroup(TREES);
+        MAIN.addItemGroup(PRODUCE);
+        MAIN.addItemGroup(BY_PRODUCTS);
+        MAIN.addItemGroup(FOODS);
+        MAIN.addItemGroup(PLANT_CODEX);
     }
 }

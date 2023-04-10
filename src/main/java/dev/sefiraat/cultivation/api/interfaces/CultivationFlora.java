@@ -34,5 +34,5 @@ public interface CultivationFlora extends CultivationGrower, CultivationTicking,
      *
      * @return The growth rate
      */
-    double getGrowthRate();
+    double getDefaultGrowthRate();
 }

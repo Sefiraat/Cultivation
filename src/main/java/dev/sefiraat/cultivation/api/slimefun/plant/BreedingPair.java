@@ -86,11 +86,11 @@ public class BreedingPair {
     @Nonnull
     public BreedResultType testBreed(@Nonnull String plant1, @Nonnull String plant2) {
         if (isBreedPossible(plant1, plant2)) {
-            final double chance = ThreadLocalRandom.current().nextDouble();
+            double chance = ThreadLocalRandom.current().nextDouble();
             if (chance <= getBreedChance()) {
                 return BreedResultType.SUCCESS;
             } else if (chance <= getSpreadBreedChance()) {
-                return BreedResultType.SPREAD;
+                return BreedResultType.SPREAD_NO_MUTATE;
             }
         } else {
             return BreedResultType.NOT_PAIR;

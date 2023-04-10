@@ -2,11 +2,11 @@ package dev.sefiraat.cultivation.implementation.slimefun.tools;
 
 import dev.sefiraat.cultivation.api.slimefun.items.plants.HarvestablePlant;
 import dev.sefiraat.sefilib.slimefun.items.RefillableUseItem;
-import io.github.bakedlibs.dough.collections.RandomizedSet;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.block.Block;
@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 
-public class HarvestingTool extends RefillableUseItem {
+public class HarvestingTool extends RefillableUseItem implements NotPlaceable {
 
     /**
      * Creates a new {@link RefillableUseItem}.
@@ -43,20 +43,13 @@ public class HarvestingTool extends RefillableUseItem {
                 return;
             }
 
-            final Block block = playerRightClickEvent.getClickedBlock().get();
-            final SlimefunItem item = BlockStorage.check(block);
+            Block block = playerRightClickEvent.getClickedBlock().get();
+            SlimefunItem item = BlockStorage.check(block);
 
             if (item instanceof HarvestablePlant harvestable && harvestable.isMature(block)) {
-                final RandomizedSet<ItemStack> harvestResult = harvestable.getHarvestingResults();
-                if (harvestResult.size() == 0) {
-                    // shouldn't be possible, but just to be safe
-                    return;
-                }
-                harvestable.updateGrowthStage(block, 1);
-                block.getWorld().dropItem(block.getLocation(), harvestResult.getRandom().clone());
+                harvestable.harvest(block);
+                damageItem(playerRightClickEvent.getPlayer(), playerRightClickEvent.getItem());
             }
-
-            damageItem(playerRightClickEvent.getPlayer(), playerRightClickEvent.getItem());
         };
     }
 }
