@@ -151,8 +151,16 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     }
 
     @OverridingMethodsMustInvokeSuper
-    protected void onBreak(@NotNull BlockBreakEvent event) {
+    public void onBreak(@NotNull BlockBreakEvent event) {
         Location location = event.getBlock().getLocation();
+        ItemStack itemToDrop = getDroppedItemStack(location);
+        removeCropped(location);
+        removePlant(location);
+        location.getWorld().dropItem(location.clone().add(0.5, 0.5, 0.5), itemToDrop);
+        event.setDropItems(false);
+    }
+
+    public ItemStack getDroppedItemStack(@Nonnull Location location) {
         ItemStack itemToDrop = this.getItem().clone();
         ItemMeta itemMeta = itemToDrop.getItemMeta();
 
@@ -163,10 +171,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             getLevelProfile(location)
         );
         itemToDrop.setItemMeta(itemMeta);
-        removeCropped(location);
-        removePlant(location);
-        location.getWorld().dropItem(location.clone().add(0.5, 0.5, 0.5), itemToDrop);
-        event.setDropItems(false);
+        return itemToDrop;
     }
 
     @Override
