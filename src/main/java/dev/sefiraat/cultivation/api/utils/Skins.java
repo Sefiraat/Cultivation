@@ -440,19 +440,19 @@ public enum Skins {
     // endregion
 
 
-
     // endregion
 
     @Nonnull
-    private static final Skins[]CACHED_VALUES =
-
-    values();
+    private static final Skins[] CACHED_VALUES = values();
 
     @Nonnull
     private final String hash;
+    @Nonnull
+    private final PlayerSkin playerSkin;
 
     Skins(@Nonnull String hash) {
         this.hash = hash;
+        this.playerSkin = PlayerSkin.fromHashCode(hash);
     }
 
     @Nonnull
@@ -462,12 +462,12 @@ public enum Skins {
 
     @Nonnull
     public ItemStack getPlayerHead() {
-        return PlayerHead.getItemStack(PlayerSkin.fromHashCode(hash));
+        return PlayerHead.getItemStack(playerSkin);
     }
 
     @Nonnull
     public PlayerSkin getPlayerSkin() {
-        return PlayerSkin.fromHashCode(hash);
+        return playerSkin;
     }
 
     @Nonnull

@@ -7,6 +7,7 @@ import dev.sefiraat.cultivation.implementation.listeners.CustomPlacementListener
 import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.PlayerDeathListener;
 import dev.sefiraat.cultivation.implementation.listeners.TraderListener;
+import dev.sefiraat.cultivation.implementation.listeners.TreeListener;
 import org.bukkit.event.Listener;
 
 import javax.annotation.Nonnull;
@@ -25,7 +26,7 @@ public class ListenerManager {
         addListener(new CustomPlacementListener());
         addListener(new PlayerDeathListener());
         addListener(new MobDropListener());
-        // addListener(new InteractionListener());
+        addListener(new TreeListener());
         addListener(new TraderListener());
     }
 

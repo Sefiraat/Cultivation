@@ -36,6 +36,20 @@ public final class CultivationStacks {
 
     // endregion
 
+    // region Trees
+
+    public static final SlimefunItemStack TREE_GREEN_APPLE = Theme.themedSlimefunItemStack(
+        "CLT_TREE_GREEN_APPLE",
+        new ItemStack(Material.BIRCH_SAPLING),
+        CultivationThemes.SAPLING,
+        "Cultivation Tree: Green Apple",
+        List.of(
+            "Grows large and crisp green apples."
+        )
+    );
+
+    // endregion
+
     // region Bushes
 
     public static final SlimefunItemStack BUSH_GRAPE = Theme.themedSlimefunItemStack(
@@ -1170,7 +1184,11 @@ public final class CultivationStacks {
         "A very basic tool that allows",
         "you to see a growing plant's details",
         "",
-        Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Lets you know the species and growth details of a plant."),
+        Theme.applyThemeAsTitle(
+            Theme.CLICK_INFO,
+            "Right Click",
+            "Lets you know the species and growth details of a plant."
+        ),
         Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Shift Right Click", "Displays a plant or bushes name.")
     );
 

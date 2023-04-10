@@ -13,6 +13,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonReader;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
+import dev.sefiraat.cultivation.api.slimefun.items.trees.TreeBlockDescriptor;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.bakedlibs.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -21,10 +22,9 @@ import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.Orientable;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Enemy;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -45,7 +45,6 @@ public class CultivationCommands extends BaseCommand {
     public void onDefault(CommandSender sender) {
         sender.sendMessage(Theme.ERROR + "Please provide a valid subcommand.");
     }
-
 
     //TODO apply permissions
     @Subcommand("pos1")
@@ -82,7 +81,8 @@ public class CultivationCommands extends BaseCommand {
             //todo send message
         }
 
-        Map<BlockPosition, String> blockPositions = new HashMap<>();
+        Map<TreeBlockDescriptor, String> blockDescriptors = new HashMap<>();
+
         int upperX = Math.max(pos1.getX(), pos2.getX());
         int upperY = Math.max(pos1.getY(), pos2.getY());
         int upperZ = Math.max(pos1.getZ(), pos2.getZ());
@@ -94,7 +94,8 @@ public class CultivationCommands extends BaseCommand {
             for (int z = lowerZ; z <= upperZ; z++) {
                 for (int y = lowerY; y <= upperY; y++) {
                     BlockPosition blockPosition = new BlockPosition(player.getWorld(), x, y, z);
-                    Material blockMaterial = blockPosition.getBlock().getType();
+                    Block block = blockPosition.getBlock();
+                    Material blockMaterial = block.getType();
                     if (isNotAllowed(blockMaterial)) {
                         continue;
                     }
@@ -103,25 +104,38 @@ public class CultivationCommands extends BaseCommand {
                     int offsetY = y - base.getY();
                     int offsetZ = z - base.getZ();
                     BlockPosition offset = new BlockPosition(player.getWorld(), offsetX, offsetY, offsetZ);
-                    blockPositions.put(offset, blockName);
+                    TreeBlockDescriptor descriptor = new TreeBlockDescriptor(offset);
+
+                    BlockData blockData = block.getBlockData();
+                    if (blockData instanceof Orientable orientable) {
+                        descriptor.setAxis(orientable.getAxis());
+                    }
+
+                    blockDescriptors.put(descriptor, blockName);
                 }
             }
         }
         try {
+            Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
             JsonObject root = new JsonObject();
             JsonArray structure = new JsonArray();
-            for (Map.Entry<BlockPosition, String> entry : blockPositions.entrySet()) {
+            for (Map.Entry<TreeBlockDescriptor, String> entry : blockDescriptors.entrySet()) {
                 JsonObject blockObject = new JsonObject();
-                BlockPosition offset = entry.getKey();
+                TreeBlockDescriptor descriptor = entry.getKey();
                 blockObject.add("block_id", new JsonPrimitive(entry.getValue()));
-                blockObject.add("x", new JsonPrimitive(offset.getX()));
-                blockObject.add("y", new JsonPrimitive(offset.getY()));
-                blockObject.add("z", new JsonPrimitive(offset.getZ()));
+                blockObject.add("x", new JsonPrimitive(descriptor.getBlockPosition().getX()));
+                blockObject.add("y", new JsonPrimitive(descriptor.getBlockPosition().getY()));
+                blockObject.add("z", new JsonPrimitive(descriptor.getBlockPosition().getZ()));
+                if (descriptor.getBlockFace() != null) {
+                    blockObject.add("direction", new JsonPrimitive(descriptor.getBlockFace().name()));
+                }
+                if (descriptor.getAxis() != null) {
+                    blockObject.add("axis", new JsonPrimitive(descriptor.getAxis().name()));
+                }
                 structure.add(blockObject);
             }
             root.add("name", new JsonPrimitive(name));
             root.add("structure", structure);
-            Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
             String path = Cultivation.getInstance().getDataFolder().getAbsolutePath() + File.separator;
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path + name + ".json"));
             gson.toJson(root, bufferedWriter);
