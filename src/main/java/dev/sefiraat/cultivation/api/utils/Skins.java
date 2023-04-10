@@ -343,18 +343,6 @@ public enum Skins {
     BANANA("20aaa1425d2b99383697d57193f27d872442bcb995508f42d19de4af1f8612"),
     // https://minecraft-heads.com/custom-heads/plants/2235-lemon
     LEMON("4378b582d19ccc55b023eb82eda271bac4744fa2006cf5e190246e2b4d5d"),
-    // https://minecraft-heads.com/custom-heads/plants/60981-grape
-    GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
-    // https://minecraft-heads.com/custom-heads/plants/55177-peanut
-    PEANUT("cf823e05353ae9122150bc67a5df7de628f4d4c30b36bdae3c1c18582bfca776"),
-    // https://minecraft-heads.com/custom-heads/plants/4122-strawberry
-    STRAWBERRY("b9708d818be97dc7e2c3bb5c35663eb36269236e9bc98286f429dfdf375aa9"),
-    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/12840-rice-sack
-    RICE("cb70f2fb5ebf49f79ff3e873616863ae5d362fbbfc31aef2dfb93d6e17dbf2"),
-    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/42594-garlic
-    GARLIC("ca5b1539b698c217cb3b4163a00e336131043311b83b08de02f1a66505be5b29"),
-    // https://minecraft-heads.com/custom-heads/decoration/50929-pepper-bag
-    PEPPERS("a3ef14c40251844c3ae39b6028db86a9098df325e50b7a475972cd1ac918e9d5"),
     // https://minecraft-heads.com/custom-heads/plants/59223-orange
     ORANGE("91b0fb313d90ddafd4fd7c95ef0d51b2ff9cc13013f1d318b11d87aa002fbaa0"),
     // https://minecraft-heads.com/custom-heads/plants/33084-green-apple
@@ -373,6 +361,18 @@ public enum Skins {
     CHERRY("8b9b2383bae7b84fdc31b54179afb713a1c187b83e7a0c5e38470ae2a3e2a30f"),
     // https://minecraft-heads.com/custom-heads/plants/1938-kiwi
     KIWI("https://minecraft-heads.com/custom-heads/plants/1938-kiwi"),
+    // https://minecraft-heads.com/custom-heads/plants/60981-grape
+    GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
+    // https://minecraft-heads.com/custom-heads/plants/55177-peanut
+    PEANUT("cf823e05353ae9122150bc67a5df7de628f4d4c30b36bdae3c1c18582bfca776"),
+    // https://minecraft-heads.com/custom-heads/plants/4122-strawberry
+    STRAWBERRY("b9708d818be97dc7e2c3bb5c35663eb36269236e9bc98286f429dfdf375aa9"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/12840-rice-sack
+    RICE("cb70f2fb5ebf49f79ff3e873616863ae5d362fbbfc31aef2dfb93d6e17dbf2"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/42594-garlic
+    GARLIC("ca5b1539b698c217cb3b4163a00e336131043311b83b08de02f1a66505be5b29"),
+    // https://minecraft-heads.com/custom-heads/decoration/50929-pepper-bag
+    PEPPERS("a3ef14c40251844c3ae39b6028db86a9098df325e50b7a475972cd1ac918e9d5"),
     // https://minecraft-heads.com/custom-heads/plants/33414-tomato
     TOMATO("72df4e674951c138e7311127561fdbd27e2150716b02bb568747f8545fb20145"),
     // https://minecraft-heads.com/custom-heads/plants/45539-bell-pepper

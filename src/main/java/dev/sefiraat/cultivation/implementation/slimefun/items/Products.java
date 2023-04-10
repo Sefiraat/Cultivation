@@ -16,6 +16,72 @@ public final class Products {
 
     // region Grown/found produce
 
+    public static final ProduceCore BANANA = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BANANA,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore LEMON = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.LEMON,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore ORANGE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.ORANGE,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore GREEN_APPLE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.GREEN_APPLE,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore PINEAPPLE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.PINEAPPLE,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore MANGO = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.MANGO,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore PEACH = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.PEACH,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore APRICOT = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.APRICOT,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore PEAR = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.PEAR,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CHERRY = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CHERRY,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore KIWI = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.KIWI,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
     public static final ProduceCore GRAPE = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.GRAPE,
@@ -32,24 +98,6 @@ public final class Products {
         CultivationGroups.PRODUCE,
         CultivationStacks.PEANUT,
         RecipeTypes.BUSH
-    ).buildRegister(Cultivation.getInstance());
-
-    public static final ProduceCore BANANA = new ProduceCore(
-        CultivationGroups.PRODUCE,
-        CultivationStacks.BANANA,
-        RecipeTypes.TREE
-    ).buildRegister(Cultivation.getInstance());
-
-    public static final ProduceCore ORANGE = new ProduceCore(
-        CultivationGroups.PRODUCE,
-        CultivationStacks.ORANGE,
-        RecipeTypes.TREE
-    ).buildRegister(Cultivation.getInstance());
-
-    public static final ProduceCore GREEN_APPLE = new ProduceCore(
-        CultivationGroups.PRODUCE,
-        CultivationStacks.GREEN_APPLE,
-        RecipeTypes.TREE
     ).buildRegister(Cultivation.getInstance());
 
     public static final ProduceCore RICE = new ProduceCore(
