@@ -175,6 +175,26 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack BUSH_MUSTARD = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_MUSTARD",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Mustard Seeds",
+        List.of(
+            "Like fire in your mouth."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_BROCCOLI = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_BROCCOLI",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Broccoli",
+        List.of(
+            "Tiny trees you can eat? Who invented this!?"
+        )
+    );
+
     // endregion
 
     // region Plants
@@ -1428,6 +1448,23 @@ public final class CultivationStacks {
         "Thin, watery and yet delicious."
     );
 
+    public static final SlimefunItemStack MUSTARD_SEEDS = Theme.themedSlimefunItemStack(
+        "CLT_MUSTARD_SEEDS",
+        new ItemStack(Material.PUMPKIN_SEEDS),
+        CultivationThemes.PRODUCE,
+        "Mustard Seeds",
+        "Chew them, I dare you!"
+    );
+
+    public static final SlimefunItemStack BROCCOLI = Theme.themedSlimefunItemStack(
+        "CLT_BROCCOLI",
+        Skins.BROCCOLI.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Broccoli",
+        "Are you a giant holding a tree?",
+        "Naw, just a tiny tree :)"
+    );
+
     // endregion
 
     // region Crafted By Products
@@ -1478,6 +1515,23 @@ public final class CultivationStacks {
         CultivationThemes.PRODUCE,
         "Egg Salad",
         "Open this on a train, I dare you!"
+    );
+
+    public static final SlimefunItemStack PIE_CRUST = Theme.themedSlimefunItemStack(
+        "CLT_PIE_CRUST",
+        Skins.PIE_CRUST.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Pie Crust",
+        "If it were legal to eat this own it's own",
+        "it'd be my main food source."
+    );
+
+    public static final SlimefunItemStack PASTA = Theme.themedSlimefunItemStack(
+        "CLT_PASTA",
+        Skins.PASTA.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Pasta",
+        "Just plain pasta, simple yet wonderful."
     );
 
     // endregion
@@ -1576,6 +1630,41 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Effect 1", "Regen + 2")
     );
 
+    public static final SlimefunItemStack CHICKEN_POT_PIE = Theme.themedSlimefunItemStack(
+        "CLT_CHICKEN_POT_PIE",
+        Skins.PIE_BROWN.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Chicken Pot Pie",
+        "A warming meal that really hits home.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "10 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Jump + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Saturation + 1")
+    );
+
+    public static final SlimefunItemStack CHICKEN_PASTA_BAKE = Theme.themedSlimefunItemStack(
+        "CLT_CHICKEN_PASTA_BAKE",
+        Skins.PASTA_BAKE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Chicken Pasta Bake",
+        "A student staple.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "5 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Night Vision + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Water Breathing + 1")
+    );
+
+    public static final SlimefunItemStack CHICKEN_ALFREDO_MAC_AND_CHEESE = Theme.themedSlimefunItemStack(
+        "CLT_CHICKEN_ALFREDO_MAC_AND_CHEESE",
+        Skins.MAC_AND_CHEESE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Chicken Alfredo Mac and Cheese",
+        "A posh twist on a common classic.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "1 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Fire Resistance + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Damage Resistance + 3")
+    );
 
     // end region
 

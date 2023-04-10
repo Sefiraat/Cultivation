@@ -181,6 +181,66 @@ public final class Foods {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food CHICKEN_POT_PIE = new Food(
+        CultivationGroups.FOODS,
+        CultivationStacks.CHICKEN_POT_PIE,
+        RecipeTypes.BAKING,
+        RecipeTypes.createFoodBakingRecipe(
+            CultivationStacks.CHICKEN_POT_PIE,
+            new ItemStack[]{
+                null, Ingredients.PIE_CRUST.getItem(), null,
+                Products.CARROT.getChoppedItem(), Products.CHICKEN.getChoppedItem(), Products.ONION.getChoppedItem(),
+                SlimefunItems.BUTTER, new ItemStack(Material.MILK_BUCKET), Products.MUSTARD_SEEDS.getGroundItem()
+            }
+        ),
+        player -> simplePlayerEffect(
+            player,
+            20,
+            new Pair<>(PotionEffectType.JUMP, 1),
+            new Pair<>(PotionEffectType.SATURATION, 0)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food CHICKEN_PASTA_BAKE = new Food(
+        CultivationGroups.FOODS,
+        CultivationStacks.CHICKEN_PASTA_BAKE,
+        RecipeTypes.BAKING,
+        RecipeTypes.createFoodBakingRecipe(
+            CultivationStacks.CHICKEN_PASTA_BAKE,
+            new ItemStack[]{
+                SlimefunItems.CHEESE, SlimefunItems.CHEESE, SlimefunItems.CHEESE,
+                Ingredients.PASTA.getItem(), Ingredients.PASTA.getItem(), Ingredients.PASTA.getItem(),
+                Products.GARLIC.getGroundItem(), new ItemStack(Material.MILK_BUCKET), Products.MUSTARD_SEEDS.getGroundItem()
+            }
+        ),
+        player -> simplePlayerEffect(
+            player,
+            10,
+            new Pair<>(PotionEffectType.NIGHT_VISION, 0),
+            new Pair<>(PotionEffectType.WATER_BREATHING, 0)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food CHICKEN_ALFREDO_MAC_AND_CHEESE = new Food(
+        CultivationGroups.FOODS,
+        CultivationStacks.CHICKEN_ALFREDO_MAC_AND_CHEESE,
+        RecipeTypes.BAKING,
+        RecipeTypes.createFoodBakingRecipe(
+            CultivationStacks.CHICKEN_ALFREDO_MAC_AND_CHEESE,
+            new ItemStack[]{
+                SlimefunItems.CHEESE, Products.BROCCOLI.getChoppedItem(), SlimefunItems.CHEESE,
+                Ingredients.PASTA.getItem(), Products.CHICKEN.getSlicedItem(), Ingredients.PASTA.getItem(),
+                Products.GARLIC.getGroundItem(), SlimefunItems.HEAVY_CREAM, Products.ONION.getChoppedItem()
+            }
+        ),
+        player -> simplePlayerEffect(
+            player,
+            2,
+            new Pair<>(PotionEffectType.FIRE_RESISTANCE, 1),
+            new Pair<>(PotionEffectType.DAMAGE_RESISTANCE, 2)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
 
     }

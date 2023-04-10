@@ -106,6 +106,18 @@ public final class Products {
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ProduceCore MUSTARD_SEEDS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.MUSTARD_SEEDS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore BROCCOLI = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BROCCOLI,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     // region Vanilla Registrations

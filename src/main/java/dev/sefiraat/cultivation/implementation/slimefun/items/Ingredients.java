@@ -81,6 +81,32 @@ public final class Ingredients {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ByProduct PIE_CRUST = new ByProduct(
+        CultivationStacks.PIE_CRUST,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.PIE_CRUST,
+            new ItemStack[]{
+                new ItemStack(Material.MILK_BUCKET), Products.EGG.getBlendedItem(), SlimefunItems.WHEAT_FLOUR,
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct PASTA = new ByProduct(
+        CultivationStacks.PASTA,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.PASTA,
+            new ItemStack[]{
+                SlimefunItems.WHEAT_FLOUR, Products.EGG.getBlendedItem(), null,
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     public static void setup(Cultivation addon) {

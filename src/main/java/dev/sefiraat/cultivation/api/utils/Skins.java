@@ -387,6 +387,8 @@ public enum Skins {
     ONION("a6ecc46dc3dc85fcd57198176ee841f1a041b15f73ecb19fde62ee4315c4a6"),
     // https://minecraft-heads.com/custom-heads/plants/17984-lettuce
     LETTUCE("2d52e883c6436ca7e764bda4b58afa53da6a649030f663953dce9fd6315f9fea"),
+    // https://minecraft-heads.com/custom-heads/plants/33413-broccoli
+    BROCCOLI("65106f0cc4c12dcfe7736a1ffc92772f41b66e1b7682b1f47537787720567262"),
 
     // endregion
 
@@ -434,6 +436,20 @@ public enum Skins {
     BANANA_BREAD("92f4517fb4e9f42c607f2133c6178848b95f88475b7e6e302f0d377304e9bad0"),
     // https://minecraft-heads.com/custom-heads/food-drinks/60273-banana-cupcake
     BANANA_CUPCAKE("46638683e552b05addaf711129e65ca1749a3766b39b2452d9a5d4253549297"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/40680-pumpkin-pie
+    PIE_CRUST("4954c6f49abe51de7b7d69dc53e2d982468c75c6f01e821e83c79ee3058922e9"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/30179-bowl-of-pasta
+    PASTA("6dc55f43e3d8420975189a70fea4df7791e4e100b4163d615b9c0d20b1dfb2be"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/33194-pasta
+    PASTA_BAKE("8c97623aab35fdd26bee7d05574c9c3891983fb70ee21b9a4c2b04d796cf3e67"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/29899-mac-and-cheese
+    MAC_AND_CHEESE("7b3bcd4445e1360623821a2879e497c3de25f899c94ffb9e5942e06b2ccaea65"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/40169-warm-apple-pie
+    PIE_BROWN("f30ee237290dba133da01af5f88b87cce3b94bc40c5089e988852d478fa154a2"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/44607-blueberry-pie
+    PIE_BLUE("a46f8e10065f6bf6369da1607227fa3a0ecb59ebe3463259d3f7d8b6720e1221"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/32838-apple-lattice-pie
+    PIE_RED("9fc7f28ee501cc203ff1a45a9d00c86908368ac676d15f777ea1cd5ce29cc718"),
     // https://minecraft-heads.com/custom-heads/food-drinks/59639-bowl-of-shakshuka
     SHAKSHUKA("35a40080b05235916844bfa97bb8810404fc36b20e041c03376d1926d8f9efd0");
 
