@@ -161,7 +161,7 @@ public final class RecipeTypes {
     public static final RecipeType CHOPPED = new RecipeType(
         Keys.newKey("chopped"),
         Theme.themedItemStack(
-            Material.BEETROOT_SEEDS,
+            Material.IRON_SWORD,
             CultivationThemes.RECIPE_TYPE,
             "Chopped",
             List.of(
@@ -174,7 +174,7 @@ public final class RecipeTypes {
     public static final RecipeType MASHED = new RecipeType(
         Keys.newKey("mashed"),
         Theme.themedItemStack(
-            Material.FROGSPAWN,
+            Material.COMPOSTER,
             CultivationThemes.RECIPE_TYPE,
             "Mashed",
             List.of(
@@ -187,7 +187,7 @@ public final class RecipeTypes {
     public static final RecipeType BLENDED = new RecipeType(
         Keys.newKey("blended"),
         Theme.themedItemStack(
-            Material.MILK_BUCKET,
+            Material.GLASS,
             CultivationThemes.RECIPE_TYPE,
             "Blended",
             List.of(
@@ -200,7 +200,7 @@ public final class RecipeTypes {
     public static final RecipeType SLICED = new RecipeType(
         Keys.newKey("sliced"),
         Theme.themedItemStack(
-            Material.IRON_SWORD,
+            Material.SHEARS,
             CultivationThemes.RECIPE_TYPE,
             "Sliced",
             List.of(
@@ -213,7 +213,7 @@ public final class RecipeTypes {
     public static final RecipeType GROUND = new RecipeType(
         Keys.newKey("ground"),
         Theme.themedItemStack(
-            Material.BROWN_DYE,
+            Material.BONE,
             CultivationThemes.RECIPE_TYPE,
             "Ground",
             List.of(
@@ -223,14 +223,14 @@ public final class RecipeTypes {
     );
 
     @Nonnull
-    public static final RecipeType BAKED = new RecipeType(
-        Keys.newKey("baked"),
+    public static final RecipeType BOILED = new RecipeType(
+        Keys.newKey("boiled"),
         Theme.themedItemStack(
-            Material.BAKED_POTATO,
+            Material.CAULDRON,
             CultivationThemes.RECIPE_TYPE,
-            "Baked",
+            "Boiled",
             List.of(
-                "Perfectly baked."
+                "Hot hot hot!"
             )
         )
     );
@@ -239,7 +239,7 @@ public final class RecipeTypes {
     public static final RecipeType FRIED = new RecipeType(
         Keys.newKey("fried"),
         Theme.themedItemStack(
-            Material.RED_DYE,
+            Material.BLACK_CONCRETE,
             CultivationThemes.RECIPE_TYPE,
             "Fried",
             List.of(
@@ -252,7 +252,7 @@ public final class RecipeTypes {
     public static final RecipeType GRILLED = new RecipeType(
         Keys.newKey("grilled"),
         Theme.themedItemStack(
-            Material.COOKED_PORKCHOP,
+            Material.POLISHED_BLACKSTONE,
             CultivationThemes.RECIPE_TYPE,
             "Grilled",
             List.of(
@@ -265,11 +265,24 @@ public final class RecipeTypes {
     public static final RecipeType FINISHING = new RecipeType(
         Keys.newKey("finishing"),
         Theme.themedItemStack(
-            Material.GOLDEN_APPLE,
+            Material.POLISHED_DIORITE,
             CultivationThemes.RECIPE_TYPE,
             "Finishing",
             List.of(
                 "Use the kitchen's finishing counter to make this item."
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType BAKING = new RecipeType(
+        Keys.newKey("baking"),
+        Theme.themedItemStack(
+            Material.FURNACE,
+            CultivationThemes.RECIPE_TYPE,
+            "Baking",
+            List.of(
+                "Use the kitchen's oven counter to make this item."
             )
         )
     );
@@ -423,6 +436,12 @@ public final class RecipeTypes {
     @Nonnull
     public static ItemStack[] createFoodFinishingRecipe(@Nonnull ItemStack result, ItemStack[] recipe) {
         CultivationMachines.COUNTER_FINISHING.addRecipe(recipe, result);
+        return recipe;
+    }
+
+    @Nonnull
+    public static ItemStack[] createFoodBakingRecipe(@Nonnull ItemStack result, ItemStack[] recipe) {
+        CultivationMachines.COUNTER_OVEN.addRecipe(recipe, result);
         return recipe;
     }
 }

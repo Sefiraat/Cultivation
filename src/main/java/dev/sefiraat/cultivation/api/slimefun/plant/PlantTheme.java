@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.api.slimefun.plant;
 
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
+import dev.sefiraat.cultivation.api.utils.Skins;
 import dev.sefiraat.sefilib.string.Theme;
 
 import javax.annotation.Nonnull;
@@ -14,52 +15,52 @@ public class PlantTheme {
 
     public static final PlantTheme RED = new PlantTheme(
         CultivationThemes.SEED_RED,
-        PlantSkin.SEED_RED
+        Skins.SEED_RED
     );
 
     public static final PlantTheme ORANGE = new PlantTheme(
         CultivationThemes.SEED_ORANGE,
-        PlantSkin.SEED_ORANGE
+        Skins.SEED_ORANGE
     );
 
     public static final PlantTheme YELLOW = new PlantTheme(
         CultivationThemes.SEED_YELLOW,
-        PlantSkin.SEED_YELLOW
+        Skins.SEED_YELLOW
     );
 
     public static final PlantTheme GREEN = new PlantTheme(
         CultivationThemes.SEED_GREEN,
-        PlantSkin.SEED_GREEN
+        Skins.SEED_GREEN
     );
 
     public static final PlantTheme BLUE = new PlantTheme(
         CultivationThemes.SEED_BLUE,
-        PlantSkin.SEED_BLUE
+        Skins.SEED_BLUE
     );
 
     public static final PlantTheme CYAN = new PlantTheme(
         CultivationThemes.SEED_CYAN,
-        PlantSkin.SEED_CYAN
+        Skins.SEED_CYAN
     );
 
     public static final PlantTheme PURPLE = new PlantTheme(
         CultivationThemes.SEED_PURPLE,
-        PlantSkin.SEED_PURPLE
+        Skins.SEED_PURPLE
     );
 
     @Nonnull
     private final Theme theme;
     @Nonnull
-    private final PlantSkin seed;
+    private final Skins seed;
 
     /**
      * This class is used to store the possible seed of growth a plant can go through
      * starting with a seed to its final step.
      *
      * @param theme  The {@link Theme} that will be used for particle effects and other appropriate needs
-     * @param stages The {@link List} of PlantSkin that will be used as textures for each stage
+     * @param stages The {@link List} of Skins that will be used as textures for each stage
      */
-    public PlantTheme(@Nonnull Theme theme, @Nonnull PlantSkin stages) {
+    public PlantTheme(@Nonnull Theme theme, @Nonnull Skins stages) {
         this.theme = theme;
         this.seed = stages;
     }
@@ -70,7 +71,7 @@ public class PlantTheme {
     }
 
     @Nonnull
-    public PlantSkin getSeed() {
+    public Skins getSeed() {
         return seed;
     }
 }

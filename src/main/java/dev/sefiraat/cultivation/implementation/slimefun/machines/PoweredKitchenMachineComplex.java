@@ -9,6 +9,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
+import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
@@ -28,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
+public class PoweredKitchenMachineComplex extends KitchenRecipeMachineComplex implements EnergyNetComponent {
     private static final int[] INPUT_SLOTS = new int[]{
         10, 11, 12, 19, 20, 21, 28, 29, 30
     };
@@ -42,14 +44,17 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
     };
 
     private final Map<ItemStack[], ItemStack> recipes = new HashMap<>();
+    private final int powerRequirement;
 
-    public CraftingKitchenMachine(ItemGroup itemGroup,
-                                  SlimefunItemStack item,
-                                  RecipeType recipeType,
-                                  ItemStack[] recipe,
-                                  Function<Location, DisplayGroup> displayGroupFunction
+    public PoweredKitchenMachineComplex(ItemGroup itemGroup,
+                                        SlimefunItemStack item,
+                                        RecipeType recipeType,
+                                        ItemStack[] recipe,
+                                        Function<Location, DisplayGroup> displayGroupFunction,
+                                        int powerRequirement
     ) {
         super(itemGroup, item, recipeType, recipe, displayGroupFunction);
+        this.powerRequirement = powerRequirement;
     }
 
     @Override
@@ -79,6 +84,17 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
         return recipes;
     }
 
+    @NotNull
+    @Override
+    public EnergyNetComponentType getEnergyComponentType() {
+        return EnergyNetComponentType.CONSUMER;
+    }
+
+    @Override
+    public int getCapacity() {
+        return 2500;
+    }
+
     @Override
     public void postRegister() {
         new BlockMenuPreset(this.getId(), this.getItemName()) {
@@ -87,11 +103,12 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
             public void init() {
                 ItemStack backgroundOutput = new CustomItemStack(
                     Material.ORANGE_STAINED_GLASS_PANE,
-                    Theme.PASSIVE.apply("Finished Food")
+                    Theme.PASSIVE.apply("Cooked Output")
                 );
                 ItemStack cookButton = new CustomItemStack(
                     Material.RED_STAINED_GLASS_PANE,
-                    Theme.CLICK_INFO.apply("Prepare Food")
+                    Theme.CLICK_INFO.apply("Cook Produce"),
+                    Theme.CLICK_INFO.asTitle("Power Required", powerRequirement)
                 );
                 drawBackground(BACKGROUND);
                 drawBackground(backgroundOutput, OUTPUT_SLOT_BACKGROUND);
@@ -101,6 +118,10 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
             @Override
             public void newInstance(@NotNull BlockMenu menu, @NotNull Block b) {
                 menu.addMenuClickHandler(COOK_SLOT, (p, slot, item, action) -> {
+                    if (getCharge(menu.getLocation()) < powerRequirement) {
+                        p.sendMessage(Theme.ERROR.apply("Not enough power."));
+                        return false;
+                    }
                     ItemStack[] itemStacks = new ItemStack[9];
                     for (int i = 0; i < INPUT_SLOTS.length; i++) {
                         itemStacks[i] = menu.getItemInSlot(INPUT_SLOTS[i]);

@@ -20,165 +20,126 @@ public final class CultivationProducts {
         CultivationGroups.PRODUCE,
         CultivationStacks.GRAPE,
         RecipeTypes.BUSH
-    )
-        .setBlendable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore STRAWBERRY = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.STRAWBERRY,
         RecipeTypes.BUSH
-    )
-        .setBlendable(true)
-        .setSliceable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore PEANUT = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.PEANUT,
         RecipeTypes.BUSH
-    )
-        .setBlendable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore BANANA = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
-        CultivationStacks.PRODUCE_BANANA,
+        CultivationStacks.BANANA,
         RecipeTypes.TREE
-    )
-        .setBlendable(true)
-        .setSliceable(true)
-        .setMashable(true)
-        .setChoppable(true)
-        .setBakeable(true)
-        .setFryable(true)
-        .setGrillable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore ORANGE = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.ORANGE,
         RecipeTypes.TREE
-    )
-        .setBlendable(true)
-        .setSliceable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore GREEN_APPLE = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.GREEN_APPLE,
         RecipeTypes.TREE
-    )
-        .setBlendable(true)
-        .setSliceable(true)
-        .setBakeable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore RICE = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.RICE,
         RecipeTypes.BUSH
-    )
-        .setFryable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore GARLIC = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.GARLIC,
         RecipeTypes.BUSH
-    )
-        .setChoppable(true)
-        .setGrindable(true)
-        .setFryable(true);
+    ).buildRegister(Cultivation.getInstance());
 
     public static final CultivationProduceCore CAYENNE_PEPPER = new CultivationProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.CAYENNE_PEPPER,
         RecipeTypes.BUSH
-    )
-        .setChoppable(true)
-        .setGrindable(true);
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationProduceCore TOMATO = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.TOMATO,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationProduceCore BELL_PEPPER = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BELL_PEPPER,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationProduceCore ONION = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.ONION,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationProduceCore PEA = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.PEA,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationProduceCore RAPESEED = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.RAPESEED,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationProduceCore LETTUCE = new CultivationProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.LETTUCE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
 
     // endregion
 
     // region Vanilla Registrations
 
-    public static final CultivationProduceVanilla BEEF = new CultivationProduceVanilla(Material.BEEF)
-        .setGrillable(true)
-        .setGrindable(true)
-        .setFryable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla CHICKEN = new CultivationProduceVanilla(Material.CHICKEN)
-        .setGrillable(true)
-        .setFryable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla PORK = new CultivationProduceVanilla(Material.PORKCHOP)
-        .setGrillable(true)
-        .setBakeable(true)
-        .setFryable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla MUTTON = new CultivationProduceVanilla(Material.MUTTON)
-        .setGrillable(true)
-        .setGrindable(true)
-        .setFryable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla RABBIT = new CultivationProduceVanilla(Material.RABBIT)
-        .setGrillable(true)
-        .setFryable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla COD = new CultivationProduceVanilla(Material.COD)
-        .setGrillable(true)
-        .setBakeable(true)
-        .setFryable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla SALMON = new CultivationProduceVanilla(Material.SALMON)
-        .setGrillable(true)
-        .setBakeable(true)
-        .setSliceable(true)
-        .setFryable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla APPLE = new CultivationProduceVanilla(Material.APPLE)
-        .setBakeable(true)
-        .setBlendable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla SWEET_BERRY = new CultivationProduceVanilla(Material.SWEET_BERRIES)
-        .setBlendable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla GLOW_BERRY = new CultivationProduceVanilla(Material.GLOW_BERRIES)
-        .setBlendable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla BEETROOT = new CultivationProduceVanilla(Material.BEETROOT)
-        .setBlendable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla GOLDEN_APPLE = new CultivationProduceVanilla(Material.GOLDEN_APPLE)
-        .setBlendable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla NOTCH_APPLE = new CultivationProduceVanilla(Material.ENCHANTED_GOLDEN_APPLE)
-        .setBlendable(true)
-        .createByProducts();
-
-    public static final CultivationProduceVanilla CARROT = new CultivationProduceVanilla(Material.CARROT)
-        .setBakeable(true)
-        .setChoppable(true)
-        .setBlendable(true)
-        .createByProducts();
+    public static final CultivationProduceVanilla BEEF = new CultivationProduceVanilla(Material.BEEF);
+    public static final CultivationProduceVanilla CHICKEN = new CultivationProduceVanilla(Material.CHICKEN);
+    public static final CultivationProduceVanilla PORK = new CultivationProduceVanilla(Material.PORKCHOP);
+    public static final CultivationProduceVanilla MUTTON = new CultivationProduceVanilla(Material.MUTTON);
+    public static final CultivationProduceVanilla RABBIT = new CultivationProduceVanilla(Material.RABBIT);
+    public static final CultivationProduceVanilla COD = new CultivationProduceVanilla(Material.COD);
+    public static final CultivationProduceVanilla SALMON = new CultivationProduceVanilla(Material.SALMON);
+    public static final CultivationProduceVanilla APPLE = new CultivationProduceVanilla(Material.APPLE);
+    public static final CultivationProduceVanilla SWEET_BERRY = new CultivationProduceVanilla(Material.SWEET_BERRIES);
+    public static final CultivationProduceVanilla GLOW_BERRY = new CultivationProduceVanilla(Material.GLOW_BERRIES);
+    public static final CultivationProduceVanilla BEETROOT = new CultivationProduceVanilla(Material.BEETROOT);
+    public static final CultivationProduceVanilla GOLDEN_APPLE = new CultivationProduceVanilla(Material.GOLDEN_APPLE);
+    public static final CultivationProduceVanilla NOTCH_APPLE = new CultivationProduceVanilla(Material.ENCHANTED_GOLDEN_APPLE);
+    public static final CultivationProduceVanilla CARROT = new CultivationProduceVanilla(Material.CARROT);
+    public static final CultivationProduceVanilla GOLDEN_CARROT = new CultivationProduceVanilla(Material.GOLDEN_CARROT);
+    public static final CultivationProduceVanilla EGG = new CultivationProduceVanilla(Material.EGG);
+    public static final CultivationProduceVanilla POTATO = new CultivationProduceVanilla(Material.POTATO);
+    public static final CultivationProduceVanilla CHORUS_FRUIT = new CultivationProduceVanilla(Material.CHORUS_FRUIT);
+    public static final CultivationProduceVanilla MELON = new CultivationProduceVanilla(Material.MELON);
+    public static final CultivationProduceVanilla PUMPKIN = new CultivationProduceVanilla(Material.PUMPKIN);
+    public static final CultivationProduceVanilla ROTTEN_FLESH = new CultivationProduceVanilla(Material.ROTTEN_FLESH);
+    public static final CultivationProduceVanilla COCOA = new CultivationProduceVanilla(Material.COCOA_BEANS);
+    public static final CultivationProduceVanilla BROWN_MUSHROOM = new CultivationProduceVanilla(Material.BROWN_MUSHROOM);
+    public static final CultivationProduceVanilla RED_MUSHROOM = new CultivationProduceVanilla(Material.RED_MUSHROOM);
+    public static final CultivationProduceVanilla WHEAT = new CultivationProduceVanilla(Material.WHEAT);
+    public static final CultivationProduceVanilla PUFFERFISH = new CultivationProduceVanilla(Material.PUFFERFISH);
 
     // endregion
 
     public static void setup(Cultivation addon) {
-        GRAPE.register(addon);
-        STRAWBERRY.register(addon);
-        PEANUT.register(addon);
-        BANANA.register(addon);
-        ORANGE.register(addon);
-        GREEN_APPLE.register(addon);
-        RICE.register(addon);
-        GARLIC.register(addon);
-        CAYENNE_PEPPER.register(addon);
+
     }
 }

@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.api.slimefun.items.produce;
 
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
@@ -16,5 +17,10 @@ public class CultivationByProduct extends UnplaceableBlock {
     }
     public CultivationByProduct(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(CultivationGroups.BY_PRODUCTS, item, recipeType, recipe);
+    }
+
+    public CultivationByProduct buildRegister(SlimefunAddon addon) {
+        register(addon);
+        return this;
     }
 }

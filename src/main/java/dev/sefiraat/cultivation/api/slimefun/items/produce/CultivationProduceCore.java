@@ -10,15 +10,12 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
 import java.util.Locale;
 
 public class CultivationProduceCore extends SlimefunItem {
@@ -27,18 +24,9 @@ public class CultivationProduceCore extends SlimefunItem {
     private CultivationByProduct sliced;
     private CultivationByProduct ground;
     private CultivationByProduct blended;
-    private CultivationByProduct baked;
+    private CultivationByProduct boiled;
     private CultivationByProduct fried;
     private CultivationByProduct grilled;
-    public static final String PRODUCTION_METHODS_TITLE = "Can be:";
-    private boolean canChop;
-    private boolean canMash;
-    private boolean canSlice;
-    private boolean canGrind;
-    private boolean canBlend;
-    private boolean canBake;
-    private boolean canFry;
-    private boolean canGrill;
 
     public CultivationProduceCore(ItemGroup itemGroup,
                                   SlimefunItemStack item,
@@ -47,116 +35,44 @@ public class CultivationProduceCore extends SlimefunItem {
         super(itemGroup, item, recipeType, new ItemStack[0]);
     }
 
-    @Nullable
+    @Nonnull
     public CultivationByProduct getChopped() {
         return chopped;
     }
 
-    @Nullable
+    @Nonnull
     public CultivationByProduct getMashed() {
         return mashed;
     }
 
-    @Nullable
+    @Nonnull
     public CultivationByProduct getSliced() {
         return sliced;
     }
 
-    @Nullable
+    @Nonnull
     public CultivationByProduct getGround() {
         return ground;
     }
 
-    @Nullable
+    @Nonnull
     public CultivationByProduct getBlended() {
         return blended;
     }
 
-    @Nullable
-    public CultivationByProduct getBaked() {
-        return baked;
+    @Nonnull
+    public CultivationByProduct getBoiled() {
+        return boiled;
     }
 
-    @Nullable
+    @Nonnull
     public CultivationByProduct getFried() {
         return fried;
     }
 
-    @Nullable
+    @Nonnull
     public CultivationByProduct getGrilled() {
         return grilled;
-    }
-
-    public boolean isChoppable() {
-        return canChop;
-    }
-
-    public CultivationProduceCore setChoppable(boolean canChop) {
-        this.canChop = canChop;
-        return this;
-    }
-
-    public boolean isMashable() {
-        return canMash;
-    }
-
-    public CultivationProduceCore setMashable(boolean canMash) {
-        this.canMash = canMash;
-        return this;
-    }
-
-    public boolean isSliceable() {
-        return canSlice;
-    }
-
-    public CultivationProduceCore setSliceable(boolean canSlice) {
-        this.canSlice = canSlice;
-        return this;
-    }
-
-    public boolean isGrindable() {
-        return canGrind;
-    }
-
-    public CultivationProduceCore setGrindable(boolean canGrind) {
-        this.canGrind = canGrind;
-        return this;
-    }
-
-    public boolean isBlendable() {
-        return canBlend;
-    }
-
-    public CultivationProduceCore setBlendable(boolean canBlend) {
-        this.canBlend = canBlend;
-        return this;
-    }
-
-    public boolean isBakeable() {
-        return canBake;
-    }
-
-    public CultivationProduceCore setBakeable(boolean canBake) {
-        this.canBake = canBake;
-        return this;
-    }
-
-    public boolean isFryable() {
-        return canFry;
-    }
-
-    public CultivationProduceCore setFryable(boolean canFry) {
-        this.canFry = canFry;
-        return this;
-    }
-
-    public boolean isGrillable() {
-        return canGrill;
-    }
-
-    public CultivationProduceCore setGrillable(boolean canGrill) {
-        this.canGrill = canGrill;
-        return this;
     }
 
     @Override
@@ -166,30 +82,14 @@ public class CultivationProduceCore extends SlimefunItem {
     }
 
     private void createByProducts() {
-        if (canChop) {
-            this.chopped = registerByProduct("Chopped", RecipeTypes.CHOPPED, Material.BEETROOT_SEEDS);
-        }
-        if (canMash) {
-            this.mashed = registerByProduct("Mashed", RecipeTypes.MASHED, Material.SUSPICIOUS_STEW);
-        }
-        if (canSlice) {
-            this.sliced = registerByProduct("Sliced", RecipeTypes.SLICED, Material.KELP);
-        }
-        if (canGrind) {
-            this.ground = registerByProduct("Ground", RecipeTypes.GROUND, Material.BROWN_DYE);
-        }
-        if (canBlend) {
-            this.blended = registerByProduct("Blended", RecipeTypes.BLENDED, Material.WATER_BUCKET);
-        }
-        if (canBake) {
-            this.baked = registerByProduct("Baked", RecipeTypes.BAKED, Material.DRIED_KELP);
-        }
-        if (canFry) {
-            this.fried = registerByProduct("Fried", RecipeTypes.FRIED, Material.RED_DYE);
-        }
-        if (canGrill) {
-            this.grilled = registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
-        }
+        this.chopped = registerByProduct("Chopped", RecipeTypes.CHOPPED, Material.BEETROOT_SEEDS);
+        this.mashed = registerByProduct("Mashed", RecipeTypes.MASHED, Material.SUSPICIOUS_STEW);
+        this.sliced = registerByProduct("Sliced", RecipeTypes.SLICED, Material.KELP);
+        this.ground = registerByProduct("Ground", RecipeTypes.GROUND, Material.BROWN_DYE);
+        this.blended = registerByProduct("Blended", RecipeTypes.BLENDED, Material.WATER_BUCKET);
+        this.boiled = registerByProduct("Boiled", RecipeTypes.BOILED, Material.CAULDRON);
+        this.fried = registerByProduct("Fried", RecipeTypes.FRIED, Material.RED_DYE);
+        this.grilled = registerByProduct("Grilled", RecipeTypes.GRILLED, Material.COOKED_PORKCHOP);
     }
 
     @ParametersAreNonnullByDefault
@@ -226,8 +126,8 @@ public class CultivationProduceCore extends SlimefunItem {
             CultivationMachines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
         }
 
-        if (recipeType == RecipeTypes.BAKED) {
-            CultivationMachines.COUNTER_OVEN.addRecipe(this.getId(), byProduct.getItem());
+        if (recipeType == RecipeTypes.BOILED) {
+            CultivationMachines.COUNTER_BOILING.addRecipe(this.getId(), byProduct.getItem());
         }
 
         if (recipeType == RecipeTypes.FRIED) {
@@ -238,15 +138,11 @@ public class CultivationProduceCore extends SlimefunItem {
             CultivationMachines.COUNTER_GRILL.addRecipe(this.getId(), byProduct.getItem());
         }
 
-        ItemMeta itemMeta = this.getItem().getItemMeta();
-        List<String> lore = itemMeta.getLore();
-        if (lore.stream().noneMatch(s -> ChatColor.stripColor(s).equals(PRODUCTION_METHODS_TITLE))) {
-            lore.add("");
-            lore.add(Theme.applyThemeToString(Theme.CLICK_INFO, PRODUCTION_METHODS_TITLE));
-        }
-        lore.add(Theme.applyThemeToString(Theme.PASSIVE, name));
-        itemMeta.setLore(lore);
-        this.getItem().setItemMeta(itemMeta);
         return byProduct;
+    }
+
+    public CultivationProduceCore buildRegister(@Nonnull SlimefunAddon addon) {
+        this.register(addon);
+        return this;
     }
 }

@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.implementation.slimefun;
 
-import dev.sefiraat.cultivation.api.slimefun.plant.PlantSkin;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
+import dev.sefiraat.cultivation.api.utils.Skins;
 import dev.sefiraat.sefilib.itemstacks.ItemStackGenerators;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack BUSH_GRAPE = Theme.themedSlimefunItemStack(
         "CLT_BUSH_GRAPE",
-        PlantSkin.SPIKEY_PURPLE_5.getPlayerHead(),
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
         CultivationThemes.BUSH,
         "Cultivation Bush: Grape",
         List.of(
@@ -50,7 +51,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack BUSH_PEANUTS = Theme.themedSlimefunItemStack(
         "CLT_BUSH_PEANUTS",
-        PlantSkin.SPIKEY_GREEN_5.getPlayerHead(),
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
         CultivationThemes.BUSH,
         "Cultivation Bush: Peanuts",
         List.of(
@@ -60,7 +61,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack BUSH_STRAWBERRY = Theme.themedSlimefunItemStack(
         "CLT_BUSH_STRAWBERRY",
-        PlantSkin.SPIKEY_RED_5.getPlayerHead(),
+        Skins.SPIKEY_RED_5.getPlayerHead(),
         CultivationThemes.BUSH,
         "Cultivation Bush: Strawberry",
         List.of(
@@ -70,7 +71,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack BUSH_RICE = Theme.themedSlimefunItemStack(
         "CLT_BUSH_RICE",
-        PlantSkin.SPIKEY_YELLOW_5.getPlayerHead(),
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
         CultivationThemes.BUSH,
         "Cultivation Bush: Rice",
         List.of(
@@ -80,7 +81,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack BUSH_GARLIC = Theme.themedSlimefunItemStack(
         "CLT_BUSH_GARLIC",
-        PlantSkin.SPIKEY_YELLOW_5.getPlayerHead(),
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
         CultivationThemes.BUSH,
         "Cultivation Bush: Garlic",
         List.of(
@@ -90,11 +91,73 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack BUSH_CAYENNE_PEPPER = Theme.themedSlimefunItemStack(
         "CLT_BUSH_CAYENNE_PEPPER",
-        PlantSkin.SPIKEY_RED_5.getPlayerHead(),
+        Skins.SPIKEY_RED_5.getPlayerHead(),
         CultivationThemes.BUSH,
         "Cultivation Bush: Cayenne Pepper",
         List.of(
             "A bush with a peppery attitude."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_TOMATO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_TOMATO",
+        Skins.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Tomato",
+        List.of(
+            "Ripe and ready."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_BELL_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_BELL_PEPPER",
+        Skins.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Bell Pepper",
+        List.of(
+            "Careful walking by this, you may ring",
+            "the bell."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_ONION = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_ONION",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Onion",
+        List.of(
+            "Does this bush look like it's tearing up?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_PEA = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_PEA",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Peas",
+        List.of(
+            "I prefer Q's"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_RAPESEED = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RAPESEED",
+        Skins.SPIKEY_BLUE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Rapeseed",
+        List.of(
+            "This bush is exuding some oily substance."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_LETTUCE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_LETTUCE",
+        Skins.SPIKEY_GREEN_4.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Lettuce",
+        List.of(
+            "Does lettuce even grow on bushes?",
+            "Spoiler: No, it doesn't."
         )
     );
 
@@ -104,7 +167,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DARKNESS = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DARKNESS",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Darkness",
         List.of(
@@ -115,7 +178,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_LIGHT = Theme.themedSlimefunItemStack(
         "CLT_PLANT_LIGHT",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Light",
         List.of(
@@ -126,7 +189,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_EARTH = Theme.themedSlimefunItemStack(
         "CLT_PLANT_EARTH",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Earth",
         List.of(
@@ -137,7 +200,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WATER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WATER",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Water",
         List.of(
@@ -148,7 +211,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_FIRE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_FIRE",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Fire",
         List.of(
@@ -160,7 +223,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_AIR = Theme.themedSlimefunItemStack(
         "CLT_PLANT_AIR",
-        PlantSkin.SEED_CYAN.getPlayerHead(),
+        Skins.SEED_CYAN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Air",
         List.of(
@@ -171,7 +234,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_POWER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_POWER",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Power",
         List.of(
@@ -181,7 +244,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WEALTH = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WEALTH",
-        PlantSkin.SEED_ORANGE.getPlayerHead(),
+        Skins.SEED_ORANGE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Wealth",
         List.of(
@@ -191,7 +254,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SPECTRUM = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SPECTRUM",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Spectrum",
         List.of(
@@ -201,7 +264,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DIRT = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DIRT",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Dirt",
         List.of(
@@ -212,7 +275,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GRASS = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GRASS",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Grass",
         List.of(
@@ -223,7 +286,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_FLOWER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_FLOWER",
-        PlantSkin.SEED_ORANGE.getPlayerHead(),
+        Skins.SEED_ORANGE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Flowering",
         List.of(
@@ -233,7 +296,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_VINE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_VINE",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Vine",
         List.of(
@@ -244,7 +307,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SAND = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SAND",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Sand",
         List.of(
@@ -255,7 +318,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_RED_SAND = Theme.themedSlimefunItemStack(
         "CLT_PLANT_RED_SAND",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Red Sand",
         List.of(
@@ -266,7 +329,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_MOSS = Theme.themedSlimefunItemStack(
         "CLT_PLANT_MOSS",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Moss",
         List.of(
@@ -276,7 +339,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SAPLING = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SAPLING",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Sapling",
         List.of(
@@ -286,7 +349,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_MUSHROOM = Theme.themedSlimefunItemStack(
         "CLT_PLANT_MUSHROOM",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Mushroom",
         List.of(
@@ -297,7 +360,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WITHER_ROSE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WITHER_ROSE",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Wither Rose",
         List.of(
@@ -308,7 +371,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DARK_FLORA = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DARK_FLORA",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Dark Flora",
         List.of(
@@ -318,7 +381,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GLOWING_VINE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GLOWING_VINE",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Glowing Vine",
         List.of(
@@ -328,7 +391,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DIM_LIT = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DIM_LIT",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Dim Lit",
         List.of(
@@ -338,7 +401,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_COW = Theme.themedSlimefunItemStack(
         "CLT_PLANT_COW",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Cow",
         List.of(
@@ -350,7 +413,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_CHICKEN = Theme.themedSlimefunItemStack(
         "CLT_PLANT_CHICKEN",
-        PlantSkin.SEED_CYAN.getPlayerHead(),
+        Skins.SEED_CYAN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Chicken",
         List.of(
@@ -363,7 +426,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_FISH = Theme.themedSlimefunItemStack(
         "CLT_PLANT_FISH",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Fish",
         List.of(
@@ -373,7 +436,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_TURTLE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_TURTLE",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Turtle",
         List.of(
@@ -383,7 +446,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_VILLAGER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_VILLAGER",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Villager",
         List.of(
@@ -394,7 +457,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_RABBIT = Theme.themedSlimefunItemStack(
         "CLT_PLANT_RABBIT",
-        PlantSkin.SEED_ORANGE.getPlayerHead(),
+        Skins.SEED_ORANGE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Rabbit",
         List.of(
@@ -404,7 +467,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SHEEP = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SHEEP",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Sheep",
         List.of(
@@ -414,7 +477,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_PIG = Theme.themedSlimefunItemStack(
         "CLT_PLANT_PIG",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Pig",
         List.of(
@@ -424,7 +487,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_BEE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_BEE",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Bee",
         List.of(
@@ -434,7 +497,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SQUID = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SQUID",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Squid",
         List.of(
@@ -446,7 +509,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GLOW_SQUID = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GLOW_SQUID",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Glow Squid",
         List.of(
@@ -456,7 +519,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_FROG = Theme.themedSlimefunItemStack(
         "CLT_PLANT_FROG",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Frog",
         List.of(
@@ -466,7 +529,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GOAT = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GOAT",
-        PlantSkin.SEED_ORANGE.getPlayerHead(),
+        Skins.SEED_ORANGE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Goat",
         List.of(
@@ -477,7 +540,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_RAINBOW = Theme.themedSlimefunItemStack(
         "CLT_PLANT_RAINBOW",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Rainbow",
         List.of(
@@ -488,7 +551,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WAXY = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WAXY",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Waxy",
         List.of(
@@ -499,7 +562,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WOOLLY = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WOOLLY",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Woolly",
         List.of(
@@ -509,7 +572,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_TERRA = Theme.themedSlimefunItemStack(
         "CLT_PLANT_TERRA",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Terra",
         List.of(
@@ -519,7 +582,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GLAZED = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GLAZED",
-        PlantSkin.SEED_ORANGE.getPlayerHead(),
+        Skins.SEED_ORANGE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Glazed",
         List.of(
@@ -529,7 +592,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DUSTY = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DUSTY",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Dusty",
         List.of(
@@ -541,7 +604,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_CONCRETE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_CONCRETE",
-        PlantSkin.SEED_CYAN.getPlayerHead(),
+        Skins.SEED_CYAN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Concrete",
         List.of(
@@ -552,7 +615,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_STAINED = Theme.themedSlimefunItemStack(
         "CLT_PLANT_STAINED",
-        PlantSkin.SEED_CYAN.getPlayerHead(),
+        Skins.SEED_CYAN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Stained",
         List.of(
@@ -563,7 +626,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_COBBLESTONE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_COBBLESTONE",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Cobblestone",
         List.of(
@@ -573,7 +636,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GRAVEL = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GRAVEL",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Gravel",
         List.of(
@@ -584,7 +647,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_CLAY = Theme.themedSlimefunItemStack(
         "CLT_PLANT_CLAY",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Clay",
         List.of(
@@ -596,7 +659,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_IGNEOUS = Theme.themedSlimefunItemStack(
         "CLT_PLANT_IGNEOUS",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Igneous",
         List.of(
@@ -608,7 +671,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DEEPSLATE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DEEPSLATE",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Deepslate",
         List.of(
@@ -618,7 +681,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_REINFORCED = Theme.themedSlimefunItemStack(
         "CLT_PLANT_REINFORCED",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Reinforced",
         List.of(
@@ -629,7 +692,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_BLACKSTONE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_BLACKSTONE",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Blackstone",
         List.of(
@@ -639,7 +702,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_NETHERRACK = Theme.themedSlimefunItemStack(
         "CLT_PLANT_NETHERRACK",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Netherrack",
         List.of(
@@ -650,7 +713,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DARK_GRASS = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DARK_GRASS",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Dark Grass",
         List.of(
@@ -661,7 +724,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_MAGMA = Theme.themedSlimefunItemStack(
         "CLT_PLANT_MAGMA",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Magma",
         List.of(
@@ -672,7 +735,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SOUL = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SOUL",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Soul",
         List.of(
@@ -683,7 +746,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_BASALT = Theme.themedSlimefunItemStack(
         "CLT_PLANT_BASALT",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Basalt",
         List.of(
@@ -693,7 +756,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GLASS = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GLASS",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Glass",
         List.of(
@@ -704,7 +767,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_MUD = Theme.themedSlimefunItemStack(
         "CLT_PLANT_MUD",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Mud",
         List.of(
@@ -715,7 +778,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_END_STONE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_END_STONE",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: End Stone",
         List.of(
@@ -725,7 +788,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_PURPUR = Theme.themedSlimefunItemStack(
         "CLT_PLANT_PURPUR",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Purpur",
         List.of(
@@ -736,7 +799,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_COAL = Theme.themedSlimefunItemStack(
         "CLT_PLANT_COAL",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Coal",
         List.of(
@@ -746,7 +809,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_RAW_IRON = Theme.themedSlimefunItemStack(
         "CLT_PLANT_RAW_IRON",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Raw Iron",
         List.of(
@@ -757,7 +820,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_RAW_COPPER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_RAW_COPPER",
-        PlantSkin.SEED_ORANGE.getPlayerHead(),
+        Skins.SEED_ORANGE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Raw Copper",
         List.of(
@@ -768,7 +831,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_RAW_GOLD = Theme.themedSlimefunItemStack(
         "CLT_PLANT_RAW_GOLD",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Raw Gold",
         List.of(
@@ -779,7 +842,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_REDSTONE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_REDSTONE",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Redstone",
         List.of(
@@ -789,7 +852,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_LAPIS = Theme.themedSlimefunItemStack(
         "CLT_PLANT_LAPIS",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Lapis",
         List.of(
@@ -799,7 +862,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DIAMOND = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DIAMOND",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Diamond",
         List.of(
@@ -809,7 +872,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_EMERALD = Theme.themedSlimefunItemStack(
         "CLT_PLANT_EMERALD",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Emerald",
         List.of(
@@ -820,7 +883,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_NETHER_QUARTZ = Theme.themedSlimefunItemStack(
         "CLT_PLANT_NETHER_QUARTZ",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Nether Quartz",
         List.of(
@@ -831,7 +894,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SCRAPPY = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SCRAPPY",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Scrappy",
         List.of(
@@ -842,7 +905,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_AMETHYST = Theme.themedSlimefunItemStack(
         "CLT_PLANT_AMETHYST",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Amethyst",
         List.of(
@@ -853,7 +916,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_ECHO = Theme.themedSlimefunItemStack(
         "CLT_PLANT_ECHO",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Echo",
         List.of(
@@ -864,7 +927,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SKELETON = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SKELETON",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Skeleton",
         List.of(
@@ -874,7 +937,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SPIDER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SPIDER",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Spider",
         List.of(
@@ -884,7 +947,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_CREEPER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_CREEPER",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Creeper",
         List.of(
@@ -894,7 +957,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_ZOMBIE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_ZOMBIE",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Zombie",
         List.of(
@@ -904,7 +967,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_DROWNED = Theme.themedSlimefunItemStack(
         "CLT_PLANT_DROWNED",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Drowned",
         List.of(
@@ -915,7 +978,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GUARDIAN = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GUARDIAN",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Guardian",
         List.of(
@@ -926,7 +989,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_ELDER_GUARDIAN = Theme.themedSlimefunItemStack(
         "CLT_PLANT_ELDER_GUARDIAN",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Elder Guardian",
         List.of(
@@ -937,7 +1000,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_GHAST = Theme.themedSlimefunItemStack(
         "CLT_PLANT_GHAST",
-        PlantSkin.SEED_YELLOW.getPlayerHead(),
+        Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Ghast",
         List.of(
@@ -948,7 +1011,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SLIME = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SLIME",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Slime",
         List.of(
@@ -958,7 +1021,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_MAGMA_CUBE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_MAGMA_CUBE",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Magma Cube",
         List.of(
@@ -969,7 +1032,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_BLAZE = Theme.themedSlimefunItemStack(
         "CLT_PLANT_BLAZE",
-        PlantSkin.SEED_RED.getPlayerHead(),
+        Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Blaze",
         List.of(
@@ -979,7 +1042,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WITHER_SKELETON = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WITHER_SKELETON",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Wither Skeleton",
         List.of(
@@ -989,7 +1052,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WITHER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WITHER",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Wither",
         List.of(
@@ -1000,7 +1063,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_PHANTOM = Theme.themedSlimefunItemStack(
         "CLT_PLANT_PHANTOM",
-        PlantSkin.SEED_BLUE.getPlayerHead(),
+        Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Phantom",
         List.of(
@@ -1010,7 +1073,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_SHULKER = Theme.themedSlimefunItemStack(
         "CLT_PLANT_SHULKER",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Shulker",
         List.of(
@@ -1021,7 +1084,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_ENDERMAN = Theme.themedSlimefunItemStack(
         "CLT_PLANT_ENDERMAN",
-        PlantSkin.SEED_GREEN.getPlayerHead(),
+        Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Enderman",
         List.of(
@@ -1032,7 +1095,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_ENDER_DRAGON = Theme.themedSlimefunItemStack(
         "CLT_PLANT_ENDER_DRAGON",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Ender Dragon",
         List.of(
@@ -1042,7 +1105,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PLANT_WITCH = Theme.themedSlimefunItemStack(
         "CLT_PLANT_WITCH",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.SEED_PURPLE.getPlayerHead(),
         CultivationThemes.PLANT,
         "Cultivation Plant: Witch",
         List.of(
@@ -1107,7 +1170,8 @@ public final class CultivationStacks {
         "A very basic tool that allows",
         "you to see a growing plant's details",
         "",
-        Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Lets you know the species and growth details of a plant.")
+        Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Right Click", "Lets you know the species and growth details of a plant."),
+        Theme.applyThemeAsTitle(Theme.CLICK_INFO, "Shift Right Click", "Displays a plant or bushes name.")
     );
 
     public static final SlimefunItemStack RECIPE_UNLOCK = Theme.themedSlimefunItemStack(
@@ -1197,6 +1261,14 @@ public final class CultivationStacks {
         "Can fry certain produce items."
     );
 
+    public static final SlimefunItemStack COUNTER_BOILING = Theme.themedSlimefunItemStack(
+        "CLT_COUNTER_BOILING",
+        Material.BLACK_STAINED_GLASS,
+        CultivationThemes.MACHINE,
+        "Kitchen Counter: Boiling Pot",
+        "Can boil certain items."
+    );
+
     public static final SlimefunItemStack COUNTER_GRILL = Theme.themedSlimefunItemStack(
         "CLT_COUNTER_GRILL",
         Material.CAMPFIRE,
@@ -1218,9 +1290,9 @@ public final class CultivationStacks {
 
     // region Produce
 
-    public static final SlimefunItemStack PRODUCE_BANANA = Theme.themedSlimefunItemStack(
+    public static final SlimefunItemStack BANANA = Theme.themedSlimefunItemStack(
         "CLT_BANANA",
-        Material.PAPER,
+        Skins.BANANA.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Banana",
         "I like the look and peel of this!"
@@ -1228,7 +1300,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack GRAPE = Theme.themedSlimefunItemStack(
         "CLT_GRAPE",
-        PlantSkin.SEED_PURPLE.getPlayerHead(),
+        Skins.GRAPE.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Grape",
         "So plump!"
@@ -1236,7 +1308,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PEANUT = Theme.themedSlimefunItemStack(
         "CLT_PEANUT",
-        Material.PAPER,
+        Skins.PEANUT.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Peanut",
         "Reece's here I come!"
@@ -1244,7 +1316,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack STRAWBERRY = Theme.themedSlimefunItemStack(
         "CLT_STRAWBERRY",
-        Material.PAPER,
+        Skins.STRAWBERRY.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Strawberry",
         "Just add cream!"
@@ -1252,7 +1324,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack RICE = Theme.themedSlimefunItemStack(
         "CLT_RICE",
-        Material.PAPER,
+        Skins.RICE.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Rice",
         "Remember, you only live rice!"
@@ -1260,7 +1332,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack GARLIC = Theme.themedSlimefunItemStack(
         "CLT_GARLIC",
-        Material.PAPER,
+        Skins.GARLIC.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Garlic",
         "Quick, before the vampires come!"
@@ -1268,7 +1340,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack CAYENNE_PEPPER = Theme.themedSlimefunItemStack(
         "CLT_CAYENNE_PEPPER",
-        Material.PAPER,
+        Skins.PEPPERS.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Cayenne Pepper",
         "A soft spicy treat."
@@ -1276,7 +1348,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack ORANGE = Theme.themedSlimefunItemStack(
         "CLT_ORANGE",
-        Material.PAPER,
+        Skins.ORANGE.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Orange",
         "Isn't this meant to be clockwork?"
@@ -1284,10 +1356,58 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack GREEN_APPLE = Theme.themedSlimefunItemStack(
         "CLT_GREEN_APPLE",
-        Material.PAPER,
+        Skins.GREEN_APPLE.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Green Apple",
         "The note says... Dear Teacher?"
+    );
+
+    public static final SlimefunItemStack TOMATO = Theme.themedSlimefunItemStack(
+        "CLT_TOMATO",
+        Skins.TOMATO.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Tomato",
+        "Right off of the vine.... err... bush?"
+    );
+
+    public static final SlimefunItemStack BELL_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_BELL_PEPPER",
+        Skins.BELL_PEPPER.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Bell Pepper",
+        "Really rings true."
+    );
+
+    public static final SlimefunItemStack ONION = Theme.themedSlimefunItemStack(
+        "CLT_ONION",
+        Skins.ONION.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Onion",
+        "Wait, why are you crying?"
+    );
+
+    public static final SlimefunItemStack PEA = Theme.themedSlimefunItemStack(
+        "CLT_PEA",
+        Skins.GREEN_APPLE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Peas",
+        "Often found in pairs within a pod, or so I hear."
+    );
+
+    public static final SlimefunItemStack RAPESEED = Theme.themedSlimefunItemStack(
+        "CLT_RAPESEED",
+        new ItemStack(Material.MELON_SEEDS),
+        CultivationThemes.PRODUCE,
+        "Rapeseed",
+        "Oft-used to create oils."
+    );
+
+    public static final SlimefunItemStack LETTUCE = Theme.themedSlimefunItemStack(
+        "CLT_LETTUCE",
+        Skins.LETTUCE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Lettuce",
+        "Thin, watery and yet delicious."
     );
 
     // endregion
@@ -1296,7 +1416,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PEANUT_BUTTER = Theme.themedSlimefunItemStack(
         "CLT_PEANUT_BUTTER",
-        Material.PAPER,
+        Skins.PEANUT_BUTTER.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Peanut Butter",
         "Akin only to liquid gold."
@@ -1304,7 +1424,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack GRAPE_JELLY = Theme.themedSlimefunItemStack(
         "CLT_GRAPE_JELLY",
-        Material.PAPER,
+        Skins.JAM_JAR_BLUE.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Grape Jelly",
         "Eating it with a spoon is a criminal offence."
@@ -1312,10 +1432,34 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack STRAWBERRY_JELLY = Theme.themedSlimefunItemStack(
         "CLT_STRAWBERRY_JELLY",
-        Material.PAPER,
+        Skins.JAM_JAR_RED.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Strawberry Jelly",
         "Eating it with a spoon is a criminal offence."
+    );
+
+    public static final SlimefunItemStack OIL = Theme.themedSlimefunItemStack(
+        "CLT_OIL",
+        Skins.SPICE_YELLOW.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Oil",
+        "Oil. Need I say more?"
+    );
+
+    public static final SlimefunItemStack MAYONNAISE = Theme.themedSlimefunItemStack(
+        "CLT_MAYONNAISE",
+        new ItemStack(Material.MILK_BUCKET),
+        CultivationThemes.PRODUCE,
+        "Mayonnaise",
+        "A silky smooth mayo that can go with nearly anything."
+    );
+
+    public static final SlimefunItemStack EGG_SALAD = Theme.themedSlimefunItemStack(
+        "CLT_EGG_SALAD",
+        Skins.SPICE_YELLOW.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Egg Salad",
+        "Open this on a train, I dare you!"
     );
 
     // endregion
@@ -1324,7 +1468,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack FOOD_PEANUT_BUTTER_JELLY_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_PEANUT_BUTTER_JELLY_SANDWICH",
-        Material.PAPER,
+        Skins.PEANUT_BUTTER_JELLY_SANDWICH.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Peanut Butter Jelly Sandwich",
         "It really is the pinnacle of sandwich technology.",
@@ -1333,9 +1477,20 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Effect 1", "Power + 3")
     );
 
+    public static final SlimefunItemStack EGG_SALAD_SANDWICH = Theme.themedSlimefunItemStack(
+        "CLT_EGG_SALAD_SANDWICH",
+        Skins.CHEESY_SANDWICH.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Egg Salad Sandwich",
+        "Smells a bit, but tastes amazing!",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "5 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Haste + 2")
+    );
+
     public static final SlimefunItemStack BACON_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_BACON_SANDWICH",
-        Material.PAPER,
+        Skins.MEATY_SANDWICH.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Bacon Sandwich",
         "A simple classic!",
@@ -1347,7 +1502,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack SALMON_NIGIRI = Theme.themedSlimefunItemStack(
         "CLT_SALMON_NIGIRI",
-        Material.PAPER,
+        Skins.SUSHI_SALMON.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Salmon Nigiri",
         "A delightful yet subtle flavour.",
@@ -1358,7 +1513,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack CAJUN_GARLIC_BUTTER_COD = Theme.themedSlimefunItemStack(
         "CLT_CAJUN_GARLIC_BUTTER_COD",
-        Material.PAPER,
+        Skins.MEAL_RED_GREEN_BROWN.getPlayerHead(),
         CultivationThemes.PRODUCE,
         "Cajun Garlic Butter Cod",
         "A very simple dish busting with flavour.",
@@ -1366,6 +1521,41 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Regen + 2"),
         Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 1")
+    );
+
+    public static final SlimefunItemStack SHAKSHUKA = Theme.themedSlimefunItemStack(
+        "CLT_SHAKSHUKA",
+        Skins.SHAKSHUKA.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Shakshuka",
+        "A heart warming dish with eggs for days.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Hero of the Village + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Luck + 1")
+    );
+
+    public static final SlimefunItemStack FUGU = Theme.themedSlimefunItemStack(
+        "CLT_FUGU",
+        Skins.SUSHI_TUNA.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Fugu",
+        "Ready to roll the dice?",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "1 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Power + 5"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "33% Chance to just die!")
+    );
+
+    public static final SlimefunItemStack SHEPHERDS_PIE = Theme.themedSlimefunItemStack(
+        "CLT_SHEPHERDS_PIE",
+        Skins.MEAL_YELLOW_RED_BROWN.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Shepherds Pie",
+        "Warm, hearty and simply wonderful.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "10 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Regen + 2")
     );
 
 

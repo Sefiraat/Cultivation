@@ -3,12 +3,15 @@ package dev.sefiraat.cultivation.implementation.utils;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.entity.display.builders.BlockDisplayBuilder;
 import dev.sefiraat.sefilib.entity.display.builders.ItemDisplayBuilder;
+import dev.sefiraat.sefilib.entity.display.builders.TextDisplayBuilder;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.BlockDisplay;
 import org.bukkit.entity.Display;
+import org.bukkit.entity.TextDisplay;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
@@ -346,12 +349,12 @@ public final class DisplayGroupGenerators {
 
     public static DisplayGroup generateGrindingCounter(@Nonnull Location location) {
         DisplayGroup displayGroup = generateBaseCounter(location);
+        BlockData blockData = Material.CAULDRON.createBlockData();
         displayGroup.addDisplay(
             "bowl",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(0.2, 0.92, -0.3))
-                .setItemStack(new ItemStack(Material.CAULDRON))
-                .setBillboard(Display.Billboard.HORIZONTAL)
+            new BlockDisplayBuilder()
+                .setGroupParentOffset(new Vector(0.1, 0.82, -0.2))
+                .setBlockData(blockData)
                 .setTransformation(Transformations.GRINDING_BOWL.getTransformation())
                 .build(displayGroup)
         );
@@ -416,6 +419,22 @@ public final class DisplayGroupGenerators {
         return displayGroup;
     }
 
+    public static DisplayGroup generateBoilingCounter(@Nonnull Location location) {
+        DisplayGroup displayGroup = generateFryingCounter(location);
+        Levelled blockData = (Levelled) Material.WATER_CAULDRON.createBlockData();
+        blockData.setLevel(3);
+        displayGroup.addDisplay(
+            "pot",
+            new BlockDisplayBuilder()
+                .setGroupParentOffset(new Vector(-0.15, 0.85, -0.15))
+                .setBlockData(blockData)
+                .setTransformation(Transformations.BOILING_POT.getTransformation())
+                .build(displayGroup)
+        );
+
+        return displayGroup;
+    }
+
     public static DisplayGroup generateFinishingCounter(@Nonnull Location location) {
         DisplayGroup displayGroup = generateBaseCounter(location);
         displayGroup.addDisplay(
@@ -448,5 +467,29 @@ public final class DisplayGroupGenerators {
                 .build(displayGroup)
         );
         return displayGroup;
+    }
+
+    public static void addNameToGroup(@Nonnull DisplayGroup displayGroup, @Nonnull String name) {
+        removeNameFromGroup(displayGroup);
+        displayGroup.addDisplay(
+            "name",
+            new TextDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 1.5, 0))
+                .setBillboard(Display.Billboard.VERTICAL)
+                .setLineWidth(100)
+                .setSeeThrough(true)
+                .setTextOpacity((byte) 40)
+                .setTextAlignment(TextDisplay.TextAligment.CENTER)
+                .setText(name)
+                .build(displayGroup)
+        );
+    }
+
+    public static void removeNameFromGroup(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.killDisplay("name");
+    }
+
+    public static boolean hasName(@Nonnull DisplayGroup displayGroup) {
+        return displayGroup.getDisplays().containsKey("name");
     }
 }
