@@ -3,6 +3,7 @@ package dev.sefiraat.cultivation;
 import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
+import dev.sefiraat.cultivation.api.slimefun.items.trees.CultivationTree;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResultType;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
@@ -26,6 +27,8 @@ public class Registry {
     @Nonnull
     private final List<CultivationBush> registeredBushes = new ArrayList<>();
     @Nonnull
+    private final List<CultivationTree> registeredTrees = new ArrayList<>();
+    @Nonnull
     private final List<BreedingPair> plantBreedingPairs = new ArrayList<>();
 
     @Nonnull
@@ -47,7 +50,10 @@ public class Registry {
 
     public void addBush(@Nonnull CultivationBush cultivationBush) {
         this.registeredBushes.add(cultivationBush);
+    }
 
+    public void addTree(@Nonnull CultivationTree cultivationTree) {
+        this.registeredTrees.add(cultivationTree);
     }
 
     @Nonnull
@@ -82,6 +88,11 @@ public class Registry {
     @Nonnull
     public List<CultivationBush> getRegisteredBushes() {
         return Collections.unmodifiableList(registeredBushes);
+    }
+
+    @Nonnull
+    public List<CultivationTree> getRegisteredTrees() {
+        return registeredTrees;
     }
 
     @Nonnull

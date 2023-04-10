@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 import dev.sefiraat.cultivation.Cultivation;
+import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.ProduceCore;
 import dev.sefiraat.cultivation.api.utils.Skins;
 import io.github.bakedlibs.dough.skins.PlayerHead;
@@ -124,6 +125,7 @@ public class CultivationTree extends SlimefunItem {
     }
 
     public CultivationTree buildRegister(@Nonnull SlimefunAddon addon) {
+        Registry.getInstance().addTree(this);
         register(addon);
         return this;
     }
