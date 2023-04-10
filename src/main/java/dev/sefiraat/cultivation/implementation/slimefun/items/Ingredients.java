@@ -2,79 +2,79 @@ package dev.sefiraat.cultivation.implementation.slimefun.items;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
-import dev.sefiraat.cultivation.api.slimefun.items.produce.CultivationByProduct;
+import dev.sefiraat.cultivation.api.slimefun.items.produce.ByProduct;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public final class CultivationIngredients {
+public final class Ingredients {
 
-    private CultivationIngredients() {
+    private Ingredients() {
         throw new IllegalStateException("Utility class");
     }
 
     // region Custom Registrations
 
-    public static final CultivationByProduct PEANUT_BUTTER = new CultivationByProduct(
+    public static final ByProduct PEANUT_BUTTER = new ByProduct(
         CultivationStacks.PEANUT_BUTTER,
         RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.PEANUT_BUTTER,
             new ItemStack[]{
-                CultivationProducts.PEANUT.getBlended().getItem(), new ItemStack(Material.SUGAR), SlimefunItems.BUTTER,
+                Products.PEANUT.getBlended().getItem(), new ItemStack(Material.SUGAR), SlimefunItems.BUTTER,
                 null, null, null,
                 null, null, null
             }
         )
     ).buildRegister(Cultivation.getInstance());
 
-    public static final CultivationByProduct GRAPE_JELLY = new CultivationByProduct(
+    public static final ByProduct GRAPE_JELLY = new ByProduct(
         CultivationStacks.GRAPE_JELLY,
         RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.GRAPE_JELLY,
             new ItemStack[]{
-                CultivationProducts.GRAPE.getBlended().getItem(), new ItemStack(Material.SUGAR), null,
+                Products.GRAPE.getBlended().getItem(), new ItemStack(Material.SUGAR), null,
                 null, null, null,
                 null, null, null
             }
         )
     ).buildRegister(Cultivation.getInstance());
 
-    public static final CultivationByProduct STRAWBERRY_JELLY = new CultivationByProduct(
+    public static final ByProduct STRAWBERRY_JELLY = new ByProduct(
         CultivationStacks.STRAWBERRY_JELLY,
         RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.STRAWBERRY_JELLY,
             new ItemStack[]{
-                CultivationProducts.STRAWBERRY.getBlended().getItem(), new ItemStack(Material.SUGAR), null,
+                Products.STRAWBERRY.getBlended().getItem(), new ItemStack(Material.SUGAR), null,
                 null, null, null,
                 null, null, null
             }
         )
     ).buildRegister(Cultivation.getInstance());
 
-    public static final CultivationByProduct MAYONNAISE = new CultivationByProduct(
+    public static final ByProduct MAYONNAISE = new ByProduct(
         CultivationStacks.MAYONNAISE,
         RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.MAYONNAISE,
             new ItemStack[]{
-                CultivationProducts.RAPESEED.getGround().getItem(), new ItemStack(Material.EGG), null,
+                Products.RAPESEED.getGround().getItem(), new ItemStack(Material.EGG), null,
                 null, null, null,
                 null, null, null
             }
         )
     ).buildRegister(Cultivation.getInstance());
 
-    public static final CultivationByProduct EGG_SALAD = new CultivationByProduct(
+    public static final ByProduct EGG_SALAD = new ByProduct(
         CultivationStacks.EGG_SALAD,
         RecipeTypes.FINISHING,
         RecipeTypes.createFoodFinishingRecipe(
             CultivationStacks.EGG_SALAD,
             new ItemStack[]{
-                CultivationProducts.EGG.getBoiled().getItem(), CultivationIngredients.MAYONNAISE.getItem(), null,
+                Products.EGG.getBoiled().getItem(), Ingredients.MAYONNAISE.getItem(), null,
                 null, null, null,
                 null, null, null
             }

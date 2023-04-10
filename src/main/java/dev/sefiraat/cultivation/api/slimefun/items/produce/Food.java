@@ -17,11 +17,11 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
-public class CultivationFood extends SimpleSlimefunItem<ItemUseHandler> {
+public class Food extends SimpleSlimefunItem<ItemUseHandler> {
 
     private final Consumer<Player> eatingEffects;
 
-    public CultivationFood(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Consumer<Player> effect) {
+    public Food(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Consumer<Player> effect) {
         super(group, item, recipeType, recipe);
         this.eatingEffects = effect;
     }
@@ -46,7 +46,7 @@ public class CultivationFood extends SimpleSlimefunItem<ItemUseHandler> {
         };
     }
 
-    public CultivationFood buildRegister(@Nonnull SlimefunAddon addon) {
+    public Food buildRegister(@Nonnull SlimefunAddon addon) {
         register(addon);
         return this;
     }

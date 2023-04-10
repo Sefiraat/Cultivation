@@ -1,14 +1,14 @@
 package dev.sefiraat.cultivation;
 
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationBushes;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationCrafting;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationFoods;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationIngredients;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationMachines;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationPlants;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationProducts;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationTools;
-import dev.sefiraat.cultivation.implementation.slimefun.items.CultivationTrees;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Bushes;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Crafting;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Foods;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Ingredients;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Plants;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Products;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Tools;
+import dev.sefiraat.cultivation.implementation.slimefun.items.Trees;
 import dev.sefiraat.cultivation.managers.ConfigManager;
 import dev.sefiraat.cultivation.managers.DispatchManager;
 import dev.sefiraat.cultivation.managers.ListenerManager;
@@ -70,15 +70,15 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
     }
 
     private void setupItems() {
-        CultivationBushes.setup(this);
-        CultivationCrafting.setup(this);
-        CultivationTools.setup(this);
-        CultivationMachines.setup(this);
-        CultivationPlants.setup(this);
-        CultivationTrees.setup(this);
-        CultivationProducts.setup(this);
-        CultivationIngredients.setup(this);
-        CultivationFoods.setup(this);
+        Bushes.setup(this);
+        Crafting.setup(this);
+        Tools.setup(this);
+        Machines.setup(this);
+        Plants.setup(this);
+        Trees.setup(this);
+        Products.setup(this);
+        Ingredients.setup(this);
+        Foods.setup(this);
     }
 
     @Override

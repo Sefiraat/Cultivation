@@ -15,9 +15,9 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public final class CultivationMachines {
+public final class Machines {
 
-    private CultivationMachines() {
+    private Machines() {
         throw new IllegalStateException("Utility class");
     }
 

@@ -16,9 +16,9 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Set;
 
-public final class CultivationPlants {
+public final class Plants {
 
-    private CultivationPlants() {
+    private Plants() {
         throw new IllegalStateException("Utility class");
     }
 
