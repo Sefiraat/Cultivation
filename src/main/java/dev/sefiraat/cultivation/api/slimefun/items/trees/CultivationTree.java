@@ -18,6 +18,7 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Axis;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.Orientable;
@@ -34,6 +35,7 @@ public class CultivationTree extends SlimefunItem {
     private final String treeFileName;
     private final ProduceCore produce;
     private final Skins skin;
+    private final CultivationLeaves leaves;
 
     public CultivationTree(ItemGroup itemGroup,
                            SlimefunItemStack item,
@@ -45,6 +47,7 @@ public class CultivationTree extends SlimefunItem {
         this.treeFileName = treeFileName;
         this.produce = produce;
         this.skin = skin;
+        leaves = new CultivationLeaves(this).buildRegister(Cultivation.getInstance());
     }
 
     public void grow(@Nonnull Location location) {
@@ -82,8 +85,12 @@ public class CultivationTree extends SlimefunItem {
                 }
                 itemStack = slimefunItem.getItem();
                 applyBlock(itemStack, blockFaceString, axisString, block);
-                BlockStorage.store(block, slimefunItem.getId());
-
+                // temp setting tree item - for reusable trees.
+                if (slimefunItem.getItem().getType() == Material.PLAYER_HEAD) {
+                    BlockStorage.store(block, produce.getId());
+                } else {
+                    BlockStorage.store(block, slimefunItem.getId());
+                }
             } else {
                 itemStack = new ItemStack(Material.valueOf(idStrings[1]));
                 applyBlock(itemStack, blockFaceString, axisString, block);
@@ -98,6 +105,9 @@ public class CultivationTree extends SlimefunItem {
             PlayerHead.setSkin(block, skin.getPlayerSkin(), true);
         } else {
             block.setType(itemStack.getType(), true);
+            if (Tag.LEAVES.isTagged(itemStack.getType())) {
+                BlockStorage.store(block, leaves.getId());
+            }
         }
 
         if (rotationalFace != null) {

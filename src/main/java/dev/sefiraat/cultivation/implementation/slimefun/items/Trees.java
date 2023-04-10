@@ -15,9 +15,17 @@ public final class Trees {
     public static final CultivationTree TREE_GREEN_APPLE = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_GREEN_APPLE,
-        "tree_green_apple",
+        "tree_1",
         Products.GREEN_APPLE,
         Skins.GREEN_APPLE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationTree TREE_BANANA = new CultivationTree(
+        CultivationGroups.TREES,
+        CultivationStacks.TREE_BANANA,
+        "tree_2",
+        Products.BANANA,
+        Skins.BANANA
     ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {

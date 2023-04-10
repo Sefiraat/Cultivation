@@ -48,6 +48,16 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack TREE_BANANA = Theme.themedSlimefunItemStack(
+        "CLT_TREE_BANANA",
+        new ItemStack(Material.ACACIA_SAPLING),
+        CultivationThemes.SAPLING,
+        "Cultivation Tree: Banana",
+        List.of(
+            "A tree that grows fingers, grim!"
+        )
+    );
+
     // endregion
 
     // region Bushes
