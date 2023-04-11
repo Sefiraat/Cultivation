@@ -101,6 +101,14 @@ public final class Trees {
         Skins.KIWI
     ).buildRegister(Cultivation.getInstance());
 
+    public static final CultivationTree TREE_LIME = new CultivationTree(
+        CultivationGroups.TREES,
+        CultivationStacks.TREE_LIME,
+        TreeDesign.OAK_2,
+        Products.LIME,
+        Skins.LIME
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
 
     }

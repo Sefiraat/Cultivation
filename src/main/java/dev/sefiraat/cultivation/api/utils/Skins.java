@@ -360,7 +360,9 @@ public enum Skins {
     // https://minecraft-heads.com/custom-heads/plants/31879-cherry
     CHERRY("8b9b2383bae7b84fdc31b54179afb713a1c187b83e7a0c5e38470ae2a3e2a30f"),
     // https://minecraft-heads.com/custom-heads/plants/1938-kiwi
-    KIWI("https://minecraft-heads.com/custom-heads/plants/1938-kiwi"),
+    KIWI("4cc18ec4649f07d5a38a583d9271fd83a6f37318758e46ea87fc2b2d1afc2d9"),
+    // https://minecraft-heads.com/custom-heads/plants/39730-tropical-fruit
+    LIME("95f6356c0cf82f7e497435c2227ab7ed98734ca1b0084bd770e53f39285ff7ec"),
     // https://minecraft-heads.com/custom-heads/plants/60981-grape
     GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
     // https://minecraft-heads.com/custom-heads/plants/55177-peanut
@@ -448,10 +450,14 @@ public enum Skins {
     PIE_BROWN("f30ee237290dba133da01af5f88b87cce3b94bc40c5089e988852d478fa154a2"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/44607-blueberry-pie
     PIE_BLUE("a46f8e10065f6bf6369da1607227fa3a0ecb59ebe3463259d3f7d8b6720e1221"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/47-lime-pie
+    PIE_LIME("5541819e8f7945faf7a8f7cc175dcc64d4e3977317f01274e3fdf18a55194421"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/32838-apple-lattice-pie
     PIE_RED("9fc7f28ee501cc203ff1a45a9d00c86908368ac676d15f777ea1cd5ce29cc718"),
     // https://minecraft-heads.com/custom-heads/food-drinks/59639-bowl-of-shakshuka
-    SHAKSHUKA("35a40080b05235916844bfa97bb8810404fc36b20e041c03376d1926d8f9efd0");
+    SHAKSHUKA("35a40080b05235916844bfa97bb8810404fc36b20e041c03376d1926d8f9efd0"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/52718-salad-apple
+    FRUIT_SALAD("7d562530fe1efff5d9bfdee268b6c5474b2ccefad0a1d3f84a9e2c61d87ff6ed");
 
     // endregion
 

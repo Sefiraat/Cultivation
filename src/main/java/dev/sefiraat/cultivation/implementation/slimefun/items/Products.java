@@ -82,6 +82,12 @@ public final class Products {
         RecipeTypes.TREE
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ProduceCore LIME = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.LIME,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
     public static final ProduceCore GRAPE = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.GRAPE,
@@ -197,6 +203,7 @@ public final class Products {
     public static final ProduceVanilla WHEAT = new ProduceVanilla(Material.WHEAT);
     public static final ProduceVanilla PUFFERFISH = new ProduceVanilla(Material.PUFFERFISH);
     public static final ProduceVanilla BREAD = new ProduceVanilla(Material.BREAD);
+    public static final ProduceVanilla SUGAR = new ProduceVanilla(Material.SUGAR);
 
     // endregion
 

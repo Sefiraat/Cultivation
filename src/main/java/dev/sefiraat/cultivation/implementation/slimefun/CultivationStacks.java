@@ -148,6 +148,16 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack TREE_LIME = Theme.themedSlimefunItemStack(
+        "CLT_TREE_LIME",
+        new ItemStack(Material.JUNGLE_SAPLING),
+        CultivationThemes.SAPLING,
+        "Cultivation Tree: Lime",
+        List.of(
+            "Did you know Limes are just Lemons holding their breath?"
+        )
+    );
+
     // endregion
 
     // region Bushes
@@ -1523,6 +1533,14 @@ public final class CultivationStacks {
         "100 points."
     );
 
+    public static final SlimefunItemStack LIME = Theme.themedSlimefunItemStack(
+        "CLT_LIME",
+        Skins.KIWI.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Lime",
+        "One upon a lime there was a delicious fruit..."
+    );
+
     public static final SlimefunItemStack GRAPE = Theme.themedSlimefunItemStack(
         "CLT_GRAPE",
         Skins.GRAPE.getPlayerHead(),
@@ -1705,6 +1723,23 @@ public final class CultivationStacks {
         "Just plain pasta, simple yet wonderful."
     );
 
+    public static final SlimefunItemStack BISCUIT_DOUGH = Theme.themedSlimefunItemStack(
+        "CLT_BISCUIT_DOUGH",
+        new ItemStack(Material.BROWN_DYE),
+        CultivationThemes.PRODUCE,
+        "Biscuit Dough",
+        "Just remind yourself \"Don't eat it raw.\""
+    );
+
+    public static final SlimefunItemStack BISCUIT_BASE = Theme.themedSlimefunItemStack(
+        "CLT_BISCUIT_BASE",
+        new ItemStack(Material.OAK_TRAPDOOR),
+        CultivationThemes.PRODUCE,
+        "Biscuit Base",
+        "Just 'cause it's flat now doesnt mean",
+        "you can eat it raw."
+    );
+
     // endregion
 
     // region Finished Foods
@@ -1835,6 +1870,96 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Healing", "1 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Fire Resistance + 2"),
         Theme.CLICK_INFO.asTitle("Effect 2", "Damage Resistance + 3")
+    );
+
+    public static final SlimefunItemStack KEY_LIME_PIE = Theme.themedSlimefunItemStack(
+        "CLT_KEY_LIME_PIE",
+        Skins.PIE_LIME.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Key Lime Pie",
+        "Simply the best!",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "6 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Haste + 4")
+    );
+
+    public static final SlimefunItemStack FRUIT_SALAD = Theme.themedSlimefunItemStack(
+        "CLT_FRUIT_SALAD",
+        Skins.FRUIT_SALAD.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Fruit Salad",
+        "If you call it a salad, you can eat as much",
+        "as you like, 'cause it's healthy.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "2 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Speed + 3")
+    );
+
+    public static final SlimefunItemStack CAESAR_SALAD = Theme.themedSlimefunItemStack(
+        "CLT_CAESAR_SALAD",
+        Skins.FRUIT_SALAD.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Caesar Salad",
+        "A healthy classic.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Speed + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Invisibility + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 3", "Slow Falling + 1")
+    );
+
+    public static final SlimefunItemStack BISCUIT = Theme.themedSlimefunItemStack(
+        "CLT_BISCUIT",
+        new ItemStack(Material.COOKIE),
+        CultivationThemes.PRODUCE,
+        "Biscuit",
+        "A little snack with a huge taste.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Launches you into the air")
+    );
+
+    public static final SlimefunItemStack COMPRESSED_BISCUIT = Theme.themedSlimefunItemStack(
+        "CLT_COMPRESSED_BISCUIT",
+        new ItemStack(Material.COOKIE),
+        CultivationThemes.PRODUCE,
+        "Compressed Biscuit",
+        "A little snack with a huge-er taste.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Launches you into the air")
+    );
+
+    public static final SlimefunItemStack LEMON_DROP = Theme.themedSlimefunItemStack(
+        "CLT_LEMON_DROP",
+        new ItemStack(Material.YELLOW_DYE),
+        CultivationThemes.PRODUCE,
+        "Lemon Drop",
+        "A palette cleanser.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Clears all effects and makes you hungry again.")
+    );
+
+    public static final SlimefunItemStack GRILLED_SALMON_SALAD = Theme.themedSlimefunItemStack(
+        "CLT_GRILLED_SALMON_SALAD",
+        Skins.MEAL_SALAD.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Grilled Salmon Salad",
+        "Delightfully flaky and brilliantly seasoned.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Regeneration + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Health Boost + 5")
+    );
+
+    public static final SlimefunItemStack WITHER_ROSE_SALAD = Theme.themedSlimefunItemStack(
+        "CLT_WITHER_ROSE_SALAD",
+        Skins.MEAL_SALAD.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Wither Rose Salad",
+        "Teeming with power but with a harsh side-effect.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "Full"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 20"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Wither + 2")
     );
 
     // end region

@@ -107,6 +107,32 @@ public final class Ingredients {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ByProduct BISCUIT_DOUGH = new ByProduct(
+        CultivationStacks.BISCUIT_DOUGH,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.BISCUIT_DOUGH,
+            new ItemStack[]{
+                SlimefunItems.WHEAT_FLOUR, new ItemStack(Material.SUGAR), SlimefunItems.BUTTER,
+                new ItemStack(Material.MILK_BUCKET), null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct BISCUIT_BASE = new ByProduct(
+        CultivationStacks.BISCUIT_BASE,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.BISCUIT_BASE,
+            new ItemStack[]{
+                BISCUIT_DOUGH.getItem(), BISCUIT_DOUGH.getItem(), BISCUIT_DOUGH.getItem(),
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     public static void setup(Cultivation addon) {
