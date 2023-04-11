@@ -1741,6 +1741,14 @@ public final class CultivationStacks {
         "you can eat it raw."
     );
 
+    public static final SlimefunItemStack MEATBALLS = Theme.themedSlimefunItemStack(
+        "CLT_MEATBALLS",
+        new ItemStack(Material.BROWN_DYE),
+        CultivationThemes.PRODUCE,
+        "Meatballs",
+        "Balls of meat, who'd-a-thunk it."
+    );
+
     // endregion
 
     // region Finished Foods
@@ -1748,7 +1756,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack FOOD_PEANUT_BUTTER_JELLY_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_PEANUT_BUTTER_JELLY_SANDWICH",
         Skins.PEANUT_BUTTER_JELLY_SANDWICH.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Peanut Butter Jelly Sandwich",
         "It really is the pinnacle of sandwich technology.",
         "",
@@ -1759,7 +1767,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack EGG_SALAD_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_EGG_SALAD_SANDWICH",
         Skins.CHEESY_SANDWICH.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Egg Salad Sandwich",
         "Smells a bit, but tastes amazing!",
         "",
@@ -1770,7 +1778,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack BACON_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_BACON_SANDWICH",
         Skins.MEATY_SANDWICH.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Bacon Sandwich",
         "A simple classic!",
         "",
@@ -1782,7 +1790,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack SALMON_NIGIRI = Theme.themedSlimefunItemStack(
         "CLT_SALMON_NIGIRI",
         Skins.SUSHI_SALMON.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Salmon Nigiri",
         "A delightful yet subtle flavour.",
         "",
@@ -1793,7 +1801,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CAJUN_GARLIC_BUTTER_COD = Theme.themedSlimefunItemStack(
         "CLT_CAJUN_GARLIC_BUTTER_COD",
         Skins.MEAL_RED_GREEN_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Cajun Garlic Butter Cod",
         "A very simple dish busting with flavour.",
         "",
@@ -1805,7 +1813,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack SHAKSHUKA = Theme.themedSlimefunItemStack(
         "CLT_SHAKSHUKA",
         Skins.SHAKSHUKA.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Shakshuka",
         "A heart warming dish with eggs for days.",
         "",
@@ -1817,7 +1825,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack FUGU = Theme.themedSlimefunItemStack(
         "CLT_FUGU",
         Skins.SUSHI_TUNA.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Fugu",
         "Ready to roll the dice?",
         "",
@@ -1829,7 +1837,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack SHEPHERDS_PIE = Theme.themedSlimefunItemStack(
         "CLT_SHEPHERDS_PIE",
         Skins.MEAL_YELLOW_RED_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Shepherds Pie",
         "Warm, hearty and simply wonderful.",
         "",
@@ -1840,7 +1848,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CHICKEN_POT_PIE = Theme.themedSlimefunItemStack(
         "CLT_CHICKEN_POT_PIE",
         Skins.PIE_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Chicken Pot Pie",
         "A warming meal that really hits home.",
         "",
@@ -1852,7 +1860,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CHICKEN_PASTA_BAKE = Theme.themedSlimefunItemStack(
         "CLT_CHICKEN_PASTA_BAKE",
         Skins.PASTA_BAKE.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Chicken Pasta Bake",
         "A student staple.",
         "",
@@ -1864,7 +1872,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CHICKEN_ALFREDO_MAC_AND_CHEESE = Theme.themedSlimefunItemStack(
         "CLT_CHICKEN_ALFREDO_MAC_AND_CHEESE",
         Skins.MAC_AND_CHEESE.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Chicken Alfredo Mac and Cheese",
         "A posh twist on a common classic.",
         "",
@@ -1876,7 +1884,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack KEY_LIME_PIE = Theme.themedSlimefunItemStack(
         "CLT_KEY_LIME_PIE",
         Skins.PIE_LIME.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Key Lime Pie",
         "Simply the best!",
         "",
@@ -1887,7 +1895,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack FRUIT_SALAD = Theme.themedSlimefunItemStack(
         "CLT_FRUIT_SALAD",
         Skins.FRUIT_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Fruit Salad",
         "If you call it a salad, you can eat as much",
         "as you like, 'cause it's healthy.",
@@ -1899,7 +1907,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CAESAR_SALAD = Theme.themedSlimefunItemStack(
         "CLT_CAESAR_SALAD",
         Skins.FRUIT_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Caesar Salad",
         "A healthy classic.",
         "",
@@ -1912,7 +1920,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack BISCUIT = Theme.themedSlimefunItemStack(
         "CLT_BISCUIT",
         new ItemStack(Material.COOKIE),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Biscuit",
         "A little snack with a huge taste.",
         "",
@@ -1922,7 +1930,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack COMPRESSED_BISCUIT = Theme.themedSlimefunItemStack(
         "CLT_COMPRESSED_BISCUIT",
         new ItemStack(Material.COOKIE),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Compressed Biscuit",
         "A little snack with a huge-er taste.",
         "",
@@ -1932,7 +1940,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack LEMON_DROP = Theme.themedSlimefunItemStack(
         "CLT_LEMON_DROP",
         new ItemStack(Material.YELLOW_DYE),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Lemon Drop",
         "A palette cleanser.",
         "",
@@ -1942,7 +1950,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack GRILLED_SALMON_SALAD = Theme.themedSlimefunItemStack(
         "CLT_GRILLED_SALMON_SALAD",
         Skins.MEAL_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Grilled Salmon Salad",
         "Delightfully flaky and brilliantly seasoned.",
         "",
@@ -1954,7 +1962,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack WITHER_ROSE_SALAD = Theme.themedSlimefunItemStack(
         "CLT_WITHER_ROSE_SALAD",
         Skins.MEAL_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Wither Rose Salad",
         "Teeming with power but with a harsh side-effect.",
         "",
@@ -1966,7 +1974,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack ORANGE_JUICE = Theme.themedSlimefunItemStack(
         "CLT_ORANGE_JUICE",
         ItemStackGenerators.createPotion(Color.YELLOW),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Orange Juice",
         "It really is the best way to start the day.",
         "",
@@ -1976,15 +1984,35 @@ public final class CultivationStacks {
     public static final SlimefunItemStack LASAGNA = Theme.themedSlimefunItemStack(
         "CLT_LASAGNA",
         Skins.MEAL_YELLOW_RED_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Lasagna",
         "Layers of awesomeness.",
         "",
         Theme.CLICK_INFO.asTitle("Healing", "Full"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Regeneration + 1"),
-        Theme.CLICK_INFO.asTitle("Effect 1", "Damage Reduction + 1")
+        Theme.CLICK_INFO.asTitle("Effect 2", "Damage Reduction + 1")
+    );
+
+    public static final SlimefunItemStack SPAGHETTI = Theme.themedSlimefunItemStack(
+        "CLT_SPAGHETTI",
+        Skins.SPAGHETTI.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Spaghetti",
+        "Just keep slurping.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "1 Heart")
+    );
+
+    public static final SlimefunItemStack SPAGHETTI_AND_MEATBALLS = Theme.themedSlimefunItemStack(
+        "CLT_SPAGHETTI_AND_MEATBALLS",
+        Skins.SPAGHETTI.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Spaghetti and Meatballs",
+        "Simple, classic and hearty.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Heart"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Bad Omen + 1")
     );
 
     // end region
-
 }

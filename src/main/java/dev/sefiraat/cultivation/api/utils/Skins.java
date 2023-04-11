@@ -432,6 +432,8 @@ public enum Skins {
     MEAL_RED_GREEN_BROWN("dd7a3c9529054efba4ef898967b944e95b8c04e41018b483d6c5690c9651b053"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/52709-ham-cheese-bowl
     MEAL_YELLOW_RED_BROWN("1eb74cc5d3d174d67d0b2a7a42d8869a356179f2bc220dd42d1ed61a3005bd46"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/2402-spaghetti
+    SPAGHETTI("3c46bec5a25e3de6d1e651c75b5ee8c41d466b227d3fa27d1f289954c1497"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/52716-salad-radish
     MEAL_SALAD("68fe49b4386658ae3f7c6a6b6f80eada4f12b1ab84da3b205319701d228966ad"),
     // https://minecraft-heads.com/custom-heads/food-drinks/60064-bread-in-a-basket
