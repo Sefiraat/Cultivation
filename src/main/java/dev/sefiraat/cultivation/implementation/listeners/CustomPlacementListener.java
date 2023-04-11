@@ -83,10 +83,8 @@ public class CustomPlacementListener implements Listener {
 
     @EventHandler
     public void onSnowmanBlockForm(@Nonnull EntityBlockFormEvent event) {
-        if (event.getEntity() instanceof Snowman) {
-            Location location = event.getBlock().getLocation();
-            unsafelyKillItem(location, BlockStorage.check(location));
-        }
+        Location location = event.getBlock().getLocation();
+        unsafelyKillItem(location, BlockStorage.check(location));
     }
 
     private void unsafelyKillItem(@Nonnull Location location, @Nullable SlimefunItem slimefunItem) {
