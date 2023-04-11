@@ -385,6 +385,10 @@ public enum Skins {
     SPICE_BROWN("f80c9a68cd232d2568ca152685b6730a7b73bbc6abae69130361fcdcd3aa484d"),
     // https://minecraft-heads.com/custom-heads/decoration/32575-spice-container-ginger
     SPICE_YELLOW("e134dbb2e6d1c673b47b0f3a086160b480cb5d92a420c64c8f5c45ddb3e64015"),
+    // https://minecraft-heads.com/custom-heads/decoration/32576-spice-container-dill
+    SPICE_GREEN("282fd4afb3d4c81ab8863fcb9409d1b2b35d1f6684f9a2f515c4eae9f2ee3e2f"),
+    // https://minecraft-heads.com/custom-heads/decoration/32571-spice-container-pink-salt
+    SPICE_PINK("6d9d3005c9368ced2992eaf386acfdc958ae24845a72fd5b335a780cb3e12a31"),
     // https://minecraft-heads.com/custom-heads/plants/2241-onion
     ONION("a6ecc46dc3dc85fcd57198176ee841f1a041b15f73ecb19fde62ee4315c4a6"),
     // https://minecraft-heads.com/custom-heads/plants/17984-lettuce

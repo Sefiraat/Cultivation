@@ -128,5 +128,149 @@ public final class Bushes {
             .addHarvestingResult(CultivationStacks.BROCCOLI)
             .tryRegister(addon);
 
+        new HarvestableBush(CultivationStacks.BUSH_CINNAMON, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CINNAMON)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_BASIL, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.BASIL)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_BAY_LEAF, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.BAY_LEAF)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CILANTRO, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CILANTRO)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CHICORY, new Growth(
+            PlantTheme.BLUE,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CHICORY)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CHIVES, new Growth(
+            PlantTheme.BLUE,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CHIVES)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CLOVE, new Growth(
+            PlantTheme.RED,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CLOVE)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CUMIN, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CUMIN)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CHILLI_PEPPER, new Growth(
+            PlantTheme.RED,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CHILLI_PEPPER)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_CURRY_LEAF, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.CURRY_LEAF)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_DILL, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.1
+        ))
+            .addHarvestingResult(CultivationStacks.DILL)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_FENNEL, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.FENNEL)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_GINGER, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.GINGER)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_HORSERADISH, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.HORSERADISH)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_JASMINE, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.JASMINE)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_JUNIPER_BERRY, new Growth(
+            PlantTheme.BLUE,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.JUNIPER_BERRY)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_KAFFIR_LIME, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.KAFFIR_LIME)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_LAVENDER, new Growth(
+            PlantTheme.PURPLE,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.LAVENDER)
+            .tryRegister(addon);
+
     }
 }

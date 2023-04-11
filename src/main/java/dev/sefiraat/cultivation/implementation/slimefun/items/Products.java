@@ -172,6 +172,114 @@ public final class Products {
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ProduceCore CINNAMON = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CINNAMON,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore BASIL = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BASIL,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore BAY_LEAF = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BAY_LEAF,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CILANTRO = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CILANTRO,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CHICORY = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CHICORY,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CHIVES = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CHIVES,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CLOVE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CLOVE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CUMIN = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CUMIN,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CHILLI_PEPPER = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CHILLI_PEPPER,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CURRY_LEAF = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CURRY_LEAF,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore DILL = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.DILL,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore FENNEL = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.FENNEL,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore GINGER = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.GINGER,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore HORSERADISH = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.HORSERADISH,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore JASMINE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.JASMINE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore JUNIPER_BERRY = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.JUNIPER_BERRY,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore KAFFIR_LIME = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.KAFFIR_LIME,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore LAVENDER = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.LAVENDER,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     // region Vanilla Registrations
@@ -204,6 +312,7 @@ public final class Products {
     public static final ProduceVanilla PUFFERFISH = new ProduceVanilla(Material.PUFFERFISH);
     public static final ProduceVanilla BREAD = new ProduceVanilla(Material.BREAD);
     public static final ProduceVanilla SUGAR = new ProduceVanilla(Material.SUGAR);
+    public static final ProduceVanilla SEAWEED = new ProduceVanilla(Material.KELP);
 
     // endregion
 
