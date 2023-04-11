@@ -10,15 +10,18 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
+import org.bukkit.entity.Snowman;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockFertilizeEvent;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.block.BlockPistonExtendEvent;
 import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.BlockSpreadEvent;
+import org.bukkit.event.block.EntityBlockFormEvent;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -75,6 +78,14 @@ public class CustomPlacementListener implements Listener {
         for (BlockState blockState : event.getBlocks()) {
             Block issueBlock = blockState.getBlock();
             Location location = issueBlock.getLocation();
+            unsafelyKillItem(location, BlockStorage.check(location));
+        }
+    }
+
+    @EventHandler
+    public void onSnowmanBlockForm(@Nonnull EntityBlockFormEvent event) {
+        if (event.getEntity() instanceof Snowman) {
+            Location location = event.getBlock().getLocation();
             unsafelyKillItem(location, BlockStorage.check(location));
         }
     }
