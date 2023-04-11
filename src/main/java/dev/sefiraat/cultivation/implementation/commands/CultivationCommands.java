@@ -103,8 +103,7 @@ public class CultivationCommands extends BaseCommand {
                     int offsetX = x - base.getX();
                     int offsetY = y - base.getY();
                     int offsetZ = z - base.getZ();
-                    BlockPosition offset = new BlockPosition(player.getWorld(), offsetX, offsetY, offsetZ);
-                    TreeBlockDescriptor descriptor = new TreeBlockDescriptor(offset);
+                    TreeBlockDescriptor descriptor = new TreeBlockDescriptor(blockName, offsetX, offsetY, offsetZ);
 
                     BlockData blockData = block.getBlockData();
                     if (blockData instanceof Orientable orientable) {
@@ -122,10 +121,10 @@ public class CultivationCommands extends BaseCommand {
             for (Map.Entry<TreeBlockDescriptor, String> entry : blockDescriptors.entrySet()) {
                 JsonObject blockObject = new JsonObject();
                 TreeBlockDescriptor descriptor = entry.getKey();
-                blockObject.add("block_id", new JsonPrimitive(entry.getValue()));
-                blockObject.add("x", new JsonPrimitive(descriptor.getBlockPosition().getX()));
-                blockObject.add("y", new JsonPrimitive(descriptor.getBlockPosition().getY()));
-                blockObject.add("z", new JsonPrimitive(descriptor.getBlockPosition().getZ()));
+                blockObject.add("block_id", new JsonPrimitive(descriptor.getName()));
+                blockObject.add("x", new JsonPrimitive(descriptor.getX()));
+                blockObject.add("y", new JsonPrimitive(descriptor.getY()));
+                blockObject.add("z", new JsonPrimitive(descriptor.getZ()));
                 if (descriptor.getBlockFace() != null) {
                     blockObject.add("direction", new JsonPrimitive(descriptor.getBlockFace().name()));
                 }

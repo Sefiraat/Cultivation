@@ -1,0 +1,699 @@
+{
+  "name": "tree_christmas_style_decoy_2",
+  "author": "ReasonFoundDecoy",
+  "structure": [
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 2,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 5,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 1,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": -1,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 7,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 2,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 6,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 2,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 4,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 5,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": 0,
+      "y": 3,
+      "z": 3
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 5,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 6,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": -4
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 6,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 4,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 2,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 2,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 2,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -3,
+      "y": 2,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 1,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 4,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 3,
+      "y": 4,
+      "z": 0
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": -3,
+      "y": 5,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 3,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 4,
+      "z": 3
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 6,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": -1,
+      "y": 5,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 8,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 3,
+      "y": 2,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 3,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": -1,
+      "y": 7,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -3,
+      "y": 4,
+      "z": 0
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": 1,
+      "y": 3,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -3,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 3,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:STONE",
+      "x": -4,
+      "y": -1,
+      "z": -4
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 2,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 2,
+      "z": -2
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": 1,
+      "y": 8,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -4,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 8,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": 4
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 4,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": -3
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 9,
+      "z": 0
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": 0,
+      "y": 7,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 2,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 4,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 4,
+      "z": 1
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": -3,
+      "y": 2,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 6,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 8,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 1,
+      "y": 3,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 4,
+      "z": -3
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 2,
+      "z": -3
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": 0,
+      "y": 5,
+      "z": -3
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 6,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 4,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 4,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 6,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 6,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 4,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 4,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 2,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 3,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 4,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": -1,
+      "y": 2,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 2,
+      "z": 3
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 1,
+      "y": 5,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 8,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": 2,
+      "y": 5,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": -1,
+      "y": 3,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 4,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 6,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": -2,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 6,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 1,
+      "y": 1,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 6,
+      "z": 2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 4,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": 3
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 6,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": -1,
+      "y": 1,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 4,
+      "z": 1
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": -1,
+      "y": 3,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 1,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 10,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 4,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 6,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "slimefun:CLT_GREEN_APPLE",
+      "x": 4,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 2,
+      "z": 3
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 2,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 4,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:JUNGLE_LEAVES",
+      "x": 0,
+      "y": 2,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 2,
+      "y": 4,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 4,
+      "z": -1
+    },
+    {
+      "block_id": "minecraft:STRIPPED_DARK_OAK_LOG",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "axis": "Y"
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -3,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 2,
+      "z": -2
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -2,
+      "y": 4,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 2,
+      "z": -3
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": -1,
+      "y": 4,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 0,
+      "y": 4,
+      "z": 1
+    },
+    {
+      "block_id": "minecraft:MANGROVE_LEAVES",
+      "x": 1,
+      "y": 4,
+      "z": 0
+    }
+  ]
+}

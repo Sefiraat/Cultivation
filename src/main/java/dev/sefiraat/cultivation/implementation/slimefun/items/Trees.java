@@ -3,6 +3,7 @@ package dev.sefiraat.cultivation.implementation.slimefun.items;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.trees.CultivationTree;
+import dev.sefiraat.cultivation.api.slimefun.items.trees.TreeDesign;
 import dev.sefiraat.cultivation.api.utils.Skins;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 
@@ -15,7 +16,7 @@ public final class Trees {
     public static final CultivationTree TREE_BANANA = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_BANANA,
-        "tree_1",
+        TreeDesign.BASIC_1,
         Products.BANANA,
         Skins.BANANA
     ).buildRegister(Cultivation.getInstance());
@@ -23,7 +24,7 @@ public final class Trees {
     public static final CultivationTree TREE_LEMON = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_LEMON,
-        "tree_2",
+        TreeDesign.BASIC_2,
         Products.LEMON,
         Skins.LEMON
     ).buildRegister(Cultivation.getInstance());
@@ -31,7 +32,7 @@ public final class Trees {
     public static final CultivationTree TREE_ORANGE = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_ORANGE,
-        "tree_3",
+        TreeDesign.BASIC_3,
         Products.ORANGE,
         Skins.ORANGE
     ).buildRegister(Cultivation.getInstance());
@@ -39,7 +40,7 @@ public final class Trees {
     public static final CultivationTree TREE_GREEN_APPLE = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_GREEN_APPLE,
-        "tree_4",
+        TreeDesign.ACACIA_1,
         Products.GREEN_APPLE,
         Skins.GREEN_APPLE
     ).buildRegister(Cultivation.getInstance());
@@ -47,7 +48,7 @@ public final class Trees {
     public static final CultivationTree TREE_PINEAPPLE = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_PINEAPPLE,
-        "tree_5",
+        TreeDesign.ACACIA_2,
         Products.PINEAPPLE,
         Skins.PINEAPPLE
     ).buildRegister(Cultivation.getInstance());
@@ -55,7 +56,7 @@ public final class Trees {
     public static final CultivationTree TREE_MANGO = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_MANGO,
-        "tree_6",
+        TreeDesign.BIRCH_1,
         Products.MANGO,
         Skins.MANGO
     ).buildRegister(Cultivation.getInstance());
@@ -63,7 +64,7 @@ public final class Trees {
     public static final CultivationTree TREE_PEACH = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_PEACH,
-        "tree_1",
+        TreeDesign.BIRCH_2,
         Products.PEACH,
         Skins.PEACH
     ).buildRegister(Cultivation.getInstance());
@@ -71,7 +72,7 @@ public final class Trees {
     public static final CultivationTree TREE_APRICOT = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_APRICOT,
-        "tree_2",
+        TreeDesign.DARK_OAK_1,
         Products.APRICOT,
         Skins.APRICOT
     ).buildRegister(Cultivation.getInstance());
@@ -79,7 +80,7 @@ public final class Trees {
     public static final CultivationTree TREE_PEAR = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_PEAR,
-        "tree_3",
+        TreeDesign.DARK_OAK_2,
         Products.PEAR,
         Skins.PEAR
     ).buildRegister(Cultivation.getInstance());
@@ -87,7 +88,7 @@ public final class Trees {
     public static final CultivationTree TREE_CHERRY = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_CHERRY,
-        "tree_4",
+        TreeDesign.CHERRY_1,
         Products.CHERRY,
         Skins.CHERRY
     ).buildRegister(Cultivation.getInstance());
@@ -95,7 +96,7 @@ public final class Trees {
     public static final CultivationTree TREE_KIWI = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_KIWI,
-        "tree_5",
+        TreeDesign.JUNGLE_1,
         Products.KIWI,
         Skins.KIWI
     ).buildRegister(Cultivation.getInstance());

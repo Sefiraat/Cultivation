@@ -80,7 +80,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack TREE_PINEAPPLE = Theme.themedSlimefunItemStack(
         "CLT_TREE_PINEAPPLE",
-        new ItemStack(Material.DARK_OAK_SAPLING),
+        new ItemStack(Material.JUNGLE_SAPLING),
         CultivationThemes.SAPLING,
         "Cultivation Tree: Pineapple",
         List.of(
@@ -140,7 +140,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack TREE_KIWI = Theme.themedSlimefunItemStack(
         "CLT_TREE_KIWI",
-        new ItemStack(Material.DARK_OAK_SAPLING),
+        new ItemStack(Material.BIRCH_SAPLING),
         CultivationThemes.SAPLING,
         "Cultivation Tree: Kiwi",
         List.of(
