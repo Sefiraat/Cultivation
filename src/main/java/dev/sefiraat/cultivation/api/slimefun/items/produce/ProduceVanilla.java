@@ -168,6 +168,6 @@ public class ProduceVanilla {
             Machines.COUNTER_GRILL.addRecipe(materialName, byProduct.getItem());
         }
 
-        return byProduct;
+        return byProduct.buildRegister(Cultivation.getInstance());
     }
 }

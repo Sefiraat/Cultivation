@@ -45,8 +45,8 @@ public enum TreeDesign {
     JUNGLE_1("tree_jungle_oddish_1"),
     JUNGLE_2("tree_jungle_bwhite_3"),
     MANGROVE_1("tree_mangrove_decoy_1"),
-    OAK_1("tree_oak_oddish_4.json"),
-    OAK_2("tree_oak_oddish_5.json");
+    OAK_1("tree_oak_oddish_4"),
+    OAK_2("tree_oak_oddish_5");
 
     public final String location;
     public String author;
