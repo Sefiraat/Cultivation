@@ -81,6 +81,58 @@ public final class Ingredients {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ByProduct PIE_CRUST = new ByProduct(
+        CultivationStacks.PIE_CRUST,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.PIE_CRUST,
+            new ItemStack[]{
+                new ItemStack(Material.MILK_BUCKET), Products.EGG.getBlendedItem(), SlimefunItems.WHEAT_FLOUR,
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct PASTA = new ByProduct(
+        CultivationStacks.PASTA,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.PASTA,
+            new ItemStack[]{
+                SlimefunItems.WHEAT_FLOUR, Products.EGG.getBlendedItem(), null,
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct BISCUIT_DOUGH = new ByProduct(
+        CultivationStacks.BISCUIT_DOUGH,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.BISCUIT_DOUGH,
+            new ItemStack[]{
+                SlimefunItems.WHEAT_FLOUR, new ItemStack(Material.SUGAR), SlimefunItems.BUTTER,
+                new ItemStack(Material.MILK_BUCKET), null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct BISCUIT_BASE = new ByProduct(
+        CultivationStacks.BISCUIT_BASE,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.BISCUIT_BASE,
+            new ItemStack[]{
+                BISCUIT_DOUGH.getItem(), BISCUIT_DOUGH.getItem(), BISCUIT_DOUGH.getItem(),
+                null, null, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     public static void setup(Cultivation addon) {

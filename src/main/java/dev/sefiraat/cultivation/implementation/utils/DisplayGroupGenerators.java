@@ -479,7 +479,7 @@ public final class DisplayGroupGenerators {
                 .setLineWidth(100)
                 .setSeeThrough(true)
                 .setTextOpacity((byte) 40)
-                .setTextAlignment(TextDisplay.TextAligment.CENTER)
+                .setTextAlignment(TextDisplay.TextAlignment.CENTER)
                 .setText(name)
                 .build(displayGroup)
         );

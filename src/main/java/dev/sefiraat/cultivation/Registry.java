@@ -3,14 +3,21 @@ package dev.sefiraat.cultivation;
 import com.google.common.base.Preconditions;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
+import dev.sefiraat.cultivation.api.slimefun.items.trees.CultivationTree;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResultType;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
+import io.github.bakedlibs.dough.blocks.BlockPosition;
+import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Registry {
     private static Registry instance;
@@ -20,7 +27,15 @@ public class Registry {
     @Nonnull
     private final List<CultivationBush> registeredBushes = new ArrayList<>();
     @Nonnull
+    private final List<CultivationTree> registeredTrees = new ArrayList<>();
+    @Nonnull
     private final List<BreedingPair> plantBreedingPairs = new ArrayList<>();
+
+    @Nonnull
+    private final Map<UUID, BlockPosition> storedPositionOne = new HashMap<>();
+
+    @Nonnull
+    private final Map<UUID, BlockPosition> storedPositionTwo = new HashMap<>();
 
     public Registry() {
         Preconditions.checkArgument(instance == null, "Cannot create a new instance of the Registry");
@@ -35,7 +50,10 @@ public class Registry {
 
     public void addBush(@Nonnull CultivationBush cultivationBush) {
         this.registeredBushes.add(cultivationBush);
+    }
 
+    public void addTree(@Nonnull CultivationTree cultivationTree) {
+        this.registeredTrees.add(cultivationTree);
     }
 
     @Nonnull
@@ -73,8 +91,33 @@ public class Registry {
     }
 
     @Nonnull
+    public List<CultivationTree> getRegisteredTrees() {
+        return registeredTrees;
+    }
+
+    @Nonnull
     public List<BreedingPair> getPlantBreedingPairs() {
         return Collections.unmodifiableList(plantBreedingPairs);
+    }
+
+    public void addPositionOne(@Nonnull Player player) {
+        UUID uuid = player.getUniqueId();
+        storedPositionOne.put(uuid, new BlockPosition(player.getLocation()));
+    }
+
+    public void addPositionTwo(@Nonnull Player player) {
+        UUID uuid = player.getUniqueId();
+        storedPositionTwo.put(uuid, new BlockPosition(player.getLocation()));
+    }
+
+    @Nullable
+    public BlockPosition getPositionOne(@Nonnull Player player) {
+        return storedPositionOne.get(player.getUniqueId());
+    }
+
+    @Nullable
+    public BlockPosition getPositionTwo(@Nonnull Player player) {
+        return storedPositionTwo.get(player.getUniqueId());
     }
 
     public static Registry getInstance() {

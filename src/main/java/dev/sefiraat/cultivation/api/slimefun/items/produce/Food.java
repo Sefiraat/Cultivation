@@ -1,8 +1,10 @@
 package dev.sefiraat.cultivation.api.slimefun.items.produce;
 
+import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.itemstacks.Cooldowns;
 import dev.sefiraat.sefilib.string.Theme;
+import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -21,7 +23,12 @@ public class Food extends SimpleSlimefunItem<ItemUseHandler> {
 
     private final Consumer<Player> eatingEffects;
 
-    public Food(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Consumer<Player> effect) {
+    public Food(ItemGroup group,
+                SlimefunItemStack item,
+                RecipeType recipeType,
+                ItemStack[] recipe,
+                Consumer<Player> effect
+    ) {
         super(group, item, recipeType, recipe);
         this.eatingEffects = effect;
     }
@@ -33,15 +40,20 @@ public class Food extends SimpleSlimefunItem<ItemUseHandler> {
             @Override
             public void onRightClick(PlayerRightClickEvent e) {
                 Player player = e.getPlayer();
-                if (Cooldowns.isOnCooldown(Keys.SATIATED, player)) {
+                boolean lemonDrop = getId().equals(CultivationStacks.LEMON_DROP.getItemId());
+                if (Cooldowns.isOnCooldown(Keys.SATIATED, player) && !lemonDrop) {
                     player.sendMessage(Theme.WARNING.apply(
                         "You aren't hungry yet! You can only eat once every half a day (10 mins)"));
                     return;
                 }
-                eatingEffects.accept(player);
-                Cooldowns.addCooldown(Keys.SATIATED, player, 600);
+                if (!lemonDrop) {
+                    Cooldowns.addCooldown(Keys.SATIATED, player, 600);
+                } else {
+                    PersistentDataAPI.remove(player, Keys.SATIATED);
+                }
                 e.getItem().setAmount(e.getItem().getAmount() - 1);
                 player.sendMessage(Theme.SUCCESS.apply("Lovely! You're all full up."));
+                eatingEffects.accept(player);
             }
         };
     }

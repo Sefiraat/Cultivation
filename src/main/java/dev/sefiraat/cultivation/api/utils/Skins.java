@@ -343,18 +343,6 @@ public enum Skins {
     BANANA("20aaa1425d2b99383697d57193f27d872442bcb995508f42d19de4af1f8612"),
     // https://minecraft-heads.com/custom-heads/plants/2235-lemon
     LEMON("4378b582d19ccc55b023eb82eda271bac4744fa2006cf5e190246e2b4d5d"),
-    // https://minecraft-heads.com/custom-heads/plants/60981-grape
-    GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
-    // https://minecraft-heads.com/custom-heads/plants/55177-peanut
-    PEANUT("cf823e05353ae9122150bc67a5df7de628f4d4c30b36bdae3c1c18582bfca776"),
-    // https://minecraft-heads.com/custom-heads/plants/4122-strawberry
-    STRAWBERRY("b9708d818be97dc7e2c3bb5c35663eb36269236e9bc98286f429dfdf375aa9"),
-    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/12840-rice-sack
-    RICE("cb70f2fb5ebf49f79ff3e873616863ae5d362fbbfc31aef2dfb93d6e17dbf2"),
-    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/42594-garlic
-    GARLIC("ca5b1539b698c217cb3b4163a00e336131043311b83b08de02f1a66505be5b29"),
-    // https://minecraft-heads.com/custom-heads/decoration/50929-pepper-bag
-    PEPPERS("a3ef14c40251844c3ae39b6028db86a9098df325e50b7a475972cd1ac918e9d5"),
     // https://minecraft-heads.com/custom-heads/plants/59223-orange
     ORANGE("91b0fb313d90ddafd4fd7c95ef0d51b2ff9cc13013f1d318b11d87aa002fbaa0"),
     // https://minecraft-heads.com/custom-heads/plants/33084-green-apple
@@ -372,7 +360,21 @@ public enum Skins {
     // https://minecraft-heads.com/custom-heads/plants/31879-cherry
     CHERRY("8b9b2383bae7b84fdc31b54179afb713a1c187b83e7a0c5e38470ae2a3e2a30f"),
     // https://minecraft-heads.com/custom-heads/plants/1938-kiwi
-    KIWI("https://minecraft-heads.com/custom-heads/plants/1938-kiwi"),
+    KIWI("4cc18ec4649f07d5a38a583d9271fd83a6f37318758e46ea87fc2b2d1afc2d9"),
+    // https://minecraft-heads.com/custom-heads/plants/39730-tropical-fruit
+    LIME("95f6356c0cf82f7e497435c2227ab7ed98734ca1b0084bd770e53f39285ff7ec"),
+    // https://minecraft-heads.com/custom-heads/plants/60981-grape
+    GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
+    // https://minecraft-heads.com/custom-heads/plants/55177-peanut
+    PEANUT("cf823e05353ae9122150bc67a5df7de628f4d4c30b36bdae3c1c18582bfca776"),
+    // https://minecraft-heads.com/custom-heads/plants/4122-strawberry
+    STRAWBERRY("b9708d818be97dc7e2c3bb5c35663eb36269236e9bc98286f429dfdf375aa9"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/12840-rice-sack
+    RICE("cb70f2fb5ebf49f79ff3e873616863ae5d362fbbfc31aef2dfb93d6e17dbf2"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/42594-garlic
+    GARLIC("ca5b1539b698c217cb3b4163a00e336131043311b83b08de02f1a66505be5b29"),
+    // https://minecraft-heads.com/custom-heads/decoration/50929-pepper-bag
+    PEPPERS("a3ef14c40251844c3ae39b6028db86a9098df325e50b7a475972cd1ac918e9d5"),
     // https://minecraft-heads.com/custom-heads/plants/33414-tomato
     TOMATO("72df4e674951c138e7311127561fdbd27e2150716b02bb568747f8545fb20145"),
     // https://minecraft-heads.com/custom-heads/plants/45539-bell-pepper
@@ -387,6 +389,8 @@ public enum Skins {
     ONION("a6ecc46dc3dc85fcd57198176ee841f1a041b15f73ecb19fde62ee4315c4a6"),
     // https://minecraft-heads.com/custom-heads/plants/17984-lettuce
     LETTUCE("2d52e883c6436ca7e764bda4b58afa53da6a649030f663953dce9fd6315f9fea"),
+    // https://minecraft-heads.com/custom-heads/plants/33413-broccoli
+    BROCCOLI("65106f0cc4c12dcfe7736a1ffc92772f41b66e1b7682b1f47537787720567262"),
 
     // endregion
 
@@ -434,25 +438,43 @@ public enum Skins {
     BANANA_BREAD("92f4517fb4e9f42c607f2133c6178848b95f88475b7e6e302f0d377304e9bad0"),
     // https://minecraft-heads.com/custom-heads/food-drinks/60273-banana-cupcake
     BANANA_CUPCAKE("46638683e552b05addaf711129e65ca1749a3766b39b2452d9a5d4253549297"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/40680-pumpkin-pie
+    PIE_CRUST("4954c6f49abe51de7b7d69dc53e2d982468c75c6f01e821e83c79ee3058922e9"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/30179-bowl-of-pasta
+    PASTA("6dc55f43e3d8420975189a70fea4df7791e4e100b4163d615b9c0d20b1dfb2be"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/33194-pasta
+    PASTA_BAKE("8c97623aab35fdd26bee7d05574c9c3891983fb70ee21b9a4c2b04d796cf3e67"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/29899-mac-and-cheese
+    MAC_AND_CHEESE("7b3bcd4445e1360623821a2879e497c3de25f899c94ffb9e5942e06b2ccaea65"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/40169-warm-apple-pie
+    PIE_BROWN("f30ee237290dba133da01af5f88b87cce3b94bc40c5089e988852d478fa154a2"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/44607-blueberry-pie
+    PIE_BLUE("a46f8e10065f6bf6369da1607227fa3a0ecb59ebe3463259d3f7d8b6720e1221"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/47-lime-pie
+    PIE_LIME("5541819e8f7945faf7a8f7cc175dcc64d4e3977317f01274e3fdf18a55194421"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/32838-apple-lattice-pie
+    PIE_RED("9fc7f28ee501cc203ff1a45a9d00c86908368ac676d15f777ea1cd5ce29cc718"),
     // https://minecraft-heads.com/custom-heads/food-drinks/59639-bowl-of-shakshuka
-    SHAKSHUKA("35a40080b05235916844bfa97bb8810404fc36b20e041c03376d1926d8f9efd0");
+    SHAKSHUKA("35a40080b05235916844bfa97bb8810404fc36b20e041c03376d1926d8f9efd0"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/52718-salad-apple
+    FRUIT_SALAD("7d562530fe1efff5d9bfdee268b6c5474b2ccefad0a1d3f84a9e2c61d87ff6ed");
 
     // endregion
-
 
 
     // endregion
 
     @Nonnull
-    private static final Skins[]CACHED_VALUES =
-
-    values();
+    private static final Skins[] CACHED_VALUES = values();
 
     @Nonnull
     private final String hash;
+    @Nonnull
+    private final PlayerSkin playerSkin;
 
     Skins(@Nonnull String hash) {
         this.hash = hash;
+        this.playerSkin = PlayerSkin.fromHashCode(hash);
     }
 
     @Nonnull
@@ -462,12 +484,12 @@ public enum Skins {
 
     @Nonnull
     public ItemStack getPlayerHead() {
-        return PlayerHead.getItemStack(PlayerSkin.fromHashCode(hash));
+        return PlayerHead.getItemStack(playerSkin);
     }
 
     @Nonnull
     public PlayerSkin getPlayerSkin() {
-        return PlayerSkin.fromHashCode(hash);
+        return playerSkin;
     }
 
     @Nonnull

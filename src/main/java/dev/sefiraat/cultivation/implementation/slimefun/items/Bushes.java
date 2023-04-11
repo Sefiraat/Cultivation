@@ -112,5 +112,21 @@ public final class Bushes {
             .addHarvestingResult(CultivationStacks.LETTUCE)
             .tryRegister(addon);
 
+        new HarvestableBush(CultivationStacks.BUSH_MUSTARD, new Growth(
+            PlantTheme.YELLOW,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.MUSTARD_SEEDS)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_BROCCOLI, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.BROCCOLI)
+            .tryRegister(addon);
+
     }
 }
