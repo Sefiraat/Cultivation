@@ -7,6 +7,7 @@ import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -1960,6 +1961,28 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Healing", "Full"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 20"),
         Theme.CLICK_INFO.asTitle("Effect 2", "Wither + 2")
+    );
+
+    public static final SlimefunItemStack ORANGE_JUICE = Theme.themedSlimefunItemStack(
+        "CLT_ORANGE_JUICE",
+        ItemStackGenerators.createPotion(Color.YELLOW),
+        CultivationThemes.PRODUCE,
+        "Orange Juice",
+        "It really is the best way to start the day.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Speed + 4")
+    );
+
+    public static final SlimefunItemStack LASAGNA = Theme.themedSlimefunItemStack(
+        "CLT_LASAGNA",
+        Skins.MEAL_YELLOW_RED_BROWN.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Lasagna",
+        "Layers of awesomeness.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "Full"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Regeneration + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Damage Reduction + 1")
     );
 
     // end region

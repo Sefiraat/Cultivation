@@ -393,6 +393,44 @@ public final class Foods {
         }
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food ORANGE_JUICE = new Food(
+        CultivationGroups.FOODS,
+        CultivationStacks.ORANGE_JUICE,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.ORANGE_JUICE,
+            new ItemStack[]{
+                Products.ORANGE.getBlendedItem(), new ItemStack(Material.GLASS), null,
+                null, null, null,
+                null, null, null
+            }
+        ),
+        player -> simplePlayerEffect(player, 0, new Pair<>(PotionEffectType.SPEED, 3))
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food LASAGNA = new Food(
+        CultivationGroups.FOODS,
+        CultivationStacks.LASAGNA,
+        RecipeTypes.BAKING,
+        RecipeTypes.createFoodBakingRecipe(
+            CultivationStacks.LASAGNA,
+            new ItemStack[]{
+                Ingredients.PASTA.getItem(), SlimefunItems.CHEESE, Products.TOMATO.getChoppedItem(),
+                SlimefunItems.HEAVY_CREAM, Ingredients.PASTA.getItem(), SlimefunItems.CHEESE,
+                Products.TOMATO.getChoppedItem(), SlimefunItems.CHEESE, Ingredients.PASTA.getItem()
+            }
+        ),
+        player -> {
+            simplePlayerEffect(
+                player,
+                0,
+                new Pair<>(PotionEffectType.REGENERATION, 1),
+                new Pair<>(PotionEffectType.DAMAGE_RESISTANCE, 1)
+            );
+            simplePlayerEffect(player, 999);
+        }
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
 
     }
