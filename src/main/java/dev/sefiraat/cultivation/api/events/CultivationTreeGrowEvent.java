@@ -59,7 +59,9 @@ public class CultivationTreeGrowEvent extends WorldEvent implements Cancellable 
     }
 
     @Nonnull
-    public SlimefunItem getSlimefunItem() {return  this.slimefunItem;}
+    public SlimefunItem getSlimefunItem() {
+        return  this.slimefunItem;
+    }
 
     public boolean isCancelled() {
         return this.cancelled;
