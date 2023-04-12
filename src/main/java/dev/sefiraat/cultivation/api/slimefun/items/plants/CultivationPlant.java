@@ -119,7 +119,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         for (BlockFace face : BREEDING_DIRECTIONS) {
             Block middleBlock = motherBlock.getRelative(face);
             // There must be space for the new block
-            if (middleBlock.getType() != Material.AIR) {
+            if (middleBlock.getType() != Material.AIR || BlockStorage.check(middleBlock) != null) {
                 return;
             }
             Block potentialMate = middleBlock.getRelative(face);

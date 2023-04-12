@@ -144,7 +144,6 @@ public class ProduceCore extends SlimefunItem {
             recipeType,
             this.getItem()
         );
-        byProduct.register(Cultivation.getInstance());
 
         if (recipeType == RecipeTypes.CHOPPED) {
             Machines.COUNTER_CHOPPING.addRecipe(this.getId(), byProduct.getItem());
@@ -178,7 +177,7 @@ public class ProduceCore extends SlimefunItem {
             Machines.COUNTER_GRILL.addRecipe(this.getId(), byProduct.getItem());
         }
 
-        return byProduct;
+        return byProduct.buildRegister(Cultivation.getInstance());
     }
 
     public ProduceCore buildRegister(@Nonnull SlimefunAddon addon) {
