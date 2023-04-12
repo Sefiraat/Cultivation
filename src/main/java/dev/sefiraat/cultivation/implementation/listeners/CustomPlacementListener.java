@@ -93,7 +93,7 @@ public class CustomPlacementListener implements Listener {
     public void onLiquidDispense(@Nonnull BlockDispenseEvent event) {
         Block block = event.getBlock();
         if (isLiquid(event.getItem())
-            && block.getBlockData() instanceof  Directional directional
+            && block.getBlockData() instanceof Directional directional
         ) {
             BlockFace face = directional.getFacing();
             Location location = block.getRelative(face).getLocation();
