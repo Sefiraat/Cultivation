@@ -88,6 +88,18 @@ public final class Products {
         RecipeTypes.TREE
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ProduceCore CHESTNUT = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CHESTNUT,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore HAZELNUT = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.HAZELNUT,
+        RecipeTypes.TREE
+    ).buildRegister(Cultivation.getInstance());
+
     public static final ProduceCore GRAPE = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.GRAPE,
@@ -367,6 +379,198 @@ public final class Products {
     public static final ProduceCore WASABI = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.WASABI,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore ARTICHOKE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.ARTICHOKE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore AUBERGINE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.AUBERGINE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore ASPARAGUS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.ASPARAGUS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore BRUSSELS_SPROUTS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BRUSSELS_SPROUTS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CABBAGE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CABBAGE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CAULIFLOWER = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CAULIFLOWER,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CELERY = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CELERY,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore KALE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.KALE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore SPINACH = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.SPINACH,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore BLACK_BEANS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BLACK_BEANS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore GREEN_BEANS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.GREEN_BEANS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CHICKPEAS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CHICKPEAS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore SOY_BEANS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.SOY_BEANS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore PINTO_BEANS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.PINTO_BEANS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore RUNNER_BEANS = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.RUNNER_BEANS,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore NETTLES = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.NETTLES,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore OKRA = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.OKRA,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore LEEK = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.LEEK,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore SHALLOT = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.SHALLOT,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore JALAPENO = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.JALAPENO,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore RADICCHIO = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.RADICCHIO,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore RHUBARB = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.RHUBARB,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CELERIAC = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CELERIAC,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore PARSNIP = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.PARSNIP,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+    
+    public static final ProduceCore RUTABAGA = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.RUTABAGA,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+    
+    public static final ProduceCore RADDISH = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.RADDISH,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore SWEET_POTATO = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.SWEET_POTATO,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+    
+    public static final ProduceCore TURNIP = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.TURNIP,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+    
+    public static final ProduceCore SWEETCORN = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.SWEETCORN,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+    
+    public static final ProduceCore COURGETTE = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.COURGETTE,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore CUCUMBER = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.CUCUMBER,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+    
+    public static final ProduceCore MARROW = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.MARROW,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
 

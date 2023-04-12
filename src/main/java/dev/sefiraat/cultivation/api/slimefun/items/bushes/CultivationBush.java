@@ -4,6 +4,7 @@ import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.interfaces.CultivationBushHolder;
 import dev.sefiraat.cultivation.api.interfaces.CultivationFlora;
 import dev.sefiraat.cultivation.api.interfaces.CultivationTrimmable;
+import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
@@ -11,7 +12,6 @@ import dev.sefiraat.cultivation.implementation.slimefun.tools.TrimmingTool;
 import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
@@ -31,7 +31,7 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
 
     @ParametersAreNonnullByDefault
     protected CultivationBush(SlimefunItemStack item, Growth growth) {
-        super(CultivationGroups.BUSHES, item, RecipeType.NULL, new ItemStack[0], null, growth);
+        super(CultivationGroups.BUSHES, item, RecipeTypes.TRADING_FARMER, new ItemStack[0], null, growth);
     }
 
     @Override

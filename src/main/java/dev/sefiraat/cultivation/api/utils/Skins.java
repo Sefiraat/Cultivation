@@ -363,6 +363,10 @@ public enum Skins {
     KIWI("4cc18ec4649f07d5a38a583d9271fd83a6f37318758e46ea87fc2b2d1afc2d9"),
     // https://minecraft-heads.com/custom-heads/plants/39730-tropical-fruit
     LIME("95f6356c0cf82f7e497435c2227ab7ed98734ca1b0084bd770e53f39285ff7ec"),
+    // https://minecraft-heads.com/custom-heads/plants/57802-chestnut
+    CHESTNUT("7aea6b06c058546247e6567009440140946ea53623829721bd46b3e6a0e5cce8"),
+    // https://minecraft-heads.com/custom-heads/plants/1214-hazelnut
+    HAZELNUT("678784703fa59cd153fcabe3ccd9d44c469a8d63e6d438626ad9ebc70707fc3"),
     // https://minecraft-heads.com/custom-heads/plants/60981-grape
     GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
     // https://minecraft-heads.com/custom-heads/plants/55177-peanut
@@ -395,6 +399,34 @@ public enum Skins {
     LETTUCE("2d52e883c6436ca7e764bda4b58afa53da6a649030f663953dce9fd6315f9fea"),
     // https://minecraft-heads.com/custom-heads/plants/33413-broccoli
     BROCCOLI("65106f0cc4c12dcfe7736a1ffc92772f41b66e1b7682b1f47537787720567262"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/58551-bundle-of-asparagus
+    ASPARAGUS("2ba5599e26cf2252d431a950b2078a0af2e45c60edff9d4fadf62c323df5411f"),
+    // https://minecraft-heads.com/custom-heads/plants/58595-turnip
+    TURNIP("bfac2d1d21aeb8d7a0c289733511d903df57924ad6bd61d00567a55af649bc0d"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/58550-bundle-of-leeks
+    LEEK("c144a523b05063c81f006fdbd8d9b75249aa009b4c1f46db27dbbeafc4a8578"),
+    // https://minecraft-heads.com/custom-heads/plants/50806-parsnip
+    PARSNIP("d0f61fe6d3c0e7f01434d38367b1a50db04f8cccbdbbda1806bf1198318dc7eb"),
+    // https://minecraft-heads.com/custom-heads/plants/51475-cabbage
+    CABBAGE("58e59dc722e419fe064f0c7992a7897b73cc7c5205e19d067a174bcb018e9429"),
+    // https://minecraft-heads.com/custom-heads/plants/43379-radish
+    RADDISH("cd56f448876ebfdaa88ca7f0137a6837f4d2ba14dd3d6615d82d617c39b39daf"),
+    // https://minecraft-heads.com/custom-heads/plants/32990-aubergine
+    AUBERGINE("521358c5b2e2526ae6aab91a5fb09198461a7cc4d860e8647d5e10fb6c87be67"),
+    // https://minecraft-heads.com/custom-heads/plants/33211-cauliflower
+    CAULIFLOWER("14a6dedd99bb9af3f1b2f338d509a926606cddfdc351e018aad1c07015ad566d"),
+    // https://minecraft-heads.com/custom-heads/plants/19674-kale
+    KALE("1b913d9d6e306d953461d1f7468321868a9bad4df53d1a7dc64b0797628f0"),
+    // https://minecraft-heads.com/custom-heads/plants/19673-kohlrabi
+    KOHLRABI("2969d3149333e1e658f5da69dc6131a87fa6817cda2ba6387d5f5f31e0ef73"),
+    // https://minecraft-heads.com/custom-heads/plants/13125-avocado
+    AVOCADO("6af2bf32bb8937a5aadfbf6d8dc56a21ef65f6884db67206280fa1e149f8c4b"),
+    // https://minecraft-heads.com/custom-heads/plants/2179-corn
+    CORN("d391dffbea2fc3f2ad78a623f49bf7e1121694112c3759feed4156fc2ba46c0"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/58921-squash
+    SQUASH("36ae076649ef22f60e8511831c68fd2b6ea63c32164dab33a8aebc18ff2a54c8"),
+    // https://minecraft-heads.com/custom-heads/plants/58594-rutabaga
+    RUTABAGA("b3661e4bf4c3e730a3aaa1053a3fc524dc03df67bf7a20979efdb2ad1a9e4084"),
 
     // endregion
 
