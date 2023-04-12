@@ -10,10 +10,11 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
-import org.bukkit.entity.Snowman;
+import org.bukkit.block.data.Directional;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockFertilizeEvent;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.block.BlockPistonExtendEvent;
@@ -21,6 +22,7 @@ import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.BlockSpreadEvent;
 import org.bukkit.event.block.EntityBlockFormEvent;
+import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -87,6 +89,18 @@ public class CustomPlacementListener implements Listener {
         unsafelyKillItem(location, BlockStorage.check(location));
     }
 
+    @EventHandler
+    public void onLiquidDispense(@Nonnull BlockDispenseEvent event) {
+        Block block = event.getBlock();
+        if (isLiquid(event.getItem())
+            && block.getBlockData() instanceof Directional directional
+        ) {
+            BlockFace face = directional.getFacing();
+            Location location = block.getRelative(face).getLocation();
+            unsafelyKillItem(location, BlockStorage.check(location));
+        }
+    }
+
     private void unsafelyKillItem(@Nonnull Location location, @Nullable SlimefunItem slimefunItem) {
         if (slimefunItem instanceof CultivationPlant plant) {
             location.getWorld().dropItem(location, plant.getDroppedItemStack(location));
@@ -99,5 +113,12 @@ public class CustomPlacementListener implements Listener {
             bush.removeBushDisplayGroup(location);
             BlockStorage.clearBlockInfo(location);
         }
+    }
+
+    private boolean isLiquid(@Nonnull ItemStack itemStack) {
+        Material material = itemStack.getType();
+        return material == Material.WATER_BUCKET
+            || material == Material.LAVA_BUCKET
+            || material == Material.POWDER_SNOW_BUCKET;
     }
 }
