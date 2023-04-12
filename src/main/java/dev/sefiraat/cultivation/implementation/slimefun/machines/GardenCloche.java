@@ -13,8 +13,10 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
+import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -40,7 +42,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class GardenCloche extends SlimefunItem implements DisplayInteractable {
+public class GardenCloche extends SlimefunItem implements DisplayInteractable, EnergyNetComponent {
 
     private static final String KEY_PLANT = "plant";
     private static final String KEY_UUID = "display-uuid";
@@ -54,6 +56,7 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable {
     private static final int[] BACKGROUND = new int[]{
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 17, 18, 22, 26, 27, 31, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
     };
+    private static final int POWER_REQUIREMENT = 100;
 
     public GardenCloche(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
@@ -101,12 +104,16 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable {
                                 Cultivation.getInstance(), () -> addPlantToDisplay(location)
                             );
                         }
+                        if (getCharge(location) < POWER_REQUIREMENT) {
+                            return;
+                        }
                         FloraLevelProfile profile = FloraLevelProfile.fromItemStack(possiblePlant);
                         double growthRate = plant.getGrowthRate(profile);
                         double rand = ThreadLocalRandom.current().nextDouble();
                         if (rand < growthRate) {
                             ItemStack itemStack = plant.getRandomItemWithDropModifier(profile);
                             blockMenu.pushItem(itemStack, OUTPUT_SLOTS);
+                            removeCharge(location, POWER_REQUIREMENT);
                         }
                     } else {
                         Bukkit.getScheduler().runTask(
@@ -202,4 +209,14 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable {
     }
 
 
+    @NotNull
+    @Override
+    public EnergyNetComponentType getEnergyComponentType() {
+        return EnergyNetComponentType.CONSUMER;
+    }
+
+    @Override
+    public int getCapacity() {
+        return 2500;
+    }
 }

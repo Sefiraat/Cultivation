@@ -107,7 +107,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
     }
 
     private void setupStats() {
-        Metrics metrics = new Metrics(this, 15374);
+        Metrics metrics = new Metrics(this, 18184);
     }
 
     public static Cultivation getInstance() {

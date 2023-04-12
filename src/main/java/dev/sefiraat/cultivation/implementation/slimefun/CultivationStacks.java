@@ -2049,7 +2049,9 @@ public final class CultivationStacks {
         Material.GLASS,
         CultivationThemes.MACHINE,
         "Garden Cloche",
-        "Grows plants inside it automatically."
+        "Grows plants inside it automatically.",
+        "",
+        Theme.CLICK_INFO.asTitle("Power per Tick", 100)
     );
 
     public static final SlimefunItemStack COUNTER_NOTHING = Theme.themedSlimefunItemStack(

@@ -12,6 +12,8 @@ Using 1.19.4's amazing, new, DisplayEntites we are able to display plants and bl
 You can find a fuller guide to Networks including all items and blocks in
 my [Documentation Pages](https://sefiraat.dev)
 
+Please note, this addon makes use of 1.19.4' display entities which, as the name suggests, are Entities. These entities do not tick and do not add a performance over head to your server however some lag clearing plugins may be set to remove them. Be sure to add **BLOCK_DISPLAY**, **ITEM_DISPLAY** and **TEXT_DISPLAY** to your exclusions list otherwise you may encounter errors within the addon.
+
 <img width="1047" alt="image" src="https://user-images.githubusercontent.com/20646323/231163325-3749560b-f998-4399-8a60-a4bb5c0b6fcd.png">
 
 ## Cultivation Plants
