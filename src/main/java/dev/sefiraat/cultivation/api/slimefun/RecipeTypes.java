@@ -72,6 +72,34 @@ public final class RecipeTypes {
     );
 
     @Nonnull
+    public static final RecipeType TRADING_FARMER = new RecipeType(
+        Keys.newKey("trading_farmer"),
+        Theme.themedItemStack(
+            Material.VILLAGER_SPAWN_EGG,
+            CultivationThemes.RECIPE_TYPE,
+            "Villager Trading",
+            List.of(
+                "This item can be bought from a",
+                "farming villager."
+            )
+        )
+    );
+
+    @Nonnull
+    public static final RecipeType TRADING_FLETCHER = new RecipeType(
+        Keys.newKey("trading_fletcher"),
+        Theme.themedItemStack(
+            Material.VILLAGER_SPAWN_EGG,
+            CultivationThemes.RECIPE_TYPE,
+            "Villager Trading",
+            List.of(
+                "This item can be bought from a",
+                "fletching villager."
+            )
+        )
+    );
+
+    @Nonnull
     public static final RecipeType MOB = new RecipeType(
         Keys.newKey("mob"),
         Theme.themedItemStack(

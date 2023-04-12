@@ -133,6 +133,19 @@ public final class Ingredients {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ByProduct MEATBALLS = new ByProduct(
+        CultivationStacks.MEATBALLS,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.MEATBALLS,
+            new ItemStack[]{
+                Products.BEEF.getGroundItem(), Products.EGG.getBlendedItem(), null,
+                SlimefunItems.WHEAT_FLOUR, SlimefunItems.SALT, null,
+                null, null, null
+            }
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     public static void setup(Cultivation addon) {

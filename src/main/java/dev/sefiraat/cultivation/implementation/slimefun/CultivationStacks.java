@@ -159,6 +159,26 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack TREE_CHESTNUT = Theme.themedSlimefunItemStack(
+        "CLT_TREE_CHESTNUT",
+        new ItemStack(Material.OAK_SAPLING),
+        CultivationThemes.SAPLING,
+        "Cultivation Tree: Chestnut",
+        List.of(
+            "A tree clearly designed to be climbed."
+        )
+    );
+
+    public static final SlimefunItemStack TREE_HAZELNUT = Theme.themedSlimefunItemStack(
+        "CLT_TREE_HAZELNUT",
+        new ItemStack(Material.OAK_SAPLING),
+        CultivationThemes.SAPLING,
+        "Cultivation Tree: Hazelnut",
+        List.of(
+            "Shaking this tree is a childhood past-time."
+        )
+    );
+
     // endregion
 
     // region Bushes
@@ -303,6 +323,692 @@ public final class CultivationStacks {
         "Cultivation Bush: Broccoli",
         List.of(
             "Tiny trees you can eat? Who invented this!?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CINNAMON = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CINNAMON",
+        Skins.SPIKEY_ORANGE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Cinnamon",
+        List.of(
+            "A delightfully fragrant bush."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_BASIL = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_BASIL",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Basil",
+        List.of(
+            "A light hearted bush full of whimsy."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_BAY_LEAF = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_BAY_LEAF",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Bay Leaf",
+        List.of(
+            "The smell of this bush travels for miles."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CILANTRO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CILANTRO",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Cilantro",
+        List.of(
+            "A faint citrus and spice smell comes from this bush."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CHICORY = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CHICORY",
+        Skins.SPIKEY_BLUE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Chicory",
+        List.of(
+            "I thought chicory was a root? Does this addon",
+            "even do it's research!?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CHIVES = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CHIVES",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Chives",
+        List.of(
+            "A bush that produces what is, effectively, the world's",
+            "smallest onion."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CLOVE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CLOVE",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Clove",
+        List.of(
+            "A bush that just reminds me of Christmas."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CUMIN = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CUMIN",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Cumin",
+        List.of(
+            "A bush that lets of a warm citrus aroma."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CHILLI_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CHILLI_PEPPER",
+        Skins.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Chilli Pepper",
+        List.of(
+            "Just looking at this bush burns my tongue."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CURRY_LEAF = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CURRY_LEAF",
+        Skins.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Curry Leaf",
+        List.of(
+            "Best when dry roasted."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_DILL = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_DILL",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Dill",
+        List.of(
+            "This bush grows much faster than others."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_FENNEL = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_FENNEL",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Fennel",
+        List.of(
+            "Why does this bush repel bugs!?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_GINGER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_GINGER",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Ginger",
+        List.of(
+            "This bush is nice when boiled whole."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_HORSERADISH = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_HORSERADISH",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Horseradish",
+        List.of(
+            "Again, this growing on a bush just doesn't make sense."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_JASMINE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_JASMINE",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Jasmine",
+        List.of(
+            "The scent from this bush is so soft and mellow."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_JUNIPER_BERRY = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_JUNIPER_BERRY",
+        Skins.SPIKEY_BLUE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Juniper Berry",
+        List.of(
+            "So sweet on the bush, peppery when dried."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_KAFFIR_LIME = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_KAFFIR_LIME",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Kaffir Lime",
+        List.of(
+            "A bush whose leafs are more wanted than it's fruit."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_LAVENDER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_LAVENDER",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Lavender",
+        List.of(
+            "This bush wafts it's smell everywhere."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_LICORICE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_LICORICE",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Licorice",
+        List.of(
+            "Gross"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_MACE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_MACE",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Mace",
+        List.of(
+            "This bush seems to be repelling attackers?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_MARJORAM = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_MARJORAM",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Marjoram",
+        List.of(
+            "A large woody smelling bush."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_MINT = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_MINT",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Mint",
+        List.of(
+            "Simply the best smelling bush."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_OREGANO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_OREGANO",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Oregano",
+        List.of(
+            "This pungent smelling bush deters visitors."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_PARSLEY = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_PARSLEY",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Parsley",
+        List.of(
+            "Throw this bush in lava, now :D"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_ROSEMARY = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_ROSEMARY",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Rosemary",
+        List.of(
+            "A bush whose smell reminds people of sunday lunches."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_SASSAFRAS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_SASSAFRAS",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Sassafras",
+        List.of(
+            "This bush love to be planted near small bodies",
+            "of water."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_SHISO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_SHISO",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Shiso",
+        List.of(
+            "I like to think this bush is the love child",
+            "of a mint bush and a basil bush. Too bad",
+            "bush breeding isn't a thing!"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_STAR_ANISE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_STAR_ANISE",
+        Skins.SPIKEY_ORANGE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Star Anise",
+        List.of(
+            "A small comes off this bush that is so unique",
+            "to anise, you can't even believe."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_TARRAGON = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_TARRAGON",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Tarragon",
+        List.of(
+            "This bush doesn't like to draw too much attention."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_THYME = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_THYME",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Thyme",
+        List.of(
+            "This bush is always running out of... Thyme... *cough*"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_TURMERIC = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_TURMERIC",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Turmeric",
+        List.of(
+            "A waft of spice hits your nose just",
+            "holding this bush."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_VANILLA = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_VANILLA",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Vanilla",
+        List.of(
+            "This bush grows natively near StarBucks locations."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_WASABI = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_WASABI",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Wasabi",
+        List.of(
+            "Another root growing off of a bush?",
+            "Sigh..."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_ARTICHOKE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_ARTICHOKE",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Artichoke",
+        List.of(
+            "By far the best bush to strangle an",
+            "artist with. Sigh. Puns be hard."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_AUBERGINE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_AUBERGINE",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Aubergine",
+        List.of(
+            "I refuse to use the word eggplant. I just do."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_ASPARAGUS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_ASPARAGUS",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Asparagus",
+        List.of(
+            "This asparagus bush makes a good",
+            "stalker!"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_BRUSSELS_SPROUTS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_BRUSSELS_SPROUTS",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Brussels Sprouts",
+        List.of(
+            "A bush that can sometimes produce noxious",
+            "gas."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CABBAGE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CABBAGE",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Cabbage",
+        List.of(
+            "A bush that comes with a large amount of",
+            "emotional cabbage."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CAULIFLOWER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CAULIFLOWER",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Cauliflower",
+        List.of(
+            "A bush capable of producing little clouds",
+            "of delight."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CELERY = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CELERY",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Celery",
+        List.of(
+            "This bush is redundant.",
+            "Sefi doesn't like Celery."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_KALE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_KALE",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Kale",
+        List.of(
+            "When you plant this bush, you get the feeling",
+            "that everything is going to be o-kale."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_SPINACH = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_SPINACH",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Spinach",
+        List.of(
+            "This bush is Popeye's best friend."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_BLACK_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_BLACK_BEANS",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Black Beans",
+        List.of(
+            "This bush gently whispers to you:",
+            "You are a great human bean."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_GREEN_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_GREEN_BEANS",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Green Beans",
+        List.of(
+            "Throw tomato sauce over this bush to make",
+            "baked beans."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CHICKPEAS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CHICKPEAS",
+        Skins.SPIKEY_ORANGE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Chickpeas",
+        List.of(
+            "A bush made by breeding a chicken with",
+            "a pea. SCIENCE."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_SOY_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_SOY_BEANS",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Soy Beans",
+        List.of(
+            "This bush is a friendly delight. It makes",
+            "me soy happy."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_PINTO_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_PINTO_BEANS",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Pinto Beans",
+        List.of(
+            "It wont be long until we successfully breed",
+            "a direct-burrito bush, right?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_RUNNER_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RUNNER_BEANS",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Runner Beans",
+        List.of(
+            "This bush has feet o.o?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_NETTLES = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_NETTLES",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Nettles",
+        List.of(
+            "Be careful when walking through this bush!"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_OKRA = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_OKRA",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Okra",
+        List.of(
+            "Voted the number 1 vegetable according to",
+            "Okra Winfrey's Vegetable Club."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_LEEK = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_LEEK",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Leek",
+        List.of(
+            "Did you know a leek is just an onion that",
+            "wears a corset? True story."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_SHALLOT = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_SHALLOT",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Shallot",
+        List.of(
+            "This bush rapidly produces lovely mini onions.",
+            "Luckily you don't need a shallot."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_JALAPENO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_JALAPENO",
+        Skins.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Jalapeno",
+        List.of(
+            "Just holding this bush gives you a",
+            "1% change to set ablaze."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_RADICCHIO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RADICCHIO",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Radicchio",
+        List.of(
+            "Want to sound fancy? But Radicchio into any",
+            "meal - it's basically like cabbage but",
+            "makes you seem refined."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_RHUBARB = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RHUBARB",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Rhubarb",
+        List.of(
+            "Did you know rhubarb was a vegetable?",
+            "I thought it was a type of hammer."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CELERIAC = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CELERIAC",
+        Skins.SPIKEY_ORANGE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Celeriac",
+        List.of(
+            "Yet another root growing off of a bush?",
+            "SefiDumb™"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_PARSNIP = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_PARSNIP",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Parsnip",
+        List.of(
+            "Just skip the middleman and roast the bush",
+            "directly."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_RUTABAGA = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RUTABAGA",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Rutabaga",
+        List.of(
+            "Swede. Its a swede."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_RADDISH = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_RADDISH",
+        Skins.SPIKEY_RED_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Raddish",
+        List.of(
+            "This plant just did a skateboarding trick.",
+            "Totally Rad...ish."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_SWEET_POTATO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_SWEET_POTATO",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Sweet Potato",
+        List.of(
+            "This bush is just so sweet. I heard it",
+            "complimenting you while you weren't listening."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_TURNIP = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_TURNIP",
+        Skins.SPIKEY_ORANGE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Turnip",
+        List.of(
+            "According to the British Government",
+            "this bush will solve all our problems."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_SWEETCORN = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_SWEETCORN",
+        Skins.SPIKEY_YELLOW_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Sweetcorn",
+        List.of(
+            "This bush is just crying out to be built into",
+            "a maze."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_COURGETTE = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_COURGETTE",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Courgette",
+        List.of(
+            "Why does this bush just keep shouting the",
+            "word Zucchini? I guess it must be american?"
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_CUCUMBER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_CUCUMBER",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Cucumber",
+        List.of(
+            "This bush was designed solely for the purposes",
+            "of your lovely summer salads."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_MARROW = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_MARROW",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Marrow",
+        List.of(
+            "I'm surprised this bush can hold it's",
+            "own weight."
         )
     );
 
@@ -1542,6 +2248,23 @@ public final class CultivationStacks {
         "One upon a lime there was a delicious fruit..."
     );
 
+    public static final SlimefunItemStack CHESTNUT = Theme.themedSlimefunItemStack(
+        "CLT_CHESTNUT",
+        Skins.CHESTNUT.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Chestnut",
+        "Designed to be baked, immediately."
+    );
+
+    public static final SlimefunItemStack HAZELNUT = Theme.themedSlimefunItemStack(
+        "CLT_HAZELNUT",
+        Skins.HAZELNUT.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Hazelnut",
+        "Do whatever you need to turn this into",
+        "a coffee for me, now!"
+    );
+
     public static final SlimefunItemStack GRAPE = Theme.themedSlimefunItemStack(
         "CLT_GRAPE",
         Skins.GRAPE.getPlayerHead(),
@@ -1655,6 +2378,544 @@ public final class CultivationStacks {
         "Naw, just a tiny tree :)"
     );
 
+    public static final SlimefunItemStack CINNAMON = Theme.themedSlimefunItemStack(
+        "CLT_CINNAMON",
+        new ItemStack(Material.STICK),
+        CultivationThemes.PRODUCE,
+        "Cinnamon",
+        "Great to chew on in it's stick form."
+    );
+
+    public static final SlimefunItemStack BASIL = Theme.themedSlimefunItemStack(
+        "CLT_BASIL",
+        new ItemStack(Material.SMALL_DRIPLEAF),
+        CultivationThemes.PRODUCE,
+        "Basil",
+        "A sweet leaf with a soft peppery aftertaste."
+    );
+
+    public static final SlimefunItemStack BAY_LEAF = Theme.themedSlimefunItemStack(
+        "CLT_BAY_LEAF",
+        new ItemStack(Material.LILY_PAD),
+        CultivationThemes.PRODUCE,
+        "Bay Leaf",
+        "A strong aromat with many uses."
+    );
+
+    public static final SlimefunItemStack CILANTRO = Theme.themedSlimefunItemStack(
+        "CLT_CILANTRO",
+        new ItemStack(Material.MANGROVE_LEAVES),
+        CultivationThemes.PRODUCE,
+        "Cilantro",
+        "A soft spice with a hit of citrus."
+    );
+
+    public static final SlimefunItemStack CHICORY = Theme.themedSlimefunItemStack(
+        "CLT_CHICORY",
+        new ItemStack(Material.BLUE_ORCHID),
+        CultivationThemes.PRODUCE,
+        "Chicory",
+        "A nutty, bitter root."
+    );
+
+    public static final SlimefunItemStack CHIVES = Theme.themedSlimefunItemStack(
+        "CLT_CHIVES",
+        new ItemStack(Material.SEAGRASS),
+        CultivationThemes.PRODUCE,
+        "Chives",
+        "A sweat, onion-tasting, herb."
+    );
+
+    public static final SlimefunItemStack CLOVE = Theme.themedSlimefunItemStack(
+        "CLT_CLOVE",
+        new ItemStack(Material.POPPY),
+        CultivationThemes.PRODUCE,
+        "Clove",
+        "A super warm and intense flavour."
+    );
+
+    public static final SlimefunItemStack CUMIN = Theme.themedSlimefunItemStack(
+        "CLT_CUMIN",
+        new ItemStack(Material.DANDELION),
+        CultivationThemes.PRODUCE,
+        "Cumin",
+        "A warm citrusy plant."
+    );
+
+    public static final SlimefunItemStack CHILLI_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_CHILLY_PEPPER",
+        Skins.PEPPERS.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Chilly Pepper",
+        "I can eat a whole pepper without crying.",
+        "Well, half.",
+        "WEEEELLL.... 1/4",
+        "...",
+        "Ok I can touch one on my tounge"
+    );
+
+    public static final SlimefunItemStack CURRY_LEAF = Theme.themedSlimefunItemStack(
+        "CLT_CURRY_LEAF",
+        new ItemStack(Material.KELP),
+        CultivationThemes.PRODUCE,
+        "Curry Leaf",
+        "The basis of so many wonderful foods."
+    );
+
+    public static final SlimefunItemStack DILL = Theme.themedSlimefunItemStack(
+        "CLT_DILL",
+        new ItemStack(Material.GRASS),
+        CultivationThemes.PRODUCE,
+        "Dill",
+        "Just taste like grass to me. Why",
+        "do people like this?"
+    );
+
+    public static final SlimefunItemStack FENNEL = Theme.themedSlimefunItemStack(
+        "CLT_FENNEL",
+        new ItemStack(Material.OXEYE_DAISY),
+        CultivationThemes.PRODUCE,
+        "Fennel",
+        "Like a mix of Anise and Liquorice."
+    );
+
+    public static final SlimefunItemStack GINGER = Theme.themedSlimefunItemStack(
+        "CLT_GINGER",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Ginger",
+        "Chopped Ginger in boiling water, heals all ailments!"
+    );
+
+    public static final SlimefunItemStack HORSERADISH = Theme.themedSlimefunItemStack(
+        "CLT_HORSERADISH",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Horseradish",
+        "$100 if you bite right into it."
+    );
+
+    public static final SlimefunItemStack JASMINE = Theme.themedSlimefunItemStack(
+        "CLT_JASMINE",
+        new ItemStack(Material.WHITE_TULIP),
+        CultivationThemes.PRODUCE,
+        "Jasmine",
+        "Makes for a wonderful tea."
+    );
+
+    public static final SlimefunItemStack JUNIPER_BERRY = Theme.themedSlimefunItemStack(
+        "CLT_JUNIPER_BERRY",
+        new ItemStack(Material.GLOW_BERRIES),
+        CultivationThemes.PRODUCE,
+        "Juniper Berries",
+        "Dried to a peppery perfection."
+    );
+
+    public static final SlimefunItemStack KAFFIR_LIME = Theme.themedSlimefunItemStack(
+        "CLT_KAFFIR_LIME",
+        new ItemStack(Material.KELP),
+        CultivationThemes.PRODUCE,
+        "Kaffir Lime Leaf",
+        "A leaf with a mighty zest."
+    );
+
+    public static final SlimefunItemStack LAVENDER = Theme.themedSlimefunItemStack(
+        "CLT_LAVENDER",
+        new ItemStack(Material.PURPLE_DYE),
+        CultivationThemes.PRODUCE,
+        "Lavender",
+        "A smell that can make me drift slowly to sleep."
+    );
+
+    public static final SlimefunItemStack LICORICE = Theme.themedSlimefunItemStack(
+        "CLT_LICORICE",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Licorice",
+        "Run, run away now!"
+    );
+
+    public static final SlimefunItemStack MACE = Theme.themedSlimefunItemStack(
+        "CLT_MACE",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Mace",
+        "Used to spray in the face of attackers.",
+        "...",
+        "What do you mean that's not the right type of mace?"
+    );
+
+    public static final SlimefunItemStack MARJORAM = Theme.themedSlimefunItemStack(
+        "CLT_MARJORAM",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Marjoram",
+        "I'm in a bit of a curry, could we talk later?"
+    );
+
+    public static final SlimefunItemStack MINT = Theme.themedSlimefunItemStack(
+        "CLT_MINT",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Mint",
+        "Chew chew chew."
+    );
+
+    public static final SlimefunItemStack OREGANO = Theme.themedSlimefunItemStack(
+        "CLT_OREGANO",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Oregano",
+        "A classic staple cupboard herb."
+    );
+
+    public static final SlimefunItemStack PARSLEY = Theme.themedSlimefunItemStack(
+        "CLT_PARSLEY",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Parsley",
+        "Worst. Herb. Ever."
+    );
+
+    public static final SlimefunItemStack ROSEMARY = Theme.themedSlimefunItemStack(
+        "CLT_ROSEMARY",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Rosemary",
+        "Often misses thyme."
+    );
+
+    public static final SlimefunItemStack SASSAFRAS = Theme.themedSlimefunItemStack(
+        "CLT_SASSAFRAS",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Sassafras",
+        "Edible Root Beer, seriously google",
+        "it, I buy it constantly now."
+    );
+
+    public static final SlimefunItemStack SHISO = Theme.themedSlimefunItemStack(
+        "CLT_SHISO",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Shiso",
+        "Mint with a side of love."
+    );
+
+    public static final SlimefunItemStack STAR_ANISE = Theme.themedSlimefunItemStack(
+        "CLT_STAR_ANISE",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Star Anise",
+        "One of the best and most unique flavours."
+    );
+
+    public static final SlimefunItemStack TARRAGON = Theme.themedSlimefunItemStack(
+        "CLT_TARRAGON",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Tarragon",
+        "I literally put this on anything.",
+        "Spoiler: Im not a good chef."
+    );
+
+    public static final SlimefunItemStack THYME = Theme.themedSlimefunItemStack(
+        "CLT_THYME",
+        new ItemStack(Material.BIRCH_LEAVES),
+        CultivationThemes.PRODUCE,
+        "Thyme",
+        "Often missed rosemary."
+    );
+
+    public static final SlimefunItemStack TURMERIC = Theme.themedSlimefunItemStack(
+        "CLT_TURMERIC",
+        new ItemStack(Material.YELLOW_DYE),
+        CultivationThemes.PRODUCE,
+        "Turmeric",
+        "A strong musky presence to fill out many dishes."
+    );
+
+    public static final SlimefunItemStack VANILLA = Theme.themedSlimefunItemStack(
+        "CLT_VANILLA",
+        new ItemStack(Material.BLACK_DYE),
+        CultivationThemes.PRODUCE,
+        "Vanilla",
+        "Instructions: Dip directly into a Latte"
+    );
+
+    public static final SlimefunItemStack WASABI = Theme.themedSlimefunItemStack(
+        "CLT_WASABI",
+        new ItemStack(Material.HANGING_ROOTS),
+        CultivationThemes.PRODUCE,
+        "Wasabi",
+        "Help... wasabi..."
+    );
+
+    public static final SlimefunItemStack ARTICHOKE = Theme.themedSlimefunItemStack(
+        "CLT_ARTICHOKE",
+        Skins.CABBAGE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Artichoke",
+        "Rip out it's HEART!"
+    );
+
+    public static final SlimefunItemStack AUBERGINE = Theme.themedSlimefunItemStack(
+        "CLT_AUBERGINE",
+        Skins.AUBERGINE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Aubergine",
+        "Bright purple and 100% NOT egg shaped.",
+        "Better call it an eggplant, right?"
+    );
+
+    public static final SlimefunItemStack ASPARAGUS = Theme.themedSlimefunItemStack(
+        "CLT_ASPARAGUS",
+        Skins.ASPARAGUS.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Asparagus",
+        "Careful when visiting the bathroom later."
+    );
+
+    public static final SlimefunItemStack BRUSSELS_SPROUTS = Theme.themedSlimefunItemStack(
+        "CLT_BRUSSELS_SPROUTS",
+        Skins.KALE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Brussels Sprouts",
+        "A gassious delight."
+    );
+
+    public static final SlimefunItemStack CABBAGE = Theme.themedSlimefunItemStack(
+        "CLT_CABBAGE",
+        Skins.CABBAGE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Cabbage",
+        "A baggage of cabbage."
+    );
+
+    public static final SlimefunItemStack CAULIFLOWER = Theme.themedSlimefunItemStack(
+        "CLT_CAULIFLOWER",
+        Skins.CAULIFLOWER.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Cauliflower",
+        "A portable cloud!"
+    );
+
+    public static final SlimefunItemStack CELERY = Theme.themedSlimefunItemStack(
+        "CLT_CELERY",
+        new ItemStack(Material.BAMBOO),
+        CultivationThemes.PRODUCE,
+        "Celery",
+        "Literally just stringy water. Convince",
+        "me otherwise."
+    );
+
+    public static final SlimefunItemStack KALE = Theme.themedSlimefunItemStack(
+        "CLT_KALE",
+        Skins.KALE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Kale",
+        "Help, im a 2020 smoothie hipster!"
+    );
+
+    public static final SlimefunItemStack SPINACH = Theme.themedSlimefunItemStack(
+        "CLT_SPINACH",
+        new ItemStack(Material.KELP),
+        CultivationThemes.PRODUCE,
+        "Spinach",
+        "Wilted with love."
+    );
+
+    public static final SlimefunItemStack BLACK_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_BLACK_BEANS",
+        new ItemStack(Material.MELON_SEEDS),
+        CultivationThemes.PRODUCE,
+        "Black Beans",
+        "A delicious vegetarian protein."
+    );
+
+    public static final SlimefunItemStack GREEN_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_GREEN_BEANS",
+        new ItemStack(Material.FROGSPAWN),
+        CultivationThemes.PRODUCE,
+        "Green Beans",
+        "How creatively named!"
+    );
+
+    public static final SlimefunItemStack CHICKPEAS = Theme.themedSlimefunItemStack(
+        "CLT_CHICKPEAS",
+        new ItemStack(Material.BEETROOT_SEEDS),
+        CultivationThemes.PRODUCE,
+        "Chickpeas",
+        "Black eyed peas can sing a tune, chickpeas can only hummus one."
+    );
+
+    public static final SlimefunItemStack SOY_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_SOY_BEANS",
+        new ItemStack(Material.MELON_SEEDS),
+        CultivationThemes.PRODUCE,
+        "Soy Beans",
+        "Soy milk cometh."
+    );
+
+    public static final SlimefunItemStack PINTO_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_PINTO_BEANS",
+        new ItemStack(Material.MELON_SEEDS),
+        CultivationThemes.PRODUCE,
+        "Pinto Beans",
+        "Kaching! It's burrito time."
+    );
+
+    public static final SlimefunItemStack RUNNER_BEANS = Theme.themedSlimefunItemStack(
+        "CLT_RUNNER_BEANS",
+        new ItemStack(Material.KELP),
+        CultivationThemes.PRODUCE,
+        "Runner Beans",
+        "Always trying to get away."
+    );
+
+    public static final SlimefunItemStack NETTLES = Theme.themedSlimefunItemStack(
+        "CLT_NETTLES",
+        new ItemStack(Material.AZALEA_LEAVES),
+        CultivationThemes.PRODUCE,
+        "Nettles",
+        "Please put on your gloves before holding these."
+    );
+
+    public static final SlimefunItemStack OKRA = Theme.themedSlimefunItemStack(
+        "CLT_OKRA",
+        Skins.LETTUCE.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Okra",
+        "Grown alot in okra-homa... right, RIGHT?"
+    );
+
+    public static final SlimefunItemStack LEEK = Theme.themedSlimefunItemStack(
+        "CLT_LEEK",
+        Skins.LEEK.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Leek",
+        "for some reason it's dripping with water?",
+        "Perhaps it's sprung a leek?"
+    );
+
+    public static final SlimefunItemStack SHALLOT = Theme.themedSlimefunItemStack(
+        "CLT_SHALLOT",
+        Skins.ONION.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Shallot",
+        "I do love a lot of shallot."
+    );
+
+    public static final SlimefunItemStack JALAPENO = Theme.themedSlimefunItemStack(
+        "CLT_JALAPENO",
+        Skins.PEPPERS.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Jalapeno",
+        "HOT HOT HOT."
+    );
+
+    public static final SlimefunItemStack RADICCHIO = Theme.themedSlimefunItemStack(
+        "CLT_RADICCHIO",
+        Skins.RADDISH.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Radicchio",
+        "Writing all this lore takes so long.",
+        "It's radicchio-less."
+    );
+
+    public static final SlimefunItemStack RHUBARB = Theme.themedSlimefunItemStack(
+        "CLT_RHUBARB",
+        Skins.LEEK.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Rhubarb",
+        "Just be sure to remove the leaves!"
+    );
+
+    public static final SlimefunItemStack CELERIAC = Theme.themedSlimefunItemStack(
+        "CLT_CELERIAC",
+        Skins.PARSNIP.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Celeriac",
+        "A hearty root that's rooted (heh) in many",
+        "traditional recipes."
+    );
+
+    public static final SlimefunItemStack PARSNIP = Theme.themedSlimefunItemStack(
+        "CLT_PARSNIP",
+        Skins.PARSNIP.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Parsnip",
+        "Requires roasting immediately."
+    );
+
+    public static final SlimefunItemStack RUTABAGA = Theme.themedSlimefunItemStack(
+        "CLT_RUTABAGA",
+        Skins.RUTABAGA.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Rutabaga",
+        "It actually hurts not calling this a swede."
+    );
+
+    public static final SlimefunItemStack RADDISH = Theme.themedSlimefunItemStack(
+        "CLT_RADDISH",
+        Skins.RADDISH.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Raddish",
+        "Little pockets of fresh, crisp, sunshine."
+    );
+
+    public static final SlimefunItemStack SWEET_POTATO = Theme.themedSlimefunItemStack(
+        "CLT_SWEET_POTATO",
+        new ItemStack(Material.BEETROOT),
+        CultivationThemes.PRODUCE,
+        "Sweet Potato",
+        "Yam yam yam."
+    );
+
+    public static final SlimefunItemStack TURNIP = Theme.themedSlimefunItemStack(
+        "CLT_TURNIP",
+        Skins.TURNIP.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Turnip",
+        "Will solve all of life's problems."
+    );
+
+    public static final SlimefunItemStack SWEETCORN = Theme.themedSlimefunItemStack(
+        "CLT_SWEETCORN",
+        Skins.CORN.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Sweetcorn",
+        "Perhaps the best vegetable around."
+    );
+
+    public static final SlimefunItemStack COURGETTE = Theme.themedSlimefunItemStack(
+        "CLT_COURGETTE",
+        new ItemStack(Material.BAMBOO),
+        CultivationThemes.PRODUCE,
+        "Courgette",
+        "Pro Tip: Grate this into any pasta sauce",
+        "for depth and texture."
+    );
+
+    public static final SlimefunItemStack CUCUMBER = Theme.themedSlimefunItemStack(
+        "CLT_CUCUMBER",
+        new ItemStack(Material.BAMBOO),
+        CultivationThemes.PRODUCE,
+        "Cucumber",
+        "Water in a green shell, prove me",
+        "wrong."
+    );
+
+    public static final SlimefunItemStack MARROW = Theme.themedSlimefunItemStack(
+        "CLT_MARROW",
+        Skins.SQUASH.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Marrow",
+        "Did you know marrows are found within",
+        "your bones?",
+        "Yup, Sefi Smort."
+    );
+
     // endregion
 
     // region Crafted By Products
@@ -1741,6 +3002,14 @@ public final class CultivationStacks {
         "you can eat it raw."
     );
 
+    public static final SlimefunItemStack MEATBALLS = Theme.themedSlimefunItemStack(
+        "CLT_MEATBALLS",
+        new ItemStack(Material.BROWN_DYE),
+        CultivationThemes.PRODUCE,
+        "Meatballs",
+        "Balls of meat, who'd-a-thunk it."
+    );
+
     // endregion
 
     // region Finished Foods
@@ -1748,7 +3017,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack FOOD_PEANUT_BUTTER_JELLY_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_PEANUT_BUTTER_JELLY_SANDWICH",
         Skins.PEANUT_BUTTER_JELLY_SANDWICH.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Peanut Butter Jelly Sandwich",
         "It really is the pinnacle of sandwich technology.",
         "",
@@ -1759,7 +3028,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack EGG_SALAD_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_EGG_SALAD_SANDWICH",
         Skins.CHEESY_SANDWICH.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Egg Salad Sandwich",
         "Smells a bit, but tastes amazing!",
         "",
@@ -1770,7 +3039,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack BACON_SANDWICH = Theme.themedSlimefunItemStack(
         "CLT_BACON_SANDWICH",
         Skins.MEATY_SANDWICH.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Bacon Sandwich",
         "A simple classic!",
         "",
@@ -1782,7 +3051,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack SALMON_NIGIRI = Theme.themedSlimefunItemStack(
         "CLT_SALMON_NIGIRI",
         Skins.SUSHI_SALMON.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Salmon Nigiri",
         "A delightful yet subtle flavour.",
         "",
@@ -1793,7 +3062,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CAJUN_GARLIC_BUTTER_COD = Theme.themedSlimefunItemStack(
         "CLT_CAJUN_GARLIC_BUTTER_COD",
         Skins.MEAL_RED_GREEN_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Cajun Garlic Butter Cod",
         "A very simple dish busting with flavour.",
         "",
@@ -1805,7 +3074,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack SHAKSHUKA = Theme.themedSlimefunItemStack(
         "CLT_SHAKSHUKA",
         Skins.SHAKSHUKA.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Shakshuka",
         "A heart warming dish with eggs for days.",
         "",
@@ -1817,7 +3086,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack FUGU = Theme.themedSlimefunItemStack(
         "CLT_FUGU",
         Skins.SUSHI_TUNA.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Fugu",
         "Ready to roll the dice?",
         "",
@@ -1829,7 +3098,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack SHEPHERDS_PIE = Theme.themedSlimefunItemStack(
         "CLT_SHEPHERDS_PIE",
         Skins.MEAL_YELLOW_RED_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Shepherds Pie",
         "Warm, hearty and simply wonderful.",
         "",
@@ -1840,7 +3109,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CHICKEN_POT_PIE = Theme.themedSlimefunItemStack(
         "CLT_CHICKEN_POT_PIE",
         Skins.PIE_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Chicken Pot Pie",
         "A warming meal that really hits home.",
         "",
@@ -1852,7 +3121,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CHICKEN_PASTA_BAKE = Theme.themedSlimefunItemStack(
         "CLT_CHICKEN_PASTA_BAKE",
         Skins.PASTA_BAKE.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Chicken Pasta Bake",
         "A student staple.",
         "",
@@ -1864,7 +3133,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CHICKEN_ALFREDO_MAC_AND_CHEESE = Theme.themedSlimefunItemStack(
         "CLT_CHICKEN_ALFREDO_MAC_AND_CHEESE",
         Skins.MAC_AND_CHEESE.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Chicken Alfredo Mac and Cheese",
         "A posh twist on a common classic.",
         "",
@@ -1876,7 +3145,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack KEY_LIME_PIE = Theme.themedSlimefunItemStack(
         "CLT_KEY_LIME_PIE",
         Skins.PIE_LIME.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Key Lime Pie",
         "Simply the best!",
         "",
@@ -1887,7 +3156,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack FRUIT_SALAD = Theme.themedSlimefunItemStack(
         "CLT_FRUIT_SALAD",
         Skins.FRUIT_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Fruit Salad",
         "If you call it a salad, you can eat as much",
         "as you like, 'cause it's healthy.",
@@ -1899,7 +3168,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack CAESAR_SALAD = Theme.themedSlimefunItemStack(
         "CLT_CAESAR_SALAD",
         Skins.FRUIT_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Caesar Salad",
         "A healthy classic.",
         "",
@@ -1912,7 +3181,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack BISCUIT = Theme.themedSlimefunItemStack(
         "CLT_BISCUIT",
         new ItemStack(Material.COOKIE),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Biscuit",
         "A little snack with a huge taste.",
         "",
@@ -1922,7 +3191,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack COMPRESSED_BISCUIT = Theme.themedSlimefunItemStack(
         "CLT_COMPRESSED_BISCUIT",
         new ItemStack(Material.COOKIE),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Compressed Biscuit",
         "A little snack with a huge-er taste.",
         "",
@@ -1932,7 +3201,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack LEMON_DROP = Theme.themedSlimefunItemStack(
         "CLT_LEMON_DROP",
         new ItemStack(Material.YELLOW_DYE),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Lemon Drop",
         "A palette cleanser.",
         "",
@@ -1942,7 +3211,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack GRILLED_SALMON_SALAD = Theme.themedSlimefunItemStack(
         "CLT_GRILLED_SALMON_SALAD",
         Skins.MEAL_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Grilled Salmon Salad",
         "Delightfully flaky and brilliantly seasoned.",
         "",
@@ -1954,7 +3223,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack WITHER_ROSE_SALAD = Theme.themedSlimefunItemStack(
         "CLT_WITHER_ROSE_SALAD",
         Skins.MEAL_SALAD.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Wither Rose Salad",
         "Teeming with power but with a harsh side-effect.",
         "",
@@ -1966,7 +3235,7 @@ public final class CultivationStacks {
     public static final SlimefunItemStack ORANGE_JUICE = Theme.themedSlimefunItemStack(
         "CLT_ORANGE_JUICE",
         ItemStackGenerators.createPotion(Color.YELLOW),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Orange Juice",
         "It really is the best way to start the day.",
         "",
@@ -1976,15 +3245,35 @@ public final class CultivationStacks {
     public static final SlimefunItemStack LASAGNA = Theme.themedSlimefunItemStack(
         "CLT_LASAGNA",
         Skins.MEAL_YELLOW_RED_BROWN.getPlayerHead(),
-        CultivationThemes.PRODUCE,
+        CultivationThemes.FOOD,
         "Lasagna",
         "Layers of awesomeness.",
         "",
         Theme.CLICK_INFO.asTitle("Healing", "Full"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Regeneration + 1"),
-        Theme.CLICK_INFO.asTitle("Effect 1", "Damage Reduction + 1")
+        Theme.CLICK_INFO.asTitle("Effect 2", "Damage Reduction + 1")
+    );
+
+    public static final SlimefunItemStack SPAGHETTI = Theme.themedSlimefunItemStack(
+        "CLT_SPAGHETTI",
+        Skins.SPAGHETTI.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Spaghetti",
+        "Just keep slurping.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "1 Heart")
+    );
+
+    public static final SlimefunItemStack SPAGHETTI_AND_MEATBALLS = Theme.themedSlimefunItemStack(
+        "CLT_SPAGHETTI_AND_MEATBALLS",
+        Skins.SPAGHETTI.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Spaghetti and Meatballs",
+        "Simple, classic and hearty.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Heart"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Bad Omen + 1")
     );
 
     // end region
-
 }

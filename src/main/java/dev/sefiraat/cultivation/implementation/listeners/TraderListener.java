@@ -3,6 +3,7 @@ package dev.sefiraat.cultivation.implementation.listeners;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
+import dev.sefiraat.cultivation.api.slimefun.items.produce.ByProduct;
 import dev.sefiraat.cultivation.api.slimefun.items.trees.CultivationTree;
 import dev.sefiraat.cultivation.implementation.slimefun.items.Tools;
 import org.bukkit.Bukkit;
@@ -47,6 +48,11 @@ public class TraderListener implements Listener {
                 Cultivation.getInstance(), () -> addRecipe(villager, this::addTreeRecipe),
                 1
             );
+        } else if (event.getProfession() == Villager.Profession.CLERIC) {
+            Bukkit.getScheduler().runTaskLater(
+                Cultivation.getInstance(), () -> addRecipe(villager, this::addByProductRecipe),
+                1
+            );
         }
     }
 
@@ -81,5 +87,17 @@ public class TraderListener implements Listener {
         MerchantRecipe merchantRecipe = new MerchantRecipe(itemStack, 1);
         merchantRecipe.addIngredient(new ItemStack(Material.GOLD_INGOT, 64));
         recipes.add(merchantRecipe);
+    }
+
+    private void addByProductRecipe(@Nonnull List<MerchantRecipe> recipes) {
+        for (int i = 0; i < 3; i++) {
+            int randomUpper = Registry.getInstance().getRegisteredByProducts().size();
+            int random = ThreadLocalRandom.current().nextInt(randomUpper);
+            ByProduct byProduct = Registry.getInstance().getRegisteredByProducts().get(random);
+            ItemStack itemStack = byProduct.getItem().clone();
+            MerchantRecipe merchantRecipe = new MerchantRecipe(itemStack, 4);
+            merchantRecipe.addIngredient(new ItemStack(Material.EMERALD, 1));
+            recipes.add(merchantRecipe);
+        }
     }
 }

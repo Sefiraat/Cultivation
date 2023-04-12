@@ -431,6 +431,36 @@ public final class Foods {
         }
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food SPAGHETTI = new Food(
+        CultivationGroups.FOODS,
+        CultivationStacks.SPAGHETTI,
+        RecipeTypes.FINISHING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.SPAGHETTI,
+            new ItemStack[]{
+                Ingredients.PASTA.getItem(), null, null,
+                null, Ingredients.PASTA.getItem(), null,
+                null, null, Ingredients.PASTA.getItem()
+            }
+        ),
+        player -> simplePlayerEffect(player, 2)
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food SPAGHETTI_AND_MEATBALLS = new Food(
+        CultivationGroups.FOODS,
+        CultivationStacks.SPAGHETTI_AND_MEATBALLS,
+        RecipeTypes.BAKING,
+        RecipeTypes.createFoodFinishingRecipe(
+            CultivationStacks.SPAGHETTI_AND_MEATBALLS,
+            new ItemStack[]{
+                null, Ingredients.MEATBALLS.getItem(), null,
+                null, SPAGHETTI.getItem(), null,
+                null, null, null
+            }
+        ),
+        player -> simplePlayerEffect(player, 2, new Pair<>(PotionEffectType.BAD_OMEN, 0))
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
 
     }

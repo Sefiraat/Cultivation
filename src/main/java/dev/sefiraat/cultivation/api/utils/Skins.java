@@ -363,6 +363,10 @@ public enum Skins {
     KIWI("4cc18ec4649f07d5a38a583d9271fd83a6f37318758e46ea87fc2b2d1afc2d9"),
     // https://minecraft-heads.com/custom-heads/plants/39730-tropical-fruit
     LIME("95f6356c0cf82f7e497435c2227ab7ed98734ca1b0084bd770e53f39285ff7ec"),
+    // https://minecraft-heads.com/custom-heads/plants/57802-chestnut
+    CHESTNUT("7aea6b06c058546247e6567009440140946ea53623829721bd46b3e6a0e5cce8"),
+    // https://minecraft-heads.com/custom-heads/plants/1214-hazelnut
+    HAZELNUT("678784703fa59cd153fcabe3ccd9d44c469a8d63e6d438626ad9ebc70707fc3"),
     // https://minecraft-heads.com/custom-heads/plants/60981-grape
     GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
     // https://minecraft-heads.com/custom-heads/plants/55177-peanut
@@ -385,12 +389,44 @@ public enum Skins {
     SPICE_BROWN("f80c9a68cd232d2568ca152685b6730a7b73bbc6abae69130361fcdcd3aa484d"),
     // https://minecraft-heads.com/custom-heads/decoration/32575-spice-container-ginger
     SPICE_YELLOW("e134dbb2e6d1c673b47b0f3a086160b480cb5d92a420c64c8f5c45ddb3e64015"),
+    // https://minecraft-heads.com/custom-heads/decoration/32576-spice-container-dill
+    SPICE_GREEN("282fd4afb3d4c81ab8863fcb9409d1b2b35d1f6684f9a2f515c4eae9f2ee3e2f"),
+    // https://minecraft-heads.com/custom-heads/decoration/32571-spice-container-pink-salt
+    SPICE_PINK("6d9d3005c9368ced2992eaf386acfdc958ae24845a72fd5b335a780cb3e12a31"),
     // https://minecraft-heads.com/custom-heads/plants/2241-onion
     ONION("a6ecc46dc3dc85fcd57198176ee841f1a041b15f73ecb19fde62ee4315c4a6"),
     // https://minecraft-heads.com/custom-heads/plants/17984-lettuce
     LETTUCE("2d52e883c6436ca7e764bda4b58afa53da6a649030f663953dce9fd6315f9fea"),
     // https://minecraft-heads.com/custom-heads/plants/33413-broccoli
     BROCCOLI("65106f0cc4c12dcfe7736a1ffc92772f41b66e1b7682b1f47537787720567262"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/58551-bundle-of-asparagus
+    ASPARAGUS("2ba5599e26cf2252d431a950b2078a0af2e45c60edff9d4fadf62c323df5411f"),
+    // https://minecraft-heads.com/custom-heads/plants/58595-turnip
+    TURNIP("bfac2d1d21aeb8d7a0c289733511d903df57924ad6bd61d00567a55af649bc0d"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/58550-bundle-of-leeks
+    LEEK("c144a523b05063c81f006fdbd8d9b75249aa009b4c1f46db27dbbeafc4a8578"),
+    // https://minecraft-heads.com/custom-heads/plants/50806-parsnip
+    PARSNIP("d0f61fe6d3c0e7f01434d38367b1a50db04f8cccbdbbda1806bf1198318dc7eb"),
+    // https://minecraft-heads.com/custom-heads/plants/51475-cabbage
+    CABBAGE("58e59dc722e419fe064f0c7992a7897b73cc7c5205e19d067a174bcb018e9429"),
+    // https://minecraft-heads.com/custom-heads/plants/43379-radish
+    RADDISH("cd56f448876ebfdaa88ca7f0137a6837f4d2ba14dd3d6615d82d617c39b39daf"),
+    // https://minecraft-heads.com/custom-heads/plants/32990-aubergine
+    AUBERGINE("521358c5b2e2526ae6aab91a5fb09198461a7cc4d860e8647d5e10fb6c87be67"),
+    // https://minecraft-heads.com/custom-heads/plants/33211-cauliflower
+    CAULIFLOWER("14a6dedd99bb9af3f1b2f338d509a926606cddfdc351e018aad1c07015ad566d"),
+    // https://minecraft-heads.com/custom-heads/plants/19674-kale
+    KALE("1b913d9d6e306d953461d1f7468321868a9bad4df53d1a7dc64b0797628f0"),
+    // https://minecraft-heads.com/custom-heads/plants/19673-kohlrabi
+    KOHLRABI("2969d3149333e1e658f5da69dc6131a87fa6817cda2ba6387d5f5f31e0ef73"),
+    // https://minecraft-heads.com/custom-heads/plants/13125-avocado
+    AVOCADO("6af2bf32bb8937a5aadfbf6d8dc56a21ef65f6884db67206280fa1e149f8c4b"),
+    // https://minecraft-heads.com/custom-heads/plants/2179-corn
+    CORN("d391dffbea2fc3f2ad78a623f49bf7e1121694112c3759feed4156fc2ba46c0"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/58921-squash
+    SQUASH("36ae076649ef22f60e8511831c68fd2b6ea63c32164dab33a8aebc18ff2a54c8"),
+    // https://minecraft-heads.com/custom-heads/plants/58594-rutabaga
+    RUTABAGA("b3661e4bf4c3e730a3aaa1053a3fc524dc03df67bf7a20979efdb2ad1a9e4084"),
 
     // endregion
 
@@ -432,6 +468,8 @@ public enum Skins {
     MEAL_RED_GREEN_BROWN("dd7a3c9529054efba4ef898967b944e95b8c04e41018b483d6c5690c9651b053"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/52709-ham-cheese-bowl
     MEAL_YELLOW_RED_BROWN("1eb74cc5d3d174d67d0b2a7a42d8869a356179f2bc220dd42d1ed61a3005bd46"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/2402-spaghetti
+    SPAGHETTI("3c46bec5a25e3de6d1e651c75b5ee8c41d466b227d3fa27d1f289954c1497"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/52716-salad-radish
     MEAL_SALAD("68fe49b4386658ae3f7c6a6b6f80eada4f12b1ab84da3b205319701d228966ad"),
     // https://minecraft-heads.com/custom-heads/food-drinks/60064-bread-in-a-basket

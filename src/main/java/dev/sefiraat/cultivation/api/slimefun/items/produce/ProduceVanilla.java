@@ -134,7 +134,6 @@ public class ProduceVanilla {
             recipeType,
             this.itemStack
         );
-        byProduct.register(Cultivation.getInstance());
 
         if (recipeType == RecipeTypes.CHOPPED) {
             Machines.COUNTER_CHOPPING.addRecipe(materialName, byProduct.getItem());
@@ -168,6 +167,6 @@ public class ProduceVanilla {
             Machines.COUNTER_GRILL.addRecipe(materialName, byProduct.getItem());
         }
 
-        return byProduct;
+        return byProduct.buildRegister(Cultivation.getInstance());
     }
 }

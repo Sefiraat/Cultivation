@@ -48,7 +48,7 @@ public final class Trees {
     public static final CultivationTree TREE_PINEAPPLE = new CultivationTree(
         CultivationGroups.TREES,
         CultivationStacks.TREE_PINEAPPLE,
-        TreeDesign.ACACIA_2,
+        TreeDesign.OAK_2,
         Products.PINEAPPLE,
         Skins.PINEAPPLE
     ).buildRegister(Cultivation.getInstance());
@@ -107,6 +107,22 @@ public final class Trees {
         TreeDesign.OAK_2,
         Products.LIME,
         Skins.LIME
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationTree TREE_CHESTNUT = new CultivationTree(
+        CultivationGroups.TREES,
+        CultivationStacks.TREE_CHESTNUT,
+        TreeDesign.OAK_2,
+        Products.CHESTNUT,
+        Skins.CHESTNUT
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final CultivationTree TREE_HAZELNUT = new CultivationTree(
+        CultivationGroups.TREES,
+        CultivationStacks.TREE_HAZELNUT,
+        TreeDesign.JUNGLE_1,
+        Products.HAZELNUT,
+        Skins.HAZELNUT
     ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {

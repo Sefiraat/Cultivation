@@ -2,6 +2,7 @@ package dev.sefiraat.cultivation.api.slimefun.items.trees;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
+import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.ProduceCore;
 import dev.sefiraat.cultivation.api.utils.Skins;
 import dev.sefiraat.sefilib.string.Theme;
@@ -9,7 +10,6 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -29,7 +29,7 @@ public class CultivationTree extends SlimefunItem {
                            ProduceCore produce,
                            Skins skin
     ) {
-        super(itemGroup, item, RecipeType.NULL, new ItemStack[0]);
+        super(itemGroup, item, RecipeTypes.TRADING_FLETCHER, new ItemStack[0]);
         this.treeDesign = treeDesign;
         this.produce = produce;
         this.skin = skin;

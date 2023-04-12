@@ -1,5 +1,6 @@
 package dev.sefiraat.cultivation.api.slimefun.items.produce;
 
+import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -21,6 +22,7 @@ public class ByProduct extends UnplaceableBlock {
 
     public ByProduct buildRegister(SlimefunAddon addon) {
         register(addon);
+        Registry.getInstance().addByProduct(this);
         return this;
     }
 }
