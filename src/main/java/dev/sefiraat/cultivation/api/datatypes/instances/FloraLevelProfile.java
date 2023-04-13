@@ -87,9 +87,9 @@ public class FloraLevelProfile {
         double mutateChance = BASE_MUTATION_RATE + (averageStrength / 10.0);
 
         return new FloraLevelProfile(
-            Chance.testChance(mutateChance) ? averageLevel + 1 : averageLevel,
-            Chance.testChance(mutateChance) ? averageSpeed + 1 : averageSpeed,
-            Chance.testChance(mutateChance) ? averageStrength + 1 : averageStrength
+            Chance.testChance(mutateChance) ? Math.min(averageLevel + 1, 10) : averageLevel,
+            Chance.testChance(mutateChance) ? Math.min(averageSpeed + 1, 10) : averageSpeed,
+            Chance.testChance(mutateChance) ? Math.min(averageStrength + 1, 10) : averageStrength
         );
     }
 
