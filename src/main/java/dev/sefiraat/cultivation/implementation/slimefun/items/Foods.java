@@ -37,7 +37,8 @@ public final class Foods {
                 player.removePotionEffect(activePotionEffect.getType());
             }
         }
-    ).buildRegister(Cultivation.getInstance());
+    ).overrideEatingMessage("You feel your palette being cleansed.")
+        .buildRegister(Cultivation.getInstance());
 
     public static final Food PEANUT_BUTTER_JELLY_SANDWICH = new Food(
         CultivationStacks.FOOD_PEANUT_BUTTER_JELLY_SANDWICH,

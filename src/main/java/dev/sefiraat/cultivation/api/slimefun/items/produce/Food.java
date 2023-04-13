@@ -22,6 +22,7 @@ import java.util.function.Consumer;
 public class Food extends SimpleSlimefunItem<ItemUseHandler> {
 
     private final Consumer<Player> eatingEffects;
+    private String eatingMessage = "Lovely! You're all full up.";
 
     public Food(SlimefunItemStack item,
                 RecipeType recipeType,
@@ -51,10 +52,15 @@ public class Food extends SimpleSlimefunItem<ItemUseHandler> {
                     PersistentDataAPI.remove(player, Keys.SATIATED);
                 }
                 e.getItem().setAmount(e.getItem().getAmount() - 1);
-                player.sendMessage(Theme.SUCCESS.apply("Lovely! You're all full up."));
+                player.sendMessage(Theme.SUCCESS.apply(eatingMessage));
                 eatingEffects.accept(player);
             }
         };
+    }
+
+    public Food overrideEatingMessage(@Nonnull String string) {
+        this.eatingMessage = string;
+        return this;
     }
 
     public Food buildRegister(@Nonnull SlimefunAddon addon) {
