@@ -1,9 +1,11 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
+import dev.sefiraat.cultivation.api.events.CultivationTreeGrowEvent;
 import dev.sefiraat.cultivation.api.slimefun.items.trees.CultivationTree;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -22,6 +24,16 @@ public class TreeListener implements Listener {
         if (slimefunItem instanceof CultivationTree tree) {
             event.setCancelled(true);
             if (tree.testBuild(location)) {
+                CultivationTreeGrowEvent growEvent = new CultivationTreeGrowEvent(
+                    location,
+                    event.getPlayer(),
+                    tree.getTreeDesign(),
+                    slimefunItem
+                );
+                Bukkit.getPluginManager().callEvent(growEvent);
+                if (growEvent.isCancelled()) {
+                    return;
+                }
                 BlockStorage.clearBlockInfo(location);
                 tree.grow(location);
             } else {
