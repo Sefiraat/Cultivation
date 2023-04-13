@@ -1012,6 +1012,17 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack BUSH_AVOCADO = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_AVOCADO",
+        Skins.SPIKEY_GREEN_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Avocado",
+        List.of(
+            "This bush has been bred specifically to not",
+            "use too much water."
+        )
+    );
+
     // endregion
 
     // region Plants
@@ -2539,7 +2550,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack MACE = Theme.themedSlimefunItemStack(
         "CLT_MACE",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.RED_DYE),
         CultivationThemes.PRODUCE,
         "Mace",
         "Used to spray in the face of attackers.",
@@ -2549,7 +2560,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack MARJORAM = Theme.themedSlimefunItemStack(
         "CLT_MARJORAM",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.DARK_OAK_LEAVES),
         CultivationThemes.PRODUCE,
         "Marjoram",
         "I'm in a bit of a curry, could we talk later?"
@@ -2557,7 +2568,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack MINT = Theme.themedSlimefunItemStack(
         "CLT_MINT",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.MANGROVE_LEAVES),
         CultivationThemes.PRODUCE,
         "Mint",
         "Chew chew chew."
@@ -2565,7 +2576,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack OREGANO = Theme.themedSlimefunItemStack(
         "CLT_OREGANO",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.SPRUCE_LEAVES),
         CultivationThemes.PRODUCE,
         "Oregano",
         "A classic staple cupboard herb."
@@ -2573,7 +2584,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack PARSLEY = Theme.themedSlimefunItemStack(
         "CLT_PARSLEY",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.ACACIA_LEAVES),
         CultivationThemes.PRODUCE,
         "Parsley",
         "Worst. Herb. Ever."
@@ -2581,7 +2592,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack ROSEMARY = Theme.themedSlimefunItemStack(
         "CLT_ROSEMARY",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.BIRCH_LEAVES),
         CultivationThemes.PRODUCE,
         "Rosemary",
         "Often misses thyme."
@@ -2589,7 +2600,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack SASSAFRAS = Theme.themedSlimefunItemStack(
         "CLT_SASSAFRAS",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.OAK_LEAVES),
         CultivationThemes.PRODUCE,
         "Sassafras",
         "Edible Root Beer, seriously google",
@@ -2598,7 +2609,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack SHISO = Theme.themedSlimefunItemStack(
         "CLT_SHISO",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.MANGROVE_LEAVES),
         CultivationThemes.PRODUCE,
         "Shiso",
         "Mint with a side of love."
@@ -2606,7 +2617,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack STAR_ANISE = Theme.themedSlimefunItemStack(
         "CLT_STAR_ANISE",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.NETHER_STAR),
         CultivationThemes.PRODUCE,
         "Star Anise",
         "One of the best and most unique flavours."
@@ -2614,7 +2625,7 @@ public final class CultivationStacks {
 
     public static final SlimefunItemStack TARRAGON = Theme.themedSlimefunItemStack(
         "CLT_TARRAGON",
-        new ItemStack(Material.HANGING_ROOTS),
+        new ItemStack(Material.JUNGLE_LEAVES),
         CultivationThemes.PRODUCE,
         "Tarragon",
         "I literally put this on anything.",
@@ -2918,6 +2929,14 @@ public final class CultivationStacks {
         "Yup, Sefi Smort."
     );
 
+    public static final SlimefunItemStack AVOCADO = Theme.themedSlimefunItemStack(
+        "CLT_AVOCADO",
+        Skins.AVOCADO.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Avocado",
+        "What hipsters dream about."
+    );
+
     // endregion
 
     // region Crafted By Products
@@ -3010,6 +3029,22 @@ public final class CultivationStacks {
         CultivationThemes.PRODUCE,
         "Meatballs",
         "Balls of meat, who'd-a-thunk it."
+    );
+
+    public static final SlimefunItemStack PEPPERONI = Theme.themedSlimefunItemStack(
+        "CLT_PEPPERONI",
+        Skins.PEPPERONI.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Pepperoni",
+        "I could eat an entire log of this, easy."
+    );
+
+    public static final SlimefunItemStack DOUGH = Theme.themedSlimefunItemStack(
+        "CLT_DOUGH",
+        Skins.DOUGH.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Dough",
+        "Just plain ol' dough!"
     );
 
     // endregion
@@ -3275,6 +3310,42 @@ public final class CultivationStacks {
         "",
         Theme.CLICK_INFO.asTitle("Healing", "4 Heart"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Bad Omen + 1")
+    );
+
+    public static final SlimefunItemStack PIZZA_CHEESE = Theme.themedSlimefunItemStack(
+        "CLT_PIZZA_CHEESE",
+        Skins.PIZZA_CHEESE.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Cheese Pizza",
+        "Why anyone would order just cheese? I dont know.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Heart"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Slowness + 1")
+    );
+
+    public static final SlimefunItemStack PIZZA_MUSHROOM = Theme.themedSlimefunItemStack(
+        "CLT_PIZZA_MUSHROOM",
+        Skins.PIZZA_MUSHROOM.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Mushroom Pizza",
+        "A simple vegetarian pizza full of proteins.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "6 Heart"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Slowness + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Haste + 2")
+    );
+
+    public static final SlimefunItemStack PIZZA_PEPPERONI = Theme.themedSlimefunItemStack(
+        "CLT_PIZZA_PEPPERONI",
+        Skins.PIZZA_PEPPERONI.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Pepperoni Pizza",
+        "A New York classic full of flavour.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "6 Heart"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Speed + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Haste + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Jump + 1")
     );
 
     // end region

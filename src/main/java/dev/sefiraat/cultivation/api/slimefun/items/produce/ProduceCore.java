@@ -27,11 +27,14 @@ public class ProduceCore extends SlimefunItem {
     private ByProduct fried;
     private ByProduct grilled;
 
-    public ProduceCore(ItemGroup itemGroup,
-                       SlimefunItemStack item,
-                       RecipeType recipeType
-    ) {
+    @ParametersAreNonnullByDefault
+    public ProduceCore(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType) {
         super(itemGroup, item, recipeType, new ItemStack[0]);
+    }
+
+    @ParametersAreNonnullByDefault
+    public ProduceCore(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+        super(itemGroup, item, recipeType, recipe);
     }
 
     @Nonnull

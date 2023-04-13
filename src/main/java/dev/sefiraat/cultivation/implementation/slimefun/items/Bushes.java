@@ -647,5 +647,13 @@ public final class Bushes {
         ))
             .addHarvestingResult(CultivationStacks.MARROW)
             .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.AVOCADO, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.AVOCADO)
+            .tryRegister(addon);
     }
 }
