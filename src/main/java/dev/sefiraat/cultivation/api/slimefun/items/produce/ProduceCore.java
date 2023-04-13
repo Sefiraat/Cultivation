@@ -144,39 +144,6 @@ public class ProduceCore extends SlimefunItem {
             recipeType,
             this.getItem()
         );
-
-        if (recipeType == RecipeTypes.CHOPPED) {
-            Machines.COUNTER_CHOPPING.addRecipe(this.getId(), byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.BLENDED) {
-            Machines.COUNTER_BLENDER.addRecipe(this.getId(), byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.MASHED) {
-            Machines.COUNTER_MASHER.addRecipe(this.getId(), byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.GROUND) {
-            Machines.COUNTER_GRINDER.addRecipe(this.getId(), byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.SLICED) {
-            Machines.COUNTER_SLICING.addRecipe(this.getId(), byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.BOILED) {
-            Machines.COUNTER_BOILING.addRecipe(this.getId(), byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.FRIED) {
-            Machines.COUNTER_FRYER.addRecipe(this.getId(), byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.GRILLED) {
-            Machines.COUNTER_GRILL.addRecipe(this.getId(), byProduct.getItem());
-        }
-
         return byProduct.buildRegister(Cultivation.getInstance());
     }
 

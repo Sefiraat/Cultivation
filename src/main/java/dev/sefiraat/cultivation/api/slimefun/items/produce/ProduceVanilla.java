@@ -134,39 +134,6 @@ public class ProduceVanilla {
             recipeType,
             this.itemStack
         );
-
-        if (recipeType == RecipeTypes.CHOPPED) {
-            Machines.COUNTER_CHOPPING.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.BLENDED) {
-            Machines.COUNTER_BLENDER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.MASHED) {
-            Machines.COUNTER_MASHER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.GROUND) {
-            Machines.COUNTER_GRINDER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.SLICED) {
-            Machines.COUNTER_SLICING.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.BOILED) {
-            Machines.COUNTER_BOILING.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.FRIED) {
-            Machines.COUNTER_FRYER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.GRILLED) {
-            Machines.COUNTER_GRILL.addRecipe(materialName, byProduct.getItem());
-        }
-
         return byProduct.buildRegister(Cultivation.getInstance());
     }
 }

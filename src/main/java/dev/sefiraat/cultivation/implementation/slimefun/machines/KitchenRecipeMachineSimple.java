@@ -44,24 +44,6 @@ public abstract class KitchenRecipeMachineSimple extends KitchenObject {
         BlockStorage.addBlockInfo(location, KEY_UUID, displayGroup.getParentUUID().toString());
     }
 
-    @Nullable
-    public UUID getUUID(@Nonnull Location location) {
-        String uuid = BlockStorage.getLocationInfo(location, KEY_UUID);
-        if (uuid == null) {
-            return null;
-        }
-        return UUID.fromString(uuid);
-    }
-
-    @Nullable
-    public DisplayGroup getDisplayGroup(@Nonnull Location location) {
-        UUID uuid = getUUID(location);
-        if (uuid == null) {
-            return null;
-        }
-        return DisplayGroup.fromUUID(uuid);
-    }
-
     public void addRecipe(@Nonnull String input, @Nonnull ItemStack output) {
         getRecipes().put(input, output);
     }

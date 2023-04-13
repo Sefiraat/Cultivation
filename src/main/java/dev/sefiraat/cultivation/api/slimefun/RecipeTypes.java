@@ -4,11 +4,13 @@ import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.implementation.listeners.CustomDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
 import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
+import dev.sefiraat.cultivation.implementation.slimefun.machines.KitchenRecipeMachineSimple;
 import dev.sefiraat.cultivation.implementation.tasks.AirTimeTask;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.cultivation.managers.TaskManager;
 import dev.sefiraat.sefilib.entity.LivingEntityDefinition;
 import dev.sefiraat.sefilib.string.Theme;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.WordUtils;
 import org.bukkit.Material;
@@ -195,7 +197,8 @@ public final class RecipeTypes {
             List.of(
                 "Simply chop with a knife!"
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_CHOPPING, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -208,7 +211,8 @@ public final class RecipeTypes {
             List.of(
                 "Mash Mash Mash"
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_MASHER, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -221,7 +225,8 @@ public final class RecipeTypes {
             List.of(
                 "Is made by putting an item in the blender."
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_BLENDER, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -234,7 +239,8 @@ public final class RecipeTypes {
             List.of(
                 "So thin and delicate"
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_SLICING, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -247,7 +253,8 @@ public final class RecipeTypes {
             List.of(
                 "To a fine degree"
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_GRINDER, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -260,7 +267,8 @@ public final class RecipeTypes {
             List.of(
                 "Hot hot hot!"
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_BOILING, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -273,7 +281,8 @@ public final class RecipeTypes {
             List.of(
                 "Crispy Perfection."
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_FRYER, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -286,7 +295,8 @@ public final class RecipeTypes {
             List.of(
                 "Juicy and Tender."
             )
-        )
+        ),
+        (itemStacks, itemStack) -> addRecipeToSimpleMachine(Machines.COUNTER_GRILL, itemStacks, itemStack)
     );
 
     @Nonnull
@@ -316,6 +326,18 @@ public final class RecipeTypes {
         ),
         RecipeTypes::createFoodBakingRecipe
     );
+
+    private static void addRecipeToSimpleMachine(KitchenRecipeMachineSimple machine, ItemStack[] recipe, ItemStack output) {
+        ItemStack input = recipe[4];
+        if (input == null) {
+            return;
+        }
+        SlimefunItem slimefunItem = SlimefunItem.getByItem(input);
+        machine.addRecipe(
+            slimefunItem != null ? slimefunItem.getId() : input.getType().name(),
+            output
+        );
+    }
 
     /**
      * This method both registers the drop and returns an ItemStack array that can be used
