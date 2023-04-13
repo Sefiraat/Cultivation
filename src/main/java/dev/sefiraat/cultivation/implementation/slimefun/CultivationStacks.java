@@ -179,6 +179,16 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack TREE_PECAN = Theme.themedSlimefunItemStack(
+        "CLT_TREE_PECAN",
+        new ItemStack(Material.BIRCH_SAPLING),
+        CultivationThemes.SAPLING,
+        "Cultivation Tree: Pecan",
+        List.of(
+            "Can we grow this tree? Yes pe-can!"
+        )
+    );
+
     // endregion
 
     // region Bushes
@@ -2278,6 +2288,14 @@ public final class CultivationStacks {
         "a coffee for me, now!"
     );
 
+    public static final SlimefunItemStack PECAN = Theme.themedSlimefunItemStack(
+        "CLT_PECAN",
+        Skins.PECAN.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Pecan",
+        "Just begging to be made into a pie."
+    );
+
     public static final SlimefunItemStack GRAPE = Theme.themedSlimefunItemStack(
         "CLT_GRAPE",
         Skins.GRAPE.getPlayerHead(),
@@ -3308,7 +3326,7 @@ public final class CultivationStacks {
         "Spaghetti and Meatballs",
         "Simple, classic and hearty.",
         "",
-        Theme.CLICK_INFO.asTitle("Healing", "4 Heart"),
+        Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Bad Omen + 1")
     );
 
@@ -3319,7 +3337,7 @@ public final class CultivationStacks {
         "Cheese Pizza",
         "Why anyone would order just cheese? I dont know.",
         "",
-        Theme.CLICK_INFO.asTitle("Healing", "4 Heart"),
+        Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Slowness + 1")
     );
 
@@ -3330,7 +3348,7 @@ public final class CultivationStacks {
         "Mushroom Pizza",
         "A simple vegetarian pizza full of proteins.",
         "",
-        Theme.CLICK_INFO.asTitle("Healing", "6 Heart"),
+        Theme.CLICK_INFO.asTitle("Healing", "6 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Slowness + 1"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Haste + 2")
     );
@@ -3342,10 +3360,45 @@ public final class CultivationStacks {
         "Pepperoni Pizza",
         "A New York classic full of flavour.",
         "",
-        Theme.CLICK_INFO.asTitle("Healing", "6 Heart"),
+        Theme.CLICK_INFO.asTitle("Healing", "6 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Speed + 1"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Haste + 1"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Jump + 1")
+    );
+
+    public static final SlimefunItemStack CHEESY_SCALLOPED_COURGETTE = Theme.themedSlimefunItemStack(
+        "CLT_CHEESY_SCALLOPED_COURGETTE",
+        Skins.MEAL_RED_GREEN_BROWN.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Cheesy Scalloped Courgette",
+        "A low carb version of an amazing classic.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "2 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Night Vision + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Invisibility + 1")
+    );
+
+    public static final SlimefunItemStack PECAN_PIE = Theme.themedSlimefunItemStack(
+        "CLT_PECAN_PIE",
+        Skins.PIE_BROWN.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Pecan Pie",
+        "The only way to eat pure sugar without",
+        "being totally judged.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Levitation + 1")
+    );
+
+    public static final SlimefunItemStack GARLIC_BUTTER_MUSHROOMS = Theme.themedSlimefunItemStack(
+        "CLT_GARLIC_BUTTER_MUSHROOMS",
+        new ItemStack(Material.MUSHROOM_STEW),
+        CultivationThemes.FOOD,
+        "Garlic Butter Mushrooms",
+        "May easily be the best food item on earth.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "2 Hearts"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Glowing + 1")
     );
 
     // end region

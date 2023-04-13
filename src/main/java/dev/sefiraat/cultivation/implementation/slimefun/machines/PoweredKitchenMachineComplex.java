@@ -1,5 +1,6 @@
 package dev.sefiraat.cultivation.implementation.slimefun.machines;
 
+import dev.sefiraat.cultivation.api.slimefun.items.produce.ByProduct;
 import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.string.Theme;
@@ -143,7 +144,11 @@ public class PoweredKitchenMachineComplex extends KitchenRecipeMachineComplex im
                         if (inputItem == null || inputItem.getType().isAir()) {
                             continue;
                         }
-                        inputItem.setAmount(inputItem.getAmount() - 1);
+                        if (isBucket(inputItem) && !(SlimefunItem.getByItem(inputItem) instanceof ByProduct)) {
+                            inputItem.setType(Material.BUCKET);
+                        } else {
+                            inputItem.setAmount(inputItem.getAmount() - 1);
+                        }
                     }
                     p.sendMessage(Theme.SUCCESS.apply("Tasty!"));
                     return false;

@@ -367,6 +367,8 @@ public enum Skins {
     CHESTNUT("7aea6b06c058546247e6567009440140946ea53623829721bd46b3e6a0e5cce8"),
     // https://minecraft-heads.com/custom-heads/plants/1214-hazelnut
     HAZELNUT("678784703fa59cd153fcabe3ccd9d44c469a8d63e6d438626ad9ebc70707fc3"),
+    // https://minecraft-heads.com/custom-heads/plants/59603-pecan-without-shell
+    PECAN("9813444497a48b3b68946961e49e13dd6b19467aeed1eb9d0e876bc878e0a734"),
     // https://minecraft-heads.com/custom-heads/plants/60981-grape
     GRAPE("e44c359f6f28c5fa6c5a09d8c57fa4174da4e8ae110e5f2cd7e93f2e76176cd5"),
     // https://minecraft-heads.com/custom-heads/plants/55177-peanut

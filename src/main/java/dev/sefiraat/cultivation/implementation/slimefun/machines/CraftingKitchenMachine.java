@@ -122,7 +122,11 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
                         if (inputItem == null || inputItem.getType().isAir()) {
                             continue;
                         }
-                        inputItem.setAmount(inputItem.getAmount() - 1);
+                        if (isBucket(inputItem)) {
+                            inputItem.setType(Material.BUCKET);
+                        } else {
+                            inputItem.setAmount(inputItem.getAmount() - 1);
+                        }
                     }
                     p.sendMessage(Theme.SUCCESS.apply("Tasty!"));
                     return false;
