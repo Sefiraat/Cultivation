@@ -1,6 +1,5 @@
 package dev.sefiraat.cultivation.api.events;
 
-import dev.sefiraat.cultivation.api.slimefun.plant.CultivationTreeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Location;
 import org.bukkit.block.BlockState;
@@ -18,21 +17,17 @@ public class CultivationTreeGrowEvent extends WorldEvent implements Cancellable 
     private boolean cancelled = false;
     @Nonnull
     private final Location location;
-    @Nonnull
-    private final CultivationTreeType species;
     private final Player player;
     private final List<BlockState> blocks;
     private final SlimefunItem slimefunItem;
     @ParametersAreNonnullByDefault
     public CultivationTreeGrowEvent(Location location,
-                                    CultivationTreeType species,
                                     Player player,
                                     List<BlockState> blocks,
                                     SlimefunItem slimefunItem
     ) {
         super(location.getWorld());
         this.location = location;
-        this.species = species;
         this.player = player;
         this.blocks = blocks;
         this.slimefunItem = slimefunItem;
@@ -41,11 +36,6 @@ public class CultivationTreeGrowEvent extends WorldEvent implements Cancellable 
     @Nonnull
     public Location getLocation() {
         return this.location;
-    }
-
-    @Nonnull
-    public CultivationTreeType getSpecies() {
-        return this.species;
     }
 
     @Nonnull
