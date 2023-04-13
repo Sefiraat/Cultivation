@@ -2,7 +2,9 @@ package dev.sefiraat.cultivation.implementation.slimefun.items;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
+import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.ByProduct;
+import dev.sefiraat.cultivation.api.slimefun.items.produce.ProduceCore;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
@@ -112,6 +114,27 @@ public final class Ingredients {
         new ItemStack[]{
             Products.BEEF.getGroundItem(), Products.EGG.getBlendedItem(), null,
             SlimefunItems.WHEAT_FLOUR, SlimefunItems.SALT, null,
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore PEPPERONI = new ProduceCore(
+        CultivationGroups.BY_PRODUCTS,
+        CultivationStacks.PEPPERONI,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.PORK.getGroundItem(), Products.GARLIC.getGroundItem(), Products.CAYENNE_PEPPER.getGroundItem(),
+            Products.MUSTARD_SEEDS.getGroundItem(), SlimefunItems.SALT, null,
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct DOUGH = new ByProduct(
+        CultivationStacks.DOUGH,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            SlimefunItems.WHEAT_FLOUR, SlimefunItems.WHEAT_FLOUR, new ItemStack(Material.EGG),
+            new ItemStack(Material.WATER_BUCKET), SlimefunItems.SALT, null,
             null, null, null
         }
     ).buildRegister(Cultivation.getInstance());

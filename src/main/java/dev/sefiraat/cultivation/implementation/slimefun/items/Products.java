@@ -574,6 +574,12 @@ public final class Products {
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ProduceCore AVOCADO = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.AVOCADO,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     // region Vanilla Registrations

@@ -495,7 +495,17 @@ public enum Skins {
     // https://minecraft-heads.com/custom-heads/food-drinks/59639-bowl-of-shakshuka
     SHAKSHUKA("35a40080b05235916844bfa97bb8810404fc36b20e041c03376d1926d8f9efd0"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/52718-salad-apple
-    FRUIT_SALAD("7d562530fe1efff5d9bfdee268b6c5474b2ccefad0a1d3f84a9e2c61d87ff6ed");
+    FRUIT_SALAD("7d562530fe1efff5d9bfdee268b6c5474b2ccefad0a1d3f84a9e2c61d87ff6ed"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/27483-pizza
+    PIZZA_MUSHROOM("3b0db613e6c1c473e9112dc6b257cdee9c717703d3222f65a80b3bc91427ce2e"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/27489-pizza
+    PIZZA_CHEESE("f1a689e7bfcf040575cba68cc36149203bfd713c3b81088739220ea5b7b7f9b9"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/27490-pizza
+    PIZZA_PEPPERONI("21d9d2301c60d5cd8949da664fd5c63bd5e5713116183b66318a1fc99ab0b1e4"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/24965-pepperoni
+    PEPPERONI("10edb47f91bdb5af0fdf3290c7d181163f5df72a3b1c7beda1d0692e36c158da"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/60305-pizza-dough
+    DOUGH("8166d79de64abb4457ab87fa8f6706d55ce682e10db849ea6dd124095b12276e");
 
     // endregion
 

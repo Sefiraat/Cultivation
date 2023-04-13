@@ -369,6 +369,50 @@ public final class Foods {
         player -> simplePlayerEffect(player, 2, new Pair<>(PotionEffectType.BAD_OMEN, 0))
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food PIZZA_CHEESE = new Food(
+        CultivationStacks.PIZZA_CHEESE,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            SlimefunItems.CHEESE, SlimefunItems.CHEESE, SlimefunItems.CHEESE,
+            Products.TOMATO.getBlendedItem(), Products.TOMATO.getBlendedItem(), Products.TOMATO.getBlendedItem(),
+            Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem()
+        },
+        player -> simplePlayerEffect(player, 8, new Pair<>(PotionEffectType.SLOW, 0))
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food PIZZA_MUSHROOM = new Food(
+        CultivationStacks.PIZZA_MUSHROOM,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            SlimefunItems.CHEESE, Products.RED_MUSHROOM.getSlicedItem(), SlimefunItems.CHEESE,
+            Products.TOMATO.getBlendedItem(), Products.TOMATO.getBlendedItem(), Products.TOMATO.getBlendedItem(),
+            Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem()
+        },
+        player -> simplePlayerEffect(
+            player,
+            12,
+            new Pair<>(PotionEffectType.SLOW, 0),
+            new Pair<>(PotionEffectType.FAST_DIGGING, 1)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food PIZZA_PEPPERONI = new Food(
+        CultivationStacks.PIZZA_PEPPERONI,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            SlimefunItems.CHEESE, Ingredients.PEPPERONI.getSlicedItem(), SlimefunItems.CHEESE,
+            Products.TOMATO.getBlendedItem(), Products.TOMATO.getBlendedItem(), Products.TOMATO.getBlendedItem(),
+            Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem()
+        },
+        player -> simplePlayerEffect(
+            player,
+            12,
+            new Pair<>(PotionEffectType.SPEED, 0),
+            new Pair<>(PotionEffectType.FAST_DIGGING, 0),
+            new Pair<>(PotionEffectType.JUMP, 0)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
 
     }
