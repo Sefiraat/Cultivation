@@ -13,7 +13,6 @@ import org.bukkit.inventory.ItemStack;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Map;
-import java.util.UUID;
 import java.util.function.Function;
 
 public abstract class KitchenRecipeMachineSimple extends KitchenObject {
@@ -42,24 +41,6 @@ public abstract class KitchenRecipeMachineSimple extends KitchenObject {
 
     public void setUUID(@Nonnull DisplayGroup displayGroup, @Nonnull Location location) {
         BlockStorage.addBlockInfo(location, KEY_UUID, displayGroup.getParentUUID().toString());
-    }
-
-    @Nullable
-    public UUID getUUID(@Nonnull Location location) {
-        String uuid = BlockStorage.getLocationInfo(location, KEY_UUID);
-        if (uuid == null) {
-            return null;
-        }
-        return UUID.fromString(uuid);
-    }
-
-    @Nullable
-    public DisplayGroup getDisplayGroup(@Nonnull Location location) {
-        UUID uuid = getUUID(location);
-        if (uuid == null) {
-            return null;
-        }
-        return DisplayGroup.fromUUID(uuid);
     }
 
     public void addRecipe(@Nonnull String input, @Nonnull ItemStack output) {

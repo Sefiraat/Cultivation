@@ -3,7 +3,6 @@ package dev.sefiraat.cultivation.api.slimefun.items.produce;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
-import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
@@ -134,39 +133,6 @@ public class ProduceVanilla {
             recipeType,
             this.itemStack
         );
-
-        if (recipeType == RecipeTypes.CHOPPED) {
-            Machines.COUNTER_CHOPPING.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.BLENDED) {
-            Machines.COUNTER_BLENDER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.MASHED) {
-            Machines.COUNTER_MASHER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.GROUND) {
-            Machines.COUNTER_GRINDER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.SLICED) {
-            Machines.COUNTER_SLICING.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.BOILED) {
-            Machines.COUNTER_BOILING.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.FRIED) {
-            Machines.COUNTER_FRYER.addRecipe(materialName, byProduct.getItem());
-        }
-
-        if (recipeType == RecipeTypes.GRILLED) {
-            Machines.COUNTER_GRILL.addRecipe(materialName, byProduct.getItem());
-        }
-
         return byProduct.buildRegister(Cultivation.getInstance());
     }
 }

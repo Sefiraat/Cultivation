@@ -59,7 +59,7 @@ public final class Plants {
 
         new NothingPlant(
             CultivationStacks.PLANT_WATER,
-            RecipeTypes.VANILLA_DROP,
+            RecipeTypes.BUCKETING,
             RecipeTypes.createBucketingRecipe(
                 CultivationStacks.PLANT_WATER,
                 Set.of(Material.WATER, Material.POWDER_SNOW),
@@ -74,7 +74,7 @@ public final class Plants {
 
         new NothingPlant(
             CultivationStacks.PLANT_FIRE,
-            RecipeTypes.VANILLA_DROP,
+            RecipeTypes.BUCKETING,
             RecipeTypes.createBucketingRecipe(CultivationStacks.PLANT_FIRE, Material.LAVA, 0.05),
             new Growth(
                 PlantTheme.RED,

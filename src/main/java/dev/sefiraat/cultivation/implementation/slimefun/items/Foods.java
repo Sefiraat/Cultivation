@@ -2,7 +2,6 @@ package dev.sefiraat.cultivation.implementation.slimefun.items;
 
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
-import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.Food;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.sefilib.misc.Chance;
@@ -26,36 +25,29 @@ public final class Foods {
     }
 
     public static final Food LEMON_DROP = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.LEMON_DROP,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.LEMON_DROP,
-            new ItemStack[]{
-                Products.LEMON.getBoiledItem(), Products.SUGAR.getBoiledItem(), null,
-                null, null, null,
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            Products.LEMON.getBoiledItem(), Products.SUGAR.getBoiledItem(), null,
+            null, null, null,
+            null, null, null
+        },
         player -> {
             for (PotionEffect activePotionEffect : player.getActivePotionEffects()) {
                 player.removePotionEffect(activePotionEffect.getType());
             }
         }
-    ).buildRegister(Cultivation.getInstance());
+    ).overrideEatingMessage("You feel your palette being cleansed.")
+        .buildRegister(Cultivation.getInstance());
 
     public static final Food PEANUT_BUTTER_JELLY_SANDWICH = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.FOOD_PEANUT_BUTTER_JELLY_SANDWICH,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.FOOD_PEANUT_BUTTER_JELLY_SANDWICH,
-            new ItemStack[]{
-                null, Products.BREAD.getSlicedItem(), null,
-                Ingredients.GRAPE_JELLY.getItem(), Ingredients.PEANUT_BUTTER.getItem(), Ingredients.STRAWBERRY_JELLY.getItem(),
-                null, Products.BREAD.getSlicedItem(), null
-            }
-        ),
+        new ItemStack[]{
+            null, Products.BREAD.getSlicedItem(), null,
+            Ingredients.GRAPE_JELLY.getItem(), Ingredients.PEANUT_BUTTER.getItem(), Ingredients.STRAWBERRY_JELLY.getItem(),
+            null, Products.BREAD.getSlicedItem(), null
+        },
         player -> simplePlayerEffect(
             player,
             10,
@@ -64,17 +56,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food BACON_SANDWICH = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.BACON_SANDWICH,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.BACON_SANDWICH,
-            new ItemStack[]{
-                null, Products.BREAD.getSlicedItem(), null,
-                null, Products.PORK.getFriedItem(), null,
-                null, Products.BREAD.getSlicedItem(), null
-            }
-        ),
+        new ItemStack[]{
+            null, Products.BREAD.getSlicedItem(), null,
+            null, Products.PORK.getFriedItem(), null,
+            null, Products.BREAD.getSlicedItem(), null
+        },
         player -> simplePlayerEffect(
             player,
             4,
@@ -84,17 +72,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food SALMON_NIGIRI = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.SALMON_NIGIRI,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.SALMON_NIGIRI,
-            new ItemStack[]{
-                null, Products.SALMON.getSlicedItem(), null,
-                null, Products.RICE.getBoiledItem(), null,
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            null, Products.SALMON.getSlicedItem(), null,
+            null, Products.RICE.getBoiledItem(), null,
+            null, null, null
+        },
         player -> simplePlayerEffect(
             player,
             4,
@@ -103,17 +87,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food CAJUN_GARLIC_BUTTER_COD = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.CAJUN_GARLIC_BUTTER_COD,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.CAJUN_GARLIC_BUTTER_COD,
-            new ItemStack[]{
-                Products.COD.getFriedItem(), SlimefunItems.BUTTER, null,
-                Products.GARLIC.getChoppedItem(), Products.CAYENNE_PEPPER.getGroundItem(), null,
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            Products.COD.getFriedItem(), SlimefunItems.BUTTER, null,
+            Products.GARLIC.getChoppedItem(), Products.CAYENNE_PEPPER.getGroundItem(), null,
+            null, null, null
+        },
         player -> simplePlayerEffect(
             player,
             8,
@@ -123,17 +103,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food SHAKSHUKA = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.SHAKSHUKA,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.SHAKSHUKA,
-            new ItemStack[]{
-                new ItemStack(Material.EGG), Products.ONION.getChoppedItem(), Products.BELL_PEPPER.getItem(),
-                Products.GARLIC.getChoppedItem(), Products.BELL_PEPPER.getGroundItem(), Products.TOMATO.getItem(),
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            new ItemStack(Material.EGG), Products.ONION.getChoppedItem(), Products.BELL_PEPPER.getItem(),
+            Products.GARLIC.getChoppedItem(), Products.BELL_PEPPER.getGroundItem(), Products.TOMATO.getItem(),
+            null, null, null
+        },
         player -> simplePlayerEffect(
             player,
             8,
@@ -143,17 +119,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food FUGU = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.FUGU,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.FUGU,
-            new ItemStack[]{
-                null, Products.PUFFERFISH.getSlicedItem(), null,
-                null, Products.RICE.getBoiledItem(), null,
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            null, Products.PUFFERFISH.getSlicedItem(), null,
+            null, Products.RICE.getBoiledItem(), null,
+            null, null, null
+        },
         player -> {
             if (Chance.testChance(0.33)) {
                 player.damage(999);
@@ -164,17 +136,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food SHEPHERDS_PIE = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.SHEPHERDS_PIE,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.SHEPHERDS_PIE,
-            new ItemStack[]{
-                SlimefunItems.CHEESE, Products.POTATO.getMashedItem(), SlimefunItems.CHEESE,
-                Products.CARROT.getChoppedItem(), Products.PEA.getItem(), Products.ONION.getFriedItem(),
-                Products.BEEF.getGroundItem(), Products.BEEF.getGroundItem(), Products.BEEF.getGroundItem()
-            }
-        ),
+        new ItemStack[]{
+            SlimefunItems.CHEESE, Products.POTATO.getMashedItem(), SlimefunItems.CHEESE,
+            Products.CARROT.getChoppedItem(), Products.PEA.getItem(), Products.ONION.getFriedItem(),
+            Products.BEEF.getGroundItem(), Products.BEEF.getGroundItem(), Products.BEEF.getGroundItem()
+        },
         player -> simplePlayerEffect(
             player,
             20,
@@ -183,17 +151,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food EGG_SALAD_SANDWICH = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.EGG_SALAD_SANDWICH,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.FOOD_PEANUT_BUTTER_JELLY_SANDWICH,
-            new ItemStack[]{
-                null, Products.BREAD.getSlicedItem(), null,
-                Products.LETTUCE.getChoppedItem(), Ingredients.EGG_SALAD.getItem(), Products.TOMATO.getSlicedItem(),
-                null, Products.BREAD.getSlicedItem(), null
-            }
-        ),
+        new ItemStack[]{
+            null, Products.BREAD.getSlicedItem(), null,
+            Products.LETTUCE.getChoppedItem(), Ingredients.EGG_SALAD.getItem(), Products.TOMATO.getSlicedItem(),
+            null, Products.BREAD.getSlicedItem(), null
+        },
         player -> simplePlayerEffect(
             player,
             20,
@@ -202,17 +166,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food CHICKEN_POT_PIE = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.CHICKEN_POT_PIE,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.CHICKEN_POT_PIE,
-            new ItemStack[]{
-                null, Ingredients.PIE_CRUST.getItem(), null,
-                Products.CARROT.getChoppedItem(), Products.CHICKEN.getChoppedItem(), Products.ONION.getChoppedItem(),
-                SlimefunItems.BUTTER, new ItemStack(Material.MILK_BUCKET), Products.MUSTARD_SEEDS.getGroundItem()
-            }
-        ),
+        new ItemStack[]{
+            null, Ingredients.PIE_CRUST.getItem(), null,
+            Products.CARROT.getChoppedItem(), Products.CHICKEN.getChoppedItem(), Products.ONION.getChoppedItem(),
+            SlimefunItems.BUTTER, new ItemStack(Material.MILK_BUCKET), Products.MUSTARD_SEEDS.getGroundItem()
+        },
         player -> simplePlayerEffect(
             player,
             20,
@@ -222,17 +182,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food CHICKEN_PASTA_BAKE = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.CHICKEN_PASTA_BAKE,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.CHICKEN_PASTA_BAKE,
-            new ItemStack[]{
-                SlimefunItems.CHEESE, SlimefunItems.CHEESE, SlimefunItems.CHEESE,
-                Ingredients.PASTA.getItem(), Ingredients.PASTA.getItem(), Ingredients.PASTA.getItem(),
-                Products.GARLIC.getGroundItem(), new ItemStack(Material.MILK_BUCKET), Products.MUSTARD_SEEDS.getGroundItem()
-            }
-        ),
+        new ItemStack[]{
+            SlimefunItems.CHEESE, SlimefunItems.CHEESE, SlimefunItems.CHEESE,
+            Ingredients.PASTA.getItem(), Ingredients.PASTA.getItem(), Ingredients.PASTA.getItem(),
+            Products.GARLIC.getGroundItem(), new ItemStack(Material.MILK_BUCKET), Products.MUSTARD_SEEDS.getGroundItem()
+        },
         player -> simplePlayerEffect(
             player,
             10,
@@ -242,17 +198,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food CHICKEN_ALFREDO_MAC_AND_CHEESE = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.CHICKEN_ALFREDO_MAC_AND_CHEESE,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.CHICKEN_ALFREDO_MAC_AND_CHEESE,
-            new ItemStack[]{
-                SlimefunItems.CHEESE, Products.BROCCOLI.getChoppedItem(), SlimefunItems.CHEESE,
-                Ingredients.PASTA.getItem(), Products.CHICKEN.getSlicedItem(), Ingredients.PASTA.getItem(),
-                Products.GARLIC.getGroundItem(), SlimefunItems.HEAVY_CREAM, Products.ONION.getChoppedItem()
-            }
-        ),
+        new ItemStack[]{
+            SlimefunItems.CHEESE, Products.BROCCOLI.getChoppedItem(), SlimefunItems.CHEESE,
+            Ingredients.PASTA.getItem(), Products.CHICKEN.getSlicedItem(), Ingredients.PASTA.getItem(),
+            Products.GARLIC.getGroundItem(), SlimefunItems.HEAVY_CREAM, Products.ONION.getChoppedItem()
+        },
         player -> simplePlayerEffect(
             player,
             2,
@@ -262,17 +214,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food KEY_LIME_PIE = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.KEY_LIME_PIE,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.KEY_LIME_PIE,
-            new ItemStack[]{
-                Products.LIME.getBlendedItem(), SlimefunItems.HEAVY_CREAM, Products.LIME.getGroundItem(),
-                new ItemStack(Material.SUGAR), new ItemStack(Material.EGG), SlimefunItems.BUTTER,
-                Ingredients.BISCUIT_BASE.getItem(), Ingredients.BISCUIT_BASE.getItem(), Ingredients.BISCUIT_BASE.getItem(),
-            }
-        ),
+        new ItemStack[]{
+            Products.LIME.getBlendedItem(), SlimefunItems.HEAVY_CREAM, Products.LIME.getGroundItem(),
+            new ItemStack(Material.SUGAR), new ItemStack(Material.EGG), SlimefunItems.BUTTER,
+            Ingredients.BISCUIT_BASE.getItem(), Ingredients.BISCUIT_BASE.getItem(), Ingredients.BISCUIT_BASE.getItem(),
+        },
         player -> simplePlayerEffect(
             player,
             12,
@@ -281,17 +229,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food FRUIT_SALAD = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.FRUIT_SALAD,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.FRUIT_SALAD,
-            new ItemStack[]{
-                Products.APPLE.getChoppedItem(), Products.PEAR.getChoppedItem(), Products.ORANGE.getChoppedItem(),
-                Products.KIWI.getChoppedItem(), Products.APRICOT.getChoppedItem(), Products.BANANA.getChoppedItem(),
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            Products.APPLE.getChoppedItem(), Products.PEAR.getChoppedItem(), Products.ORANGE.getChoppedItem(),
+            Products.KIWI.getChoppedItem(), Products.APRICOT.getChoppedItem(), Products.BANANA.getChoppedItem(),
+            null, null, null
+        },
         player -> simplePlayerEffect(
             player,
             12,
@@ -300,17 +244,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food CAESAR_SALAD = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.CAESAR_SALAD,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.CAESAR_SALAD,
-            new ItemStack[]{
-                Products.TOMATO.getChoppedItem(), Products.LETTUCE.getChoppedItem(), Products.CHICKEN.getGrilledItem(),
-                Products.RAPESEED.getGroundItem(), Products.BELL_PEPPER.getSlicedItem(), Products.MUSTARD_SEEDS.getBlendedItem(),
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            Products.TOMATO.getChoppedItem(), Products.LETTUCE.getChoppedItem(), Products.CHICKEN.getGrilledItem(),
+            Products.RAPESEED.getGroundItem(), Products.BELL_PEPPER.getSlicedItem(), Products.MUSTARD_SEEDS.getBlendedItem(),
+            null, null, null
+        },
         player -> simplePlayerEffect(
             player,
             12,
@@ -321,47 +261,35 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food BISCUIT = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.BISCUIT,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.BISCUIT,
-            new ItemStack[]{
-                Ingredients.BISCUIT_DOUGH.getItem(), null, null,
-                null, null, null,
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            Ingredients.BISCUIT_DOUGH.getItem(), null, null,
+            null, null, null,
+            null, null, null
+        },
         player -> player.setVelocity(new Vector(0, 3, 0))
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food COMPRESSED_BISCUIT = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.COMPRESSED_BISCUIT,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.COMPRESSED_BISCUIT,
-            new ItemStack[]{
-                BISCUIT.getItem(), BISCUIT.getItem(), BISCUIT.getItem(),
-                BISCUIT.getItem(), BISCUIT.getItem(), BISCUIT.getItem(),
-                BISCUIT.getItem(), BISCUIT.getItem(), BISCUIT.getItem()
-            }
-        ),
+        new ItemStack[]{
+            BISCUIT.getItem(), BISCUIT.getItem(), BISCUIT.getItem(),
+            BISCUIT.getItem(), BISCUIT.getItem(), BISCUIT.getItem(),
+            BISCUIT.getItem(), BISCUIT.getItem(), BISCUIT.getItem()
+        },
         player -> player.setVelocity(new Vector(0, 5, 0))
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food GRILLED_SALMON_SALAD = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.GRILLED_SALMON_SALAD,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.GRILLED_SALMON_SALAD,
-            new ItemStack[]{
-                null, Products.SALMON.getGrilledItem(), null,
-                Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(),
-                Products.TOMATO.getSlicedItem(), Products.RAPESEED.getGroundItem(), Products.RED_MUSHROOM.getSlicedItem()
-            }
-        ),
+        new ItemStack[]{
+            null, Products.SALMON.getGrilledItem(), null,
+            Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(),
+            Products.TOMATO.getSlicedItem(), Products.RAPESEED.getGroundItem(), Products.RED_MUSHROOM.getSlicedItem()
+        },
         player -> simplePlayerEffect(
             player,
             8,
@@ -371,17 +299,13 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food WITHER_ROSE_SALAD = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.WITHER_ROSE_SALAD,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.WITHER_ROSE_SALAD,
-            new ItemStack[]{
-                null, new ItemStack(Material.WITHER_ROSE), null,
-                Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(),
-                Products.TOMATO.getSlicedItem(), Products.RAPESEED.getGroundItem(), Products.RED_MUSHROOM.getSlicedItem()
-            }
-        ),
+        new ItemStack[]{
+            null, new ItemStack(Material.WITHER_ROSE), null,
+            Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(), Products.LETTUCE.getSlicedItem(),
+            Products.TOMATO.getSlicedItem(), Products.RAPESEED.getGroundItem(), Products.RED_MUSHROOM.getSlicedItem()
+        },
         player -> {
             simplePlayerEffect(
                 player,
@@ -394,32 +318,24 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food ORANGE_JUICE = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.ORANGE_JUICE,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.ORANGE_JUICE,
-            new ItemStack[]{
-                Products.ORANGE.getBlendedItem(), new ItemStack(Material.GLASS), null,
-                null, null, null,
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            Products.ORANGE.getBlendedItem(), new ItemStack(Material.GLASS), null,
+            null, null, null,
+            null, null, null
+        },
         player -> simplePlayerEffect(player, 0, new Pair<>(PotionEffectType.SPEED, 3))
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food LASAGNA = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.LASAGNA,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodBakingRecipe(
-            CultivationStacks.LASAGNA,
-            new ItemStack[]{
-                Ingredients.PASTA.getItem(), SlimefunItems.CHEESE, Products.TOMATO.getChoppedItem(),
-                SlimefunItems.HEAVY_CREAM, Ingredients.PASTA.getItem(), SlimefunItems.CHEESE,
-                Products.TOMATO.getChoppedItem(), SlimefunItems.CHEESE, Ingredients.PASTA.getItem()
-            }
-        ),
+        new ItemStack[]{
+            Ingredients.PASTA.getItem(), SlimefunItems.CHEESE, Products.TOMATO.getChoppedItem(),
+            SlimefunItems.HEAVY_CREAM, Ingredients.PASTA.getItem(), SlimefunItems.CHEESE,
+            Products.TOMATO.getChoppedItem(), SlimefunItems.CHEESE, Ingredients.PASTA.getItem()
+        },
         player -> {
             simplePlayerEffect(
                 player,
@@ -432,32 +348,24 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food SPAGHETTI = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.SPAGHETTI,
         RecipeTypes.FINISHING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.SPAGHETTI,
-            new ItemStack[]{
-                Ingredients.PASTA.getItem(), null, null,
-                null, Ingredients.PASTA.getItem(), null,
-                null, null, Ingredients.PASTA.getItem()
-            }
-        ),
+        new ItemStack[]{
+            Ingredients.PASTA.getItem(), null, null,
+            null, Ingredients.PASTA.getItem(), null,
+            null, null, Ingredients.PASTA.getItem()
+        },
         player -> simplePlayerEffect(player, 2)
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food SPAGHETTI_AND_MEATBALLS = new Food(
-        CultivationGroups.FOODS,
         CultivationStacks.SPAGHETTI_AND_MEATBALLS,
         RecipeTypes.BAKING,
-        RecipeTypes.createFoodFinishingRecipe(
-            CultivationStacks.SPAGHETTI_AND_MEATBALLS,
-            new ItemStack[]{
-                null, Ingredients.MEATBALLS.getItem(), null,
-                null, SPAGHETTI.getItem(), null,
-                null, null, null
-            }
-        ),
+        new ItemStack[]{
+            null, Ingredients.MEATBALLS.getItem(), null,
+            null, SPAGHETTI.getItem(), null,
+            null, null, null
+        },
         player -> simplePlayerEffect(player, 2, new Pair<>(PotionEffectType.BAD_OMEN, 0))
     ).buildRegister(Cultivation.getInstance());
 
