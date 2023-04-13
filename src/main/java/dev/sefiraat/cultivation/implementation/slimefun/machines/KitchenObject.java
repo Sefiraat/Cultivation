@@ -16,9 +16,24 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Set;
 import java.util.function.Function;
 
 public abstract class KitchenObject extends DisplayGroupBlock {
+
+    public static final Set<Material> BUCKET_ITEMS = Set.of(
+        Material.BUCKET,
+        Material.AXOLOTL_BUCKET,
+        Material.COD_BUCKET,
+        Material.LAVA_BUCKET,
+        Material.MILK_BUCKET,
+        Material.POWDER_SNOW_BUCKET,
+        Material.PUFFERFISH_BUCKET,
+        Material.SALMON_BUCKET,
+        Material.TADPOLE_BUCKET,
+        Material.TROPICAL_FISH_BUCKET,
+        Material.WATER_BUCKET
+    );
 
     protected KitchenObject(ItemGroup itemGroup,
                             SlimefunItemStack item,
@@ -82,6 +97,14 @@ public abstract class KitchenObject extends DisplayGroupBlock {
                 itemDisplay.setItemStack(itemStack.clone());
             }
         }
+    }
+
+    public static boolean isBucket(@Nonnull ItemStack itemStack) {
+        return isBucket(itemStack.getType());
+    }
+
+    public static boolean isBucket(@Nonnull Material material) {
+        return BUCKET_ITEMS.contains(material);
     }
 
     @Nonnull

@@ -125,6 +125,14 @@ public final class Trees {
         Skins.HAZELNUT
     ).buildRegister(Cultivation.getInstance());
 
+    public static final CultivationTree TREE_PECAN = new CultivationTree(
+        CultivationGroups.TREES,
+        CultivationStacks.TREE_PECAN,
+        TreeDesign.DARK_OAK_2,
+        Products.PECAN,
+        Skins.PECAN
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
 
     }

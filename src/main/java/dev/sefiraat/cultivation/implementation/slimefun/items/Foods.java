@@ -413,6 +413,52 @@ public final class Foods {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food CHEESY_SCALLOPED_COURGETTE = new Food(
+        CultivationStacks.CHEESY_SCALLOPED_COURGETTE,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            SlimefunItems.CHEESE, Products.COURGETTE.getSlicedItem(), SlimefunItems.CHEESE,
+            Products.COURGETTE.getSlicedItem(), new ItemStack(Material.MILK_BUCKET), Products.COURGETTE.getSlicedItem(),
+            Products.THYME.getChoppedItem(), SlimefunItems.SALT, SlimefunItems.BUTTER
+        },
+        player -> simplePlayerEffect(
+            player,
+            4,
+            new Pair<>(PotionEffectType.NIGHT_VISION, 0),
+            new Pair<>(PotionEffectType.INVISIBILITY, 0)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food PECAN_PIE = new Food(
+        CultivationStacks.PECAN_PIE,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            Products.PECAN.getChoppedItem(), Products.PECAN.getChoppedItem(), Products.PECAN.getChoppedItem(),
+            new ItemStack(Material.EGG), new ItemStack(Material.SUGAR), SlimefunItems.HEAVY_CREAM,
+            Ingredients.PIE_CRUST.getItem(), Ingredients.PIE_CRUST.getItem(), Ingredients.PIE_CRUST.getItem()
+        },
+        player -> simplePlayerEffect(
+            player,
+            8,
+            new Pair<>(PotionEffectType.LEVITATION, 0)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food GARLIC_BUTTER_MUSHROOMS = new Food(
+        CultivationStacks.GARLIC_BUTTER_MUSHROOMS,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            SlimefunItems.BUTTER, SlimefunItems.BUTTER, SlimefunItems.BUTTER,
+            Products.THYME.getChoppedItem(), Products.GARLIC.getChoppedItem(), SlimefunItems.SALT,
+            Products.BROWN_MUSHROOM.getSlicedItem(), Products.BROWN_MUSHROOM.getSlicedItem(), Products.BROWN_MUSHROOM.getSlicedItem()
+        },
+        player -> simplePlayerEffect(
+            player,
+            4,
+            new Pair<>(PotionEffectType.GLOWING, 0)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
     public static void setup(Cultivation addon) {
 
     }
