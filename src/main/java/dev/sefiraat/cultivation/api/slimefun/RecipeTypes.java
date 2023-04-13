@@ -299,7 +299,8 @@ public final class RecipeTypes {
             List.of(
                 "Use the kitchen's finishing counter to make this item."
             )
-        )
+        ),
+        RecipeTypes::createFoodFinishingRecipe
     );
 
     @Nonnull
@@ -312,7 +313,8 @@ public final class RecipeTypes {
             List.of(
                 "Use the kitchen's oven counter to make this item."
             )
-        )
+        ),
+        RecipeTypes::createFoodBakingRecipe
     );
 
     /**
@@ -462,13 +464,13 @@ public final class RecipeTypes {
     }
 
     @Nonnull
-    public static ItemStack[] createFoodFinishingRecipe(@Nonnull ItemStack result, ItemStack[] recipe) {
+    public static ItemStack[] createFoodFinishingRecipe(@Nonnull ItemStack[] recipe, @Nonnull ItemStack result) {
         Machines.COUNTER_FINISHING.addRecipe(recipe, result);
         return recipe;
     }
 
     @Nonnull
-    public static ItemStack[] createFoodBakingRecipe(@Nonnull ItemStack result, ItemStack[] recipe) {
+    public static ItemStack[] createFoodBakingRecipe(@Nonnull ItemStack[] recipe, @Nonnull ItemStack result) {
         Machines.COUNTER_OVEN.addRecipe(recipe, result);
         return recipe;
     }
