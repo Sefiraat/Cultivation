@@ -622,9 +622,11 @@ public final class Foods {
             Products.AVOCADO.getBlendedItem(), new ItemStack(Material.WATER_BUCKET), Products.VANILLA.getBlendedItem(),
             Products.SPINACH.getBlendedItem(), Products.SOY_BEANS.getBlendedItem(), new ItemStack(Material.ICE)
         },
-        player -> simplePlayerEffect(player, 0,
-                                     new Pair<>(PotionEffectType.BAD_OMEN, 0),
-                                     new Pair<>(PotionEffectType.WEAKNESS, 3)
+        player -> simplePlayerEffect(
+            player,
+            0,
+            new Pair<>(PotionEffectType.BAD_OMEN, 0),
+            new Pair<>(PotionEffectType.WEAKNESS, 3)
         )
     ).buildRegister(Cultivation.getInstance());
 
