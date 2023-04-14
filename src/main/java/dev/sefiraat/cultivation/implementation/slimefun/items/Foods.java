@@ -582,9 +582,7 @@ public final class Foods {
             null, Ingredients.CREAM_CHEESE.getItem(), null,
             null, null, null
         },
-        player -> simplePlayerEffect(player, 10,
-                                     new Pair<>(PotionEffectType.HEALTH_BOOST, 0)
-        )
+        player -> simplePlayerEffect(player, 10, new Pair<>(PotionEffectType.HEALTH_BOOST, 0))
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food MEATLOAF = new Food(
