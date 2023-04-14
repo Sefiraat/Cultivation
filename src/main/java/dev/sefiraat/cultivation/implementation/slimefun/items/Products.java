@@ -586,6 +586,18 @@ public final class Products {
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
 
+	public static final ProduceCore GREEN_ONION = new ProduceCore(
+		CultivationGroups.PRODUCE,
+		CultivationStacks.GREEN_ONION,
+		RecipeTypes.BUSH
+	).buildRegister(Cultivation.getInstance());
+
+	public static final ProduceCore BLACK_PEPPER = new ProduceCore(
+		CultivationGroups.PRODUCE,
+		CultivationStacks.BLACK_PEPPER,
+		RecipeTypes.BUSH
+	).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     // region Vanilla Registrations
