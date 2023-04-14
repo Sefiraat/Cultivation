@@ -507,8 +507,8 @@ public final class Foods {
             simplePlayerEffect(
                 player,
                 999,
-                new Pair<>(PotionEffectType.HEALTH_BOOST, 4),
-                new Pair<>(PotionEffectType.SPEED, 3)
+                new Pair<>(PotionEffectType.HEALTH_BOOST, 1),
+                new Pair<>(PotionEffectType.SPEED, 0)
             )
     ).buildRegister(Cultivation.getInstance());
 
@@ -524,8 +524,8 @@ public final class Foods {
             simplePlayerEffect(
                 player,
                 999,
-                new Pair<>(PotionEffectType.HEALTH_BOOST, 4),
-                new Pair<>(PotionEffectType.SPEED, 3)
+                new Pair<>(PotionEffectType.HEALTH_BOOST, 1),
+                new Pair<>(PotionEffectType.SPEED, 0)
             )
     ).buildRegister(Cultivation.getInstance());
 
@@ -541,8 +541,8 @@ public final class Foods {
             simplePlayerEffect(
                 player,
                 999,
-                new Pair<>(PotionEffectType.HEALTH_BOOST, 4),
-                new Pair<>(PotionEffectType.SPEED, 3)
+                new Pair<>(PotionEffectType.HEALTH_BOOST, 1),
+                new Pair<>(PotionEffectType.SPEED, 0)
             )
     ).buildRegister(Cultivation.getInstance());
 
@@ -566,7 +566,7 @@ public final class Foods {
             null, BAGEL.getItem(), null
         },
         player -> {
-            player.spawnParticle(Particle.FLAME, player.getLocation(), 200, 0.f, -0.7f, 0.f, 0.03f);
+            ParticleUtils.displayParticleRandomly(player, Particle.FLAME, 1, 50);
             player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.f, 1.f);
             player.setFireTicks(40);
             player.setFoodLevel(10);
@@ -582,9 +582,7 @@ public final class Foods {
             null, Ingredients.CREAM_CHEESE.getItem(), null,
             null, null, null
         },
-        player -> simplePlayerEffect(player, 10,
-                                     new Pair<>(PotionEffectType.HEALTH_BOOST, 0)
-        )
+        player -> simplePlayerEffect(player, 10, new Pair<>(PotionEffectType.HEALTH_BOOST, 0))
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food MEATLOAF = new Food(
@@ -596,10 +594,10 @@ public final class Foods {
             SlimefunItems.SALT, Products.ONION.getChoppedItem(), Ingredients.MUSTARD.getItem()
         },
         player -> simplePlayerEffect(player, 999,
-                                     new Pair<>(PotionEffectType.HEALTH_BOOST, 5),
-                                     new Pair<>(PotionEffectType.DAMAGE_RESISTANCE, 4),
-                                     new Pair<>(PotionEffectType.FAST_DIGGING, 3),
-                                     new Pair<>(PotionEffectType.SLOW, 2)
+                                     new Pair<>(PotionEffectType.HEALTH_BOOST, 3),
+                                     new Pair<>(PotionEffectType.DAMAGE_RESISTANCE, 2),
+                                     new Pair<>(PotionEffectType.FAST_DIGGING, 1),
+                                     new Pair<>(PotionEffectType.SLOW, 1)
         )
     ).buildRegister(Cultivation.getInstance());
 
@@ -638,9 +636,7 @@ public final class Foods {
             null, Products.POTATO.getFriedItem(), null,
             null, null, null
         },
-        player -> simplePlayerEffect(player, 1,
-                                     new Pair<>(PotionEffectType.SPEED, 1)
-        )
+        player -> simplePlayerEffect(player, 1, new Pair<>(PotionEffectType.SPEED, 1))
     ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {
