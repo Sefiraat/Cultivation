@@ -517,8 +517,6 @@ public enum Skins {
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/59641-ramen-black-bowl
     RAMEN_HEARTY("9b54225d7a2078319d886a7751c9147c6b7e13bb0aa0ca18cdce01357bc65b3a"),
     // https://minecraft-heads.com/custom-heads/plants/8691-coconut-brown
-    COCONUT("134d8bde9857d872e52124d9982154cf3d28b7702fbacd19833c511fe6c1cdf5"),
-    // https://minecraft-heads.com/custom-heads/plants/8691-coconut-brown
     GREEN_ONION("c2dd5433db4fddebc4a77166735699400cb18d43672ab31326a83f0b7c2586cc"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/54977-meatloaf
     MEATLOAF("98eeafdf6d7c6c9943e44bfcfdbe037d6c15d6d5e354c3ccf72bf886cde4e1c6"),
