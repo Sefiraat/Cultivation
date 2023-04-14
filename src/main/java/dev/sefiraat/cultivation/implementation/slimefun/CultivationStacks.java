@@ -3570,10 +3570,10 @@ public final class CultivationStacks {
         "Nothing like it! Let's go.",
         "",
         Theme.CLICK_INFO.asTitle("Healing", "Full"),
-        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 6"),
-        Theme.CLICK_INFO.asTitle("Effect 2", "Damage Reduction + 5"),
-        Theme.CLICK_INFO.asTitle("Effect 3", "Haste + 4"),
-        Theme.CLICK_INFO.asTitle("Effect 4", "Slowness + 3")
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 4"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Damage Reduction + 3"),
+        Theme.CLICK_INFO.asTitle("Effect 3", "Haste + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 4", "Slowness + 2")
     );
 
     public static final SlimefunItemStack SAUSAGE = Theme.themedSlimefunItemStack(
