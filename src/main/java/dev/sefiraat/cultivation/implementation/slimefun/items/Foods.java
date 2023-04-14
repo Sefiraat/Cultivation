@@ -566,7 +566,7 @@ public final class Foods {
             null, BAGEL.getItem(), null
         },
         player -> {
-            player.spawnParticle(Particle.FLAME, player.getLocation(), 200, 0.f, -0.7f, 0.f, 0.03f);
+            ParticleUtils.displayParticleRandomly(player, Particle.FLAME, 1, 50);
             player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.f, 1.f);
             player.setFireTicks(40);
             player.setFoodLevel(10);
