@@ -508,7 +508,6 @@ public enum Skins {
     PEPPERONI("10edb47f91bdb5af0fdf3290c7d181163f5df72a3b1c7beda1d0692e36c158da"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/60305-pizza-dough
     DOUGH("8166d79de64abb4457ab87fa8f6706d55ce682e10db849ea6dd124095b12276e"),
-
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/398-ramen-red-bowl
     RAMEN_BEEF("36411870d9832c88188669c86dd8c68068b8466b38e98cedcf8eeb75cfb3"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/399-ramen-green-bowl
@@ -533,8 +532,8 @@ public enum Skins {
     BAGEL_EVERYTHING("653aaae67dda225b78e82886d046c67fdf37f1bbe2dfc55f1324781f8159f5"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/8749-bagel-with-tomato
     BAGEL_BITE("fd87899d0bc5196abba4f1c54f9aa745039553fb54d1253bbd48bded24c967"),
-	// https://minecraft-heads.com/custom-heads/plants/32421-black-apple
-	BLACK_PEPPER("d209d3d0d8daa4628b9b3e10a235e22089d76bffe156ddc5852e5fdc12a3d12c");
+    // https://minecraft-heads.com/custom-heads/plants/32421-black-apple
+    BLACK_PEPPER("d209d3d0d8daa4628b9b3e10a235e22089d76bffe156ddc5852e5fdc12a3d12c");
 
     // endregion
 
