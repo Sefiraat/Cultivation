@@ -594,10 +594,10 @@ public final class Foods {
             SlimefunItems.SALT, Products.ONION.getChoppedItem(), Ingredients.MUSTARD.getItem()
         },
         player -> simplePlayerEffect(player, 999,
-                                     new Pair<>(PotionEffectType.HEALTH_BOOST, 5),
-                                     new Pair<>(PotionEffectType.DAMAGE_RESISTANCE, 4),
-                                     new Pair<>(PotionEffectType.FAST_DIGGING, 3),
-                                     new Pair<>(PotionEffectType.SLOW, 2)
+                                     new Pair<>(PotionEffectType.HEALTH_BOOST, 3),
+                                     new Pair<>(PotionEffectType.DAMAGE_RESISTANCE, 2),
+                                     new Pair<>(PotionEffectType.FAST_DIGGING, 1),
+                                     new Pair<>(PotionEffectType.SLOW, 1)
         )
     ).buildRegister(Cultivation.getInstance());
 
