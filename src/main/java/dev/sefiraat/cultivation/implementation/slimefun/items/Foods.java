@@ -524,8 +524,8 @@ public final class Foods {
             simplePlayerEffect(
                 player,
                 999,
-                new Pair<>(PotionEffectType.HEALTH_BOOST, 4),
-                new Pair<>(PotionEffectType.SPEED, 3)
+                new Pair<>(PotionEffectType.HEALTH_BOOST, 1),
+                new Pair<>(PotionEffectType.SPEED, 0)
             )
     ).buildRegister(Cultivation.getInstance());
 
