@@ -3515,8 +3515,8 @@ public final class CultivationStacks {
         "A filling choice.",
         "",
         Theme.CLICK_INFO.asTitle("Healing", "Full"),
-        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 5"),
-        Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 4")
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 1")
     );
 
     public static final SlimefunItemStack RAMEN_SEAFOOD_HEARTY = Theme.themedSlimefunItemStack(
