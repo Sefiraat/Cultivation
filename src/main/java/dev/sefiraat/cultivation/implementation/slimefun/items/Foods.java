@@ -634,9 +634,7 @@ public final class Foods {
             null, Products.POTATO.getFriedItem(), null,
             null, null, null
         },
-        player -> simplePlayerEffect(player, 1,
-                                     new Pair<>(PotionEffectType.SPEED, 1)
-        )
+        player -> simplePlayerEffect(player, 1, new Pair<>(PotionEffectType.SPEED, 1))
     ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {
