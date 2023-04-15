@@ -531,13 +531,13 @@ public final class Products {
         CultivationStacks.PARSNIP,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
-    
+
     public static final ProduceCore RUTABAGA = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.RUTABAGA,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
-    
+
     public static final ProduceCore RADDISH = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.RADDISH,
@@ -549,19 +549,19 @@ public final class Products {
         CultivationStacks.SWEET_POTATO,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
-    
+
     public static final ProduceCore TURNIP = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.TURNIP,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
-    
+
     public static final ProduceCore SWEETCORN = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.SWEETCORN,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
-    
+
     public static final ProduceCore COURGETTE = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.COURGETTE,
@@ -573,7 +573,7 @@ public final class Products {
         CultivationStacks.CUCUMBER,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
-    
+
     public static final ProduceCore MARROW = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.MARROW,
@@ -583,6 +583,18 @@ public final class Products {
     public static final ProduceCore AVOCADO = new ProduceCore(
         CultivationGroups.PRODUCE,
         CultivationStacks.AVOCADO,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore GREEN_ONION = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.GREEN_ONION,
+        RecipeTypes.BUSH
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ProduceCore BLACK_PEPPER = new ProduceCore(
+        CultivationGroups.PRODUCE,
+        CultivationStacks.BLACK_PEPPER,
         RecipeTypes.BUSH
     ).buildRegister(Cultivation.getInstance());
 

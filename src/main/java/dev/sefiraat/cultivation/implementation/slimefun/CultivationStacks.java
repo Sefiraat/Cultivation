@@ -1033,6 +1033,30 @@ public final class CultivationStacks {
         )
     );
 
+    public static final SlimefunItemStack BUSH_GREEN_ONION = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_GREEN_ONION",
+        Skins.SPIKEY_GREEN_4.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Green Onion",
+        List.of(
+            "Also known as Scallions.",
+            "Green Onions generally have a",
+            "milder taste than most onions."
+        )
+    );
+
+    public static final SlimefunItemStack BUSH_BLACK_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_BUSH_PEPPER",
+        Skins.SPIKEY_PURPLE_5.getPlayerHead(),
+        CultivationThemes.BUSH,
+        "Cultivation Bush: Black Pepper",
+        List.of(
+            "Black Pepper was an important part of the",
+            "spice trade between India and Europe",
+            "as early as Greek and Roman times."
+        )
+    );
+
     // endregion
 
     // region Plants
@@ -2955,6 +2979,22 @@ public final class CultivationStacks {
         "What hipsters dream about."
     );
 
+    public static final SlimefunItemStack GREEN_ONION = Theme.themedSlimefunItemStack(
+        "CLT_GREEN_ONION",
+        Skins.GREEN_ONION.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Green Onion",
+        "Goes great on tacos!"
+    );
+
+    public static final SlimefunItemStack BLACK_PEPPER = Theme.themedSlimefunItemStack(
+        "CLT_PEPPER",
+        Skins.BLACK_PEPPER.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Black Pepper",
+        "Spicier than salt."
+    );
+
     // endregion
 
     // region Crafted By Products
@@ -3063,6 +3103,30 @@ public final class CultivationStacks {
         CultivationThemes.PRODUCE,
         "Dough",
         "Just plain ol' dough!"
+    );
+
+    public static final SlimefunItemStack CREAM_CHEESE = Theme.themedSlimefunItemStack(
+        "CLT_CREAM_CHEESE",
+        new ItemStack(Material.MILK_BUCKET),
+        CultivationThemes.PRODUCE,
+        "Cream Cheese",
+        "More creamy than cheesy."
+    );
+
+    public static final SlimefunItemStack KETCHUP = Theme.themedSlimefunItemStack(
+        "CLT_KETCHUP",
+        Skins.JAM_JAR_RED.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Ketchup",
+        "Just tomatoes in a creamy form."
+    );
+
+    public static final SlimefunItemStack MUSTARD = Theme.themedSlimefunItemStack(
+        "CLT_MUSTARD",
+        Skins.JAM_JAR_YELLOW.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Mustard",
+        "Has a little kick to it!"
     );
 
     // endregion
@@ -3400,6 +3464,150 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Healing", "2 Hearts"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Glowing + 1")
     );
+
+    public static final SlimefunItemStack RAMEN_BEEF = Theme.themedSlimefunItemStack(
+        "CLT_RAMEN_BEEF",
+        Skins.RAMEN_BEEF.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Ramen (Beef)",
+        "A not-so-healthy choice.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 1")
+    );
+
+    public static final SlimefunItemStack RAMEN_CHICKEN = Theme.themedSlimefunItemStack(
+        "CLT_RAMEN_CHICKEN",
+        Skins.RAMEN_CHICKEN.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Ramen (Chicken)",
+        "A not-so-filling choice.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 1")
+    );
+
+    public static final SlimefunItemStack RAMEN_SEAFOOD = Theme.themedSlimefunItemStack(
+        "CLT_RAMEN_SEAFOOD",
+        Skins.RAMEN_SEAFOOD.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Ramen (Seafood)",
+        "A not-so-satisfying choice.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 1")
+    );
+
+    public static final SlimefunItemStack RAMEN_BEEF_HEARTY = Theme.themedSlimefunItemStack(
+        "CLT_RAMEN_BEEF_HEARTY",
+        Skins.RAMEN_HEARTY.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Ramen (Beef) (Hearty)",
+        "A healthy choice.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "Full"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 1")
+    );
+
+    public static final SlimefunItemStack RAMEN_CHICKEN_HEARTY = Theme.themedSlimefunItemStack(
+        "CLT_RAMEN_CHICKEN_HEARTY",
+        Skins.RAMEN_HEARTY.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Ramen (Chicken) (Hearty)",
+        "A filling choice.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "Full"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 1")
+    );
+
+    public static final SlimefunItemStack RAMEN_SEAFOOD_HEARTY = Theme.themedSlimefunItemStack(
+        "CLT_RAMEN_SEAFOOD_HEARTY",
+        Skins.RAMEN_HEARTY.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Ramen (Seafood) (Hearty)",
+        "A satisfying choice.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "Full"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Speed + 1")
+    );
+
+    public static final SlimefunItemStack BAGEL = Theme.themedSlimefunItemStack(
+        "CLT_BAGEL",
+        Skins.BAGEL.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Bagel",
+        "Toasted? or...",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "5")
+    );
+
+    public static final SlimefunItemStack BAGEL_BITE = Theme.themedSlimefunItemStack(
+        "CLT_BAGEL_BITE",
+        Skins.BAGEL_BITE.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Bagel Bite",
+        "Eat pizza anytime!",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Burns your mouth with every bite!")
+    );
+
+    public static final SlimefunItemStack BAGEL_CREAM_CHEESE = Theme.themedSlimefunItemStack(
+        "CLT_BAGEL_CREAM_CHEESE",
+        Skins.BAGEL_EVERYTHING.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Bagel (Cream Cheese)",
+        "It's so good you'll probably want another.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "10"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 1")
+    );
+
+    public static final SlimefunItemStack MEATLOAF = Theme.themedSlimefunItemStack(
+        "CLT_MEATLOAF",
+        Skins.MEATLOAF.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Meatloaf",
+        "Nothing like it! Let's go.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "Full"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Health Boost + 4"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Damage Reduction + 3"),
+        Theme.CLICK_INFO.asTitle("Effect 3", "Haste + 2"),
+        Theme.CLICK_INFO.asTitle("Effect 4", "Slowness + 2")
+    );
+
+    public static final SlimefunItemStack SAUSAGE = Theme.themedSlimefunItemStack(
+        "CLT_SAUSAGE",
+        Skins.SAUSAGE.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Sausage",
+        "Bacon's brother.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "2")
+    );
+
+    public static final SlimefunItemStack SOYLENT = Theme.themedSlimefunItemStack(
+        "CLT_SOYLENT",
+        ItemStackGenerators.createPotion(Color.WHITE),
+        CultivationThemes.FOOD,
+        "Soylent",
+        "Everything the body needs!",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Bad Omen + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Weakness + 4")
+    );
+
+    public static final SlimefunItemStack TATER_TOTS = Theme.themedSlimefunItemStack(
+        "CLT_TATER_TOTS",
+        Skins.TATER_TOT.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Tater Tots",
+        "Little potato poppables.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "1"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Speed + 2")
+    );
+
 
     // end region
 }

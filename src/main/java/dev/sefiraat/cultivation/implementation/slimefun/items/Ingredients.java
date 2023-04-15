@@ -139,6 +139,36 @@ public final class Ingredients {
         }
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ByProduct CREAM_CHEESE = new ByProduct(
+        CultivationStacks.CREAM_CHEESE,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            new ItemStack(Material.MILK_BUCKET), SlimefunItems.SALT, Products.LEMON.getBlendedItem(),
+            null, null, null,
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct KETCHUP = new ByProduct(
+        CultivationStacks.KETCHUP,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.TOMATO.getBlendedItem(), new ItemStack(Material.SUGAR), null,
+            null, null, null,
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct MUSTARD = new ByProduct(
+        CultivationStacks.MUSTARD,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.MUSTARD_SEEDS.getBlendedItem(), new ItemStack(Material.WATER_BUCKET), SlimefunItems.SALT,
+            Products.THYME.getChoppedItem(), Products.TURMERIC.getChoppedItem(), new ItemStack(Material.SUGAR),
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     public static void setup(Cultivation addon) {

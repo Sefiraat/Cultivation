@@ -5,9 +5,12 @@ import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.Food;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.sefilib.misc.Chance;
+import dev.sefiraat.sefilib.misc.ParticleUtils;
 import io.github.bakedlibs.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Player;
@@ -457,6 +460,184 @@ public final class Foods {
             4,
             new Pair<>(PotionEffectType.GLOWING, 0)
         )
+    ).buildRegister(Cultivation.getInstance());
+
+
+    public static final Food RAMEN_BEEF = new Food(
+        CultivationStacks.RAMEN_BEEF,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, Products.BEEF.getBoiledItem(), null,
+            null, Ingredients.PASTA.getItem(), null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 0, new Pair<>(PotionEffectType.HEALTH_BOOST, 0))
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food RAMEN_CHICKEN = new Food(
+        CultivationStacks.RAMEN_CHICKEN,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, Products.CHICKEN.getBoiledItem(), null,
+            null, Ingredients.PASTA.getItem(), null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 0, new Pair<>(PotionEffectType.HEALTH_BOOST, 0))
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food RAMEN_SEAFOOD = new Food(
+        CultivationStacks.RAMEN_SEAFOOD,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, Products.COD.getBoiledItem(), null,
+            null, Ingredients.PASTA.getItem(), null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 0, new Pair<>(PotionEffectType.HEALTH_BOOST, 0))
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food RAMEN_BEEF_HEARTY = new Food(
+        CultivationStacks.RAMEN_BEEF_HEARTY,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            CultivationStacks.SPINACH, CultivationStacks.PEA, Products.EGG.getFriedItem(),
+            new ItemStack(Material.CARROT), RAMEN_BEEF.getItem(), Products.BELL_PEPPER.getFriedItem(),
+            Products.GINGER.getChoppedItem(), Products.PARSLEY.getChoppedItem(), Products.GARLIC.getChoppedItem()
+        },
+        player ->
+            simplePlayerEffect(
+                player,
+                999,
+                new Pair<>(PotionEffectType.HEALTH_BOOST, 1),
+                new Pair<>(PotionEffectType.SPEED, 0)
+            )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food RAMEN_CHICKEN_HEARTY = new Food(
+        CultivationStacks.RAMEN_CHICKEN_HEARTY,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.ONION.getChoppedItem(), SlimefunItems.BUTTER, Products.RED_MUSHROOM.getChoppedItem(),
+            SlimefunItems.SALT, RAMEN_CHICKEN.getItem(), Products.CHILLI_PEPPER.getSlicedItem(),
+            Products.GINGER.getChoppedItem(), Products.PARSLEY.getChoppedItem(), Products.GARLIC.getChoppedItem()
+        },
+        player ->
+            simplePlayerEffect(
+                player,
+                999,
+                new Pair<>(PotionEffectType.HEALTH_BOOST, 1),
+                new Pair<>(PotionEffectType.SPEED, 0)
+            )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food RAMEN_SEAFOOD_HEARTY = new Food(
+        CultivationStacks.RAMEN_SEAFOOD_HEARTY,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.EGG.getBoiledItem(), Products.PUFFERFISH.getGrilledItem(), CultivationStacks.CURRY_LEAF,
+            Products.LIME.getSlicedItem(), RAMEN_SEAFOOD.getItem(), Products.SALMON.getGrilledItem(),
+            Products.GINGER.getChoppedItem(), Products.CILANTRO.getChoppedItem(), Products.GARLIC.getChoppedItem()
+        },
+        player ->
+            simplePlayerEffect(
+                player,
+                999,
+                new Pair<>(PotionEffectType.HEALTH_BOOST, 1),
+                new Pair<>(PotionEffectType.SPEED, 0)
+            )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food BAGEL = new Food(
+        CultivationStacks.BAGEL,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            null, SlimefunItems.SALT, null,
+            null, Ingredients.DOUGH.getItem(), null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 5)
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food BAGEL_BITE = new Food(
+        CultivationStacks.BAGEL_BITE,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, SlimefunItems.CHEESE, null,
+            null, Products.TOMATO.getBlendedItem(), null,
+            null, BAGEL.getItem(), null
+        },
+        player -> {
+            ParticleUtils.displayParticleRandomly(player, Particle.FLAME, 1, 50);
+            player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.f, 1.f);
+            player.setFireTicks(40);
+            player.setFoodLevel(10);
+        }
+    ).overrideEatingMessage("Ouch!")
+        .buildRegister(Cultivation.getInstance());
+
+    public static final Food BAGEL_CREAM_CHEESE = new Food(
+        CultivationStacks.BAGEL_CREAM_CHEESE,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, BAGEL.getItem(), null,
+            null, Ingredients.CREAM_CHEESE.getItem(), null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 10, new Pair<>(PotionEffectType.HEALTH_BOOST, 0))
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food MEATLOAF = new Food(
+        CultivationStacks.MEATLOAF,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            Ingredients.KETCHUP.getItem(), new ItemStack(Material.EGG), Products.BREAD.getChoppedItem(),
+            new ItemStack(Material.MILK_BUCKET), Products.BEEF.getGroundItem(), Products.THYME.getChoppedItem(),
+            SlimefunItems.SALT, Products.ONION.getChoppedItem(), Ingredients.MUSTARD.getItem()
+        },
+        player -> simplePlayerEffect(player, 999,
+                                     new Pair<>(PotionEffectType.HEALTH_BOOST, 3),
+                                     new Pair<>(PotionEffectType.DAMAGE_RESISTANCE, 2),
+                                     new Pair<>(PotionEffectType.FAST_DIGGING, 1),
+                                     new Pair<>(PotionEffectType.SLOW, 1)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food SAUSAGE = new Food(
+        CultivationStacks.SAUSAGE,
+        RecipeTypes.GRILLED,
+        new ItemStack[]{
+            new ItemStack(Material.SUGAR), SlimefunItems.SALT, Products.GARLIC.getChoppedItem(),
+            Products.PORK.getGroundItem(), null, null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 2)
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food SOYLENT = new Food(
+        CultivationStacks.SOYLENT,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.BEEF.getBlendedItem(), Products.BANANA.getBlendedItem(), Products.COCOA.getBlendedItem(),
+            Products.AVOCADO.getBlendedItem(), new ItemStack(Material.WATER_BUCKET), Products.VANILLA.getBlendedItem(),
+            Products.SPINACH.getBlendedItem(), Products.SOY_BEANS.getBlendedItem(), new ItemStack(Material.ICE)
+        },
+        player -> simplePlayerEffect(
+            player,
+            0,
+            new Pair<>(PotionEffectType.BAD_OMEN, 0),
+            new Pair<>(PotionEffectType.WEAKNESS, 3)
+        )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food TATER_TOTS = new Food(
+        CultivationStacks.TATER_TOTS,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, SlimefunItems.SALT, null,
+            null, Products.POTATO.getFriedItem(), null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 1, new Pair<>(PotionEffectType.SPEED, 1))
     ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {

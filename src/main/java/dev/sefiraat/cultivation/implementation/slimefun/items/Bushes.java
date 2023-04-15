@@ -655,5 +655,21 @@ public final class Bushes {
         ))
             .addHarvestingResult(CultivationStacks.AVOCADO)
             .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_GREEN_ONION, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.GREEN_ONION)
+            .tryRegister(addon);
+
+        new HarvestableBush(CultivationStacks.BUSH_BLACK_PEPPER, new Growth(
+            PlantTheme.GREEN,
+            CommonPlacements.COMMON_OVERWORLD,
+            0.01
+        ))
+            .addHarvestingResult(CultivationStacks.BLACK_PEPPER)
+            .tryRegister(addon);
     }
 }
