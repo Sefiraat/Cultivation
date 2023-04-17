@@ -568,7 +568,7 @@ public final class Foods {
         },
         player -> {
             ParticleUtils.displayParticleRandomly(player, Particle.FLAME, 1, 50);
-            player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.f, 1.f);
+            player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXTINGUISH_FIRE, 1f, 1f);
             player.setFireTicks(40);
             player.setFoodLevel(10);
         }
