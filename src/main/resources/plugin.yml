@@ -17,3 +17,15 @@ permissions:
     default: op
     children:
       cultivation.admin: true
+  cultivation.admin:
+    description: Provides access to all Cultivation admin functions
+    default: op
+    children:
+      cultivation.admin.entities: true
+      cultivation.admin.structures: true
+  cultivation.admin.entities:
+    description: Allows the user to manage Cultivation Entities
+    default: op
+  cultivation.admin.structures:
+    description: Allows the user to manage Cultivation Structures
+    default: op
