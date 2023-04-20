@@ -61,6 +61,8 @@ public class PlantAnalyser extends SimpleSlimefunItem<ItemUseHandler> implements
     private static void showStats(PlayerRightClickEvent event, SlimefunItem item, Block block) {
         if (item instanceof CultivationLevelProfileHolder profileHolder) {
             FloraLevelProfile profile = profileHolder.getLevelProfile(block);
+            profile.setAnalyzed(true);
+            profileHolder.setLevelProfile(block.getLocation(), profile);
             Player player = event.getPlayer();
             player.sendMessage(Theme.CLICK_INFO.apply(item.getItemName()));
             player.sendMessage(Theme.CLICK_INFO.asTitle("Drop Level", profile.getLevel()));

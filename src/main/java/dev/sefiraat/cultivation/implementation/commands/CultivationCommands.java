@@ -14,11 +14,16 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonReader;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
+import dev.sefiraat.cultivation.api.datatypes.SeedPackDataType;
+import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
+import dev.sefiraat.cultivation.api.datatypes.instances.SeedPackInstance;
 import dev.sefiraat.cultivation.api.slimefun.items.trees.TreeBlockDescriptor;
+import dev.sefiraat.cultivation.implementation.slimefun.tools.SeedPack;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.bakedlibs.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
@@ -30,6 +35,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Interaction;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 import java.io.BufferedWriter;
@@ -232,6 +238,43 @@ public class CultivationCommands extends BaseCommand {
                     displayGroup.remove();
                 }
             });
+        }
+    }
+
+    @Subcommand("packpeek")
+    public void packPeek(CommandSender sender) {
+        if (sender instanceof Player player) {
+            ItemStack itemStack = player.getInventory().getItemInMainHand();
+            if (itemStack == null || itemStack.getType().isAir()) {
+                player.sendMessage(Theme.WARNING.apply("You must be holding a Seed Pack for this"));
+                return;
+            }
+
+            SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
+            if (!(slimefunItem instanceof SeedPack pack)) {
+                player.sendMessage(Theme.WARNING.apply("You must be holding a Seed Pack for this"));
+                return;
+            }
+
+            ItemMeta itemMeta = itemStack.getItemMeta();
+            SeedPackInstance instance = PersistentDataAPI.get(itemMeta, SeedPackDataType.KEY, SeedPackDataType.TYPE);
+
+            if (instance == null) {
+                player.sendMessage(Theme.WARNING.apply("This pack is empty!"));
+                return;
+            }
+
+            player.sendMessage("------------------------------------");
+            player.sendMessage("Contents");
+            player.sendMessage("------------------------------------");
+            for (Map.Entry<FloraLevelProfile, Integer> entry : instance.getAmountMap().entrySet()) {
+                FloraLevelProfile profile = entry.getKey();
+                String neatKey =
+                    " Lv: " + profile.getLevel() +
+                    " Sp: " + profile.getSpeed() +
+                    " St: " + profile.getStrength();
+                player.sendMessage(Theme.CLICK_INFO.asTitle(neatKey, entry.getValue()));
+            }
         }
     }
 }

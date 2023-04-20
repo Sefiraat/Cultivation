@@ -6,6 +6,7 @@ import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.CropSticks;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.PlantAnalyser;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.RecipeUnlock;
+import dev.sefiraat.cultivation.implementation.slimefun.tools.SeedPack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
@@ -40,6 +41,17 @@ public final class Tools {
                 new ItemStack(Material.DIAMOND), new ItemStack(Material.GLASS), null,
                 SlimefunItems.BLISTERING_INGOT, SlimefunItems.CROP_GROWTH_ACCELERATOR, null,
                 null, null, null
+            }
+        ).register(addon);
+
+        new SeedPack(
+            CultivationGroups.TOOLS,
+            CultivationStacks.SEED_PACK,
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            new ItemStack[]{
+                new ItemStack(Material.LEATHER), new ItemStack(Material.STRING), new ItemStack(Material.LEATHER),
+                new ItemStack(Material.LEATHER), null, new ItemStack(Material.LEATHER),
+                new ItemStack(Material.LEATHER), new ItemStack(Material.LEATHER), new ItemStack(Material.LEATHER)
             }
         ).register(addon);
 
