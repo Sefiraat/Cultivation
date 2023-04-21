@@ -258,7 +258,6 @@ public class CultivationCommands extends BaseCommand {
 
             ItemMeta itemMeta = itemStack.getItemMeta();
             SeedPackInstance instance = PersistentDataAPI.get(itemMeta, SeedPackDataType.KEY, SeedPackDataType.TYPE);
-
             if (instance == null) {
                 player.sendMessage(Theme.WARNING.apply("This pack is empty!"));
                 return;
