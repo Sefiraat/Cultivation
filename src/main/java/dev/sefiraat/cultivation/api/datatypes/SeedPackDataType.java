@@ -40,8 +40,8 @@ public class SeedPackDataType implements PersistentDataType<PersistentDataContai
     public PersistentDataContainer toPrimitive(@Nonnull SeedPackInstance complex,
                                                @Nonnull PersistentDataAdapterContext context
     ) {
-        final PersistentDataContainer container = context.newPersistentDataContainer();
-        final PersistentDataContainer profileContainer = context.newPersistentDataContainer();
+        PersistentDataContainer container = context.newPersistentDataContainer();
+        PersistentDataContainer profileContainer = context.newPersistentDataContainer();
 
         container.set(PLANT_ID, STRING, complex.getStoredItemId());
 

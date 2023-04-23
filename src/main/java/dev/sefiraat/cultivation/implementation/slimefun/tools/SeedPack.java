@@ -128,7 +128,7 @@ public class SeedPack extends SlimefunItem {
                 }
                 replaceExistingItem(INCREMENT_LEVEL_SLOT, getIncrementStack("Level", value));
                 this.level = value;
-                setGetStack();
+                setOutputStack();
                 return false;
             });
             addItem(INCREMENT_SPEED_SLOT, getIncrementStack("Speed", 1), (p, slot, item, action) -> {
@@ -140,7 +140,7 @@ public class SeedPack extends SlimefunItem {
                 }
                 replaceExistingItem(INCREMENT_SPEED_SLOT, getIncrementStack("Speed", value));
                 this.speed = value;
-                setGetStack();
+                setOutputStack();
                 return false;
             });
             addItem(INCREMENT_STRENGTH_SLOT, getIncrementStack("Strength", 1), (p, slot, item, action) -> {
@@ -152,12 +152,12 @@ public class SeedPack extends SlimefunItem {
                 }
                 replaceExistingItem(INCREMENT_STRENGTH_SLOT, getIncrementStack("Strength", value));
                 this.strength = value;
-                setGetStack();
+                setOutputStack();
                 return false;
             });
 
-            setGetStack();
-            setSetStack();
+            setOutputStack();
+            setInputStack();
         }
 
         private boolean onClickSeedSetSlot(Player player, int slot, ItemStack item, ClickAction action) {
@@ -206,12 +206,12 @@ public class SeedPack extends SlimefunItem {
             if (remainder.isEmpty()) {
                 instance.takeOne(level, speed, strength);
             }
-            setGetStack();
+            setOutputStack();
             reapplyInstance();
             return false;
         }
 
-        private void setSetStack() {
+        private void setInputStack() {
             SlimefunItem slimefunItem = SlimefunItem.getById(instance.storedItemId);
             if (!(slimefunItem instanceof CultivationPlant plant)) {
                 replaceExistingItem(SEED_SET_SLOT, NO_SEED_SET_STACK);
@@ -221,7 +221,7 @@ public class SeedPack extends SlimefunItem {
             replaceExistingItem(SEED_SET_SLOT, itemStack);
         }
 
-        private void setGetStack() {
+        private void setOutputStack() {
             SlimefunItem slimefunItem = SlimefunItem.getById(instance.storedItemId);
             if (!(slimefunItem instanceof CultivationPlant plant)) {
                 replaceExistingItem(SEED_PICKUP_SLOT, NO_SEED_SET_STACK);
