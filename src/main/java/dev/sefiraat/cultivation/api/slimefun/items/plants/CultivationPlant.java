@@ -19,6 +19,7 @@ import dev.sefiraat.cultivation.api.utils.StatisticUtils;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
+import dev.sefiraat.sefilib.string.Theme;
 import dev.sefiraat.sefilib.world.LocationUtils;
 import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
 import io.github.bakedlibs.dough.skins.PlayerHead;
@@ -143,7 +144,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             itemMeta,
             FloraLevelProfileDataType.KEY,
             FloraLevelProfileDataType.TYPE,
-            new FloraLevelProfile(1, 1, 1)
+            new FloraLevelProfile(1, 1, 1, false)
         );
 
         setLevelProfile(location, profile);
@@ -161,17 +162,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     }
 
     public ItemStack getDroppedItemStack(@Nonnull Location location) {
-        ItemStack itemToDrop = this.getItem().clone();
-        ItemMeta itemMeta = itemToDrop.getItemMeta();
-
-        PersistentDataAPI.set(
-            itemMeta,
-            FloraLevelProfileDataType.KEY,
-            FloraLevelProfileDataType.TYPE,
-            getLevelProfile(location)
-        );
-        itemToDrop.setItemMeta(itemMeta);
-        return itemToDrop;
+        return getStack(this, getLevelProfile(location));
     }
 
     @Override
@@ -264,7 +255,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     @ParametersAreNonnullByDefault
     private void tryMutate(Block cloneBlock, FloraLevelProfile motherProfile, FloraLevelProfile fatherProfile) {
         FloraLevelProfile profile = FloraLevelProfile.testMutation(motherProfile, fatherProfile);
-        setLevelProfile(cloneBlock.getLocation(), profile.getLevel(), profile.getSpeed(), profile.getStrength());
+        setLevelProfile(cloneBlock.getLocation(), profile);
     }
 
     protected void breedSuccess(@Nonnull Location location) {
@@ -307,5 +298,29 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     public CultivationPlant tryRegister(@NotNull SlimefunAddon addon) {
         Registry.getInstance().addPlant(this);
         return super.tryRegister(addon);
+    }
+
+    public static ItemStack getStack(@Nonnull CultivationPlant plant, @Nonnull FloraLevelProfile profile) {
+        ItemStack itemToDrop = plant.getItem().clone();
+        ItemMeta itemMeta = itemToDrop.getItemMeta();
+
+        PersistentDataAPI.set(
+            itemMeta,
+            FloraLevelProfileDataType.KEY,
+            FloraLevelProfileDataType.TYPE,
+            profile
+        );
+
+        if (profile.isAnalyzed()) {
+            List<String> lore = itemMeta.getLore();
+            lore.add("");
+            lore.add(Theme.CLICK_INFO.asTitle("Drop Level", profile.getLevel()));
+            lore.add(Theme.CLICK_INFO.asTitle("Speed", profile.getSpeed()));
+            lore.add(Theme.CLICK_INFO.asTitle("Breed Strength", profile.getStrength()));
+            itemMeta.setLore(lore);
+        }
+
+        itemToDrop.setItemMeta(itemMeta);
+        return itemToDrop;
     }
 }

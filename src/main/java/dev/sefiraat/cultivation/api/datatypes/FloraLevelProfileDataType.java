@@ -20,6 +20,7 @@ public class FloraLevelProfileDataType implements PersistentDataType<PersistentD
     public static final NamespacedKey LEVEL_GROWTH_SPEED = Keys.newKey("growth_speed");
     public static final NamespacedKey LEVEL_DROP_RATE = Keys.newKey("drop_rate");
     public static final NamespacedKey LEVEL_STRENGTH = Keys.newKey("strength");
+    public static final NamespacedKey ANALYZED = Keys.newKey("analyzed");
 
     @Override
     @Nonnull
@@ -43,6 +44,7 @@ public class FloraLevelProfileDataType implements PersistentDataType<PersistentD
         container.set(LEVEL_GROWTH_SPEED, INTEGER, complex.getSpeed());
         container.set(LEVEL_DROP_RATE, INTEGER, complex.getLevel());
         container.set(LEVEL_STRENGTH, INTEGER, complex.getStrength());
+        container.set(ANALYZED, INTEGER, complex.isAnalyzed() ? 1 : 0);
 
         return container;
     }
@@ -55,6 +57,7 @@ public class FloraLevelProfileDataType implements PersistentDataType<PersistentD
         int speed = primitive.getOrDefault(LEVEL_GROWTH_SPEED, INTEGER, 1);
         int level = primitive.getOrDefault(LEVEL_DROP_RATE, INTEGER, 1);
         int strength = primitive.getOrDefault(LEVEL_STRENGTH, INTEGER, 1);
-        return new FloraLevelProfile(level, speed, strength);
+        int analyzed = primitive.getOrDefault(ANALYZED, INTEGER, 0);
+        return new FloraLevelProfile(level, speed, strength, analyzed == 1);
     }
 }

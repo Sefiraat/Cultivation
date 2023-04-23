@@ -5,6 +5,7 @@ import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.implementation.listeners.CustomDropListener;
 import dev.sefiraat.cultivation.implementation.listeners.CustomPlacementListener;
 import dev.sefiraat.cultivation.implementation.listeners.MobDropListener;
+import dev.sefiraat.cultivation.implementation.listeners.SeedPackListener;
 import dev.sefiraat.cultivation.implementation.listeners.TraderListener;
 import dev.sefiraat.cultivation.implementation.listeners.TreeListener;
 import org.bukkit.event.Listener;
@@ -26,6 +27,7 @@ public class ListenerManager {
         addListener(new MobDropListener());
         addListener(new TreeListener());
         addListener(new TraderListener());
+        addListener(new SeedPackListener());
     }
 
     private void addListener(@Nonnull Listener listener) {

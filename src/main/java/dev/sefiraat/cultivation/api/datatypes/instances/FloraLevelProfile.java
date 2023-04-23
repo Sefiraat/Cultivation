@@ -20,6 +20,7 @@ public class FloraLevelProfile {
     public static final String BS_KEY_LEVEL = "seed_level";
     public static final String BS_KEY_SPEED = "seed_speed";
     public static final String BS_KEY_STRENGTH = "seed_strength";
+    public static final String BS_KEY_ANALYZED = "seed_analyzed";
 
     private static final int MAX_LEVEL = 10;
     private static final int MAX_SPEED = 10;
@@ -30,11 +31,13 @@ public class FloraLevelProfile {
     private int level;
     private int speed;
     private int strength;
+    private boolean analyzed;
 
-    public FloraLevelProfile(int level, int speed, int strength) {
+    public FloraLevelProfile(int level, int speed, int strength, boolean analyzed) {
         this.level = level;
         this.speed = speed;
         this.strength = strength;
+        this.analyzed = analyzed;
     }
 
     public int getLevel() {
@@ -73,6 +76,14 @@ public class FloraLevelProfile {
         setStrength(getStrength() + 1);
     }
 
+    public void setAnalyzed(boolean analyzed) {
+        this.analyzed = analyzed;
+    }
+
+    public boolean isAnalyzed() {
+        return analyzed;
+    }
+
     public static FloraLevelProfile testMutation(FloraLevelProfile profile1, FloraLevelProfile profile2) {
         int combinedLevel = profile1.getLevel() + profile2.getLevel();
         int averageLevel = (int) Math.ceil(combinedLevel / 2.0);
@@ -89,7 +100,8 @@ public class FloraLevelProfile {
         return new FloraLevelProfile(
             Chance.testChance(mutateChance) ? Math.min(averageLevel + 1, 10) : averageLevel,
             Chance.testChance(mutateChance) ? Math.min(averageSpeed + 1, 10) : averageSpeed,
-            Chance.testChance(mutateChance) ? Math.min(averageStrength + 1, 10) : averageStrength
+            Chance.testChance(mutateChance) ? Math.min(averageStrength + 1, 10) : averageStrength,
+            false
         );
     }
 
@@ -101,7 +113,7 @@ public class FloraLevelProfile {
             FloraLevelProfileDataType.KEY,
             FloraLevelProfileDataType.TYPE
         );
-        return Objects.requireNonNullElseGet(profile, () -> new FloraLevelProfile(1, 1, 1));
+        return Objects.requireNonNullElseGet(profile, () -> new FloraLevelProfile(1, 1, 1, false));
     }
 
     @Nullable
@@ -116,5 +128,24 @@ public class FloraLevelProfile {
             return holder.getLevelProfile(location);
         }
         return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FloraLevelProfile profile = (FloraLevelProfile) o;
+        return level == profile.level
+            && speed == profile.speed
+            && strength == profile.strength;
+    }
+
+    @Override
+    public int hashCode() {
+        return com.google.common.base.Objects.hashCode(level, speed, strength);
     }
 }

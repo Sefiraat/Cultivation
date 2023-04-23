@@ -29,7 +29,8 @@ public interface CultivationLevelProfileHolder {
                 String levelString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_LEVEL);
                 String speedString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_SPEED);
                 String strengthString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_STRENGTH);
-                return getLevelProfile(levelString, speedString, strengthString);
+                String analysedString = BlockStorage.getLocationInfo(location, FloraLevelProfile.BS_KEY_ANALYZED);
+                return getLevelProfile(levelString, speedString, strengthString, analysedString);
             }
         );
     }
@@ -39,25 +40,32 @@ public interface CultivationLevelProfileHolder {
         String levelString = config.getString(FloraLevelProfile.BS_KEY_LEVEL);
         String speedString = config.getString(FloraLevelProfile.BS_KEY_SPEED);
         String strengthString = config.getString(FloraLevelProfile.BS_KEY_STRENGTH);
-        return getLevelProfile(levelString, speedString, strengthString);
+        String analyzedString = config.getString(FloraLevelProfile.BS_KEY_ANALYZED);
+        return getLevelProfile(levelString, speedString, strengthString, analyzedString);
     }
 
     @ParametersAreNullableByDefault
-    default FloraLevelProfile getLevelProfile(String levelString, String speedString, String strengthString) {
+    default FloraLevelProfile getLevelProfile(String levelString,
+                                              String speedString,
+                                              String strengthString,
+                                              String analysedString
+    ) {
         int level = levelString == null ? 1 : Integer.parseInt(levelString);
         int speed = speedString == null ? 1 : Integer.parseInt(speedString);
         int strength = strengthString == null ? 1 : Integer.parseInt(strengthString);
-        return new FloraLevelProfile(level, speed, strength);
+        boolean analyzed = Boolean.parseBoolean(analysedString);
+        return new FloraLevelProfile(level, speed, strength, analyzed);
     }
 
     default void setLevelProfile(@Nonnull Location location, FloraLevelProfile profile) {
-        setLevelProfile(location, profile.getLevel(), profile.getSpeed(), profile.getStrength());
+        setLevelProfile(location, profile.getLevel(), profile.getSpeed(), profile.getStrength(), profile.isAnalyzed());
         PROFILE_MAP.put(location, profile);
     }
 
-    default void setLevelProfile(@Nonnull Location location, int level, int speed, int strength) {
+    default void setLevelProfile(@Nonnull Location location, int level, int speed, int strength, boolean analyzed) {
         BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_LEVEL, String.valueOf(level));
         BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_SPEED, String.valueOf(speed));
         BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_STRENGTH, String.valueOf(strength));
+        BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_ANALYZED, String.valueOf(analyzed));
     }
 }

@@ -2085,6 +2085,16 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Unlocks", "{0}")
     );
 
+    public static final SlimefunItemStack SEED_PACK = Theme.themedSlimefunItemStack(
+        "CLT_SEED_PACK",
+        Material.COMPOSTER,
+        CultivationThemes.TOOL,
+        "Seed Pack",
+        "Right click to open this pack.",
+        "",
+        Theme.CLICK_INFO.asTitle("Set to", "Nothing")
+    );
+
     // endregion
 
     // region Machines
