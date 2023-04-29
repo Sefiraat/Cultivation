@@ -62,6 +62,10 @@ public interface CultivationLevelProfileHolder {
         PROFILE_MAP.put(location, profile);
     }
 
+    default void removeLevelProfile(@Nonnull Location location) {
+        PROFILE_MAP.remove(location);
+    }
+
     default void setLevelProfile(@Nonnull Location location, int level, int speed, int strength, boolean analyzed) {
         BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_LEVEL, String.valueOf(level));
         BlockStorage.addBlockInfo(location, FloraLevelProfile.BS_KEY_SPEED, String.valueOf(speed));

@@ -6,13 +6,17 @@ import dev.sefiraat.cultivation.api.slimefun.items.produce.Food;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.sefilib.misc.Chance;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
+import dev.sefiraat.sefilib.world.LocationUtils;
 import io.github.bakedlibs.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -231,6 +235,22 @@ public final class Foods {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food TAQUITO = new Food(
+        CultivationStacks.TAQUITO,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            SlimefunItems.CHEESE, Products.CHICKEN.getChoppedItem(), Ingredients.PICO_DE_GALLO.getItem(),
+            Products.CUMIN.getGroundItem(), Products.CHILLI_PEPPER.getChoppedItem(), Products.BLACK_PEPPER.getGroundItem(),
+            Ingredients.TORTILLAS.getItem(), Ingredients.TORTILLAS.getItem(), Ingredients.TORTILLAS.getItem(),
+        },
+        player -> {
+            simplePlayerEffect(player, 8);
+            Location location = LocationUtils.randomLocation(player.getLocation(), 2);
+            IronGolem golem = (IronGolem) location.getWorld().spawnEntity(location, EntityType.IRON_GOLEM);
+            golem.setPlayerCreated(true);
+        }
+    ).buildRegister(Cultivation.getInstance());
+
     public static final Food FRUIT_SALAD = new Food(
         CultivationStacks.FRUIT_SALAD,
         RecipeTypes.FINISHING,
@@ -261,6 +281,26 @@ public final class Foods {
             new Pair<>(PotionEffectType.INVISIBILITY, 0),
             new Pair<>(PotionEffectType.SLOW_FALLING, 0)
         )
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food BOWL_OF_STEVE = new Food(
+        CultivationStacks.BOWL_OF_STEVE,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, new ItemStack(Material.PLAYER_HEAD), null,
+            Products.TOMATO.getSlicedItem(), Products.BELL_PEPPER.getSlicedItem(), Products.CUCUMBER.getSlicedItem(),
+            Products.LETTUCE.getChoppedItem(), Products.LETTUCE.getChoppedItem(), Products.LETTUCE.getChoppedItem()
+        },
+        player -> {
+            simplePlayerEffect(
+                player,
+                0,
+                new Pair<>(PotionEffectType.SLOW_DIGGING, 9),
+                new Pair<>(PotionEffectType.SLOW, 5),
+                new Pair<>(PotionEffectType.INCREASE_DAMAGE, 9)
+            );
+            player.setHealth(1);
+        }
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food BISCUIT = new Food(
@@ -638,6 +678,22 @@ public final class Foods {
             null, null, null
         },
         player -> simplePlayerEffect(player, 1, new Pair<>(PotionEffectType.SPEED, 1))
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food SWEET_BEEHIVE = new Food(
+        CultivationStacks.SWEET_BEEHIVE,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            new ItemStack(Material.HONEYCOMB), new ItemStack(Material.HONEYCOMB), new ItemStack(Material.HONEYCOMB),
+            null, new ItemStack(Material.BEEHIVE), null,
+            null, null, null
+        },
+        player -> {
+            for (int i = 0; i < 4; i++) {
+                Location location = LocationUtils.randomLocation(player.getLocation(), 2);
+                location.getWorld().spawnEntity(location, EntityType.BEE, true);
+            }
+        }
     ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {

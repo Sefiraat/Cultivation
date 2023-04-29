@@ -5,11 +5,9 @@ import dev.sefiraat.cultivation.api.utils.Skins;
 import dev.sefiraat.sefilib.itemstacks.ItemStackGenerators;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import org.bukkit.Color;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
@@ -3122,6 +3120,22 @@ public final class CultivationStacks {
         "Has a little kick to it!"
     );
 
+    public static final SlimefunItemStack TORTILLAS = Theme.themedSlimefunItemStack(
+        "CLT_TORTILLAS",
+        Skins.TORILLAS.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Tortillas",
+        "Corn-flour delights"
+    );
+
+    public static final SlimefunItemStack PICO_DE_GALLO = Theme.themedSlimefunItemStack(
+        "CLT_PICO_DE_GALLO",
+        Skins.SALSA.getPlayerHead(),
+        CultivationThemes.PRODUCE,
+        "Pico de Gallo",
+        "A mild salsa full of pure delicious."
+    );
+
     // endregion
 
     // region Finished Foods
@@ -3601,6 +3615,39 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Effect 1", "Speed + 2")
     );
 
+    public static final SlimefunItemStack SWEET_BEEHIVE = Theme.themedSlimefunItemStack(
+        "CLT_SWEET_BEEHIVE",
+        Skins.BEEHIVE.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Sweet Beehive",
+        "Not sure what made you want to cook this!",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Summons some bees!")
+    );
+
+    public static final SlimefunItemStack TAQUITO = Theme.themedSlimefunItemStack(
+        "CLT_TAQUITO",
+        Skins.TAQUITO.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Taquito",
+        "Zim would be proud!",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Summons Gir to help (It's an Iron Golem, relax).")
+    );
+
+    public static final SlimefunItemStack BOWL_OF_STEVE = Theme.themedSlimefunItemStack(
+        "CLT_BOWL_OF_STEVE",
+        Skins.STEVE_HEAD_BOWL.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Bowl of... Steve?",
+        "What the actual &%£$",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Reduces you to 1/2 heart"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Fatigue + 10"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Slow + 5"),
+        Theme.CLICK_INFO.asTitle("Effect 3", "Damage + 10")
+    );
 
     // end region
 }

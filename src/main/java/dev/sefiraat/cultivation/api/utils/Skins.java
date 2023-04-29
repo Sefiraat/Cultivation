@@ -531,7 +531,17 @@ public enum Skins {
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/8749-bagel-with-tomato
     BAGEL_BITE("fd87899d0bc5196abba4f1c54f9aa745039553fb54d1253bbd48bded24c967"),
     // https://minecraft-heads.com/custom-heads/plants/32421-black-apple
-    BLACK_PEPPER("d209d3d0d8daa4628b9b3e10a235e22089d76bffe156ddc5852e5fdc12a3d12c");
+    BLACK_PEPPER("d209d3d0d8daa4628b9b3e10a235e22089d76bffe156ddc5852e5fdc12a3d12c"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/56193-beehive-on-a-plate
+    BEEHIVE("5aa0acad7094fbe9e646eee8cba1c06892fa1f8fb385e34869633645bcab1ef4"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/59314-taquitos
+    TAQUITO("8d7e863ddf0534c07ecfc2b3482044c2b13c2ef13d2532996a6c2a54da9c9e39"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/22464-tortillas
+    TORILLAS("4d566bc73da8f04a74a180bc3ea197e8e4b6a13fb8d6a1560c0f9a2ac18f548e"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/55667-salsa
+    SALSA("4fd6a6d79aa341490a2e2e16c16e8a16b1a4a157e9ef8bffec714aa78ec5a37f"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/43719-steve-meal
+    STEVE_HEAD_BOWL("acea1f348dab0104bb61c997d0da12e81b4504a58c84af90f31d775f83a0239f");
 
     // endregion
 
