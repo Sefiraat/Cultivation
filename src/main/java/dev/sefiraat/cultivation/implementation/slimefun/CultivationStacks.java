@@ -20,23 +20,6 @@ public final class CultivationStacks {
         throw new IllegalStateException("Utility class");
     }
 
-    // region Crafting Materials
-
-    public static final SlimefunItemStack MYSTICAL_LOG = Theme.themedSlimefunItemStack(
-        "CLT_MYSTICAL_WOOD",
-        ItemStackGenerators.createEnchantedItemStack(
-            Material.OAK_LOG,
-            true,
-            new Pair<>(Enchantment.ARROW_DAMAGE, 1)
-        ),
-        CultivationThemes.TOOL,
-        "Mystical Log",
-        "This seemingly simple log it brimming",
-        "with an unknown power"
-    );
-
-    // endregion
-
     // region Trees
 
     public static final SlimefunItemStack TREE_BANANA = Theme.themedSlimefunItemStack(

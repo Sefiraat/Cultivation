@@ -17,15 +17,5 @@ public final class Crafting {
 
     public static void setup(Cultivation addon) {
 
-        new SlimefunItem(
-            CultivationGroups.CRAFTING,
-            CultivationStacks.MYSTICAL_LOG,
-            RecipeType.ANCIENT_ALTAR,
-            new ItemStack[]{
-                null, SlimefunItems.AIR_RUNE, null,
-                SlimefunItems.EARTH_RUNE, new ItemStack(Material.OAK_SAPLING), SlimefunItems.FIRE_RUNE,
-                null, SlimefunItems.WATER_RUNE, null
-            }
-        ).register(addon);
     }
 }
