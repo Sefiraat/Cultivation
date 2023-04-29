@@ -169,6 +169,26 @@ public final class Ingredients {
         }
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ByProduct TORTILLAS = new ByProduct(
+        CultivationStacks.TORTILLAS,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.SWEETCORN.getGroundItem(), Products.SWEETCORN.getGroundItem(), Products.SWEETCORN.getGroundItem(),
+            null, null, null,
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final ByProduct PICO_DE_GALLO = new ByProduct(
+        CultivationStacks.PICO_DE_GALLO,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.TOMATO.getChoppedItem(), Products.CHILLI_PEPPER.getChoppedItem(), Products.ONION.getChoppedItem(),
+            Products.LIME.getBlendedItem(), Products.CILANTRO.getChoppedItem(), null,
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     public static void setup(Cultivation addon) {
