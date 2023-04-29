@@ -121,7 +121,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
             Block middleBlock = motherBlock.getRelative(face);
             // There must be space for the new block
             if (middleBlock.getType() != Material.AIR || BlockStorage.check(middleBlock) != null) {
-                return;
+                continue;
             }
             Block potentialMate = middleBlock.getRelative(face);
             SlimefunItem mateItem = BlockStorage.check(potentialMate);
