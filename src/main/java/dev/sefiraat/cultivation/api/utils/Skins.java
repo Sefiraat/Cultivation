@@ -429,6 +429,8 @@ public enum Skins {
     SQUASH("36ae076649ef22f60e8511831c68fd2b6ea63c32164dab33a8aebc18ff2a54c8"),
     // https://minecraft-heads.com/custom-heads/plants/58594-rutabaga
     RUTABAGA("b3661e4bf4c3e730a3aaa1053a3fc524dc03df67bf7a20979efdb2ad1a9e4084"),
+    // https://minecraft-heads.com/custom-heads/plants/32421-black-apple
+    BLACK_PEPPER("d209d3d0d8daa4628b9b3e10a235e22089d76bffe156ddc5852e5fdc12a3d12c"),
 
     // endregion
 
@@ -444,6 +446,10 @@ public enum Skins {
     JAM_JAR_ORANGE("6f363628123af11aa6f4a899cebd094f074555a41e6d335212ee7263ad39f6"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/24-jam-jar-yellow
     JAM_JAR_YELLOW("10192f33373b914a6e2d5a23c0daa5db5f77204471a36b6161ae556d3e663"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/22464-tortillas
+    TORILLAS("4d566bc73da8f04a74a180bc3ea197e8e4b6a13fb8d6a1560c0f9a2ac18f548e"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/55667-salsa
+    SALSA("4fd6a6d79aa341490a2e2e16c16e8a16b1a4a157e9ef8bffec714aa78ec5a37f"),
 
     // endregion
 
@@ -530,23 +536,25 @@ public enum Skins {
     BAGEL_EVERYTHING("653aaae67dda225b78e82886d046c67fdf37f1bbe2dfc55f1324781f8159f5"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/8749-bagel-with-tomato
     BAGEL_BITE("fd87899d0bc5196abba4f1c54f9aa745039553fb54d1253bbd48bded24c967"),
-    // https://minecraft-heads.com/custom-heads/plants/32421-black-apple
-    BLACK_PEPPER("d209d3d0d8daa4628b9b3e10a235e22089d76bffe156ddc5852e5fdc12a3d12c"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/56193-beehive-on-a-plate
     BEEHIVE("5aa0acad7094fbe9e646eee8cba1c06892fa1f8fb385e34869633645bcab1ef4"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/59314-taquitos
     TAQUITO("8d7e863ddf0534c07ecfc2b3482044c2b13c2ef13d2532996a6c2a54da9c9e39"),
-    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/22464-tortillas
-    TORILLAS("4d566bc73da8f04a74a180bc3ea197e8e4b6a13fb8d6a1560c0f9a2ac18f548e"),
-    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/55667-salsa
-    SALSA("4fd6a6d79aa341490a2e2e16c16e8a16b1a4a157e9ef8bffec714aa78ec5a37f"),
     // https://minecraft-heads.com/custom-heads/food%20&%20drinks/43719-steve-meal
-    STEVE_HEAD_BOWL("acea1f348dab0104bb61c997d0da12e81b4504a58c84af90f31d775f83a0239f");
+    STEVE_HEAD_BOWL("acea1f348dab0104bb61c997d0da12e81b4504a58c84af90f31d775f83a0239f"),
+    // https://minecraft-heads.com/custom-heads/food%20&%20drinks/55654-burger
+    BURGER("ca9c8753780ebc39c351da8efd91bce90bd8cca7b511f93e78df75f6615c79a6"),
+    // https://minecraft-heads.com/custom-heads/food-drinks/57594-cinnamon-roll
+    CINNAMON_ROLL("711703a7854d8daf7ff296c3f9f71de421176a6b6c4f3b3f2a76ff3053b34f7a"),
+    // https://minecraft-heads.com/custom-heads/food-drinks/55324-blue-candy
+    BLUE_CANDY("3690d4b463eac37ffdaab2ea8d38467c1efd1b8fe906a447599c31ecbd69a524"),
+    // https://minecraft-heads.com/custom-heads/food-drinks/43149-boiled-egg
+    BOILED_EGG("a92a1b111324ff2ec1c150330486908176eeb35bc77543837e2f33acf7d007f1"),
+    // https://minecraft-heads.com/custom-heads/food-drinks/23693-sugar-skull
+    SUGARED_SKULL("47225fc8f0e7d44bc5d87c92b30c842ff9392a1ee6cd06e40c2a91a3507126c3");
 
     // endregion
 
-
-    // endregion
 
     @Nonnull
     private static final Skins[] CACHED_VALUES = values();
