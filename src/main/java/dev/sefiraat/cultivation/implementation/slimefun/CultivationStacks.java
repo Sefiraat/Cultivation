@@ -3691,11 +3691,11 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Effect 1", "Spawns an Allay")
     );
 
-    public static final SlimefunItemStack BOILED_EGG = Theme.themedSlimefunItemStack(
-        "CLT_BOILED_EGG",
+    public static final SlimefunItemStack SOFT_BOILED_EGG = Theme.themedSlimefunItemStack(
+        "CLT_SOFT_BOILED_EGG",
         Skins.BOILED_EGG.getPlayerHead(),
         CultivationThemes.FOOD,
-        "Boiled Egg",
+        "Soft Boiled Egg",
         "Just a boiled egg, what's more to say.",
         "",
         Theme.CLICK_INFO.asTitle("Healing", "1"),

@@ -229,11 +229,7 @@ public final class Foods {
             null, new ItemStack(Material.SKELETON_SKULL), null,
             null, null, null
         },
-        player -> simplePlayerEffect(
-            player,
-            0,
-            new Pair<>(PotionEffectType.DARKNESS, 2)
-        )
+        player -> simplePlayerEffect(player, 0, new Pair<>(PotionEffectType.DARKNESS, 2))
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food KEY_LIME_PIE = new Food(
@@ -545,7 +541,7 @@ public final class Foods {
     ).buildRegister(Cultivation.getInstance());
 
     public static final Food BOILED_EGG = new Food(
-        CultivationStacks.BOILED_EGG,
+        CultivationStacks.SOFT_BOILED_EGG,
         RecipeTypes.FINISHING,
         new ItemStack[]{
             null, null, null,
