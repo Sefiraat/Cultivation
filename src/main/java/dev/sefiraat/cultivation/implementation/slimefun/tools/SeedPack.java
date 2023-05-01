@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
@@ -24,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.HashMap;
 
-public class SeedPack extends SlimefunItem {
+public class SeedPack extends SlimefunItem implements NotPlaceable {
 
     public SeedPack(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(group, item, recipeType, recipe);
@@ -78,11 +79,19 @@ public class SeedPack extends SlimefunItem {
             Material.GREEN_STAINED_GLASS_PANE,
             Theme.PASSIVE.apply("Retrieve here")
         );
+
         protected static final ItemStack NO_SEED_SET_STACK = new CustomItemStack(
             Material.ORANGE_STAINED_GLASS_PANE,
             Theme.WARNING.apply("No Seed Set"),
             Theme.PASSIVE.apply("Click the left hand side icon"),
             Theme.PASSIVE.apply("While holding a seed to set pack.")
+        );
+
+        protected static final ItemStack EMPTY_SEED_SET = new CustomItemStack(
+            Material.RED_STAINED_GLASS_PANE,
+            Theme.WARNING.apply("Empty Set"),
+            Theme.PASSIVE.apply("You have no seeds matching the"),
+            Theme.PASSIVE.apply("given criteria.")
         );
 
         private int level = 1;
@@ -249,6 +258,9 @@ public class SeedPack extends SlimefunItem {
 
         @Nonnull
         private ItemStack getSeedGetStack(@Nonnull CultivationPlant plant, int amount) {
+            if (amount == 0) {
+                return EMPTY_SEED_SET;
+            }
             ItemStack itemStack = plant.getItem().clone();
             ItemMeta itemMeta = itemStack.getItemMeta();
             itemMeta.setDisplayName(Theme.CLICK_INFO.apply("Remove seed from pack"));
