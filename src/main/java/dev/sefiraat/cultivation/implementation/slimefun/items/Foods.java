@@ -424,8 +424,8 @@ public final class Foods {
         player -> simplePlayerEffect(player, 2, new Pair<>(PotionEffectType.BAD_OMEN, 0))
     ).buildRegister(Cultivation.getInstance());
 
-    public static final Food BURGER = new Food(
-        CultivationStacks.BURGER,
+    public static final Food CHEESE_BURGER = new Food(
+        CultivationStacks.CHEESE_BURGER,
         RecipeTypes.FINISHING,
         new ItemStack[]{
             null, new ItemStack(Material.BREAD), null,

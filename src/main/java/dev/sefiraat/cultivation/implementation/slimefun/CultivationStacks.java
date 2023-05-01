@@ -3657,12 +3657,12 @@ public final class CultivationStacks {
         Theme.CLICK_INFO.asTitle("Effect 4", "Damage + 10")
     );
 
-    public static final SlimefunItemStack BURGER = Theme.themedSlimefunItemStack(
-        "CLT_BURGER",
+    public static final SlimefunItemStack CHEESE_BURGER = Theme.themedSlimefunItemStack(
+        "CLT_CHEESE_BURGER",
         Skins.BURGER.getPlayerHead(),
         CultivationThemes.FOOD,
         "Burger",
-        "A simple burger, but nothing beats it!",
+        "A simple cheese burger, but nothing beats it!",
         "",
         Theme.CLICK_INFO.asTitle("Healing", "4"),
         Theme.CLICK_INFO.asTitle("Effect 1", "Regen + 3")
