@@ -42,7 +42,7 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
     public Cultivation() {
         this.username = "Sefiraat";
         this.repo = "Cultivation";
-        this.branch = "master";
+        this.branch = "main";
     }
 
     @Override
