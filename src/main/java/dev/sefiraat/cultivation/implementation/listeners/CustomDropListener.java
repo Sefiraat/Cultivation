@@ -44,7 +44,7 @@ public class CustomDropListener implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBucketFill(@Nonnull PlayerBucketFillEvent event) {
         if (BlockStorage.hasBlockInfo(event.getBlock())) {
             // Don't want to fire on SF Blocks
