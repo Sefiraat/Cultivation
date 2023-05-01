@@ -189,6 +189,16 @@ public final class Ingredients {
         }
     ).buildRegister(Cultivation.getInstance());
 
+    public static final ByProduct COOKED_BURGER_PATTY = new ByProduct(
+        CultivationStacks.COOKED_BURGER_PATTY,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            Products.BEEF.getGroundItem(), null, null,
+            null, null, null,
+            null, null, null
+        }
+    ).buildRegister(Cultivation.getInstance());
+
     // endregion
 
     public static void setup(Cultivation addon) {

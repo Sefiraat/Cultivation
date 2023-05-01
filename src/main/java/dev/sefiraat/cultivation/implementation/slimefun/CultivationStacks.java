@@ -3136,6 +3136,14 @@ public final class CultivationStacks {
         "A mild salsa full of pure delicious."
     );
 
+    public static final SlimefunItemStack COOKED_BURGER_PATTY = Theme.themedSlimefunItemStack(
+        "CLT_COOKED_BURGER_PATTY",
+        new ItemStack(Material.COOKED_BEEF),
+        CultivationThemes.PRODUCE,
+        "Cooked Burger Patty",
+        "Practically dripping"
+    );
+
     // endregion
 
     // region Finished Foods
@@ -3645,8 +3653,63 @@ public final class CultivationStacks {
         "",
         Theme.CLICK_INFO.asTitle("Effect 1", "Reduces you to 1/2 heart"),
         Theme.CLICK_INFO.asTitle("Effect 2", "Fatigue + 10"),
-        Theme.CLICK_INFO.asTitle("Effect 2", "Slow + 5"),
-        Theme.CLICK_INFO.asTitle("Effect 3", "Damage + 10")
+        Theme.CLICK_INFO.asTitle("Effect 3", "Slow + 5"),
+        Theme.CLICK_INFO.asTitle("Effect 4", "Damage + 10")
+    );
+
+    public static final SlimefunItemStack CHEESE_BURGER = Theme.themedSlimefunItemStack(
+        "CLT_CHEESE_BURGER",
+        Skins.BURGER.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Burger",
+        "A simple cheese burger, but nothing beats it!",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Regen + 3")
+    );
+
+    public static final SlimefunItemStack CINNAMON_ROLL = Theme.themedSlimefunItemStack(
+        "CLT_CINNAMON_ROLL",
+        Skins.CINNAMON_ROLL.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Cinnamon Roll",
+        "A sweet delight rolled up for fun.",
+        "Eating it turns the world on it's head!",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "4"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Levitation + 1"),
+        Theme.CLICK_INFO.asTitle("Effect 2", "Slow Falling + 1")
+    );
+
+    public static final SlimefunItemStack BLUE_CANDY = Theme.themedSlimefunItemStack(
+        "CLT_BLUE_CANDY",
+        Skins.BLUE_CANDY.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Candy (Blue)",
+        "A delightfully sweet candy.",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Spawns an Allay")
+    );
+
+    public static final SlimefunItemStack SOFT_BOILED_EGG = Theme.themedSlimefunItemStack(
+        "CLT_SOFT_BOILED_EGG",
+        Skins.BOILED_EGG.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Soft Boiled Egg",
+        "Just a boiled egg, what's more to say.",
+        "",
+        Theme.CLICK_INFO.asTitle("Healing", "1"),
+        Theme.CLICK_INFO.asTitle("Effect 1", "Can sometimes call a chicken to your aid.")
+    );
+
+    public static final SlimefunItemStack SUGARED_SKULL = Theme.themedSlimefunItemStack(
+        "CLT_SUGARED_SKULL",
+        Skins.SUGARED_SKULL.getPlayerHead(),
+        CultivationThemes.FOOD,
+        "Sugared Skull",
+        "Is this even food...?",
+        "",
+        Theme.CLICK_INFO.asTitle("Effect 1", "Darkness + 3")
     );
 
     // end region

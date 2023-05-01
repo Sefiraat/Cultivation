@@ -15,6 +15,7 @@ import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.entity.Allay;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.Player;
@@ -220,6 +221,17 @@ public final class Foods {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food SUGARED_SKULL = new Food(
+        CultivationStacks.SUGARED_SKULL,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            Products.SUGAR.getGroundItem(), Products.SUGAR.getGroundItem(), Products.SUGAR.getGroundItem(),
+            null, new ItemStack(Material.SKELETON_SKULL), null,
+            null, null, null
+        },
+        player -> simplePlayerEffect(player, 0, new Pair<>(PotionEffectType.DARKNESS, 2))
+    ).buildRegister(Cultivation.getInstance());
+
     public static final Food KEY_LIME_PIE = new Food(
         CultivationStacks.KEY_LIME_PIE,
         RecipeTypes.BAKING,
@@ -412,6 +424,17 @@ public final class Foods {
         player -> simplePlayerEffect(player, 2, new Pair<>(PotionEffectType.BAD_OMEN, 0))
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food CHEESE_BURGER = new Food(
+        CultivationStacks.CHEESE_BURGER,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, new ItemStack(Material.BREAD), null,
+            SlimefunItems.CHEESE, Ingredients.COOKED_BURGER_PATTY.getItem(), Products.TOMATO.getSlicedItem(),
+            null, new ItemStack(Material.BREAD), null
+        },
+        player -> simplePlayerEffect(player, 8, new Pair<>(PotionEffectType.REGENERATION, 2))
+    ).buildRegister(Cultivation.getInstance());
+
     public static final Food PIZZA_CHEESE = new Food(
         CultivationStacks.PIZZA_CHEESE,
         RecipeTypes.BAKING,
@@ -502,6 +525,37 @@ public final class Foods {
         )
     ).buildRegister(Cultivation.getInstance());
 
+    public static final Food BLUE_CANDY = new Food(
+        CultivationStacks.BLUE_CANDY,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            Products.SUGAR.getBoiledItem(), Products.SUGAR.getBoiledItem(), Products.SUGAR.getBoiledItem(),
+            Products.SUGAR.getBoiledItem(), new ItemStack(Material.BLUE_DYE), Products.SUGAR.getBoiledItem(),
+            Products.SUGAR.getBoiledItem(), Products.SUGAR.getBoiledItem(), Products.SUGAR.getBoiledItem()
+        },
+        player -> {
+            Location location = LocationUtils.randomLocation(player.getLocation(), 2);
+            Allay allay = (Allay) location.getWorld().spawnEntity(location, EntityType.ALLAY);
+            allay.startDancing();
+        }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food BOILED_EGG = new Food(
+        CultivationStacks.SOFT_BOILED_EGG,
+        RecipeTypes.FINISHING,
+        new ItemStack[]{
+            null, null, null,
+            null, Products.EGG.getBoiledItem(), null,
+            null, null, null
+        },
+        player -> {
+            simplePlayerEffect(player, 2);
+            if (Chance.testChance(0.4)) {
+                Location location = LocationUtils.randomLocation(player.getLocation(), 2);
+                location.getWorld().spawnEntity(location, EntityType.CHICKEN);
+            }
+        }
+    ).buildRegister(Cultivation.getInstance());
 
     public static final Food RAMEN_BEEF = new Food(
         CultivationStacks.RAMEN_BEEF,
@@ -694,6 +748,22 @@ public final class Foods {
                 location.getWorld().spawnEntity(location, EntityType.BEE, true);
             }
         }
+    ).buildRegister(Cultivation.getInstance());
+
+    public static final Food CINNAMON_ROLL = new Food(
+        CultivationStacks.CINNAMON_ROLL,
+        RecipeTypes.BAKING,
+        new ItemStack[]{
+            Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem(), new ItemStack(Material.SUGAR),
+            Ingredients.DOUGH.getItem(), Products.CINNAMON.getGroundItem(), Ingredients.DOUGH.getItem(),
+            Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem(), Ingredients.DOUGH.getItem()
+        },
+        player -> simplePlayerEffect(
+            player,
+            8,
+            new Pair<>(PotionEffectType.LEVITATION, 0),
+            new Pair<>(PotionEffectType.SLOW_FALLING, 0)
+        )
     ).buildRegister(Cultivation.getInstance());
 
     public static void setup(Cultivation addon) {
