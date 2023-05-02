@@ -7,7 +7,7 @@ Using 1.19.4's amazing, new, DisplayEntites we are able to display plants and bl
 
 ## Download Cultivation
 
-[![Build Status](https://thebusybiscuit.github.io/builds/Sefiraat/Cultivation/master/badge.svg)](https://thebusybiscuit.github.io/builds/Sefiraat/Cultivation/master)
+[![Build Status](https://thebusybiscuit.github.io/builds/Sefiraat/Cultivation/main/badge.svg)](https://thebusybiscuit.github.io/builds/Sefiraat/Cultivation/main)
 
 You can find a fuller guide to Cultivation by reading my [Documentation Pages](https://sefiraat.dev)
 
