@@ -1476,8 +1476,8 @@ public final class Plants {
         ).addHarvestingResult(new ItemStack(Material.ENDER_PEARL, 2), 7
         ).addHarvestingResult(new ItemStack(Material.ENDER_EYE), 1
         ).addBreedingPair(
-            CultivationStacks.PLANT_ENDERMAN.getItemId(),
-            CultivationStacks.PLANT_TURTLE.getItemId(),
+            CultivationStacks.PLANT_PHANTOM.getItemId(),
+            CultivationStacks.PLANT_DARKNESS.getItemId(),
             0.05,
             0.10
         ).tryRegister(addon);
