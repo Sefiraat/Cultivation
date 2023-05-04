@@ -16,6 +16,11 @@ public enum BreedResultType {
      */
     SPREAD_MUTATE,
     /**
+     * Breed triggered a spread of one of the original plants. Plants did match
+     * and can now trigger a mutation
+     */
+    SUCCESS_AND_MUTATION,
+    /**
      * Breed successful resulting in child plant
      */
     SUCCESS,
