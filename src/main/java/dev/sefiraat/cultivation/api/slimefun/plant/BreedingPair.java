@@ -90,7 +90,7 @@ public class BreedingPair {
             if (chance <= getBreedChance()) {
                 return BreedResultType.SUCCESS;
             } else if (chance <= getSpreadBreedChance()) {
-                return BreedResultType.SPREAD_NO_MUTATE;
+                return BreedResultType.SPREAD_MUTATE;
             }
         } else {
             return BreedResultType.NOT_PAIR;

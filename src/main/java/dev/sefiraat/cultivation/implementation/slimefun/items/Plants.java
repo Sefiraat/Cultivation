@@ -1318,8 +1318,8 @@ public final class Plants {
                 CommonPlacements.COMMON_OVERWORLD,
                 GrowthRates.GROWTH_RATE_UNCOMMON
             )
-        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_SHARD, 4), 5
-        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_CRYSTALS, 2), 1
+        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_SHARD, 2), 9
+        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_CRYSTALS, 1), 1
         ).addBreedingPair(
             CultivationStacks.PLANT_DROWNED.getItemId(),
             CultivationStacks.PLANT_TURTLE.getItemId(),
@@ -1334,8 +1334,8 @@ public final class Plants {
                 CommonPlacements.COMMON_OVERWORLD,
                 GrowthRates.GROWTH_RATE_EPIC
             )
-        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_SHARD, 7), 5
-        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_CRYSTALS, 3), 3
+        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_SHARD, 3), 10
+        ).addHarvestingResult(new ItemStack(Material.PRISMARINE_CRYSTALS, 2), 4
         ).addHarvestingResult(new ItemStack(Material.SPONGE, 2), 1
         ).addBreedingPair(
             CultivationStacks.PLANT_GUARDIAN.getItemId(),
@@ -1381,7 +1381,7 @@ public final class Plants {
                 CommonPlacements.COMMON_OVERWORLD,
                 GrowthRates.GROWTH_RATE_UNCOMMON
             )
-        ).addHarvestingResult(new ItemStack(Material.MAGMA_CREAM, 2)
+        ).addHarvestingResult(new ItemStack(Material.MAGMA_CREAM, 1)
         ).addBreedingPair(
             CultivationStacks.PLANT_SLIME.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
@@ -1396,7 +1396,7 @@ public final class Plants {
                 CommonPlacements.COMMON_OVERWORLD,
                 GrowthRates.GROWTH_RATE_UNCOMMON
             )
-        ).addHarvestingResult(new ItemStack(Material.BLAZE_POWDER, 3), 3
+        ).addHarvestingResult(new ItemStack(Material.BLAZE_POWDER, 2), 7
         ).addHarvestingResult(new ItemStack(Material.BLAZE_ROD), 1
         ).addBreedingPair(
             CultivationStacks.PLANT_CREEPER.getItemId(),
@@ -1476,8 +1476,8 @@ public final class Plants {
         ).addHarvestingResult(new ItemStack(Material.ENDER_PEARL, 2), 7
         ).addHarvestingResult(new ItemStack(Material.ENDER_EYE), 1
         ).addBreedingPair(
-            CultivationStacks.PLANT_ENDERMAN.getItemId(),
-            CultivationStacks.PLANT_TURTLE.getItemId(),
+            CultivationStacks.PLANT_PHANTOM.getItemId(),
+            CultivationStacks.PLANT_DARKNESS.getItemId(),
             0.05,
             0.10
         ).tryRegister(addon);
@@ -1489,8 +1489,8 @@ public final class Plants {
                 CommonPlacements.COMMON_OVERWORLD,
                 GrowthRates.GROWTH_RATE_LEGEND
             )
-        ).addHarvestingResult(new ItemStack(Material.DRAGON_BREATH, 2), 20
-        ).addHarvestingResult(new ItemStack(Material.DRAGON_HEAD), 10
+        ).addHarvestingResult(new ItemStack(Material.DRAGON_BREATH, 2), 480
+        ).addHarvestingResult(new ItemStack(Material.DRAGON_HEAD), 19
         ).addHarvestingResult(new ItemStack(Material.DRAGON_EGG), 1
         ).addBreedingPair(
             CultivationStacks.PLANT_ENDERMAN.getItemId(),
