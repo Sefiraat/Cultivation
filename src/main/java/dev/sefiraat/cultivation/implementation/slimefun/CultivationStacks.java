@@ -1046,10 +1046,13 @@ public final class CultivationStacks {
         "CLT_PLANT_DARKNESS",
         Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Darkness",
+        "Primal Plant: Darkness",
         List.of(
             "A plant that seethes in unbridled",
-            "rage."
+            "rage.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1057,10 +1060,13 @@ public final class CultivationStacks {
         "CLT_PLANT_LIGHT",
         Skins.SEED_YELLOW.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Light",
+        "Primal Plant: Light",
         List.of(
             "A plant that exudes an aura",
-            "of pure love."
+            "of pure love.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1068,10 +1074,13 @@ public final class CultivationStacks {
         "CLT_PLANT_EARTH",
         Skins.SEED_GREEN.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Earth",
+        "Primal Plant: Earth",
         List.of(
             "A plant that enriches the world",
-            "surrounding it."
+            "surrounding it.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1079,10 +1088,13 @@ public final class CultivationStacks {
         "CLT_PLANT_WATER",
         Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Water",
+        "Primal Plant: Water",
         List.of(
             "A plant that nurtures and provides",
-            "life to the surrounding area."
+            "life to the surrounding area.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1090,11 +1102,14 @@ public final class CultivationStacks {
         "CLT_PLANT_FIRE",
         Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Fire",
+        "Primal Plant: Fire",
         List.of(
             "A plant that both provides the",
             "sources of destruction as well as",
-            "rebirth."
+            "rebirth.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1102,10 +1117,13 @@ public final class CultivationStacks {
         "CLT_PLANT_AIR",
         Skins.SEED_CYAN.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Air",
+        "Primal Plant: Air",
         List.of(
             "A plant that quietly hums with",
-            "the melody of the surrounding nature."
+            "the melody of the surrounding nature.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1113,9 +1131,12 @@ public final class CultivationStacks {
         "CLT_PLANT_POWER",
         Skins.SEED_RED.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Power",
+        "Primal Plant: Power",
         List.of(
-            "A plant that positively exudes power."
+            "A plant that positively exudes power.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1123,9 +1144,12 @@ public final class CultivationStacks {
         "CLT_PLANT_WEALTH",
         Skins.SEED_ORANGE.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Wealth",
+        "Primal Plant: Wealth",
         List.of(
-            "A plant that just screams exuberant wealth."
+            "A plant that just screams exuberant wealth.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
@@ -1133,9 +1157,12 @@ public final class CultivationStacks {
         "CLT_PLANT_SPECTRUM",
         Skins.SEED_BLUE.getPlayerHead(),
         CultivationThemes.PLANT,
-        "Cultivation Plant: Spectrum",
+        "Primal Plant: Spectrum",
         List.of(
-            "A plant that slightly shifts it's color."
+            "A plant that slightly shifts it's color.",
+            "",
+            Theme.WARNING.apply("Primal plants dont produce items"),
+            Theme.WARNING.apply("and are just for breeding.")
         )
     );
 
