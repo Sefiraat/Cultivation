@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
+import java.util.List;
 
 public class SeedPack extends SlimefunItem {
 
@@ -191,7 +192,7 @@ public class SeedPack extends SlimefunItem {
 
             this.instance.setStoredItemId(plant.getId());
             replaceExistingItem(SEED_SET_SLOT, getSeedDisplayStack(plant));
-            reapplyInstance();
+            reapplyInstance(plant);
 
             return false;
         }
@@ -219,7 +220,7 @@ public class SeedPack extends SlimefunItem {
                 instance.takeOne(level, speed, strength);
             }
             setOutputStack();
-            reapplyInstance();
+            reapplyInstance(plant);
             return false;
         }
 
@@ -244,9 +245,12 @@ public class SeedPack extends SlimefunItem {
             replaceExistingItem(SEED_PICKUP_SLOT, itemStack);
         }
 
-        private void reapplyInstance() {
+        private void reapplyInstance(@Nonnull CultivationPlant plant) {
             ItemMeta itemMeta = this.packStack.getItemMeta();
             PersistentDataAPI.set(itemMeta, SeedPackDataType.KEY, SeedPackDataType.TYPE, this.instance);
+            List<String> lore = itemMeta.getLore();
+            lore.set(3, Theme.CLICK_INFO.asTitle("Set to", plant.getItemName()));
+            itemMeta.setLore(lore);
             this.packStack.setItemMeta(itemMeta);
         }
 
