@@ -2095,7 +2095,11 @@ public final class CultivationStacks {
         Material.STRIPPED_DARK_OAK_LOG,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Empty",
-        "Just for decoration!"
+        "Just for decoration!",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_CHOPPING = Theme.themedSlimefunItemStack(
@@ -2103,7 +2107,11 @@ public final class CultivationStacks {
         Material.SMITHING_TABLE,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Chopping Board",
-        "Right click this block to chop produce."
+        "Right click this block to chop produce.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_SLICING = Theme.themedSlimefunItemStack(
@@ -2111,7 +2119,11 @@ public final class CultivationStacks {
         Material.CARTOGRAPHY_TABLE,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Slicing Board",
-        "Right click this block to slice produce."
+        "Right click this block to slice produce.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_MASHER = Theme.themedSlimefunItemStack(
@@ -2119,7 +2131,11 @@ public final class CultivationStacks {
         Material.CRAFTING_TABLE,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Mashing Bowl",
-        "Right click this block to mash produce."
+        "Right click this block to mash produce.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_GRINDER = Theme.themedSlimefunItemStack(
@@ -2127,7 +2143,11 @@ public final class CultivationStacks {
         Material.CAULDRON,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Grinding Pestle and Mortar",
-        "Right click this block to grind produce."
+        "Right click this block to grind produce.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_BLENDER = Theme.themedSlimefunItemStack(
@@ -2135,7 +2155,11 @@ public final class CultivationStacks {
         Material.FLETCHING_TABLE,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Blender",
-        "Right click this block to blend produce."
+        "Right click this block to blend produce.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_OVEN = Theme.themedSlimefunItemStack(
@@ -2143,7 +2167,11 @@ public final class CultivationStacks {
         Material.FURNACE,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Oven",
-        "Can bake certain produce items."
+        "Can bake certain produce items.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_FRYER = Theme.themedSlimefunItemStack(
@@ -2151,7 +2179,11 @@ public final class CultivationStacks {
         Material.BLACK_STAINED_GLASS,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Frying Pan",
-        "Can fry certain produce items."
+        "Can fry certain produce items.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_BOILING = Theme.themedSlimefunItemStack(
@@ -2159,7 +2191,11 @@ public final class CultivationStacks {
         Material.BLACK_STAINED_GLASS,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Boiling Pot",
-        "Can boil certain items."
+        "Can boil certain items.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_GRILL = Theme.themedSlimefunItemStack(
@@ -2167,7 +2203,11 @@ public final class CultivationStacks {
         Material.CAMPFIRE,
         CultivationThemes.MACHINE,
         "Kitchen Counter: Grill",
-        "Can grill certain produce items."
+        "Can grill certain produce items.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     public static final SlimefunItemStack COUNTER_FINISHING = Theme.themedSlimefunItemStack(
@@ -2176,7 +2216,11 @@ public final class CultivationStacks {
         CultivationThemes.MACHINE,
         "Kitchen Counter: Finishing",
         "Used to craft products/by-products into",
-        "other by-products or finished foods."
+        "other by-products or finished foods.",
+        "",
+        Theme.CLICK_INFO + "Pro Tip! When placed, you can shift + right",
+        Theme.CLICK_INFO + "click and the block(s) you're holding will",
+        Theme.CLICK_INFO + "change the kitchen design. Try it out!"
     );
 
     // endregion
