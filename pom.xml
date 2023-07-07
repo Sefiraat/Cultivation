@@ -6,7 +6,7 @@
 
     <groupId>dev.sefiraat</groupId>
     <artifactId>Cultivation</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
 
     <name>Cultivation</name>
     <description>A Slimefun Addon that adds a plethora of Magical and non-magical flora.</description>
