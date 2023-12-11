@@ -40,38 +40,40 @@ public class SeedPackListener implements Listener {
             if (packItem instanceof SeedPack) {
                 int packStack = content.getAmount();
                 if (packStack != 1) {
-                    ItemMeta contentMeta = content.getItemMeta();
-                    SeedPackInstance instance = PersistentDataAPI.get(
-                        contentMeta,
-                        SeedPackDataType.KEY,
-                        SeedPackDataType.TYPE
-                    );
-
-                    if (instance == null || !instance.getStoredItemId().equals(plant.getId())) {
-                        continue;
-                    }
-
-                    ItemMeta dropMeta = itemStack.getItemMeta();
-                    FloraLevelProfile profile = PersistentDataAPI.get(
-                        dropMeta,
-                        FloraLevelProfileDataType.KEY,
-                        FloraLevelProfileDataType.TYPE
-                    );
-
-                    if (profile == null) {
-                        continue;
-                    }
-
-                    instance.add(profile, itemStack.getAmount());
-                    PersistentDataAPI.set(contentMeta, SeedPackDataType.KEY, SeedPackDataType.TYPE, instance);
-                    content.setItemMeta(contentMeta);
-                    event.setCancelled(true);
-                    ParticleUtils.displayParticleRandomly(item, 0.5, 5, plant.getTheme().getDustOptions(1));
-                    item.remove();
                     return;
                 }
+                ItemMeta contentMeta = content.getItemMeta();
+                SeedPackInstance instance = PersistentDataAPI.get(
+                    contentMeta,
+                    SeedPackDataType.KEY,
+                    SeedPackDataType.TYPE
+                );
+
+                if (instance == null || !instance.getStoredItemId().equals(plant.getId())) {
+                    continue;
+                }
+
+                ItemMeta dropMeta = itemStack.getItemMeta();
+                FloraLevelProfile profile = PersistentDataAPI.get(
+                    dropMeta,
+                    FloraLevelProfileDataType.KEY,
+                    FloraLevelProfileDataType.TYPE
+                );
+
+                if (profile == null) {
+                    continue;
+                }
+
+                instance.add(profile, itemStack.getAmount());
+                PersistentDataAPI.set(contentMeta, SeedPackDataType.KEY, SeedPackDataType.TYPE, instance);
+                content.setItemMeta(contentMeta);
+                event.setCancelled(true);
+                ParticleUtils.displayParticleRandomly(item, 0.5, 5, plant.getTheme().getDustOptions(1));
+                item.remove();
+                return;
             }
         }
     }
-
 }
+
+
