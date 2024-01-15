@@ -38,6 +38,9 @@ public class SeedPackListener implements Listener {
         for (ItemStack content : player.getInventory().getContents()) {
             SlimefunItem packItem = SlimefunItem.getByItem(content);
             if (packItem instanceof SeedPack) {
+                if (content.getAmount() != 1) {
+                    return;
+                }
                 ItemMeta contentMeta = content.getItemMeta();
                 SeedPackInstance instance = PersistentDataAPI.get(
                     contentMeta,
@@ -70,5 +73,6 @@ public class SeedPackListener implements Listener {
             }
         }
     }
-
 }
+
+
