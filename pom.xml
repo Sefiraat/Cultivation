@@ -270,9 +270,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.github.baked-libs</groupId>
+            <groupId>com.github.baked-libs.dough</groupId>
             <artifactId>dough-api</artifactId>
-            <version>1.2.0</version>
+            <version>a2364de77c</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
