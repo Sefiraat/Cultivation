@@ -5,6 +5,7 @@ import dev.sefiraat.cultivation.api.utils.Skins;
 import dev.sefiraat.sefilib.itemstacks.ItemStackGenerators;
 import dev.sefiraat.sefilib.string.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -2578,10 +2579,9 @@ public final class CultivationStacks {
         "Curry Leaf",
         "The basis of so many wonderful foods."
     );
-
     public static final SlimefunItemStack DILL = Theme.themedSlimefunItemStack(
         "CLT_DILL",
-        new ItemStack(Material.GRASS),
+        new ItemStack(Material.SHORT_GRASS),
         CultivationThemes.PRODUCE,
         "Dill",
         "Just taste like grass to me. Why",
