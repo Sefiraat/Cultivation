@@ -22,6 +22,10 @@ public enum Transformations {
                            .secondRotation(RotationFace.SIDE, 90)
                            .build()
     ),
+    HIDDEN_DROP(new TransformationBuilder()
+            .scale(0f, 0f, 0f)
+            .build()
+    ),
     PLANT_HANGING_DROP(new TransformationBuilder()
                            .scale(0.2f, 0.2f, 0.2f)
                            .build()

@@ -115,14 +115,14 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
             if (!hasDisplayPlant(block)) {
                 addDisplayPlant(block.getLocation());
             } else {
-                removeItems(block.getLocation());
+                hideItems(block.getLocation());
             }
             block.setType(Material.AIR);
         } else if (growthStage == 2) {
             ItemStack itemStack = getRandomItemWithDropModifier(block.getLocation());
             if (itemStack != null) {
                 nextDrop.put(block.getLocation(), itemStack);
-                addItemsToDisplay(block.getLocation(), itemStack.clone());
+                growItems(block.getLocation(), itemStack.clone());
             }
         }
         BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));

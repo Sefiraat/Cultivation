@@ -43,17 +43,17 @@ public interface CultivationPlantHolder {
         BlockStorage.addBlockInfo(location, GROUP_PARENT, displayGroup.getParentUUID().toString());
     }
 
-    default void addItemsToDisplay(@Nonnull Location location, @Nonnull ItemStack itemStack) {
+    default void growItems(@Nonnull Location location, @Nonnull ItemStack itemStack) {
         if (hasDisplayPlant(location)) {
             DisplayGroup group = getPlantDisplayGroup(location);
-            DisplayGroupGenerators.addItemsToPlant(group, itemStack);
+            DisplayGroupGenerators.growItemsInPlant(group, itemStack);
         }
     }
 
-    default void removeItems(@Nonnull Location location) {
+    default void hideItems(@Nonnull Location location) {
         if (hasDisplayPlant(location)) {
             DisplayGroup group = getPlantDisplayGroup(location);
-            DisplayGroupGenerators.removeItemsFromPlant(group);
+            DisplayGroupGenerators.hideItemsInPlant(group);
         }
     }
 
