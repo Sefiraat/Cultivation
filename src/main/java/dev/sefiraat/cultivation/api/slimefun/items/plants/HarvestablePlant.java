@@ -114,9 +114,9 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
         } else if (growthStage == 1) {
             if (!hasDisplayPlant(block)) {
                 addDisplayPlant(block.getLocation());
-            } else {
-                hideItems(block.getLocation());
+                growItems(block.getLocation(), new ItemStack(Material.AIR));
             }
+            hideItems(block.getLocation());
             block.setType(Material.AIR);
         } else if (growthStage == 2) {
             ItemStack itemStack = getRandomItemWithDropModifier(block.getLocation());

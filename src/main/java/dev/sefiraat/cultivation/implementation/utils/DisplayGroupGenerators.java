@@ -263,7 +263,7 @@ public final class DisplayGroupGenerators {
         if (drop1 instanceof ItemDisplay itemDisplay) {
             itemDisplay.setItemStack(itemStack);
             itemDisplay.setInterpolationDelay(-1);
-            itemDisplay.setInterpolationDuration(10);
+            itemDisplay.setInterpolationDuration(20);
             itemDisplay.setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation());
         }
     }
@@ -273,7 +273,7 @@ public final class DisplayGroupGenerators {
         if (drop1 instanceof ItemDisplay itemDisplay) {
             itemDisplay.setItemStack(itemStack);
             itemDisplay.setInterpolationDelay(-1);
-            itemDisplay.setInterpolationDuration(10);
+            itemDisplay.setInterpolationDuration(20);
             itemDisplay.setTransformation(Transformations.BUSH_HANGING_DROP.getTransformation());
         }
     }
@@ -283,19 +283,19 @@ public final class DisplayGroupGenerators {
         final Display drop1 = displays.get("drop_1");
         if (drop1 != null) {
             drop1.setInterpolationDelay(-1);
-            drop1.setInterpolationDuration(10);
+            drop1.setInterpolationDuration(2);
             drop1.setTransformation(Transformations.HIDDEN_DROP.getTransformation());
         }
         final Display drop2 = displays.get("drop_2");
         if (drop2 != null) {
             drop2.setInterpolationDelay(-1);
-            drop2.setInterpolationDuration(10);
+            drop2.setInterpolationDuration(2);
             drop2.setTransformation(Transformations.HIDDEN_DROP.getTransformation());
         }
         final Display drop3 = displays.get("drop_3");
         if (drop3 != null) {
             drop3.setInterpolationDelay(-1);
-            drop3.setInterpolationDuration(10);
+            drop3.setInterpolationDuration(2);
             drop3.setTransformation(Transformations.HIDDEN_DROP.getTransformation());
         }
     }
