@@ -43,7 +43,7 @@ public class NothingPlant extends CultivationPlant {
             }
         } else if (growthStage == 1) {
             addDisplayPlant(block.getLocation());
-            block.setType(Material.AIR);
+            block.setType(Material.STRUCTURE_VOID);
         }
         BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));
     }
