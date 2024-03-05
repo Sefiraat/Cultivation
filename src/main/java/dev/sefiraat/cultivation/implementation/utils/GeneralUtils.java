@@ -2,9 +2,9 @@ package dev.sefiraat.cultivation.implementation.utils;
 
 import org.bukkit.Bukkit;
 
-public class Utils {
+public class GeneralUtils {
 
-    private Utils() {
+    private GeneralUtils() {
         throw new IllegalStateException("Utility class");
     }
 

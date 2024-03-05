@@ -145,7 +145,7 @@ public enum Transformations {
     public Transformation getTransformation(boolean itemDisplay) {
         // In 1.20+ the y axis of item displays are rotated by 180°
         // This corrects the visuals by rotating again
-        if (itemDisplay && Utils.getMajorServerVersion() >= 20) {
+        if (itemDisplay && GeneralUtils.getMajorServerVersion() >= 20) {
             return new Transformation(transformation.getTranslation(),
                     transformation.getLeftRotation(),
                     transformation.getScale(),
