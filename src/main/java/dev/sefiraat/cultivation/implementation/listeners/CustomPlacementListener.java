@@ -112,6 +112,7 @@ public class CustomPlacementListener implements Listener {
             location.getWorld().dropItem(location, bush.getItem().clone());
             bush.removeBushDisplayGroup(location);
             BlockStorage.clearBlockInfo(location);
+            location.getBlock().setType(Material.AIR);
         }
     }
 
