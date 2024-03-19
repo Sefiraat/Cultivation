@@ -22,7 +22,7 @@ public enum Transformations {
                            .secondRotation(RotationFace.SIDE, 90)
                            .build()
     ),
-    HIDDEN_DROP(new TransformationBuilder()
+    HIDDEN(new TransformationBuilder()
             .scale(0f, 0f, 0f)
             .build()
     ),
