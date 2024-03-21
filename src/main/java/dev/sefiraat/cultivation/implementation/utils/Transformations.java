@@ -144,7 +144,7 @@ public enum Transformations {
     }
 
     public Transformation getTransformation(boolean itemDisplay) {
-        // In 1.20+ the y axis of item displays are rotated by 180°
+        // In 1.20+ the y-axis of item displays are rotated by 180°
         // This corrects the visuals by rotating again
         if (itemDisplay && PaperLib.getMinecraftVersion() >= 20) {
             return new Transformation(transformation.getTranslation(),
