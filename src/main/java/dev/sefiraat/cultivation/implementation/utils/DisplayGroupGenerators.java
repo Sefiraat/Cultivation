@@ -147,6 +147,7 @@ public final class DisplayGroupGenerators {
             "plant",
             new ItemDisplayBuilder()
                 .setGroupParentOffset(new Vector(0, 0.5, 0))
+                .setTransformation(Transformations.DEFAULT_TRANSFORMATION.getTransformation())
                 .setItemStack(new ItemStack(Material.SMALL_DRIPLEAF))
                 .build(displayGroup)
         );
@@ -355,7 +356,7 @@ public final class DisplayGroupGenerators {
             new BlockDisplayBuilder()
                 .setGroupParentOffset(new Vector(0.1, 0.82, -0.2))
                 .setBlockData(blockData)
-                .setTransformation(Transformations.GRINDING_BOWL.getTransformation())
+                .setTransformation(Transformations.GRINDING_BOWL.getTransformation(false))
                 .build(displayGroup)
         );
         displayGroup.addDisplay(
@@ -428,7 +429,7 @@ public final class DisplayGroupGenerators {
             new BlockDisplayBuilder()
                 .setGroupParentOffset(new Vector(-0.15, 0.85, -0.15))
                 .setBlockData(blockData)
-                .setTransformation(Transformations.BOILING_POT.getTransformation())
+                .setTransformation(Transformations.BOILING_POT.getTransformation(false))
                 .build(displayGroup)
         );
 
