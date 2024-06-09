@@ -22,9 +22,17 @@ permissions:
     default: op
     children:
       cultivation.admin.entities: true
+      cultivation.admin.modify_stat: true
+      cultivation.admin.modify_analyzed: true
       cultivation.admin.structures: true
   cultivation.admin.entities:
     description: Allows the user to manage Cultivation Entities
+    default: op
+  cultivation.admin.modify_stat:
+    description: Allows the user to modify plant stats
+    default: op
+  cultivation.admin.modify_analyzed:
+    description: Allows the user to modify plant analyzed status
     default: op
   cultivation.admin.structures:
     description: Allows the user to manage Cultivation Structures
