@@ -62,15 +62,15 @@ public class CultivationCommands extends BaseCommand {
     @Subcommand("pos1")
     @CommandPermission("cultivation.admin.structures")
     public void onPos1(Player player) {
-        Registry.getInstance().addPositionOne(player);
-        System.out.println("pos1 set");
+        BlockPosition position = Registry.getInstance().addPositionOne(player);
+        player.sendMessage("Set position 1 to: %s %s %s".formatted(position.getX(), position.getY(), position.getZ()));
     }
 
     @Subcommand("pos2")
     @CommandPermission("cultivation.admin.structures")
     public void onPos2(Player player) {
-        Registry.getInstance().addPositionTwo(player);
-        System.out.println("pos2 set");
+        BlockPosition position = Registry.getInstance().addPositionTwo(player);
+        player.sendMessage("Set position 2 to: %s %s %s".formatted(position.getX(), position.getY(), position.getZ()));
     }
 
     @CommandCompletion("name")
@@ -147,7 +147,8 @@ public class CultivationCommands extends BaseCommand {
         } catch (IOException ioException) {
             Cultivation.logError(ioException.getMessage());
         }
-        System.out.println("saved");
+
+        Cultivation.logInfo("Saved Structure '%s'".formatted(name));
     }
 
     @CommandCompletion("name")
