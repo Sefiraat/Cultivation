@@ -1,6 +1,5 @@
 package dev.sefiraat.cultivation.api.slimefun.items.plants;
 
-import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.interfaces.CultivationHarvestable;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
@@ -39,6 +38,7 @@ import java.util.Optional;
 public class HarvestablePlant extends CultivationPlant implements CultivationHarvestable {
 
     private static final String KEY_GROWTH_RATE = "growth-rate";
+    private final Map<ItemStack, DropState> possibleItems = new HashMap<>();
     private final RandomizedSet<ItemStack> harvestItems = new RandomizedSet<>();
     private final Map<Location, ItemStack> nextDrop = new HashMap<>();
 
@@ -57,30 +57,47 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
 
     @Nonnull
     public HarvestablePlant addHarvestingResult(@Nonnull ItemStack harvestStack, int weight) {
-        String amountKey = "drop-" + harvestStack.getType().name().toLowerCase(Locale.ROOT) + "-amount";
-        String weightKey = "drop-" + harvestStack.getType().name().toLowerCase(Locale.ROOT) + "-weight";
         int defaultAmount = harvestStack.getAmount();
 
-        addItemSetting(new IntRangeSetting(this, amountKey, 1, defaultAmount, 64));
-        addItemSetting(new IntRangeSetting(this, weightKey, 1, weight, 999));
+        String allowedKey = "drop-" + harvestStack.getType().name().toLowerCase(Locale.ROOT) + "-allowed";
+        String amountKey = "drop-" + harvestStack.getType().name().toLowerCase(Locale.ROOT) + "-amount";
+        String weightKey = "drop-" + harvestStack.getType().name().toLowerCase(Locale.ROOT) + "-weight";
 
-        Optional<ItemSetting<Integer>> setAmount = getItemSetting(amountKey, int.class);
-        Optional<ItemSetting<Integer>> setWeight = getItemSetting(weightKey, int.class);
+        ItemSetting<Boolean> allowedSetting = new ItemSetting<>(this, allowedKey, true);
+        IntRangeSetting amountSetting = new IntRangeSetting(this, amountKey, 1, defaultAmount, 64);
+        IntRangeSetting weightSetting = new IntRangeSetting(this, weightKey, 1, weight, 999);
 
-        int finalAmount = setAmount.map(ItemSetting::getValue).orElse(defaultAmount);
-        int finalWeight = setWeight.map(ItemSetting::getValue).orElse(weight);
+        addItemSetting(allowedSetting, amountSetting, weightSetting);
 
-        harvestStack.setAmount(finalAmount);
+        DropState dropState = new DropState(allowedSetting, amountSetting, weightSetting);
+        this.possibleItems.put(harvestStack, dropState);
 
-        this.harvestItems.add(harvestStack, finalWeight);
         return this;
     }
 
     @Override
+    public void postRegister() {
+        super.postRegister();
+
+        for (Map.Entry<ItemStack, DropState> entry : this.possibleItems.entrySet()) {
+            DropState dropState = entry.getValue();
+            ItemStack harvestStack = entry.getKey().clone();
+
+            if (!dropState.isAllowed()) {
+                // This item is not allowed to drop
+                return;
+            }
+
+            harvestStack.setAmount(dropState.getAmount());
+            this.harvestItems.add(harvestStack, dropState.getWeight());
+        }
+    }
+
+    @Override
     protected void onBlockUse(@NotNull PlayerRightClickEvent event) {
-        // shouldn't be possible, but just to be safe
         Optional<Block> blockOptional = event.getClickedBlock();
         if (blockOptional.isEmpty() || harvestItems.size() == 0) {
+            // All drops have been disabled, cannot be harvested.
             return;
         }
         Block block = blockOptional.get();
@@ -164,10 +181,34 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     @Override
     @OverridingMethodsMustInvokeSuper
     protected boolean validateFlora() {
-        if (this.harvestItems.isEmpty()) {
-            Cultivation.logWarning(this.getId() + " has no ItemStack(s) for harvesting, it will not be registered.");
-            return false;
-        }
         return true;
+    }
+
+    /**
+     * This class describes a HarvestablePlant drop and contains it's item settings for post-registration.
+     */
+    public class DropState {
+        private final ItemSetting<Boolean> allowed;
+        private final IntRangeSetting amount;
+        private final IntRangeSetting weight;
+
+        @ParametersAreNonnullByDefault
+        public DropState(ItemSetting<Boolean> allowed, IntRangeSetting amount, IntRangeSetting weight) {
+            this.allowed = allowed;
+            this.amount = amount;
+            this.weight = weight;
+        }
+
+        public boolean isAllowed() {
+            return allowed.getValue();
+        }
+
+        public int getAmount() {
+            return amount.getValue();
+        }
+
+        public int getWeight() {
+            return weight.getValue();
+        }
     }
 }
