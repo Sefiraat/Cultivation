@@ -74,7 +74,7 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
     public void whenPlaced(@NotNull BlockPlaceEvent event) {
         super.whenPlaced(event);
         addDisplayBush(event.getBlock().getLocation());
-        event.getBlock().setType(Material.AIR);
+        event.getBlock().setType(Material.STRUCTURE_VOID);
     }
 
     @Nonnull
