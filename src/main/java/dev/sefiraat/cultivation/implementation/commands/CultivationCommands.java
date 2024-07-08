@@ -14,9 +14,11 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonReader;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
+import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
 import dev.sefiraat.cultivation.api.datatypes.SeedPackDataType;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.datatypes.instances.SeedPackInstance;
+import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
 import dev.sefiraat.cultivation.api.slimefun.items.trees.TreeBlockDescriptor;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.SeedPack;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
@@ -45,6 +47,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @CommandAlias("cultivation|cv")
@@ -58,33 +61,22 @@ public class CultivationCommands extends BaseCommand {
     //TODO apply permissions
     @Subcommand("pos1")
     @CommandPermission("cultivation.admin.structures")
-    public void onPos1(CommandSender sender) {
-        if (sender instanceof Player player) {
-            Registry.getInstance().addPositionOne(player);
-            System.out.println("pos1 set");
-        } else {
-            sender.sendMessage(Theme.applyThemeToString(Theme.WARNING, "Must be executed by a player"));
-        }
+    public void onPos1(Player player) {
+        BlockPosition position = Registry.getInstance().addPositionOne(player);
+        player.sendMessage("Set position 1 to: %s %s %s".formatted(position.getX(), position.getY(), position.getZ()));
     }
 
     @Subcommand("pos2")
     @CommandPermission("cultivation.admin.structures")
-    public void onPos2(CommandSender sender) {
-        if (sender instanceof Player player) {
-            Registry.getInstance().addPositionTwo(player);
-            System.out.println("pos2 set");
-        } else {
-            sender.sendMessage(Theme.applyThemeToString(Theme.WARNING, "Must be executed by a player"));
-        }
+    public void onPos2(Player player) {
+        BlockPosition position = Registry.getInstance().addPositionTwo(player);
+        player.sendMessage("Set position 2 to: %s %s %s".formatted(position.getX(), position.getY(), position.getZ()));
     }
 
     @CommandCompletion("name")
     @Subcommand("saveStructure")
     @CommandPermission("cultivation.admin.structures")
-    public void saveStructure(CommandSender sender, String name) {
-        if (!(sender instanceof Player player)) {
-            return;
-        }
+    public void saveStructure(Player player, String name) {
         BlockPosition pos1 = Registry.getInstance().getPositionOne(player);
         BlockPosition pos2 = Registry.getInstance().getPositionTwo(player);
         Block base = player.getTargetBlockExact(20, FluidCollisionMode.NEVER);
@@ -155,16 +147,14 @@ public class CultivationCommands extends BaseCommand {
         } catch (IOException ioException) {
             Cultivation.logError(ioException.getMessage());
         }
-        System.out.println("saved");
+
+        Cultivation.logInfo("Saved Structure '%s'".formatted(name));
     }
 
     @CommandCompletion("name")
     @Subcommand("loadStructure")
     @CommandPermission("cultivation.admin.structures")
-    public void loadStructure(CommandSender sender, String name) {
-        if (!(sender instanceof Player player)) {
-            return;
-        }
+    public void loadStructure(Player player, String name) {
         File file = new File(Cultivation.getInstance().getDataFolder() + File.separator + name + ".json");
         try {
             JsonReader jsonReader = new JsonReader(new FileReader(file));
@@ -224,56 +214,125 @@ public class CultivationCommands extends BaseCommand {
 
     @Subcommand("removeEntities")
     @CommandPermission("cultivation.admin.entities")
-    public void removeDisplayGroups(CommandSender sender, int radius) {
-        if (sender instanceof Player player) {
-            player.getWorld().getNearbyEntities(
+    public void removeDisplayGroups(Player player, int radius) {
+        player.getWorld().getNearbyEntities(
                 player.getLocation(),
                 radius,
                 radius,
                 radius,
                 Interaction.class::isInstance
-            ).forEach(entity -> {
-                DisplayGroup displayGroup = DisplayGroup.fromInteraction((Interaction) entity);
-                if (displayGroup != null) {
-                    displayGroup.remove();
-                }
-            });
+        ).forEach(entity -> {
+            DisplayGroup displayGroup = DisplayGroup.fromInteraction((Interaction) entity);
+            if (displayGroup != null) {
+                displayGroup.remove();
+            }
+        });
+    }
+
+    @CommandCompletion("growth_speed|drop_rate|strength 1|2|3|4|5|6|7|8|9|10")
+    @Subcommand("modifyPlantStat")
+    @CommandPermission("cultivation.admin.modify_stat")
+    public void modifyPlantStat(Player player, String stat, int value) {
+        ItemStack itemStack = player.getInventory().getItemInMainHand();
+        if (itemStack == null || itemStack.getType().isAir()) {
+            player.sendMessage(Theme.WARNING.apply("You must be holding a Plant for this"));
+            return;
         }
+
+        SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
+        if (!(slimefunItem instanceof CultivationPlant plant)) {
+            player.sendMessage(Theme.WARNING.apply("You must be holding a Plant for this"));
+            return;
+        }
+
+        if (value < 1 || value > 10) {
+            player.sendMessage(Theme.WARNING.apply("Value must be between 1 and 10"));
+            return;
+        }
+
+        FloraLevelProfile profile = PersistentDataAPI.get(
+                itemStack.getItemMeta(),
+                FloraLevelProfileDataType.KEY,
+                FloraLevelProfileDataType.TYPE,
+                new FloraLevelProfile(1, 1, 1, false)
+        );
+
+        switch (stat.toLowerCase(Locale.ROOT)) {
+            case "growth_speed" -> profile.setSpeed(value);
+            case "drop_rate" -> profile.setLevel(value);
+            case "strength" -> profile.setStrength(value);
+            default -> {
+                player.sendMessage(Theme.WARNING.apply("Invalid plant stat. Must be growth_speed, drop_rate, or strength."));
+                return;
+            }
+        };
+
+        ItemStack newStack = CultivationPlant.getStack(plant, profile);
+        newStack.setAmount(itemStack.getAmount());
+        player.getInventory().setItemInMainHand(newStack);
+    }
+
+    @CommandCompletion("true|false")
+    @Subcommand("modifyPlantAnalyzed")
+    @CommandPermission("cultivation.admin.modify_analyzed")
+    public void modifyPlantAnalyzed(Player player, boolean analyzed) {
+        ItemStack itemStack = player.getInventory().getItemInMainHand();
+        if (itemStack == null || itemStack.getType().isAir()) {
+            player.sendMessage(Theme.WARNING.apply("You must be holding a Plant for this"));
+            return;
+        }
+
+        SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
+        if (!(slimefunItem instanceof CultivationPlant plant)) {
+            player.sendMessage(Theme.WARNING.apply("You must be holding a Plant for this"));
+            return;
+        }
+
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        FloraLevelProfile profile = PersistentDataAPI.get(
+                itemMeta,
+                FloraLevelProfileDataType.KEY,
+                FloraLevelProfileDataType.TYPE,
+                new FloraLevelProfile(1, 1, 1, false)
+        );
+
+        profile.setAnalyzed(analyzed);
+        ItemStack newStack = CultivationPlant.getStack(plant, profile);
+        newStack.setAmount(itemStack.getAmount());
+        player.getInventory().setItemInMainHand(newStack);
     }
 
     @Subcommand("packpeek")
-    public void packPeek(CommandSender sender) {
-        if (sender instanceof Player player) {
-            ItemStack itemStack = player.getInventory().getItemInMainHand();
-            if (itemStack == null || itemStack.getType().isAir()) {
-                player.sendMessage(Theme.WARNING.apply("You must be holding a Seed Pack for this"));
-                return;
-            }
+    public void packPeek(Player player) {
+        ItemStack itemStack = player.getInventory().getItemInMainHand();
+        if (itemStack == null || itemStack.getType().isAir()) {
+            player.sendMessage(Theme.WARNING.apply("You must be holding a Seed Pack for this"));
+            return;
+        }
 
-            SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
-            if (!(slimefunItem instanceof SeedPack pack)) {
-                player.sendMessage(Theme.WARNING.apply("You must be holding a Seed Pack for this"));
-                return;
-            }
+        SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
+        if (!(slimefunItem instanceof SeedPack)) {
+            player.sendMessage(Theme.WARNING.apply("You must be holding a Seed Pack for this"));
+            return;
+        }
 
-            ItemMeta itemMeta = itemStack.getItemMeta();
-            SeedPackInstance instance = PersistentDataAPI.get(itemMeta, SeedPackDataType.KEY, SeedPackDataType.TYPE);
-            if (instance == null) {
-                player.sendMessage(Theme.WARNING.apply("This pack is empty!"));
-                return;
-            }
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        SeedPackInstance instance = PersistentDataAPI.get(itemMeta, SeedPackDataType.KEY, SeedPackDataType.TYPE);
+        if (instance == null) {
+            player.sendMessage(Theme.WARNING.apply("This pack is empty!"));
+            return;
+        }
 
-            player.sendMessage("------------------------------------");
-            player.sendMessage("Contents");
-            player.sendMessage("------------------------------------");
-            for (Map.Entry<FloraLevelProfile, Integer> entry : instance.getAmountMap().entrySet()) {
-                FloraLevelProfile profile = entry.getKey();
-                String neatKey =
+        player.sendMessage("------------------------------------");
+        player.sendMessage("Contents");
+        player.sendMessage("------------------------------------");
+        for (Map.Entry<FloraLevelProfile, Integer> entry : instance.getAmountMap().entrySet()) {
+            FloraLevelProfile profile = entry.getKey();
+            String neatKey =
                     " Lv: " + profile.getLevel() +
                     " Sp: " + profile.getSpeed() +
                     " St: " + profile.getStrength();
-                player.sendMessage(Theme.CLICK_INFO.asTitle(neatKey, entry.getValue()));
-            }
+            player.sendMessage(Theme.CLICK_INFO.asTitle(neatKey, entry.getValue()));
         }
     }
 }

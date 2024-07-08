@@ -112,14 +112,18 @@ public class Registry {
         return Collections.unmodifiableList(plantBreedingPairs);
     }
 
-    public void addPositionOne(@Nonnull Player player) {
+    public BlockPosition addPositionOne(@Nonnull Player player) {
         UUID uuid = player.getUniqueId();
-        storedPositionOne.put(uuid, new BlockPosition(player.getLocation()));
+        BlockPosition position = new BlockPosition(player.getLocation());
+        storedPositionOne.put(uuid, position);
+        return position;
     }
 
-    public void addPositionTwo(@Nonnull Player player) {
+    public BlockPosition addPositionTwo(@Nonnull Player player) {
         UUID uuid = player.getUniqueId();
-        storedPositionTwo.put(uuid, new BlockPosition(player.getLocation()));
+        BlockPosition position = new BlockPosition(player.getLocation());
+        storedPositionTwo.put(uuid, position);
+        return position;
     }
 
     @Nullable
