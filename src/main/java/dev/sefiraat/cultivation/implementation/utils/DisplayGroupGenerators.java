@@ -11,11 +11,13 @@ import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.BlockDisplay;
 import org.bukkit.entity.Display;
+import org.bukkit.entity.ItemDisplay;
 import org.bukkit.entity.TextDisplay;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;
+import java.util.Map;
 
 public final class DisplayGroupGenerators {
 
@@ -123,22 +125,39 @@ public final class DisplayGroupGenerators {
                 .setTransformation(Transformations.CLOCHE_DIRT.getTransformation())
                 .build(displayGroup)
         );
+        displayGroup.addDisplay(
+            "plant",
+            new ItemDisplayBuilder()
+                .setItemStack(new ItemStack(Material.AIR))
+                .setGroupParentOffset(new Vector(0, 1.25, 0))
+                .setTransformation(Transformations.HIDDEN.getTransformation())
+                .build(displayGroup)
+        );
         return displayGroup;
     }
 
     public static void addPlantToCloche(@Nonnull DisplayGroup displayGroup) {
-        displayGroup.addDisplay(
-            "plant",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(0, 1.25, 0))
-                .setTransformation(Transformations.CLOCHE_GLASS.getTransformation())
-                .setItemStack(new ItemStack(Material.SMALL_DRIPLEAF))
-                .build(displayGroup)
-        );
+        final Map<String, Display> displays = displayGroup.getDisplays();
+        if (!displays.containsKey("plant")) {
+            displayGroup.addDisplay(
+                    "plant",
+                    new ItemDisplayBuilder()
+                        .setItemStack(new ItemStack(Material.AIR))
+                        .setGroupParentOffset(new Vector(0, 1.25, 0))
+                        .setTransformation(Transformations.HIDDEN.getTransformation())
+                        .build(displayGroup)
+            );
+        }
+        updateItemDisplay(displayGroup, "plant", Transformations.PLANT_HANGING_DROP, new ItemStack(Material.SMALL_DRIPLEAF));
     }
 
-    public static void removePlantFromCloche(@Nonnull DisplayGroup displayGroup) {
-        displayGroup.killDisplay("plant");
+    public static void hidePlantInCloche(@Nonnull DisplayGroup displayGroup) {
+        if (displayGroup.getDisplays().get("plant") instanceof ItemDisplay itemDisplay) {
+            itemDisplay.setItemStack(new ItemStack(Material.AIR));
+            itemDisplay.setInterpolationDelay(-1);
+            itemDisplay.setInterpolationDuration(4);
+            itemDisplay.setTransformation(Transformations.HIDDEN.getTransformation());
+        }
     }
 
     public static DisplayGroup generatePlant(@Nonnull Location location) {
@@ -175,72 +194,118 @@ public final class DisplayGroupGenerators {
         }
     }
 
-    public static void addItemsToPlant(@Nonnull DisplayGroup displayGroup, @Nonnull Material material) {
-        addItemsToPlant(displayGroup, new ItemStack(material));
+    public static void growItemsInPlant(@Nonnull DisplayGroup displayGroup, @Nonnull Material material) {
+        growItemsInPlant(displayGroup, new ItemStack(material));
     }
 
-    public static void addItemsToPlant(@Nonnull DisplayGroup displayGroup, @Nonnull ItemStack itemStack) {
-        displayGroup.addDisplay(
-            "drop_1",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(0.32, 0.08, 0.32))
-                .setItemStack(itemStack)
-                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
-                .build(displayGroup)
-        );
-        displayGroup.addDisplay(
-            "drop_2",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(-0.32, 0.39, -0.32))
-                .setItemStack(itemStack)
-                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
-                .build(displayGroup)
-        );
-        displayGroup.addDisplay(
-            "drop_3",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(-0.32, 0.64, 0.32))
-                .setItemStack(itemStack)
-                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
-                .build(displayGroup)
-        );
+    public static void growItemsInPlant(@Nonnull DisplayGroup displayGroup, @Nonnull ItemStack itemStack) {
+        final Map<String, Display> displays = displayGroup.getDisplays();
+        if (!displays.containsKey("drop_1")) {
+            displayGroup.addDisplay(
+                    "drop_1",
+                    new ItemDisplayBuilder()
+                            .setGroupParentOffset(new Vector(0.32, 0.08, 0.32))
+                            .setItemStack(itemStack)
+                            .setTransformation(Transformations.HIDDEN.getTransformation())
+                            .build(displayGroup)
+            );
+        }
+        updateItemDisplay(displayGroup, "drop_1", Transformations.PLANT_HANGING_DROP, itemStack);
+        if (!displays.containsKey("drop_2")) {
+            displayGroup.addDisplay(
+                    "drop_2",
+                    new ItemDisplayBuilder()
+                            .setGroupParentOffset(new Vector(-0.32, 0.39, -0.32))
+                            .setItemStack(itemStack)
+                            .setTransformation(Transformations.HIDDEN.getTransformation())
+                            .build(displayGroup)
+            );
+        }
+        updateItemDisplay(displayGroup, "drop_2", Transformations.PLANT_HANGING_DROP, itemStack);
+        if (!displays.containsKey("drop_3")) {
+            displayGroup.addDisplay(
+                    "drop_3",
+                    new ItemDisplayBuilder()
+                            .setGroupParentOffset(new Vector(-0.32, 0.64, 0.32))
+                            .setItemStack(itemStack)
+                            .setTransformation(Transformations.HIDDEN.getTransformation())
+                            .build(displayGroup)
+            );
+        }
+        updateItemDisplay(displayGroup, "drop_3", Transformations.PLANT_HANGING_DROP, itemStack);
     }
 
-    public static void addItemsToBush(@Nonnull DisplayGroup displayGroup, @Nonnull Material material) {
-        addItemsToBush(displayGroup, new ItemStack(material));
+    public static void growItemsInBush(@Nonnull DisplayGroup displayGroup, @Nonnull Material material) {
+        growItemsInBush(displayGroup, new ItemStack(material));
     }
 
-    public static void addItemsToBush(@Nonnull DisplayGroup displayGroup, @Nonnull ItemStack itemStack) {
-        displayGroup.addDisplay(
-            "drop_1",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(0.32, 0.19, 0.32))
-                .setItemStack(itemStack)
-                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
-                .build(displayGroup)
-        );
-        displayGroup.addDisplay(
-            "drop_2",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(-0.32, 0.43, -0.32))
-                .setItemStack(itemStack)
-                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
-                .build(displayGroup)
-        );
-        displayGroup.addDisplay(
-            "drop_3",
-            new ItemDisplayBuilder()
-                .setGroupParentOffset(new Vector(-0.32, 0.71, 0.32))
-                .setItemStack(itemStack)
-                .setTransformation(Transformations.PLANT_HANGING_DROP.getTransformation())
-                .build(displayGroup)
-        );
+    public static void growItemsInBush(@Nonnull DisplayGroup displayGroup, @Nonnull ItemStack itemStack) {
+        final Map<String, Display> displays = displayGroup.getDisplays();
+        if (!displays.containsKey("drop_1")) {
+            displayGroup.addDisplay(
+                    "drop_1",
+                    new ItemDisplayBuilder()
+                            .setGroupParentOffset(new Vector(0.32, 0.19, 0.32))
+                            .setItemStack(itemStack)
+                            .setTransformation(Transformations.HIDDEN.getTransformation())
+                            .build(displayGroup)
+            );
+        }
+        updateItemDisplay(displayGroup, "drop_1", Transformations.BUSH_HANGING_DROP, itemStack);
+        if (!displays.containsKey("drop_2")) {
+            displayGroup.addDisplay(
+                    "drop_2",
+                    new ItemDisplayBuilder()
+                            .setGroupParentOffset(new Vector(-0.32, 0.43, -0.32))
+                            .setItemStack(itemStack)
+                            .setTransformation(Transformations.HIDDEN.getTransformation())
+                            .build(displayGroup)
+            );
+        }
+        updateItemDisplay(displayGroup, "drop_2", Transformations.BUSH_HANGING_DROP, itemStack);
+        if (!displays.containsKey("drop_3")) {
+            displayGroup.addDisplay(
+                    "drop_3",
+                    new ItemDisplayBuilder()
+                            .setGroupParentOffset(new Vector(-0.32, 0.71, 0.32))
+                            .setItemStack(itemStack)
+                            .setTransformation(Transformations.HIDDEN.getTransformation())
+                            .build(displayGroup)
+            );
+        }
+        updateItemDisplay(displayGroup, "drop_3", Transformations.BUSH_HANGING_DROP, itemStack);
     }
 
-    public static void removeItemsFromPlant(@Nonnull DisplayGroup displayGroup) {
-        displayGroup.killDisplay("drop_1");
-        displayGroup.killDisplay("drop_2");
-        displayGroup.killDisplay("drop_3");
+    public static void updateItemDisplay(@Nonnull DisplayGroup displayGroup, @Nonnull String displayName, Transformations transformation, @Nonnull ItemStack itemStack) {
+        final Display display = displayGroup.getDisplays().get(displayName);
+        if (display instanceof ItemDisplay itemDisplay) {
+            itemDisplay.setItemStack(itemStack);
+            itemDisplay.setInterpolationDelay(-1);
+            itemDisplay.setInterpolationDuration(20);
+            itemDisplay.setTransformation(transformation.getTransformation());
+        }
+    }
+
+    public static void hideItemsInPlant(@Nonnull DisplayGroup displayGroup) {
+        final Map<String, Display> displays = displayGroup.getDisplays();
+        final Display drop1 = displays.get("drop_1");
+        if (drop1 != null) {
+            drop1.setInterpolationDelay(-1);
+            drop1.setInterpolationDuration(2);
+            drop1.setTransformation(Transformations.HIDDEN.getTransformation());
+        }
+        final Display drop2 = displays.get("drop_2");
+        if (drop2 != null) {
+            drop2.setInterpolationDelay(-1);
+            drop2.setInterpolationDuration(2);
+            drop2.setTransformation(Transformations.HIDDEN.getTransformation());
+        }
+        final Display drop3 = displays.get("drop_3");
+        if (drop3 != null) {
+            drop3.setInterpolationDelay(-1);
+            drop3.setInterpolationDuration(2);
+            drop3.setTransformation(Transformations.HIDDEN.getTransformation());
+        }
     }
 
     public static DisplayGroup generateBaseCounter(@Nonnull Location location) {
