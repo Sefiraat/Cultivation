@@ -12,6 +12,7 @@ import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedResult;
 import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
+import dev.sefiraat.cultivation.api.slimefun.plant.CommonPlacements;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.LevelType;
@@ -237,7 +238,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     private void trySetChildSeed(Location motherLocation, Block cloneBlock, CultivationPlant childSeed) {
         PlantTheme theme = childSeed.growth.getTheme();
 
-        if (theme == null) {
+        if (theme == null || !CommonPlacements.COMMON_OVERWORLD.contains(cloneBlock.getRelative(BlockFace.DOWN).getType())) {
             return;
         }
 
