@@ -85,11 +85,11 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
 
             @Override
             public void init() {
-                ItemStack backgroundOutput = new CustomItemStack(
+                ItemStack backgroundOutput = CustomItemStack.create(
                     Material.ORANGE_STAINED_GLASS_PANE,
                     Theme.PASSIVE.apply("Finished Food")
                 );
-                ItemStack cookButton = new CustomItemStack(
+                ItemStack cookButton = CustomItemStack.create(
                     Material.RED_STAINED_GLASS_PANE,
                     Theme.CLICK_INFO.apply("Prepare Food")
                 );

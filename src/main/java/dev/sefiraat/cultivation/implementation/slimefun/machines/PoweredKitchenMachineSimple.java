@@ -102,15 +102,15 @@ public class PoweredKitchenMachineSimple extends KitchenRecipeMachineSimple impl
 
             @Override
             public void init() {
-                ItemStack backgroundInput = new CustomItemStack(
+                ItemStack backgroundInput = CustomItemStack.create(
                     Material.GREEN_STAINED_GLASS_PANE,
                     Theme.PASSIVE.apply("Insert Produce")
                 );
-                ItemStack backgroundOutput = new CustomItemStack(
+                ItemStack backgroundOutput = CustomItemStack.create(
                     Material.ORANGE_STAINED_GLASS_PANE,
                     Theme.PASSIVE.apply("Cooked Output")
                 );
-                ItemStack cookButton = new CustomItemStack(
+                ItemStack cookButton = CustomItemStack.create(
                     Material.RED_STAINED_GLASS_PANE,
                     Theme.CLICK_INFO.apply("Cook Produce"),
                     Theme.CLICK_INFO.asTitle("Power Required", powerRequirement)

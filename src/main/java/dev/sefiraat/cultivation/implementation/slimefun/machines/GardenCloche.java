@@ -118,7 +118,7 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable, E
                     } else {
                         Bukkit.getScheduler().runTask(
                             Cultivation.getInstance(),
-                            () -> removePlantFromDisplay(location)
+                            () -> hidePlantInDisplay(location)
                         );
                     }
                 }
@@ -132,7 +132,7 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable, E
 
             @Override
             public void init() {
-                ItemStack backgroundInput = new CustomItemStack(
+                ItemStack backgroundInput = CustomItemStack.create(
                     Material.GREEN_STAINED_GLASS_PANE,
                     Theme.PASSIVE.apply("Insert Plant")
                 );
@@ -182,10 +182,10 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable, E
         }
     }
 
-    private void removePlantFromDisplay(@Nonnull Location location) {
+    private void hidePlantInDisplay(@Nonnull Location location) {
         DisplayGroup displayGroup = getDisplayGroup(location);
         if (displayGroup != null) {
-            DisplayGroupGenerators.removePlantFromCloche(displayGroup);
+            DisplayGroupGenerators.hidePlantInCloche(displayGroup);
             BlockStorage.addBlockInfo(location, KEY_PLANT, null);
         }
     }

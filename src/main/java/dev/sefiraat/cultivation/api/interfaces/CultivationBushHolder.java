@@ -50,17 +50,17 @@ public interface CultivationBushHolder {
         }
     }
 
-    default void addItemsToDisplay(@Nonnull Location location, @Nonnull ItemStack itemStack) {
+    default void growItems(@Nonnull Location location, @Nonnull ItemStack itemStack) {
         if (hasDisplayBush(location)) {
             DisplayGroup group = getBushDisplayGroup(location);
-            DisplayGroupGenerators.addItemsToPlant(group, itemStack);
+            DisplayGroupGenerators.growItemsInBush(group, itemStack);
         }
     }
 
-    default void removeItems(@Nonnull Location location) {
+    default void hideItems(@Nonnull Location location) {
         if (hasDisplayBush(location)) {
             DisplayGroup group = getBushDisplayGroup(location);
-            DisplayGroupGenerators.removeItemsFromPlant(group);
+            DisplayGroupGenerators.hideItemsInPlant(group);
         }
     }
 

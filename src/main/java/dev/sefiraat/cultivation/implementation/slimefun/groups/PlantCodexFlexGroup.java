@@ -69,22 +69,22 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
         38, 39, 40, 41, 42, 43
     };
 
-    private static final ItemStack MOTHER_INFO = new CustomItemStack(
+    private static final ItemStack MOTHER_INFO = CustomItemStack.create(
         Material.LIGHT_BLUE_STAINED_GLASS_PANE,
         Theme.PASSIVE + "'Mother' Plant"
     );
 
-    private static final ItemStack FATHER_INFO = new CustomItemStack(
+    private static final ItemStack FATHER_INFO = CustomItemStack.create(
         Material.LIGHT_BLUE_STAINED_GLASS_PANE,
         Theme.PASSIVE + "'Father' Plant"
     );
 
-    private static final ItemStack CHILD_INFO = new CustomItemStack(
+    private static final ItemStack CHILD_INFO = CustomItemStack.create(
         Material.LIGHT_BLUE_STAINED_GLASS_PANE,
         Theme.PASSIVE + "'Child' Plant"
     );
 
-    private static final ItemStack HELD_SLOT = new CustomItemStack(
+    private static final ItemStack HELD_SLOT = CustomItemStack.create(
         Material.BLACK_STAINED_GLASS_PANE,
         " "
     );
@@ -297,7 +297,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
 
     @Nonnull
     public static ItemStack getGrowthRate(@Nonnull CultivationPlant seed) {
-        return new CustomItemStack(
+        return CustomItemStack.create(
             Material.WHEAT_SEEDS,
             Theme.CLICK_INFO.asTitle("Growth Rate", FORMAT.format(seed.getDefaultGrowthRate()))
         );

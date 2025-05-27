@@ -100,12 +100,12 @@ public class HarvestableBush extends CultivationBush implements CultivationHarve
         Location location = block.getLocation();
         setAge(location, growthStage);
         if (growthStage == 0) {
-            removeItems(location);
+            hideItems(location);
         } else if (growthStage == 3) {
             ItemStack itemStack = getRandomItem();
             if (itemStack != null) {
                 nextDrop.put(block.getLocation(), itemStack);
-                addItemsToDisplay(block.getLocation(), itemStack.clone());
+                growItems(block.getLocation(), itemStack.clone());
             }
         }
         BlockStorage.addBlockInfo(block, Keys.FLORA_GROWTH_STAGE, String.valueOf(growthStage));
